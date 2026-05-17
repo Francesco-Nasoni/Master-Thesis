@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper,twoside,openright]{book}
+\input{preamble}
+
+\begin{document}
+
+% #########################################################
+% ### Title page
+% #########################################################
+\input{Title page/titlepage}
+\thispagestyle{empty}
+
+% #########################################################
+% ### Citation Page
+% #########################################################
+% Front matter (use roman number for page)
+\frontmatter 
+\thispagestyle{empty}
+    \vspace*{6cm}
+    \begin{flushright}
+        \textit{La vita è una tempesta, \\ e prederla nel culo è un lampo}
+
+        \vspace{\baselineskip}
+        \textit{Life is a storm, \\ and getting fucked strikes like lightning.}
+
+        \vspace{\baselineskip}
+        \textit{A. Bazzani}
+    \end{flushright}
+    
+    \newpage
+    \thispagestyle{empty}
+
+	\tableofcontents
+    \newpage
+    \thispagestyle{empty}
+
+% Main content (Use Arabic number for pages)
+\mainmatter
+
+% #########################################################
+% ### Introduction
+% #########################################################
+
+\subfile{chapters/Introduction/introduction.tex}
+
+% #########################################################
+% ### Chapter 1
+% #########################################################
+
+\subfile{chapters/Chapter_1/chapter_1_main.tex}
+\end{document}

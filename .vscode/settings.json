@@ -1,0 +1,5 @@
+{
+    "editor.fontFamily": "Cascadia Code",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "editor.fontLigatures": true,
+}
