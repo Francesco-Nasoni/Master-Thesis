@@ -1,1 +1,39 @@
 \section{Optical Dipole Trap}
+Optical traps are experimental tools that allow the confinement of atom or ions within a localized region of space, under the condition that these particles have a kinetic energy lower than the trap potential depth (which is usually measured in Kelvin). For the work presented in this thesis, among all possible trapping techniques, the focus will be strictly placed on Optical Dipole Traps (ODTs) for neutral atoms
+
+Optical dipole traps rely on the electric dipole interaction of the atoms with far-detuned light. This section reviews the theory behind the working mechanism of this technique, particularly in the case of red-detuned ODTs. 
+
+
+\subsection{Oscillator model}
+
+The optical dipole force arises from the interaction of the induced atomic momentum with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
+
+%! Magari qua ci metto le assunzioni da fare per considerare il campo classico
+
+The laser field is model as the oscillating electric field: 
+\begin{equation}
+    \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \mathcal{E} e^{-i\omega t} + c.c. \,\, ,
+\end{equation}
+
+where $\mathbf{\hat{e}}$ is the unitary polarization vector and $\mathcal{E}$ is the complex amplitude of the field. Calling $\alpha$ the polarizability of the atom, the induced dipole momentum of the atom is given by:
+\begin{equation}
+    \mathbf{p}(\mathbf{r}, t) = \hat{\mathbf{e}} \alpha \mathcal{E}e^{-i\omega t} + c.c. 
+\end{equation}
+Using the dipole approximation, the atomic Hamiltonian gets a term $H_\text{dip} = - \mathbf{p \cdot E}$, which gives rise to the potential energy
+\begin{equation}
+    U_\text{dip}(t) = \int_0^\mathbf{E} -\alpha \mathbf{E'}\cdot d \mathbf{E'} = -\frac{1}{2} \alpha E^2 = - \frac{1}{2} \mathbf{p \cdot E} \,. 
+\end{equation}
+
+Averaging during a field period \cite{grimm}:
+\begin{equation}
+    U_\text{dip}= - \frac{1}{2} \langle \mathbf{p \cdot E}\rangle= -\frac{1}{2\epsilon_0 c} \text{Re}[\alpha]I,
+\end{equation}
+
+where $I=1/2 \epsilon_0 c |\mathcal{E}|^2$ is the laser field intensity.\\
+This result shows that an atom in an oscillating laser field experiences a force proportional to the field intensity $I$, and to the real part of the polarizability which represent the in-phase component of the dipole oscillation, responsible for the dispersive properties of the interaction.
+
+It follows that the dipole force is a conservative force proportional to the electric field intensity gradient
+\begin{equation}
+    \mathbf{F}_\text{dip} (\mathbf{r}) = -\nabla U_\text{dip} = \frac{1}{2\epsilon_0 c} \text{Re}[\alpha] \nabla I(\mathbf{r}).
+\end{equation}
+
