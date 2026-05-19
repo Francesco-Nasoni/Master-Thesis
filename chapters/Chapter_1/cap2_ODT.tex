@@ -1,39 +1,78 @@
 \section{Optical Dipole Trap}
 Optical traps are experimental tools that allow the confinement of atom or ions within a localized region of space, under the condition that these particles have a kinetic energy lower than the trap potential depth (which is usually measured in Kelvin). For the work presented in this thesis, among all possible trapping techniques, the focus will be strictly placed on Optical Dipole Traps (ODTs) for neutral atoms
 
-Optical dipole traps rely on the electric dipole interaction of the atoms with far-detuned light. This section reviews the theory behind the working mechanism of this technique, particularly in the case of red-detuned ODTs. 
+Optical dipole traps rely on the electric dipole interaction of the atoms with far-detuned light. Following the work of \citeauthor*{grimm} \cite{grimm}, this section reviews the theory behind the working mechanism of this technique, particularly in the case of red-detuned ODTs. 
 
-
+% ##########################################################
 \subsection{Oscillator model}
+% ##########################################################
 
+\subsubsection{Dipole force and Scattering Rate}
 The optical dipole force arises from the interaction of the induced atomic momentum with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
 
-%! Magari qua ci metto le assunzioni da fare per considerare il campo classico
+%! Magari qua ci sta eslicitare le assunzioni
 
 The laser field is model as the oscillating electric field: 
 \begin{equation}
     \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \mathcal{E} e^{-i\omega t} + c.c. \,\, ,
 \end{equation}
 
-where $\mathbf{\hat{e}}$ is the unitary polarization vector and $\mathcal{E}$ is the complex amplitude of the field. Calling $\alpha$ the polarizability of the atom, the induced dipole momentum of the atom is given by:
+where $\mathbf{\hat{e}}$ is the unitary polarization vector and $\mathcal{E}$ is the complex amplitude of the field. Denoting the atomic polarizability as $\alpha$, the induced dipole momentum of the atom is given by:
 \begin{equation}
-    \mathbf{p}(\mathbf{r}, t) = \hat{\mathbf{e}} \alpha \mathcal{E}e^{-i\omega t} + c.c. 
+    \mathbf{p}(\mathbf{r}, t) = \alpha \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \alpha \mathcal{E}e^{-i\omega t} + c.c. 
 \end{equation}
-Using the dipole approximation, the atomic Hamiltonian gets a term $H_\text{dip} = - \mathbf{p \cdot E}$, which gives rise to the potential energy
+In the semiclassical framework, the interaction of a neutral atom with a laser light field can be described using the dipole approximation. The interaction Hamiltonian takes the form $H_\text{dip} = - \mathbf{p \cdot E}$. For an induced dipole, where the dipole moment depends linearly on the external field, the potential energy is obtained by integrating the interaction over the charging of the dipole:
 \begin{equation}
     U_\text{dip}(t) = \int_0^\mathbf{E} -\alpha \mathbf{E'}\cdot d \mathbf{E'} = -\frac{1}{2} \alpha E^2 = - \frac{1}{2} \mathbf{p \cdot E} \,. 
 \end{equation}
 
-Averaging during a field period \cite{grimm}:
+Averaging over a field period \cite{grimm}:
 \begin{equation}
-    U_\text{dip}= - \frac{1}{2} \langle \mathbf{p \cdot E}\rangle= -\frac{1}{2\epsilon_0 c} \text{Re}[\alpha]I,
+    U_\text{dip}= -2 \langle \mathbf{p \cdot E}\rangle= -\frac{1}{2\epsilon_0 c} \text{Re}[\alpha]I,
 \end{equation}
 
-where $I=1/2 \epsilon_0 c |\mathcal{E}|^2$ is the laser field intensity.\\
+where $I=1/2 \epsilon_0 c |\mathcal{E}|^2$ is the time-averaged field intensity.\\
 This result shows that an atom in an oscillating laser field experiences a force proportional to the field intensity $I$, and to the real part of the polarizability which represent the in-phase component of the dipole oscillation, responsible for the dispersive properties of the interaction.
 
-It follows that the dipole force is a conservative force proportional to the electric field intensity gradient
+It follows that the dipole force is a conservative force proportional to the electric field intensity gradient:
 \begin{equation}
     \mathbf{F}_\text{dip} (\mathbf{r}) = -\nabla U_\text{dip} = \frac{1}{2\epsilon_0 c} \text{Re}[\alpha] \nabla I(\mathbf{r}).
 \end{equation}
+The dipole oscillation absorbs a power
+\begin{equation}
+    P_\text{abs} = \langle\mathbf{\dot{p}E}\rangle = 2\omega \text{Im}[\alpha \mathcal{E}^2] = \frac{\omega}{2\epsilon_0 c}\text{Im}[\alpha] I,
+\end{equation}
+which is proportional to the out-of-phase component of the oscillating dipole. The absorbed power can be seen as series of absorption and spontaneous emission of photons with energy $\hbar\omega$. Therefore, the total scattering rate is given by
+\begin{equation}
+    \Gamma_\text{sc} (\mathbf{r})=\frac{P_\text{abs}}{\hbar\omega}=\frac{1}{\hbar\epsilon_0 c}\text{Im} [\alpha] I(\mathbf{r}).
+\end{equation}
 
+\subsubsection{Atomic polarizability}
+The polarizability $\alpha$ can be calculated by considering the classical Lorentz oscillator model for the atom, according to which the polarizability can be calculated by solving the differential equation
+\begin{equation}
+    \label{eq:Lorentz_polarizability}
+    \ddot{x}+\Gamma(\omega) \dot{x} + \omega_0^2x = -\frac{eE(t)}{m_e},
+\end{equation}
+Using $E(t)=\mathcal{E}_0\exp(-i\omega t)$, thus looking for a solution in the form $x(t)=x_0\exp(-i\omega t)$, equation \eqref{eq:Lorentz_polarizability} gives
+\begin{equation}
+    \label{eq:Lorentz_polarizability_solution}
+    x_0 = - \frac{e\mathcal{E}_0}{m_e} \frac{1}{\omega_0^2 -\omega^2 -i\omega\Gamma(\omega)}.
+\end{equation}
+Using $p= -ex(t)=-ex_0\exp(-i\omega t)$ and \eqref{eq:Lorentz_polarizability_solution}, one can easily obtain the polarizzability
+\begin{equation}
+    \alpha(\omega) = \frac{e^2}{m_e} \frac{1}{\omega_0^2 -\omega^2 -i\omega\Gamma(\omega)},
+\end{equation}
+where $\Gamma(\omega)$ is the spontaneous emission rate. In a quantum two level system $\Gamma(\omega)$ is \cite{grimm}
+\begin{equation}
+    \Gamma(\omega) = \frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\langle e|\hat{d}|g\rangle|^2
+\end{equation}
+where $\hat{d}$ is the dipole moment operator.
+
+Optical dipole traps works in the regime of far-detuden low intensity light, thus there is no need of calculating the quantum result, and use instead the classical result for $\Gamma(\omega)$, which is
+\begin{equation}
+    \Gamma^\text{class.}(\omega) = \frac{e^2 \omega^2}{6 \pi \epsilon_0 m_e c^3}.
+\end{equation}
+Defining the on-resonance spontaneous emission rate $\Gamma\equiv  \Gamma^\text{class.}(\omega_0) = (\omega_0/\omega)^2\Gamma$, the polarizability becomes
+\begin{equation}
+    \alpha(\omega) = 6 \pi \epsilon_0 c^3 \frac{\Gamma / \omega_0^2}{\omega_0^2 - \omega^2 - i (\omega^3 / \omega_0^2) \Gamma}
+\end{equation}
