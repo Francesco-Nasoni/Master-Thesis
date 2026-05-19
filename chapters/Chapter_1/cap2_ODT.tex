@@ -6,18 +6,18 @@ Optical dipole traps rely on the electric dipole interaction of the atoms with f
 % ##########################################################
 \subsection{Oscillator model}
 % ##########################################################
-
-\subsubsection{Dipole force and Scattering Rate}
 The optical dipole force arises from the interaction of the induced atomic momentum with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
+
+\subsubsection{Interaction between induced dipole moment and driving field}
 
 %! Magari qua ci sta eslicitare le assunzioni
 
-The laser field is model as the oscillating electric field: 
+The laser field is modeled as the oscillating electric field: 
 \begin{equation}
-    \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \mathcal{E} e^{-i\omega t} + c.c. \,\, ,
+    \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \mathcal{E}(r) e^{-i\omega t} + c.c. \,\, ,
 \end{equation}
 
-where $\mathbf{\hat{e}}$ is the unitary polarization vector and $\mathcal{E}$ is the complex amplitude of the field. Denoting the atomic polarizability as $\alpha$, the induced dipole momentum of the atom is given by:
+where $\mathbf{\hat{e}}$ is the unitary polarization vector and $\mathcal{E}(r)$ is the complex amplitude of the field. Denoting the atomic polarizability as $\alpha$, the induced dipole momentum of the atom is given by:
 \begin{equation}
     \mathbf{p}(\mathbf{r}, t) = \alpha \mathbf{E}(\mathbf{r},t) = \hat{\mathbf{e}} \alpha \mathcal{E}e^{-i\omega t} + c.c. 
 \end{equation}
@@ -28,6 +28,7 @@ In the semiclassical framework, the interaction of a neutral atom with a laser l
 
 Averaging over a field period \cite{grimm}:
 \begin{equation}
+    \label{eq:dipole_potential_alpha}
     U_\text{dip}= -2 \langle \mathbf{p \cdot E}\rangle= -\frac{1}{2\epsilon_0 c} \text{Re}[\alpha]I,
 \end{equation}
 
@@ -44,6 +45,7 @@ The dipole oscillation absorbs a power
 \end{equation}
 which is proportional to the out-of-phase component of the oscillating dipole. The absorbed power can be seen as series of absorption and spontaneous emission of photons with energy $\hbar\omega$. Therefore, the total scattering rate is given by
 \begin{equation}
+    \label{eq:scattering_rate_alpah}
     \Gamma_\text{sc} (\mathbf{r})=\frac{P_\text{abs}}{\hbar\omega}=\frac{1}{\hbar\epsilon_0 c}\text{Im} [\alpha] I(\mathbf{r}).
 \end{equation}
 
@@ -58,21 +60,46 @@ Using $E(t)=\mathcal{E}_0\exp(-i\omega t)$, thus looking for a solution in the f
     \label{eq:Lorentz_polarizability_solution}
     x_0 = - \frac{e\mathcal{E}_0}{m_e} \frac{1}{\omega_0^2 -\omega^2 -i\omega\Gamma(\omega)}.
 \end{equation}
-Using $p= -ex(t)=-ex_0\exp(-i\omega t)$ and \eqref{eq:Lorentz_polarizability_solution}, one can easily obtain the polarizzability
+Using $p= -ex(t)=-ex_0\exp(-i\omega t)$ and \eqref{eq:Lorentz_polarizability_solution}, one can easily obtain the polarizability
 \begin{equation}
     \alpha(\omega) = \frac{e^2}{m_e} \frac{1}{\omega_0^2 -\omega^2 -i\omega\Gamma(\omega)},
 \end{equation}
-where $\Gamma(\omega)$ is the spontaneous emission rate. In a quantum two level system $\Gamma(\omega)$ is \cite{grimm}
-\begin{equation}
-    \Gamma(\omega) = \frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\langle e|\hat{d}|g\rangle|^2
-\end{equation}
-where $\hat{d}$ is the dipole moment operator.
-
-Optical dipole traps works in the regime of far-detuden low intensity light, thus there is no need of calculating the quantum result, and use instead the classical result for $\Gamma(\omega)$, which is
+where $\Gamma(\omega)$ is the classical damping rate due to the radiative energy loss. 
 \begin{equation}
     \Gamma^\text{class.}(\omega) = \frac{e^2 \omega^2}{6 \pi \epsilon_0 m_e c^3}.
 \end{equation}
-Defining the on-resonance spontaneous emission rate $\Gamma\equiv  \Gamma^\text{class.}(\omega_0) = (\omega_0/\omega)^2\Gamma$, the polarizability becomes
+Defining the on-resonance spontaneous emission rate $\Gamma\equiv  \Gamma^\text{class.}(\omega_0) = (\omega_0/\omega)^2\Gamma^\text{class.}(\omega)$, the polarizability becomes
 \begin{equation}
-    \alpha(\omega) = 6 \pi \epsilon_0 c^3 \frac{\Gamma / \omega_0^2}{\omega_0^2 - \omega^2 - i (\omega^3 / \omega_0^2) \Gamma}
+    \label{eq:polarizability}
+    \alpha(\omega) = 6 \pi \epsilon_0 c^3 \frac{\Gamma / \omega_0^2}{\omega_0^2 - \omega^2 - i (\omega^3 / \omega_0^2) \Gamma}.
 \end{equation}
+
+In a quantum two level system subjected to classical radiation, $\Gamma$ should be substituted with the spontaneous emission rate
+\begin{equation}
+    \Gamma = \frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\langle e|\,\hat{d}\,|g\rangle|^2,
+\end{equation}
+where $\hat{d}$ is the dipole moment operator.
+
+Optical dipole traps works in the regime of far-detuden low intensity light, thus there is no need to calculate the quantum result, and use the classical result instead \cite{grimm}.
+
+\subsubsection{Dipole potential and scattering rate}
+Substituting $\alpha$ form \eqref{eq:polarizability} in \eqref{eq:dipole_potential_alpha} and \eqref{eq:scattering_rate_alpah} one gets the expressions of the dipole potential and the scattering rate of a dipole trap as explicit function of $\omega$, $\omega_0$ and $\Gamma$:
+\begin{equation}
+    U_{\text{dip}}(\mathbf{r}) = -\frac{3 \pi c^2}{2 \omega_0^3} \left( \frac{\Gamma}{\omega_0 - \omega} + \frac{\Gamma}{\omega_0 + \omega} \right) I(\mathbf{r}),
+\end{equation}
+\begin{equation}
+    \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\omega}{\omega_0} \right)^3 \left( \frac{\Gamma}{\omega_0 - \omega} + \frac{\Gamma}{\omega_0 + \omega} \right)^2 I(\mathbf{r}).
+\end{equation}
+
+These equations show two resonance frequency for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, for the far-red regime it holds that $\Gamma\ll|\Delta|$. For instance, the $D_2$ line in Rb atoms has a transition frequency of $\approx3.8$~THz thus a trap works generally at few Thz of detuning, while $\Gamma\approx 36$~MHz. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to 
+
+\begin{equation}
+    \label{eq:dipole_potential}
+    U_{\text{dip}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \omega_0^3} \frac{\Gamma}{\Delta} I(\mathbf{r})
+\end{equation}
+\begin{equation}
+    \label{eq:dipole_scattering}
+    \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\Gamma}{\Delta} \right)^2 I(\mathbf{r}) = \frac{\Gamma}{\hbar\Delta}U_\text{dip}
+\end{equation}
+
+Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the fundamental equations governing the behavior of optical dipole traps and yield important physical considerations on the practical use of the optical dipole trap. First the sign of $U_{dip}$ is determined by the sign of the detuning $\Delta$. For red detuning ($\Delta<0$) the potential is negative, confining atoms at intensity maxima, whereas for blue detuning ($\Delta>0$), the potential is positive pushing atoms to intensity minima.
