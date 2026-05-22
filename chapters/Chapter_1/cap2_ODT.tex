@@ -76,6 +76,7 @@ Defining the on-resonance spontaneous emission rate $\Gamma\equiv  \Gamma^\text{
 
 In a quantum two level system subjected to classical radiation, $\Gamma$ should be substituted with the spontaneous emission rate
 \begin{equation}
+    \label{eq:quantum_gamma}
     \Gamma = \frac{\omega_0^3}{3\pi\epsilon_0\hbar c^3}|\langle e|\,\hat{d}\,|g\rangle|^2,
 \end{equation}
 where $\hat{d}$ is the dipole moment operator.
@@ -102,4 +103,64 @@ These equations show two resonance frequency for $\omega=\pm\omega_0$. Introduci
     \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\Gamma}{\Delta} \right)^2 I(\mathbf{r}) = \frac{\Gamma}{\hbar\Delta}U_\text{dip}
 \end{equation}
 
-Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the fundamental equations governing the behavior of optical dipole traps and yield important physical considerations on the practical use of the optical dipole trap. First the sign of $U_{dip}$ is determined by the sign of the detuning $\Delta$. For red detuning ($\Delta<0$) the potential is negative, confining atoms at intensity maxima, whereas for blue detuning ($\Delta>0$), the potential is positive pushing atoms to intensity minima.
+Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the fundamental equations governing the behavior of optical dipole traps and yield important physical considerations for their implementation. The sign of $U_{dip}$ is determined by the sign of the detuning $\Delta$. For red detuning ($\Delta<0$) the potential is negative, confining atoms at intensity maxima, whereas for blue detuning ($\Delta>0$), the potential is positive pushing atoms to intensity minima. Because the potential depth scales as $I/\delta$ while the scattering rate scales as $I/\Delta^2$, optical traps are typically realized with high intensity field and large detunings, in this way, the trap depth is maximized while maintaining a low scattering rate.
+
+
+
+% ##########################################################
+\subsection{Multi-level atoms}
+% ##########################################################
+
+{\color{blue} \lipsum[2]}
+
+\subsubsection{Ground-state light shifts}
+Labelling $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the interaction Hamiltonian $\mathcal{H}_I=-\hat{d}\mathbf{E}$, the perturbative correction on the $i$-th energy level is
+\begin{equation}
+    \label{eq:energy_perturbative_correction}
+    \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
+\end{equation}
+
+The calculation can be developed by employing the dressed atom approach, in which the considered quantum states are a combination of one atomic state plus the laser field state. Defining as zero the energy of the unperturbed atomic state, in this framework an unperturbed dressed state has energy $\varepsilon_i=n\hbar\omega$ that depends only on the number $n$ of photons in the field. The absorption of a photon by the atom causes the transition to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + \hbar(n-1)\hbar\omega$, where $\hbar\omega_{j}$ is the energy of the atomic excited state. In such a way the denominator of equation \eqref{eq:energy_perturbative_correction} becomes
+\begin{equation}
+    \label{eq:perturbative_expantion_denominator}
+    \varepsilon_i - \varepsilon_j = -\hbar\omega_j + \hbar\omega = -\hbar\Delta_{ij}, 
+\end{equation}
+where $\Delta_{ij}$ is the detuning of the transition with respect to the laser field.
+
+Considering a two-level atom first, \eqref{eq:energy_perturbative_correction} has only one term, using equations \eqref{eq:quantum_gamma} and \eqref{eq:perturbative_expantion_denominator} and $I=2\epsilon_0c|\mathcal{E}|^2$, one gets:
+\begin{equation}
+    \label{eq:light_shift_2lv_atoms}
+    \Delta E = \pm \frac{|\langle e | \mu | g \rangle|^2}{\Delta} |E|^2 = \pm \frac{3 \pi c^2}{2 \omega_0^3} \frac{\Gamma}{\Delta} I,
+\end{equation}
+for the ground and excited state (upper and lower sign,
+respectively).
+Equation \eqref{eq:light_shift_2lv_atoms} shows that the energy shift of the ground state (the solution with the sign $+$) exactly correspond to the dipole potential \eqref{eq:dipole_potential}. This allows the reinterpretation of the semiclassical result obtain for the external degrees of freedom (position and momentum) in terms of the dynamic of the internal degrees of freedom. In presence of the laser field, the energy levels are shifted by a quantity proportional to the field intensity with a sign that depends on the sign of the detuning. If a low saturation regime is assumed ($I/\Delta\ll1$), all the atom can be considered in the ground state, and the light-shifted ground state became the effective potential that govern the motion of the atoms which drives them toward region of minima of $\Delta E$ (Figure \ref{img:light_shift}). 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_1_figures/light-shif.png}
+    \caption{From \cite{grimm}. Left: light-shifted energy levels for a two-level atom for a red detuning ($\Delta < 0$). Right: a spatially inhomogeneous field produces a potential well that traps the atoms.}
+    \label{img:light_shift}
+\end{figure}
+
+For a multi-level atom equation \eqref{eq:energy_perturbative_correction} contains many terms similar to equation \eqref{eq:light_shift_2lv_atoms}, accounting for all the allowed transitions from any ground state sublevel $\ket{g_i}$ to any excited state $\ket{e_j}$. However, each of these terms depends on the dipole matrix element $d_{ij}\braket{g_i|\hat{d}|e_j}$. Such quantity can be expressed as
+\begin{equation}
+    d_{ij}=c_{ij}||d||
+\end{equation}
+where $||d||$ is the reduced matrix element given by \eqref{eq:quantum_gamma} and $c_{ij}$ are real transition coefficients that take into account the coupling strength of the two involved states $\ket{g_i}$ and $\ket{e_j}$, and depends on their angular momentum value \cite{grimm}\cite{metcalf1999}.
+
+Therefore, the  energy shift \eqref{eq:energy_perturbative_correction} for the ground state $\ket{g_i}$ is
+\begin{equation}
+    \label{eq:light_shift_multi_lv_atoms}
+    \Delta E_i = \frac{3 \pi c^2 \Gamma}{2 \omega_0^3} I \times \sum_j \frac{c_{ij}^2}{\Delta_{ij}}
+\end{equation} 
+and according to the interpretation given from the two-level atoms, the dipole potential at low saturation is
+\begin{equation}
+    U_\text{dip} = \Delta E_i.
+\end{equation}
+Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transition, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
+
+\subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
+Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the VIS-IR range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles while minimizing the number of repumper need to address the population leaking to dark states.
+
+Considering the fine structure arising from the electric spin-orbit coupling, the alkali atoms are found in the electronic ground state $^2S_{1/2}$, from this state 
