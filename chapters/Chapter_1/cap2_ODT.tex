@@ -111,10 +111,10 @@ Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the f
 \subsection{Multi-level atoms}
 % ##########################################################
 
-{\color{blue} \lipsum[2]}
+Moving from the two-level atom to a real atom, the electronic transitions become more complex, and the calculation of the dipole potential must take into consideration all the possible allowed transition. In particular this lead to a dipole potential that depends on the particular sub-state of the atom.
 
 \subsubsection{Ground-state light shifts}
-Labelling $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the interaction Hamiltonian $\mathcal{H}_I=-\hat{d}\mathbf{E}$, the perturbative correction on the $i$-th energy level is
+Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the interaction Hamiltonian $\mathcal{H}_I=-\hat{d}\mathbf{E}$, the perturbative correction on the $i$-th energy level is
 \begin{equation}
     \label{eq:energy_perturbative_correction}
     \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
@@ -163,4 +163,20 @@ Thus, the dipole potential in a multi-level atom arises from the contribution of
 \subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
 Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the VIS-IR range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles while minimizing the number of repumper need to address the population leaking to dark states.
 
-Considering the fine structure arising from the electric spin-orbit coupling, the alkali atoms are found in the electronic ground state $^2S_{1/2}$, from this state 
+Considering the fine structure arising from the electric spin-orbit coupling, the alkali atoms are found in the electronic ground state $^2S_{1/2}$, from this state the dipole transition rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow two transition called $D-$lines, in particular:
+\begin{itemize}
+    \item $D_1$: $^2S_{1/2} \rightarrow \, ^2P_{1/2}$;
+    \item $D_2$: $^2S_{1/2} \rightarrow \, ^2P_{3/2}$.
+\end{itemize}
+Then the energy levels are further split by the coupling between the nuclear spin and the electron total momentum, the resulting structure is called hyperfine structure. Labelling $\hbar\Delta_{FS}$ the splitting due to the fine structure, $\hbar\Delta_{HFS}$ the energy splitting of the ground state hyperfine sublevel and $\hbar\Delta'_{HFS}$ the excited state hyperfine split, it holds that $\Delta_{FS}\gg\Delta_{HFS}\gg\Delta'_{HFS}$. The electronic energy level scheme for an alkali atom with $I=3/2$ is shown in figure \ref{fig:alkali_electronic_energy_levels}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_1_figures/alkali_energy_levels.png}
+    \caption{From \cite{grimm}. Energy level scheme of an alkali atom with $I=3/2$ such as $^{87}Rb$.}
+    \label{fig:alkali_electronic_energy_levels}
+\end{figure}
+Assuming that all optical detunings stay large compared with the excited-state hyperfine splitting $\Delta'_{HFS}$, equation \eqref{eq:light_shift_multi_lv_atoms} can be calculated for an alkali atom in the ground state of total angular momentum $F$ and magnetic quantum number $m_F$, obtaining \cite{grimm}:
+\begin{equation}
+    Swag Barca
+\end{equation}
+where the two term in the square bracket represent respectively the contribution of the $D_2$ and $D_1$ line. $g_F$ is the Landé factor, $\mathcal{P}$ characterizes the laser polarization ($\mathcal{P}=0,\pm1$ for linear polarization and circular $\sigma^\pm$ respectively), and $\Delta_{1,F}$ and $\Delta_{2,F}$ represent the energy splitting between the ground state $^2S_{1/2},F$ and the center of the hyperfine splitting of respectively the excited states $^2P_{1/2}$ and $^2P_{3/2}$.
