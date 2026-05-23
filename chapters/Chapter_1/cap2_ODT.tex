@@ -111,7 +111,7 @@ Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the f
 \subsection{Multi-level atoms}
 % ##########################################################
 
-Moving from the two-level atom to a real atom, the electronic transitions become more complex, and the calculation of the dipole potential must take into consideration all the possible allowed transition. In particular this lead to a dipole potential that depends on the particular sub-state of the atom.
+Moving from the two-level atom to a real atom, the electronic transitions become more complex, and the calculation of the dipole potential must take into consideration all the possible allowed transition. This lead to a dipole potential that depends on the particular sub-state of the atom.
 
 \subsubsection{Ground-state light shifts}
 Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the interaction Hamiltonian $\mathcal{H}_I=-\hat{d}\mathbf{E}$, the perturbative correction on the $i$-th energy level is
@@ -120,7 +120,7 @@ Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effe
     \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
 \end{equation}
 
-The calculation can be developed by employing the dressed atom approach, in which the considered quantum states are a combination of one atomic state plus the laser field state. Defining as zero the energy of the unperturbed atomic state, in this framework an unperturbed dressed state has energy $\varepsilon_i=n\hbar\omega$ that depends only on the number $n$ of photons in the field. The absorption of a photon by the atom causes the transition to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + \hbar(n-1)\hbar\omega$, where $\hbar\omega_{j}$ is the energy of the atomic excited state. In such a way the denominator of equation \eqref{eq:energy_perturbative_correction} becomes
+The calculation can be developed by employing the dressed atom approach, in which the quantum states describe the combined atom-field system. Defining the unperturbed atomic ground state energy as zero, in this framework an unperturbed dressed state has an energy $\varepsilon_i=n\hbar\omega$ that depends solely on the number of photons $n$ in the field. The absorption of a photon transitions the system to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + \hbar(n-1)\hbar\omega$, where $\hbar\omega_{j}$ represent the bare atomic transition energy. In such a way, the denominator of equation \eqref{eq:energy_perturbative_correction} reduces to
 \begin{equation}
     \label{eq:perturbative_expantion_denominator}
     \varepsilon_i - \varepsilon_j = -\hbar\omega_j + \hbar\omega = -\hbar\Delta_{ij}, 
@@ -143,7 +143,7 @@ Equation \eqref{eq:light_shift_2lv_atoms} shows that the energy shift of the gro
     \label{img:light_shift}
 \end{figure}
 
-For a multi-level atom equation \eqref{eq:energy_perturbative_correction} contains many terms similar to equation \eqref{eq:light_shift_2lv_atoms}, accounting for all the allowed transitions from any ground state sublevel $\ket{g_i}$ to any excited state $\ket{e_j}$. However, each of these terms depends on the dipole matrix element $d_{ij}\braket{g_i|\hat{d}|e_j}$. Such quantity can be expressed as
+For a multi-level atom equation \eqref{eq:energy_perturbative_correction} contains many terms similar to equation \eqref{eq:light_shift_2lv_atoms}, accounting for all the allowed transitions from any ground state sublevel $\ket{g_i}$ to any excited state $\ket{e_j}$. However, each of these terms depends on the dipole matrix element $d_{ij}=\braket{g_i|\hat{d}|e_j}$. Such quantity can be expressed as
 \begin{equation}
     d_{ij}=c_{ij}||d||
 \end{equation}
@@ -161,22 +161,22 @@ and according to the interpretation given from the two-level atoms, the dipole p
 Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transition, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
 
 \subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
-Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the VIS-IR range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles while minimizing the number of repumper need to address the population leaking to dark states.
+Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the VIS-IR range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
 
-Considering the fine structure arising from the electric spin-orbit coupling, the alkali atoms are found in the electronic ground state $^2S_{1/2}$, from this state the dipole transition rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow two transition called $D-$lines, in particular:
+When considering the fine structure arising from the spin-orbit interaction, the electronic ground state of alkali atoms is $^2S_{1/2}$. From this state, the electric dipole selection rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow for two primary transitions, known as $D-$lines:
 \begin{itemize}
     \item $D_1$: $^2S_{1/2} \rightarrow \, ^2P_{1/2}$;
     \item $D_2$: $^2S_{1/2} \rightarrow \, ^2P_{3/2}$.
 \end{itemize}
-Then the energy levels are further split by the coupling between the nuclear spin and the electron total momentum, the resulting structure is called hyperfine structure. Labelling $\hbar\Delta_{FS}$ the splitting due to the fine structure, $\hbar\Delta_{HFS}$ the energy splitting of the ground state hyperfine sublevel and $\hbar\Delta'_{HFS}$ the excited state hyperfine split, it holds that $\Delta_{FS}\gg\Delta_{HFS}\gg\Delta'_{HFS}$. The electronic energy level scheme for an alkali atom with $I=3/2$ is shown in figure \ref{fig:alkali_electronic_energy_levels}.
+Beyond the fine structure, the energy levels undergo further splitting due to the coupling between the nuclear spin and the total electronic angular momentum. The resulting configuration is called hyperfine structure. Denoting the fine structure splitting as $\hbar\Delta_{FS}$, the ground state hyperfine splitting as $\hbar\Delta_{HFS}$, and the excited state hyperfine splitting as $\hbar\Delta'_{HFS}$, these characteristic energy scales obey $\Delta_{FS}\gg\Delta_{HFS}\gg\Delta'_{HFS}$. The complete electronic energy level scheme for an alkali atom with nuclear spin $I=3/2$ is shown in figure \ref{fig:alkali_electronic_energy_levels}.
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\linewidth]{Cap_1_figures/alkali_energy_levels.png}
+    \includegraphics[width=0.55\linewidth]{Cap_1_figures/alkali_energy_levels.png}
     \caption{From \cite{grimm}. Energy level scheme of an alkali atom with $I=3/2$ such as $^{87}Rb$.}
     \label{fig:alkali_electronic_energy_levels}
 \end{figure}
 Assuming that all optical detunings stay large compared with the excited-state hyperfine splitting $\Delta'_{HFS}$, equation \eqref{eq:light_shift_multi_lv_atoms} can be calculated for an alkali atom in the ground state of total angular momentum $F$ and magnetic quantum number $m_F$, obtaining \cite{grimm}:
 \begin{equation}
-    Swag Barca
+    U_{\text{dip}}(\mathbf{r}) = \frac{\pi c^2 \Gamma}{2 \omega_0^3} \left( \frac{2 + \mathcal{P} g_F m_F}{\Delta_{2,F}} + \frac{1 - \mathcal{P} g_F m_F}{\Delta_{1,F}} \right) I(\mathbf{r}),
 \end{equation}
-where the two term in the square bracket represent respectively the contribution of the $D_2$ and $D_1$ line. $g_F$ is the Landé factor, $\mathcal{P}$ characterizes the laser polarization ($\mathcal{P}=0,\pm1$ for linear polarization and circular $\sigma^\pm$ respectively), and $\Delta_{1,F}$ and $\Delta_{2,F}$ represent the energy splitting between the ground state $^2S_{1/2},F$ and the center of the hyperfine splitting of respectively the excited states $^2P_{1/2}$ and $^2P_{3/2}$.
+where the two term in the parentheses represent respectively the contribution of the $D_2$ and $D_1$ line. Here, $g_F$ is the Landé factor, $\mathcal{P}$ characterizes the laser polarization ($\mathcal{P}=0,\pm1$ for linear polarization and circular $\sigma^\pm$ respectively), and $\Delta_{2,F}$ and $\Delta_{1,F}$ denote the detunings of the laser field relative to the transitions from the $^2S_{1/2}, F$ ground state to the center of respectively the $^2P_{3/2}$ and $^2P_{1/2}$ hyperfine excited state.
