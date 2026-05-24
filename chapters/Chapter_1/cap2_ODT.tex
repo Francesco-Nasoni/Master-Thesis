@@ -1,5 +1,5 @@
 \section{Optical Dipole Trap}
-Optical traps are experimental tools that allow the confinement of atom or ions within a localized region of space, under the condition that these particles have a kinetic energy lower than the trap potential depth (which is usually measured in Kelvin). For the work presented in this thesis, among all possible trapping techniques, the focus will be strictly placed on Optical Dipole Traps (ODTs) for neutral atoms
+Optical traps are experimental tools that allow the confinement of atom or ions within a localized region of space, under the condition that these particles have a kinetic energy lower than the trap potential depth (typically below $1$mK). For the work presented in this thesis, among all possible trapping techniques, the focus will be strictly placed on Optical Dipole Traps (ODTs) for neutral atoms
 
 Optical dipole traps rely on the electric dipole interaction of the atoms with far-detuned light. Following the work of \citeauthor*{grimm} \cite{grimm}, this section reviews the theory behind the working mechanism of this technique, particularly in the case of red-detuned ODTs. 
 
@@ -175,8 +175,30 @@ Beyond the fine structure, the energy levels undergo further splitting due to th
     \caption{From \cite{grimm}. Energy level scheme of an alkali atom with $I=3/2$ such as $^{87}Rb$.}
     \label{fig:alkali_electronic_energy_levels}
 \end{figure}
+
 Assuming that all optical detunings stay large compared with the excited-state hyperfine splitting $\Delta'_{HFS}$, equation \eqref{eq:light_shift_multi_lv_atoms} can be calculated for an alkali atom in the ground state of total angular momentum $F$ and magnetic quantum number $m_F$, obtaining \cite{grimm}:
 \begin{equation}
+    \label{eq:alkali_dipole_potential_general_case}
     U_{\text{dip}}(\mathbf{r}) = \frac{\pi c^2 \Gamma}{2 \omega_0^3} \left( \frac{2 + \mathcal{P} g_F m_F}{\Delta_{2,F}} + \frac{1 - \mathcal{P} g_F m_F}{\Delta_{1,F}} \right) I(\mathbf{r}),
 \end{equation}
 where the two term in the parentheses represent respectively the contribution of the $D_2$ and $D_1$ line. Here, $g_F$ is the Landé factor, $\mathcal{P}$ characterizes the laser polarization ($\mathcal{P}=0,\pm1$ for linear polarization and circular $\sigma^\pm$ respectively), and $\Delta_{2,F}$ and $\Delta_{1,F}$ denote the detunings of the laser field relative to the transitions from the $^2S_{1/2}, F$ ground state to the center of respectively the $^2P_{3/2}$ and $^2P_{1/2}$ hyperfine excited state.
+
+\vspace{0.5\baselineskip}
+If the detunings are large with respect to the fine-structure splitting ($|\Delta_{1,F}|, |\Delta_{2_F}| \gg \Delta'_{FS}$), introducing the detuning $\Delta$ with respect to the center of the $D-$line doublet, expanding equation \eqref{eq:alkali_dipole_potential_general_case} at first order of the small parameter $\Delta'_{FS}/\Delta$, one gets \cite{grimm}:
+\begin{equation}
+    \label{eq:alkali_dipole_potential_large_detuning}
+    U_{\text{dip}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \omega_0^3} \frac{\Gamma}{\Delta} \left( 1 + \frac{1}{3} \mathcal{P} g_F m_F \frac{\Delta'_{\text{FS}}}{\Delta} \right) I(\mathbf{r}).
+\end{equation}
+The zeroth order term corresponds exactly to the dipole potential of a simple two-level atom (see Eq. \eqref{eq:dipole_potential}). The first-order term introduces a small, spin-dependent correction depending on the laser polarization $\mathcal{P}$ and the magnetic quantum number $m_F$.
+
+Physically, equation \eqref{eq:alkali_dipole_potential_large_detuning} describes that, when the fine structure is completely unresolved due to the large laser detuning, the atom effectively acts as a generic two-level system undergoing an $s \rightarrow p$ transition.
+Consequently, the resulting dipole potential is dominated by the scalar term, matching the two-level model previously discussed.
+
+Since in the unresolved fine structure case, the polarization-dependent term is heavily suppressed by the small parameter $\Delta'_{FS}/\Delta$ (and vanishes entirely for linearly polarized light), the atom effectively acquires only the scalar light shift of the unperturbed $s$ state. Consequently, all hyperfine and magnetic sublevels experience a uniform trapping potential that confines the gas while preserving its internal spin degeneracy.
+
+In a more general case, when the fine structure is resolved, but the hyperfine structure is unresolved ($|\Delta_{1,F}|,|\Delta_{2,F}|\gg \Delta_{HFS} \gg \Delta'_{HFS}$), only linearly polarized light guarantees that the dipole potential becomes completely independent of $m_F$ and $F$ \cite{grimm}. Therefore, linearly polarized light is usually employed for dipole trap implementation.
+
+
+% ##########################################################
+\subsection{Heating mechanism}
+% ##########################################################
