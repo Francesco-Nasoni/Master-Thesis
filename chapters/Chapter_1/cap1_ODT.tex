@@ -241,7 +241,7 @@ where $U_0$ is the potential energy minimum, then the scattering rate $\bar{\Gam
     \bar{\Gamma}_\text{sc} = \frac{\Gamma}{\hbar\Delta} (U_0 + \frac{3}{2}k_B T).
 \end{equation}
 It is important to notice that $U_0 = 0$ for a blue-detuned trap and the trap depth $\hat{U}$ is given by the maximum value of the potential surrounding the minimum, while for a red-detuned trap $\hat{U}=|U_0|$.
-Using equation \eqref{eq:scattering_rate_Tequilibrium} in \eqref{eq:temperature_changing_rate}, with a depth $\hat{U} \gg k_BT$, for a red and a blue trap, one gets the following temperature changing rate
+Finally, using equation \eqref{eq:scattering_rate_Tequilibrium} in \eqref{eq:temperature_changing_rate}, with a depth $\hat{U} \gg k_BT$, one gets the following temperature changing rate for a red and a blue trap:
 \begin{subequations}
     \begin{align}
         \label{eq:t_rate_blue_red_comparison}
@@ -249,7 +249,6 @@ Using equation \eqref{eq:scattering_rate_Tequilibrium} in \eqref{eq:temperature_
         \dot{T}_{\text{blue}} &= \frac{1}{2} T_{\text{rec}} \frac{\Gamma}{\hbar \Delta} k_B T.
     \end{align}
 \end{subequations}
-Equation \eqref{eq:t_rate_blue_red_comparison} shows another limitation to for the blue trap: while a red trap have a linear heating proportional to the potential depth (as long as $\hat{U}\gg k_BT$), the blue trap shows an exponential heating law.
-
+Equation \eqref{eq:t_rate_blue_red_comparison} shows another limitation for the blue trap: while a red trap has a linear heating rate (as long as $\hat{U}\gg k_BT$), the blue trap shows an exponential heating law.
 
 \subsection{Implementation}
