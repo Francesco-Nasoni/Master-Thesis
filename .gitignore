@@ -9,5 +9,6 @@
 *.xml
 *.gz
 *.toc
+*-SAVE-ERROR
 
 .vscode

@@ -207,7 +207,7 @@ Typical trap depths for optical dipole traps are usually below 1 mK. Therefore, 
 
 Given these shallow confining potentials, even minor heating rates can largely limit the trap lifetime. It is therefore important to outline the mechanisms responsible for the parasitic heating induced by the trapping light.
 
-\subsection{Heating source}
+\subsubsection{Heating source}
 When atoms interact with laser light the fluctuations in the spontaneous emission and absorption, always causes a heating process, this is the phenomenon that puts a lower limit to cooling mechanism \cite{CohenLesHouches}\cite{metcalf1999}.
 For the optical dipole trap the atoms absorbs photons and re-emits them in random direction (isotropic radiation), statistical oscillations in both these two processes cause heating. The absorption of photons from the dipole light causes a recoil energy of $E_\text{rec}=k_BT_\text{rec}/2$ per scattering event and happens only in the direction of the laser beam and is therefore anisotropic. On the other hand, also the re-emition scattering events cause a recoil energy $E_\text{rec}$, however the direction of emission is random, thus the effect is spread over all the three spatial direction. Thus, for a single cycle the atom receives $E_\text{rec}$ from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$.\\
 It leads to the total heating power:
@@ -219,8 +219,8 @@ thus the heating depends on the mean scattering rate $\bar{\Gamma}_\text{sc}$ an
 
 Other fundamental source of heating, such as the redistribution of photons between different travelling wave, should be quenched by the far-detuned working frequency \cite{grimm}.
 
-\subsection{Heating rate}
-Assuming that the system reaches the thermal equilibrium, the mean energy can be expressed through the energy equipartition theorem. Assuming the trap as a three-dimensional harmonic potential well, there is a contribution of three quadratic degrees of freedom from the kinetic energy and other three from the harmonic potential. According to the energy partition theorem, the mean energy is:
+\subsubsection{Heating rate}
+Assuming that the trapped atoms are at thermal equilibrium, the mean energy can be expressed through the energy equipartition theorem. Assuming the trap as a three-dimensional harmonic potential well, there is a contribution of three quadratic degrees of freedom from the kinetic energy and other three from the harmonic potential. According to the energy partition theorem, the mean energy is
 \begin{equation}
     \label{eq:equipartition_th}
     \bar{E}= 3 k_B T.
@@ -249,6 +249,4 @@ Finally, using equation \eqref{eq:scattering_rate_Tequilibrium} in \eqref{eq:tem
         \dot{T}_{\text{blue}} &= \frac{1}{2} T_{\text{rec}} \frac{\Gamma}{\hbar \Delta} k_B T.
     \end{align}
 \end{subequations}
-Equation \eqref{eq:t_rate_blue_red_comparison} shows another limitation for the blue trap: while a red trap has a linear heating rate (as long as $\hat{U}\gg k_BT$), the blue trap shows an exponential heating law.
-
-\subsection{Implementation}
+Equation \eqref{eq:t_rate_blue_red_comparison} describe the increasing in temperature of the atomic cloud if subjected to the dipole trap only. It highlights another blue trap limitation: while a red trap has a linear heating rate (as long as $\hat{U}\gg k_BT$), the blue trap shows an exponential heating law.
