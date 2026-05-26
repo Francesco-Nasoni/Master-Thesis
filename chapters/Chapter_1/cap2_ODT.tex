@@ -3,9 +3,9 @@ Optical traps are experimental tools that allow the confinement of atom or ions 
 
 Optical dipole traps rely on the electric dipole interaction of the atoms with far-detuned light. Following the work of \citeauthor*{grimm} \cite{grimm}, this section reviews the theory behind the working mechanism of this technique, particularly in the case of red-detuned ODTs. 
 
-% ##########################################################
+%* ##########################################################
 \subsection{Oscillator model}
-% ##########################################################
+%* ##########################################################
 The optical dipole force arises from the interaction of the induced atomic momentum with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
 
 \subsubsection{Interaction between induced dipole moment and driving field}
@@ -107,9 +107,9 @@ Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the f
 
 
 
-% ##########################################################
+%* ##########################################################
 \subsection{Multi-level atoms}
-% ##########################################################
+%* ##########################################################
 
 Moving from the two-level atom to a real atom, the electronic transitions become more complex, and the calculation of the dipole potential must take into consideration all the possible allowed transition. This lead to a dipole potential that depends on the particular sub-state of the atom.
 
@@ -199,6 +199,57 @@ Since in the unresolved fine structure case, the polarization-dependent term is 
 In a more general case, when the fine structure is resolved, but the hyperfine structure is unresolved ($|\Delta_{1,F}|,|\Delta_{2,F}|\gg \Delta_{HFS} \gg \Delta'_{HFS}$), only linearly polarized light guarantees that the dipole potential becomes completely independent of $m_F$ and $F$ \cite{grimm}. Therefore, linearly polarized light is usually employed for dipole trap implementation.
 
 
-% ##########################################################
+%* ##########################################################
 \subsection{Heating mechanism}
-% ##########################################################
+%* ##########################################################
+
+Typical trap depths for optical dipole traps are usually below 1 mK. Therefore, capturing a substantial number of atoms requires a preliminary cooling stage. For instance, the experiment discussed in this thesis employs a magneto-optical trap (MOT) followed by an optical molasses phase.
+
+Given these shallow confining potentials, even minor heating rates can largely limit the trap lifetime. It is therefore important to outline the mechanisms responsible for the parasitic heating induced by the trapping light.
+
+\subsection{Heating source}
+When atoms interact with laser light the fluctuations in the spontaneous emission and absorption, always causes a heating process, this is the phenomenon that puts a lower limit to cooling mechanism \cite{CohenLesHouches}\cite{metcalf1999}.
+For the optical dipole trap the atoms absorbs photons and re-emits them in random direction (isotropic radiation), statistical oscillations in both these two processes cause heating. The absorption of photons from the dipole light causes a recoil energy of $E_\text{rec}=k_BT_\text{rec}/2$ per scattering event and happens only in the direction of the laser beam and is therefore anisotropic. On the other hand, also the re-emition scattering events cause a recoil energy $E_\text{rec}$, however the direction of emission is random, thus the effect is spread over all the three spatial direction. Thus, for a single cycle the atom receives $E_\text{rec}$ from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$.\\
+It leads to the total heating power:
+\begin{equation}
+    \label{eq:heating_power}
+    P_{\text{heat}} = 2 E_{\text{rec}} \bar{\Gamma}_{\text{sc}} = k_B T_{\text{rec}} \bar{\Gamma}_{\text{sc}}
+\end{equation}
+thus the heating depends on the mean scattering rate $\bar{\Gamma}_\text{sc}$ and on the recoil $E_\text{rec}$ which depends on the laser frequency.
+
+Other fundamental source of heating, such as the redistribution of photons between different travelling wave, should be quenched by the far-detuned working frequency \cite{grimm}.
+
+\subsection{Heating rate}
+Assuming that the system reaches the thermal equilibrium, the mean energy can be expressed through the energy equipartition theorem. Assuming the trap as a three-dimensional harmonic potential well, there is a contribution of three quadratic degrees of freedom from the kinetic energy and other three from the harmonic potential. According to the energy partition theorem, the mean energy is:
+\begin{equation}
+    \label{eq:equipartition_th}
+    \bar{E}= 3 k_B T.
+\end{equation}
+Using equation \eqref{eq:heating_power} in equation \eqref{eq:equipartition_th}, one can obtain an equation that describes the temperature change with time:
+\begin{equation}
+    \label{eq:temperature_changing_rate}
+    \dot{T} = \frac{1}{3} T_\text{rec} \bar{\Gamma}_\text{sc}.
+\end{equation}
+
+Expressing the dipole potential as
+\begin{equation}
+    \bar{U}_\text{dip} = U_0 + \bar{E}_\text{pot} = U_0 + \frac{3}{2}k_B T,
+\end{equation}
+where $U_0$ is the potential energy minimum, then the scattering rate $\bar{\Gamma}_\text{sc}$ can be expressed by Substituting $U_\text{dip}$ from \eqref{eq:dipole_scattering}, obtaining
+\begin{equation}
+    \label{eq:scattering_rate_Tequilibrium}
+    \bar{\Gamma}_\text{sc} = \frac{\Gamma}{\hbar\Delta} (U_0 + \frac{3}{2}k_B T).
+\end{equation}
+It is important to notice that $U_0 = 0$ for a blue-detuned trap and the trap depth $\hat{U}$ is given by the maximum value of the potential surrounding the minimum, while for a red-detuned trap $\hat{U}=|U_0|$.
+Using equation \eqref{eq:scattering_rate_Tequilibrium} in \eqref{eq:temperature_changing_rate}, with a depth $\hat{U} \gg k_BT$, for a red and a blue trap, one gets the following temperature changing rate
+\begin{subequations}
+    \begin{align}
+        \label{eq:t_rate_blue_red_comparison}
+        \dot{T}_{\text{red}} &= \frac{1}{3} T_{\text{rec}} \frac{\Gamma}{\hbar |\Delta|} \hat{U}, \\[2mm]
+        \dot{T}_{\text{blue}} &= \frac{1}{2} T_{\text{rec}} \frac{\Gamma}{\hbar \Delta} k_B T.
+    \end{align}
+\end{subequations}
+Equation \eqref{eq:t_rate_blue_red_comparison} shows another limitation to for the blue trap: while a red trap have a linear heating proportional to the potential depth (as long as $\hat{U}\gg k_BT$), the blue trap shows an exponential heating law.
+
+
+\subsection{Implementation}
