@@ -6,7 +6,9 @@
 
 % For Title styling
 \usepackage{titlesec}
-\titleformat*{\section}{\Huge\bfseries}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
 
 % Margins and layout
 \usepackage[margin=2.5cm]{geometry}
@@ -50,3 +52,9 @@
 % For numbering also subsubsections
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+
+% Tikz 
+\usepackage{tikz}
+\usetikzlibrary{calc, positioning, arrows.meta}
+\usepackage{xcolor}
+\usepackage{optikz}
