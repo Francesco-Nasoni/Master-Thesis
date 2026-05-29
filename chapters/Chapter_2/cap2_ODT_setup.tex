@@ -1,6 +1,9 @@
 % Input of tikz opticla elements
 \input{tikz/tikz_optical_elements.tex}
 
+%* Da aggiungere anche qualcosa sulla fibra kagome. Magari mettere le imamgini SEM e l'immagine con le misure di core, claddiing kagome e jacket.
+%* Forse da aggiungere il setup ottico nella breadboard superiore
+
 \section{Optical dipole trap}
 
 This section describes the implementation of the Optical Dipole Trap (ODT) setup used to transfer atoms from the MOT into a conservative optical potential. The ODT beam is guided through a Hollow-Core Photonic Crystal Fiber (HCPCF). As mentioned in Section~\ref{sec:cap_2_MOT}, the HCPCF integrated into the experimental apparatus was already present prior to this thesis work. However, a test HCPCF was employed during the development of the setup in order to optimize the alignment procedure.
@@ -10,19 +13,95 @@ During the implementation of the system, dedicated diagnostic tools were also de
 %* ##########################################################
 \subsection{Optical Setup}
 %* ##########################################################
+In this experiment the ODT light is guided through a HCPCF, which introduces a critical complication in the injection procedure. Indeed, in contrast with standard telecom fibers, HCPCFs are multi-mode fibers. As a consequence, even small deviations of the injected beam from the ideal injection angle excites higher order modes in addition to the fundamental one. This results in distorted output beam profiles, which are not well suited for the realization of an optical conveyor belt based on the superposition of the beam guided by the HCPCF and a beam guided through a conventional telecom fiber supporting only the fundamental $LP_{01}$ mode.
+
+For this reason, particular cure was devoted to the alignment procedure. A significant improvement in the quality of the transmitted mode was achieved by optimizing the injection while inspecting the near-field of the transmitted beam, rather than simply maximizing the transmission efficiency. The following sections describe the injection setup and the horizontal microscope built for the near-field inspection.
+
+\subsubsection{Injection setup}
+The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is an Yitterbium fiber laser that emits 1064~nm linearly polarized light at about 3~W of power.
+
 \begin{figure}[h]
     \centering
     \input{tikz/odt_injection_setup.tex}
-    \caption{This is the caption}
+    \caption{Scheme of the optical setup for 1064~nm ODT beam  injection into the HCPCF.
+    The Acousto-Optic Modulator (AOM) operates at 110~MHz, and the subsequent setup utilizes the fist diffraction order. The order zero is wasted on a beam blocker (not drawn). 
+    The 780~nm light setup is not drawn, its presence will be important in the future stages of the experiment for the characterization of the atoms inside the HCPCF core.}
+    \label{fig:ODT_injection_setup}
 \end{figure}
+
+Figure \ref{fig:ODT_injection_setup} shows the optical setup scheme used for the injection of the laser light in the HCPCF.
+The scheme is composed of the following elements:
+\begin{itemize}
+    \item \textbf{Half Wave Plate 1} (HWP1) and \textbf{Optical Isolator}. The optical isolator prevents back reflections from propagating towards the laser cavity. High-power lasers are particularly sensitive to back reflections, which can introduce power instabilities and potentially damage the laser system. Since optical isolators operate correctly only for a specific input polarization, HWP1 is used to optimize the polarization of the incoming beam and maximize the transmission through the isolator.
+    
+    \item \textbf{HWP2} and \textbf{Polarization Beam Splitter 1} (PBS1). These components are used to regulate the optical power delivered to the subsequent stages of the setup. The unwanted fraction of the beam is directed onto a beam block. This configuration is particularly useful during alignment procedures, where the optical power is reduced to a few milliwatts for safety reasons.
+    
+    \item \textbf{HWP3} and \textbf{PBS2}. PBS2 splits the beam into two different branches. The first is employed for the HCPCF injection, while the second will be injected into a PANDA polarization-maintaining fiber, which eventually will provide the second beam entering the chamber from above for the realization of the optical conveyor belt. HWP3 is adjusted to have approximately 50/50 power splitting ratio, although this value can be modified if required in future stages of the experiment.
+    
+    \item \textbf{Acousto-Optic Modulator} (AOM). The AOM is employed as a fast switch for the ODT beam. The device operates using an acoustic wave at \(110~\mathrm{MHz}\), causing the first diffraction order to be frequency shifted by the same amount. Although this shift is negligible with respect to the trap depth of the ODT, it will become relevant in the future implementation of the optical conveyor belt.
+
+    \item \textbf{Beam expander}. A $\sim$3X beam expander is employed to increase the beam diameter and collimate it before the focusing conditions for coupling into the fiber.
+    
+    \item \textbf{Mirror 1} (M1) and \textbf{Dichroic Mirror}. Both mirrors are mounted on tilt stages and their angular adjustment is used for optimizing the fiber injection alignment. The dichroic mirror also combines the 1064~nm ODT beam with a 780~nm beam that will be used in the future for the characterization of the atoms trapped inside the HCPCF core.
+    
+    \item \textbf{Focusing Lens} (f50). A lens with focal length $f=50~\mathrm{mm}$ focuses the beam into the HCPCF. It is mounted on a horizontal translation stage, providing an additional degree of freedom for optimizing the injection alignment.
+    
+    \item \textbf{Fiber 1} (HCPCF). The HCPCF is mounted on a $x$-$y$ translation stage and terminated with an FC/APC connector. The translation stage allows transverse displacement of the fiber, providing additional alignment degrees of freedom during the injection procedure, although these degrees of freedom were found to have limited impact on the final optimization.
+\end{itemize} 
+
+\subsubsection{Horizontal Microscope}
+
+Initially, the injection into the HCPCF installed inside the vacuum chamber was attempted by using a Complementary Metal-Oxide-Semiconductor (CMOS) camera to monitoring the beam profile. However, despite the effort, strongly deformed mode profiles were obtained.
+
+In order to better investigate the injection procedure and simplify the alignment process, a separate test HCPCF was employed outside the vacuum chamber. The test fiber consisted of an approximately 50~cm HCPCF segment with the same FC/APC connector as the fiber in the chamber. The test fiber allowed an easy measurement of the efficiency on the exit facet of the beam without any window in the path, and being outside the void chamber allow for easier mode imaging. Moreover, since the two fibers shared the same connector, the optimal alignment conditions identified with the test fiber were expected to provide a good starting point for the alignment of the HCPCF installed inside the chamber. Nevertheless, even with the test fiber, optimization based solely on transmission efficiency and far-field inspection still resulted in poor beam quality and low efficiency of $\sim30\%$.
+
+The fiber manufacturer suggested that the optimal injection condition  should be determined by inspecting the shape of the near-field of the transmitted mode. For this purpose, a horizontal microscope system was developed to inspect the HCPCF facet and to investigate the near-field profile of the transmitted mode. The optical scheme of the microscope is shown in Figure \ref{fig:horizontal_microscope}.
+
+\begin{figure}[t]
+    \centering
+    \input{tikz/horizontal_microscope.tex}
+    \caption{Scheme of the optical setup for the horizontal microscope.}
+    \label{fig:horizontal_microscope}
+\end{figure}
+
+The fiber was positioned inside a $90^\circ$ V-groove of depth $350~\mu\mathrm{m}$. The fiber was fixed inside the groove by means of a thin foam layer attached to a tiltable mount using adhesive tape. The coating was removed from the fiber end, leaving approximately 15~mm of suspended fiber in order to allow lateral illumination of the facet.
+
+The HCPCF facet was illuminated by a red LED focused by an $f = 50~\mathrm{mm}$ lens onto the final suspended portion of the fiber. Part of the red light propagated through the silica structure forming the kagome lattice, making them visible on the microscope camera. The observation of the kagome structure was used to optimize the microscope focus and to inspect the integrity and cleanliness of the fiber facet.
+
+The light emerging from the fiber was collected by a optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage.
+
+Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
+
+The alignment procedure was carried out by optimizing the transmitted near-field profile in order to obtain a mode as close as possible to a single-lobed structure, the results are illustrated in Section \ref{sec:near_field_mode_characterization}.
+
+Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of the complete experimental apparatus, including both the injection setup and the horizontal microscope system, and~\ref{fig:photo_micrcoscope_detail_topdown} shows a detailed view of the horizontal microscope.
+
+\begin{figure}
+    \centering
+    \includegraphics[angle=90, width=0.7\linewidth]{Cap_2_figures/setup_topdown.png}
+    \caption{Top-down photograph of the complete experimental apparatus. The horizontal microscope, shielded by the black paper tube, is visible at the top of the image. The optical injection setup is located in the center, while the RF amplifier driving the AOM is placed at the bottom. For reference, the distance between the screw holes on the breadboard is 2.5~cm.}
+    \label{fig:photo_injection_setup_topdown}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_2_figures/microscope_topdown.jpg}
+    \caption{Detailed top-down view of the horizontal microscope. The setup highlights the test fiber, the red LED providing lateral illumination to the fiber facet, the microscope objective lens and the refocusing lens.}
+    \label{fig:photo_micrcoscope_detail_topdown}
+\end{figure}
+
+%* ##########################################################
+\subsection{1064nm Laser Characterization}
+%* ##########################################################
 
 
 %* ##########################################################
-\subsection{Near-Field Mode Characterization}
+\subsection{Near-Field Mode Characterization}\label{sec:near_field_mode_characterization}
 %* ##########################################################
 \subsubsection{Test Fiber}
 \subsubsection{Chamber Fiber}
 
 %* ##########################################################
 \subsection{MOT to ODT Loading Sequence}
+%! In realtà credo qua andrà anche uno per la CMOT
 %* ##########################################################
