@@ -11,7 +11,7 @@ This section describes the implementation of the Optical Dipole Trap (ODT) setup
 During the implementation of the system, dedicated diagnostic tools were also developed to investigate the near-field beam profile and improve the fiber-coupling alignment. The following subsections describe the ODT optical configuration and the experimental procedures adopted for the alignment and loading of the trap.
 
 %* ##########################################################
-\subsection{Optical Setup}
+\subsection{Optical setup}\label{sec:optical_setup}
 %* ##########################################################
 In this experiment the ODT light is guided through a HCPCF, which introduces a critical complication in the injection procedure. Indeed, in contrast with standard telecom fibers, HCPCFs are multi-mode fibers. As a consequence, even small deviations of the injected beam from the ideal injection angle excites higher order modes in addition to the fundamental one. This results in distorted output beam profiles, which are not well suited for the realization of an optical conveyor belt based on the superposition of the beam guided by the HCPCF and a beam guided through a conventional telecom fiber supporting only the fundamental $LP_{01}$ mode.
 
@@ -25,7 +25,8 @@ The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, whic
     \input{tikz/odt_injection_setup.tex}
     \caption{Scheme of the optical setup for 1064~nm ODT beam  injection into the HCPCF.
     The Acousto-Optic Modulator (AOM) operates at 110~MHz, and the subsequent setup utilizes the fist diffraction order. The order zero is wasted on a beam blocker (not drawn). 
-    The 780~nm light setup is not drawn, its presence will be important in the future stages of the experiment for the characterization of the atoms inside the HCPCF core.}
+    The 780~nm light setup is not drawn, its presence will be important in the future stages of the experiment for the characterization of the atoms inside the HCPCF core.
+    Fiber 2 injection setup is not drawn as well.}
     \label{fig:ODT_injection_setup}
 \end{figure}
 
@@ -49,7 +50,9 @@ The scheme is composed of the following elements:
     \item \textbf{Fiber 1} (HCPCF). The HCPCF is mounted on a $x$-$y$ translation stage and terminated with an FC/APC connector. The translation stage allows transverse displacement of the fiber, providing additional alignment degrees of freedom during the injection procedure, although these degrees of freedom were found to have limited impact on the final optimization.
 \end{itemize} 
 
-\subsubsection{Horizontal Microscope}
+{\color{blue} TO BE CONTINUED, here add the calculated mode radius at fiber injection, using results from the laser section}
+
+\subsubsection{Horizontal microscope}
 
 Initially, the injection into the HCPCF installed inside the vacuum chamber was attempted by using a Complementary Metal-Oxide-Semiconductor (CMOS) camera to monitoring the beam profile. However, despite the effort, strongly deformed mode profiles were obtained.
 
@@ -68,40 +71,58 @@ The fiber was positioned inside a $90^\circ$ V-groove of depth $350~\mu\mathrm{m
 
 The HCPCF facet was illuminated by a red LED focused by an $f = 50~\mathrm{mm}$ lens onto the final suspended portion of the fiber. Part of the red light propagated through the silica structure forming the kagome lattice, making them visible on the microscope camera. The observation of the kagome structure was used to optimize the microscope focus and to inspect the integrity and cleanliness of the fiber facet.
 
-The light emerging from the fiber was collected by a optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage.
+The light emerging from the fiber was collected by a optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The expected magnification is $M=f_\text{tube}/f_\text{lens}\approx27.8$. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage. Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
 
-Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
+The alignment procedure was carried out by optimizing the transmitted near-field profile in order to obtain a mode as close as possible to a single-lobed structure, results and further details are found in Section \ref{sec:injection_alignment_nf_imaging}.
 
-The alignment procedure was carried out by optimizing the transmitted near-field profile in order to obtain a mode as close as possible to a single-lobed structure, the results are illustrated in Section \ref{sec:near_field_mode_characterization}.
+Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of the complete experimental apparatus, including both the injection setup and the horizontal microscope system, and figure~\ref{fig:photo_microscope_detail_topdown} shows a detailed view of the horizontal microscope.
 
-Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of the complete experimental apparatus, including both the injection setup and the horizontal microscope system, and~\ref{fig:photo_micrcoscope_detail_topdown} shows a detailed view of the horizontal microscope.
-
-\begin{figure}
+\begin{figure}[!h]
     \centering
     \includegraphics[angle=90, width=0.7\linewidth]{Cap_2_figures/setup_topdown.png}
     \caption{Top-down photograph of the complete experimental apparatus. The horizontal microscope, shielded by the black paper tube, is visible at the top of the image. The optical injection setup is located in the center, while the RF amplifier driving the AOM is placed at the bottom. For reference, the distance between the screw holes on the breadboard is 2.5~cm.}
     \label{fig:photo_injection_setup_topdown}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\linewidth]{Cap_2_figures/microscope_topdown.jpg}
     \caption{Detailed top-down view of the horizontal microscope. The setup highlights the test fiber, the red LED providing lateral illumination to the fiber facet, the microscope objective lens and the refocusing lens.}
-    \label{fig:photo_micrcoscope_detail_topdown}
+    \label{fig:photo_microscope_detail_topdown}
 \end{figure}
 
+
 %* ##########################################################
-\subsection{1064nm Laser Characterization}
+\subsection{1064nm laser characterization}
 %* ##########################################################
+The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is a Ytterbium fiber laser that emits 1064~nm linearly polarized light. The mode field diameter of the laser changes significantly upon changes of the nominal power set, therefore the mode has been characterized as a function of the power set to allow a correct realization of the HCPCF injection setup. The calibration will also provide a reference for future fine tunings of the HCPCF injection.
+
+{\color{blue} TO BE CONTINUED, it will be moved before the optical setup}
 
 
 %* ##########################################################
-\subsection{Near-Field Mode Characterization}\label{sec:near_field_mode_characterization}
+\subsection{Injection alignment and near-field imaging}\label{sec:injection_alignment_nf_imaging}
 %* ##########################################################
-\subsubsection{Test Fiber}
-\subsubsection{Chamber Fiber}
+For a conventional single mode telecom fiber, the alignment procedure is straight forward: it is sufficient to inject a low power beam of few milliwatts, monitoring the power at the exit of the fiber and adjust the injected beam maximizing the guided optical power.
+
+By contrast, for a multimodal HCPCFs the alignment procedure is not straight forward. The silica jacket that surrounds the kagome core can guide the light with good coupling efficiencies of $~60\%$, although with badly shaped mode (see figure \ref{fig:bad_injection}). Given also the large dimension of the jacket compared to the core, monitoring just the coupling efficiency is particularly ineffective, because one can get stacked in the local maxima efficiency of the jacket.\\
+As suggested by the manufacturer, the best procedure for the injection alignment resulted to be monitoring the near-field mode at the fiber exit. The full alignment procedure consists into use the powermeter first to obtain a signal which guarantees that the impinging beam is on the fiber, then switch to the live monitoring of the near-field and optimize its shape by regulating the degrees of freedom of the injection setup. The coupling efficiency is then measured only at the end of the mode shape optimization procedure.
+
+Using the procedure described above, the test fiber injection has been optimized, employing the injection optical setup and the horizontal microscope described in Section~\ref{sec:optical_setup}. This led to a good result and thus the same procedure has been applied to align the fiber inside the vacuum chamber.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Cap_2_figures/jacket_injected_fiber.png}
+    \caption{Example of the near-field of a mode guided by the test fiber jacket. The light is mainly guided by the silica jacket surrounding the kagome structure, while just a weak signal is visible in the core. Note that this strongly deformed mode had a coupling efficiency of $\sim 60\%$.}
+    \label{fig:bad_injection}
+\end{figure}
+
+\subsubsection{Test fiber}
+
+
+\subsubsection{Chamber fiber}
 
 %* ##########################################################
-\subsection{MOT to ODT Loading Sequence}
+\subsection{MOT to ODT loading sequence}
 %! In realtà credo qua andrà anche uno per la CMOT
 %* ##########################################################
