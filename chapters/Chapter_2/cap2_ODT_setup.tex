@@ -71,7 +71,7 @@ The fiber was positioned inside a $90^\circ$ V-groove of depth $350~\mu\mathrm{m
 
 The HCPCF facet was illuminated by a red LED focused by an $f = 50~\mathrm{mm}$ lens onto the final suspended portion of the fiber. Part of the red light propagated through the silica structure forming the kagome lattice, making them visible on the microscope camera. The observation of the kagome structure was used to optimize the microscope focus and to inspect the integrity and cleanliness of the fiber facet.
 
-The light emerging from the fiber was collected by a optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The expected magnification is $M=f_\text{tube}/f_\text{lens}\approx27.8$. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage. Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
+The light emerging from the fiber was collected by an optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The expected magnification is $M=f_\text{tube}/f_\text{lens}\approx27.8$. The objective is mounted on a horizontal translation stage used for the focussing. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage. Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
 
 The alignment procedure was carried out by optimizing the transmitted near-field profile in order to obtain a mode as close as possible to a single-lobed structure, results and further details are found in Section \ref{sec:injection_alignment_nf_imaging}.
 
@@ -103,24 +103,93 @@ The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, whic
 %* ##########################################################
 \subsection{Injection alignment and near-field imaging}\label{sec:injection_alignment_nf_imaging}
 %* ##########################################################
-For a conventional single mode telecom fiber, the alignment procedure is straight forward: it is sufficient to inject a low power beam of few milliwatts, monitoring the power at the exit of the fiber and adjust the injected beam maximizing the guided optical power.
+For a conventional single-mode telecom fiber, the alignment procedure is straightforward: it is sufficient to inject a low-power beam of few milliwatts, monitor the transmitted power at the fiber exit, and adjust the injected beam to maximize the guided optical power.
 
-By contrast, for a multimodal HCPCFs the alignment procedure is not straight forward. The silica jacket that surrounds the kagome core can guide the light with good coupling efficiencies of $~60\%$, although with badly shaped mode (see figure \ref{fig:bad_injection}). Given also the large dimension of the jacket compared to the core, monitoring just the coupling efficiency is particularly ineffective, because one can get stacked in the local maxima efficiency of the jacket.\\
-As suggested by the manufacturer, the best procedure for the injection alignment resulted to be monitoring the near-field mode at the fiber exit. The full alignment procedure consists into use the powermeter first to obtain a signal which guarantees that the impinging beam is on the fiber, then switch to the live monitoring of the near-field and optimize its shape by regulating the degrees of freedom of the injection setup. The coupling efficiency is then measured only at the end of the mode shape optimization procedure.
+By contrast, aligning the injection of a multimodal HCPCFs is significantly more complex. The silica jacket that surrounds the kagome core can guide the light with coupling efficiencies as high as $60\%$, although with badly shaped mode (see figure \ref{fig:bad_injection}). Considering also that the jacket is large compared to the core, monitoring just the coupling efficiency is particularly ineffective, as the optimization can easily get trapped in a local maximum associated with jacket guiding.\\
+As suggested by the manufacturer, the best procedure for the injection alignment resulted to be monitoring the near-field mode shape at the fiber exit. The complete alignment procedure begins with the use of a powermeter to ensure the impinging beam hits the fiber, even on the jacket. Then switch to live monitoring of the near-field with a camera and optimize its shape by tuning the degrees of freedom of the injection setup. Coupling efficiency is measured only after the mode profile has been optimized.
 
-Using the procedure described above, the test fiber injection has been optimized, employing the injection optical setup and the horizontal microscope described in Section~\ref{sec:optical_setup}. This led to a good result and thus the same procedure has been applied to align the fiber inside the vacuum chamber.
+Applying this protocol, the test fiber injection was optimized  employing the injection optical setup and the horizontal microscope described in Section~\ref{sec:optical_setup}. This approach yielded to a good result and thus was subsequently applied to align the injection into the fiber in the vacuum chamber.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{Cap_2_figures/jacket_injected_fiber.png}
-    \caption{Example of the near-field of a mode guided by the test fiber jacket. The light is mainly guided by the silica jacket surrounding the kagome structure, while just a weak signal is visible in the core. Note that this strongly deformed mode had a coupling efficiency of $\sim 60\%$.}
+    \caption{Example of the near-field of a mode guided by the test fiber jacket. The light is mainly guided by the silica jacket surrounding the kagome structure, while only a weak signal is visible in the core. Note that this strongly deformed mode had a coupling efficiency of $\sim 60\%$.}
     \label{fig:bad_injection}
 \end{figure}
 
 \subsubsection{Test fiber}
+The test fiber was cleaved prior to inspection.
+Since the horizontal microscope has a sufficient resolution to resolve the kagome structure of the fiber, it was exploited for the focusing procedure. By monitoring the camera imaging in real-time, the kagome structure was focussed using the translation stage of the microscope objective. The objective refractive index can be considered roughly constant across the visible spectrum and into the near-infrared (NIR). This guarantees that when the structure (illuminated by red light) is in focus, the guided mode (1064~nm NIR light) is also in focus. Figure \ref{fig:kagome_images} shows an image of solely the kagome structure alongside an image of the kagome structure together with some guided light. The image show that the kagome structure is intact confirming that the cleaving was correctly performed. Furthermore, the mode is clearly guided by the core and exhibits a single lobe, however, the shape is not symmetric with respect to the fiber axis, indicating the excitation of higher order $LP_{11}$ mode alongside the fundamental $LP_{01}$. 
 
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/cool_kagome.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/cool_kagome_wmode.png}
+    \end{subfigure}
+    \caption{Images taken with a preliminary horizontal microscope setup of the HCPCF kagome structure (left) and of the transmitted mode together with the kagome structure, with a pseudo color map (right). These images were taken with a preliminary setup of the horizontal microscope that provided a more homogeneous illumination, with the red light incident from two direction, making the kagome lattice distinctly visible.}
+    \label{fig:kagome_images}
+\end{figure}
+
+The mode seen in Figure \ref{fig:kagome_images} right was associated with a transmission efficiency of $63\%$. By optimizing the alignment using the horizontal microscope the efficiency the mode shape was optimized, and an efficiency of $80\%$ has been achieved. For this optimization two screw of the mirror mounts were adjusted at the same time as a conditions walk-off, therefore performing an optimization remaining as long as possible in a good injection condition. The resulting mode is shown in Figure \ref{fig:80_eff_kagome_2} left. Figure \ref{fig:80_eff_kagome_2} right displays another mode obtained with nearly $80\%$ of injection efficiency, where the surrounding kagome structure remains visible.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{Cap_2_figures/80_mode.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{Cap_2_figures/10W__3.png}
+    \end{subfigure}
+    \caption{Images captured with the final horizontal microscope setup. A mode with $\sim 80\%$ of transmission efficiency (left) and a guided mode with the kagome structure visible (right).}
+    \label{fig:80_eff_kagome_2}
+\end{figure}
+
+A final optimization was performed without the ocular lens by translating the objective slightly past the focal point and placing the camera approximately 2~m away. With this configuration, the magnification achieved is about $\sim \times 200$.
+At this distance, the light scattered from the kagome structure becomes very faint, complicating the focusing procedure as the signal approaches the noise level. However, employing the FLIR camera, which has a lower read noise and a high sensitivity, the kagome lattice remained resolvable, as shown in Figure \ref{fig:kagome_hexagon_flir}.
+This figure shows clearly that the near-field mode assumes a hexagonal shape, perfectly fitting the core: as expected the field inherit the symmetry of the medium in which it is confined.
+The advantage of this extended projection distance is the significant expansion of the mode, the moiré patterns disturb the shape far less, allowing finer spatial details to be resolved, further improving the alignment procedure.
+With this method an efficiency of $94\%$ was achieved. The resulting mode (Figure \ref{fig:mode_wo_microscope} left) is still slightly asymmetric, indicating a residual superposition of higher order modes with the fundamental one.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.48\linewidth]{Cap_2_figures/flir.png}
+    \caption{Images obtained with the FLIR camera using the microscope objective without the ocular lens. The mode clearly exhibits a hexagonal shape. Thanks to the FLIR high sensitivity and low read noise, the kagome structure remains visible even in this configuration. Artifacts in the top-left corner are dust grain deposited on the camera sensor.}
+    \label{fig:kagome_hexagon_flir}
+\end{figure}
+
+Finally, a sweep of laser nominal power was conducted, which changes also the laser beam waist. At every tested power the injection alignment was re-optimized, and the best mode profile was obtained at 6.5~W, with an efficiency of $96\%$. The mode is shown in Figure \ref{fig:mode_wo_microscope} right, in this case the shape is far more symmetric than the previous iterations, which, together with the high transmission efficiency, suggests a significant high share of the fundamental $LP_{01}$ mode.
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/94_mode.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/best_shape_6.5W.png}
+    \end{subfigure}
+    \caption{Images obtained with the objective without the ocular lens. Mode with $94\%$ of injection efficiency (left). Optimized mode with nominal laser power set to 6.5~W which achieved $96\%$ of transmission efficiency (right).}
+    \label{fig:mode_wo_microscope}
+\end{figure}
+
+{\color{blue} Qua manca qualcosa sulle due fotcamere, e anche un riferimento un pochino migliore alla HCPCF}
 
 \subsubsection{Chamber fiber}
+{\color{blue} A questa sezione manca un riferimento al setup di imaging sulla breadboard superiore.}
+
+After the validation of the effectiveness of the alignment procedure with the test fiber, the same procedure was applied to align the fiber inside the vacuum chamber.
+In this case the objective cannot be placed at a focus length from the fiber tip because of the vacuum chamber. This introduces the necessity of couple of lens to have a new image plane outside the chamber. This introduces a resolution limit of 
+\begin{equation*}
+    x = 1.22\frac{\lambda f}{D} \simeq 3.6~\mu\mathrm{m}
+\end{equation*}
 
 %* ##########################################################
 \subsection{MOT to ODT loading sequence}
