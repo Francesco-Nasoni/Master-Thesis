@@ -56,7 +56,7 @@ The scheme is composed of the following elements:
 
 Initially, the injection into the HCPCF installed inside the vacuum chamber was attempted by using a Complementary Metal-Oxide-Semiconductor (CMOS) camera to monitoring the beam profile. However, despite the effort, strongly deformed mode profiles were obtained.
 
-In order to better investigate the injection procedure and simplify the alignment process, a separate test HCPCF was employed outside the vacuum chamber. The test fiber consisted of an approximately 50~cm HCPCF segment with the same FC/APC connector as the fiber in the chamber. The test fiber allowed an easy measurement of the efficiency on the exit facet of the beam without any window in the path, and being outside the void chamber allow for easier mode imaging. Moreover, since the two fibers shared the same connector, the optimal alignment conditions identified with the test fiber were expected to provide a good starting point for the alignment of the HCPCF installed inside the chamber. Nevertheless, even with the test fiber, optimization based solely on transmission efficiency and far-field inspection still resulted in poor beam quality and low efficiency of $\sim30\%$.
+In order to better investigate the injection procedure and simplify the alignment process, a separate test HCPCF was employed outside the vacuum chamber. The test fiber consisted of an approximately 50~cm HCPCF segment with the same FC/APC connector as the fiber in the chamber. The test fiber allowed an easy measurement of the efficiency on the exit facet of the beam without any window in the path, and being outside the vacuum chamber allow for easier mode imaging. Moreover, since the two fibers shared the same connector, the optimal alignment conditions identified with the test fiber were expected to provide a good starting point for the alignment of the HCPCF installed inside the chamber. Nevertheless, even with the test fiber, optimization based solely on transmission efficiency and far-field inspection still resulted in poor beam quality and low efficiency of $\sim30\%$.
 
 The fiber manufacturer suggested that the optimal injection condition  should be determined by inspecting the shape of the near-field of the transmitted mode. For this purpose, a horizontal microscope system was developed to inspect the HCPCF facet and to investigate the near-field profile of the transmitted mode. The optical scheme of the microscope is shown in Figure \ref{fig:horizontal_microscope}.
 
@@ -91,6 +91,7 @@ Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of
     \label{fig:photo_microscope_detail_topdown}
 \end{figure}
 
+\subsubsection{Chamber fiber optical imaging setup}
 
 %* ##########################################################
 \subsection{1064nm laser characterization}
@@ -151,7 +152,7 @@ The mode seen in Figure \ref{fig:kagome_images} right was associated with a tran
     \label{fig:80_eff_kagome_2}
 \end{figure}
 
-A final optimization was performed without the ocular lens by translating the objective slightly past the focal point and placing the camera approximately 2~m away. With this configuration, the magnification achieved is about $\sim \times 200$.
+A final optimization was performed without the ocular lens by translating the objective slightly past the working distance and placing the camera approximately 2~m away. With this configuration, the magnification achieved is about $\sim \times 70$ (more than doubling the magnification of the horizontal microscope).
 At this distance, the light scattered from the kagome structure becomes very faint, complicating the focusing procedure as the signal approaches the noise level. However, employing the FLIR camera, which has a lower read noise and a high sensitivity, the kagome lattice remained resolvable, as shown in Figure \ref{fig:kagome_hexagon_flir}.
 This figure shows clearly that the near-field mode assumes a hexagonal shape, perfectly fitting the core: as expected the field inherit the symmetry of the medium in which it is confined.
 The advantage of this extended projection distance is the significant expansion of the mode, the moiré patterns disturb the shape far less, allowing finer spatial details to be resolved, further improving the alignment procedure.
@@ -184,14 +185,49 @@ Finally, a sweep of laser nominal power was conducted, which changes also the la
 
 \subsubsection{Chamber fiber}
 {\color{blue} A questa sezione manca un riferimento al setup di imaging sulla breadboard superiore.}
+After validating the effectiveness of the alignment procedure using the test fiber, the same method was applied to the fiber installed inside the vacuum chamber.
+Unfortunately, it was not possible to properly illuminate the fiber, and the kagome structure could not be visualized. Using the same 635~nm LED employed for the test fiber, several configurations of focusing lenses and LED positions were tested, however, no light was successfully coupled into the kagome structures. In addition, due to physical constraints imposed by the vacuum chamber geometry, it was not possible to directly illuminate the fiber facet from the outside.
+One possible limitation might be the presence of a translucent rubber casing surrounding the fiber. The casing diffuses  the light of the LED preventing it to reach the kagome structure. Unlike the images obtained with the test fiber, in this case the jacket appears illuminated, suggesting that the diffused light propagated within the casing itself rather than reaching the fiber kagome structure.
 
-After the validation of the effectiveness of the alignment procedure with the test fiber, the same procedure was applied to align the fiber inside the vacuum chamber.
-In this case the objective cannot be placed at a focus length from the fiber tip because of the vacuum chamber. This introduces the necessity of couple of lens to have a new image plane outside the chamber. This introduces a resolution limit of 
-\begin{equation*}
-    x = 1.22\frac{\lambda f}{D} \simeq 3.6~\mu\mathrm{m}
-\end{equation*}
+Furthermore, the need to create a virtual image outside the chamber required the use of multiple lenses. While this approach enabled imaging of the fiber facet, it also introduced non-negligible chromatic aberrations. Figures \ref{fig:chamber_fiber_preliminary} left and \ref{fig:chamber_fiber_preliminary} right show respectively a preliminary image of the focused fiber and the same configuration with light guided through the fiber. In the latter case, the optical mode is in focus while the fiber facet appears out of focus.
+
+The mode obtained after the injection alignment procedure is shown in Figure \ref{fig:final_mode}, which exhibited $\sim50\%$ of transmission efficiency. It should be noted that this efficiency values was measured after the light propagated through a chamber window, two lenses and two mirrors, all of which introduce transmission and reflection losses due to their non-ideal optical performance. Moreover, the fiber installed in the chamber is longer than the test fiber. Although propagation losses associated with the additional length are should be negligible, the increased length requires several bends in the fiber routing, which are known to induce leakage losses in optical fibers.
+
+The final mode profile in Figure \ref{fig:final_mode} shows a clear asymmetry, indicating the presence of a superposition of fundamental $LP$ modes. Although, it should also be considered that, in order to enter the vacuum chamber, the fiber must be tightened in a ferrule by a swage-lock fitting. This mechanical stress can deform the fiber microstructure, altering its guiding properties and degrading the mode shape quality.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/chamber_fiber.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_2_figures/chamber_fiber_w_mod_.png}
+    \end{subfigure}
+    \caption{Preliminary images taken with a zoom $\sim\times10$ of the fiber facet in the vacuum chamber (left) and the fiber with a non-optimized mode (right). In contrast to the test fiber images, here, the kagome structure is not illuminated, whereas the outer jacket is. The mode exhibits a clear $LP_{11}$ profile. Note that focusing the mode bring the fiber out of focus, this makes the mode seem non-centered with respect to the fiber core.}
+    \label{fig:chamber_fiber_preliminary}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Cap_2_figures/chamber_fiber_final_mode.png}
+    \caption{Final mode profile obtained after the injection optimization (magnification $\sim\times10$). The mode shape is a bit deformed, meaning that it is a mixture of fundamental mode.}
+    \label{fig:final_mode}
+\end{figure}
+
+%
+%! I think this is wrong
+% In this case the objective cannot be placed at a focus length from the fiber tip because of the vacuum chamber. This introduces the necessity of a couple of lens to have a new image plane outside the chamber. Since the mode has diverged before reaching the fiber, a 2" lens is needed, this introduces a resolution limit of 
+% \begin{equation*}
+%     x = 1.22\,\frac{\lambda f}{D} = 1.22\,\frac{0.6~\mu\mathrm{m} \times 150~\mathrm{mm}}{50.8\mathrm{mm}} \simeq 2~\mu\mathrm{m}.
+% \end{equation*}
+% Since the kagome structures have a thickness of 750~nm, this prevents the whole optical system to resolve the kagome structure. 
+%
 
 %* ##########################################################
+\newpage
 \subsection{MOT to ODT loading sequence}
 %! In realtà credo qua andrà anche uno per la CMOT
 %* ##########################################################
