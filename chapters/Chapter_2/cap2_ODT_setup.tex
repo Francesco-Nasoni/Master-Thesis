@@ -11,6 +11,13 @@ This section describes the implementation of the Optical Dipole Trap (ODT) setup
 During the implementation of the system, dedicated diagnostic tools were also developed to investigate the near-field beam profile and improve the fiber-coupling alignment. The following subsections describe the ODT optical configuration and the experimental procedures adopted for the alignment and loading of the trap.
 
 %* ##########################################################
+\subsection{1064nm laser characterization}
+%* ##########################################################
+The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is a Ytterbium fiber laser that emits 1064~nm linearly polarized light. The mode field diameter of the laser changes significantly upon changes of the nominal power set, therefore the mode has been characterized as a function of the power set to allow a correct realization of the HCPCF injection setup. The calibration will also provide a reference for future fine tunings of the HCPCF injection.
+
+{\color{blue} TO BE CONTINUED, it will be moved before the optical setup}
+
+%* ##########################################################
 \subsection{Optical setup}\label{sec:optical_setup}
 %* ##########################################################
 In this experiment the ODT light is guided through a HCPCF, which introduces a critical complication in the injection procedure. Indeed, in contrast with standard telecom fibers, HCPCFs are multi-mode fibers. As a consequence, even small deviations of the injected beam from the ideal injection angle excites higher order modes in addition to the fundamental one. This results in distorted output beam profiles, which are not well suited for the realization of an optical conveyor belt based on the superposition of the beam guided by the HCPCF and a beam guided through a conventional telecom fiber supporting only the fundamental $LP_{01}$ mode.
@@ -83,7 +90,6 @@ Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of
     \caption{Top-down photograph of the complete experimental apparatus. The horizontal microscope, shielded by the black paper tube, is visible at the top of the image. The optical injection setup is located in the center, while the RF amplifier driving the AOM is placed at the bottom. For reference, the distance between the screw holes on the breadboard is 2.5~cm.}
     \label{fig:photo_injection_setup_topdown}
 \end{figure}
-
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\linewidth]{Cap_2_figures/microscope_topdown.jpg}
@@ -92,13 +98,21 @@ Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of
 \end{figure}
 
 \subsubsection{Chamber fiber optical imaging setup}
+\label{sec:chamber_fiber_imaging_setup}
+After the optimization and the validation of the injection alignment procedure using the test fiber, the same approach was applied to the fiber inside the vacuum chamber.
 
-%* ##########################################################
-\subsection{1064nm laser characterization}
-%* ##########################################################
-The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is a Ytterbium fiber laser that emits 1064~nm linearly polarized light. The mode field diameter of the laser changes significantly upon changes of the nominal power set, therefore the mode has been characterized as a function of the power set to allow a correct realization of the HCPCF injection setup. The calibration will also provide a reference for future fine tunings of the HCPCF injection.
+To investigate the near-field profile, a dedicated optical imaging setup was build on a breadboard positioned above the vacuum chamber (Figure~\ref{fig:upper_breadboard_imaging_setup}).
+Since the optical fiber is located inside the chamber, a first stage microscope was designed to create a virtual image of the fiber facet outside the chamber.
+For this purpose a f150 lens ($f=150~\mathrm{mm}$) was placed approximately 150~mm above the fiber facet, directly above the chamber window, such that the light emerging from the fiber is collimated. The collimated beam propagate through an opening and is redirected horizontally by a mirror (M1) tilted at $45^\circ$. A second lens f300 ($f=300~\mathrm{mm}$) refocuses the beam, forming an inverted image of the fiber facet with a magnification of $\times2$.
 
-{\color{blue} TO BE CONTINUED, it will be moved before the optical setup}
+A second imaging stage, consisting of lenses L3 and L4, acted as a microscope for this intermediate image and projected a magnified image onto the sensor of a camera. The focal lengths of L3 and L4 were modified several times throughout the experiment to optimize the field of view and magnification. The configuration used most frequently employed an L3 lens with $f=100~\mathrm{mm}$ and an L4 lens with $f=500~\mathrm{mm}$, resulting in an additional magnification of $\times5$. Combined with the first imaging stage, this yielded an overall magnification of approximately $\times10$, which was used for the majority of the measurements.
+
+\begin{figure}[!h]
+    \centering
+    \input{tikz/upper_breadboard_optical_setup.tex}
+    \caption{Scheme of the optical setup used to image the fiber inside the vacuum chamber. The optical path between the chamber window and the mirror M1 is vertical, whereas the rest of the setup is arranged horizontally on a breadboard mounted above the chamber. The focal length of lenses L3 and L4 were varied several times during the experiment. Most images where acquired using an $f=100~\mathrm{mm}$ and an $f=500~\mathrm{mm}$ providing an overall magnification of approximately $\times 10$ combined with the first imaging stage.}
+    \label{fig:upper_breadboard_imaging_setup}
+\end{figure}
 
 
 %* ##########################################################
@@ -184,12 +198,11 @@ Finally, a sweep of laser nominal power was conducted, which changes also the la
 {\color{blue} Qua manca qualcosa sulle due fotcamere, e anche un riferimento un pochino migliore alla HCPCF}
 
 \subsubsection{Chamber fiber}
-{\color{blue} A questa sezione manca un riferimento al setup di imaging sulla breadboard superiore.}
 After validating the effectiveness of the alignment procedure using the test fiber, the same method was applied to the fiber installed inside the vacuum chamber.
 Unfortunately, it was not possible to properly illuminate the fiber, and the kagome structure could not be visualized. Using the same 635~nm LED employed for the test fiber, several configurations of focusing lenses and LED positions were tested, however, no light was successfully coupled into the kagome structures. In addition, due to physical constraints imposed by the vacuum chamber geometry, it was not possible to directly illuminate the fiber facet from the outside.
 One possible limitation might be the presence of a translucent rubber casing surrounding the fiber. The casing diffuses  the light of the LED preventing it to reach the kagome structure. Unlike the images obtained with the test fiber, in this case the jacket appears illuminated, suggesting that the diffused light propagated within the casing itself rather than reaching the fiber kagome structure.
 
-Furthermore, the need to create a virtual image outside the chamber required the use of multiple lenses. While this approach enabled imaging of the fiber facet, it also introduced non-negligible chromatic aberrations. Figures \ref{fig:chamber_fiber_preliminary} left and \ref{fig:chamber_fiber_preliminary} right show respectively a preliminary image of the focused fiber and the same configuration with light guided through the fiber. In the latter case, the optical mode is in focus while the fiber facet appears out of focus.
+Furthermore, the need to create a virtual image outside the chamber required the use of multiple lenses (see Section \ref{sec:chamber_fiber_imaging_setup}). While this approach enabled imaging of the fiber facet, it also introduced non-negligible chromatic aberrations. Figures \ref{fig:chamber_fiber_preliminary} left and \ref{fig:chamber_fiber_preliminary} right show respectively a preliminary image of the focused fiber and the same configuration with light guided through the fiber. In the latter case, the optical mode is in focus while the fiber facet appears out of focus.
 
 The mode obtained after the injection alignment procedure is shown in Figure \ref{fig:final_mode}, which exhibited $\sim50\%$ of transmission efficiency. It should be noted that this efficiency values was measured after the light propagated through a chamber window, two lenses and two mirrors, all of which introduce transmission and reflection losses due to their non-ideal optical performance. Moreover, the fiber installed in the chamber is longer than the test fiber. Although propagation losses associated with the additional length are should be negligible, the increased length requires several bends in the fiber routing, which are known to induce leakage losses in optical fibers.
 
@@ -206,14 +219,14 @@ The final mode profile in Figure \ref{fig:final_mode} shows a clear asymmetry, i
         \centering
         \includegraphics[width=\linewidth]{Cap_2_figures/chamber_fiber_w_mod_.png}
     \end{subfigure}
-    \caption{Preliminary images taken with a zoom $\sim\times10$ of the fiber facet in the vacuum chamber (left) and the fiber with a non-optimized mode (right). In contrast to the test fiber images, here, the kagome structure is not illuminated, whereas the outer jacket is. The mode exhibits a clear $LP_{11}$ profile. Note that focusing the mode bring the fiber out of focus, this makes the mode seem non-centered with respect to the fiber core.}
+    \caption{Preliminary images taken with a zoom about $\times10$ of the fiber facet in the vacuum chamber (left) and the fiber with a non-optimized mode (right). In contrast to the test fiber images, here, the kagome structure is not illuminated, whereas the outer jacket is. The mode exhibits a clear $LP_{11}$ profile. Note that focusing the mode bring the fiber out of focus, this makes the mode seem non-centered with respect to the fiber core.}
     \label{fig:chamber_fiber_preliminary}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{Cap_2_figures/chamber_fiber_final_mode.png}
-    \caption{Final mode profile obtained after the injection optimization (magnification $\sim\times10$). The mode shape is a bit deformed, meaning that it is a mixture of fundamental mode.}
+    \caption{Final mode profile obtained after the injection optimization (magnification about $\times10$). The mode shape is a bit deformed, meaning that it is a superposition of fundamental $LP$ modes.}
     \label{fig:final_mode}
 \end{figure}
 
