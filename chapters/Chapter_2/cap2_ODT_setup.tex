@@ -13,9 +13,71 @@ During the implementation of the system, dedicated diagnostic tools were also de
 %* ##########################################################
 \subsection{1064nm laser characterization}
 %* ##########################################################
-The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is a Ytterbium fiber laser that emits 1064~nm linearly polarized light. The mode field diameter of the laser changes significantly upon changes of the nominal power set, therefore the mode has been characterized as a function of the power set to allow a correct realization of the HCPCF injection setup. The calibration will also provide a reference for future fine tunings of the HCPCF injection.
+The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is a Ytterbium fiber laser that emits 1064~nm linearly polarized light, at a maximum nominal power of 20~W. The mode field diameter of the laser changes significantly upon changes of the nominal power set, therefore the mode has been characterized as a function of the power set to allow a correct realization of the HCPCF injection setup. The calibration will also provide a reference for future fine tunings of the HCPCF injection.
 
-{\color{blue} TO BE CONTINUED, it will be moved before the optical setup}
+\subsubsection{Methodolgy}
+To measure the beam properties of the laser, it is assumed that it is Gaussian, thus its intensity is assumed to be \cite{salehteich2019}
+\begin{equation}
+    I(r, z) =  I_0 \left( \frac{w_0}{w(z)} \right)^2 \exp \left( \frac{-2r^2}{w(z)^2} \right),
+\end{equation}
+where 
+\begin{itemize}[noitemsep]
+    \item $z$ is the axial distance from the beam focus;
+    \item $r$ is the radial distance from the center of the beam;
+    \item $w(z)$ is the beam radius, i.e. the radius at which the intensity drop by a factor $1/e^2$ with respect to the intensity at the beam center;
+    \item $w_0=w(0)$ is the beam waist, i.e. the beam radius at the focus
+    \item $I_0$ is the intensity at the center of the beam at its waist.
+\end{itemize}
+The intensity follows a Gaussian shape, from which the name of the Gaussian beam.
+
+At any position $z$ on the axis, the beam radius is given by the hyperbolic relation \cite{salehteich2019}:
+\begin{equation}
+    \label{eq:Gaussian_beam_divergence}
+    w(z) = w_0 \sqrt{1 + \left( M^2\,\frac{z}{z_R} \right)^2}
+\end{equation}
+where 
+\begin{equation}
+    z_R = \frac{\pi w_0^2}{\lambda}
+\end{equation}
+is the Rayleigh range which represent the length about the waist within which the beam can be considered collimated, and $M^2\ge1$ is the quality factor, which take into account the non ideality of the beam.
+
+Therefore, by taking intensity measurements with a camera at several $z$ positions end extracting the beam radius, Equation \eqref{eq:Gaussian_beam_divergence} can be fitted to extract the waist radius $w_0$ and its position. 
+
+To take the measurements the employed setup coincides with the initial part of the ODT injection setup. With reference to Figure \ref{fig:ODT_injection_setup}, the measurements were taken from the beam coming out from the reflected branch of the second polarization beam Splitter PBS2 (see next section \ref{subsec:injection_setup} for more detail on the setup). The power was regulated through the orientation of the Half Wave Plates HWP2 and HWP3, and the addition of optical densities when needed.
+A Complementary Metal-Oxide-Semiconductor (CMOS) camera was used to take 17 intensity images with a step of 25~mm for the nominal laser powers 4~W, 7~W, 10~W, 13~W, 16~W and 17~W.
+
+The straightforward way of performing the extraction of the beam radius from each image is by fitting a 2D asymmetric Gaussian and extract the radius along $x$ and $y$ as $w_x(z)=2\sigma_x$ and $w_y(z)=$. However, using this method the fitting of equation \eqref{eq:Gaussian_beam_divergence} led to values of $M^2<1$ for all the powers but 4~W, which is unphysical, and by constraints $M^2\ge1$ the fit results have a poor superposition with the data.
+
+Probably, the presence of several optical components before the camera introduce aberrations or clipping phenomena that make equation \eqref{eq:Gaussian_beam_divergence} incorrect.
+
+For this reason a second method called $D4\sigma$ was tested \cite{Siegman98}. In this case the radius at every $z$ is calculated using the second moment of the beam intensity calculated with respect to the intensity barycenter. For instance for the $x$ Cartesian direction:
+\begin{equation}
+    \hat{\sigma}_x^2 = \frac{\int_{-\infty}^{\infty} (x - x_0)^2 I(x, y) \, dx \, dy}{\int_{-\infty}^{\infty} I(x, y) \, dx \, dy}
+\end{equation}
+where $x_0$ is the intensity barycenter $x$-coordinate
+Then equation \eqref{eq:Gaussian_beam_divergence} is fitted using the radius
+\begin{equation}
+    w_x = 2\hat{\sigma}_x \qquad\qquad  w_y = 2\hat{\sigma}_y\,.
+\end{equation}
+
+This $D4\sigma$ should be more reliable than the Gaussian fit in extracting the beam radius, since for its nature, the Gaussian fit could not capture a non-ideal Gaussian shape that has some intensity distributed on the tails. However, the $D4\sigma$ is very sensitive to anisotropic noise since it would introduce unbalance in bot the barycenter and second moment calculation. In our system the presence of a PBS and a beam blocker that together dump a large quantity of energy, produce a scattering background that is not isotropic, introducing an unbalance in the method. Thus, also this method did not manage to retrieve $M^2\ge1$ for all the power set without imposing any constrain, although performed better giving spontaneously $M^2\ge1$ for 4~W, 16~W and 17~W.
+
+In both approaches a preliminary Gaussian fit is performed to find approximately the maximum of the intensity, a radius of interest (ROI) of $5\sigma$ is cut about the maximum, and in one case a second Gaussian fit is performed while in the other the barycenter and the second moments are calculated and the equation \eqref{eq:Gaussian_beam_divergence} is fitted.
+
+\subsubsection{Results}
+
+\begin{figure}
+    \begin{subfigure}[b]{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Cap_2_figures/pdf/summary_waist.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Cap_2_figures/pdf/summary_waist_position.pdf}
+    \end{subfigure}
+    \caption{}
+    \label{fig:laser_characterization_results}
+\end{figure}
+
 
 %* ##########################################################
 \subsection{Optical setup}\label{sec:optical_setup}
@@ -24,9 +86,9 @@ In this experiment the ODT light is guided through a HCPCF, which introduces a c
 
 For this reason, particular cure was devoted to the alignment procedure. A significant improvement in the quality of the transmitted mode was achieved by optimizing the injection while inspecting the near-field of the transmitted beam, rather than simply maximizing the transmission efficiency. The following sections describe the injection setup and the horizontal microscope built for the near-field inspection.
 
-\subsubsection{Injection setup}
-The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, which is an Yitterbium fiber laser that emits 1064~nm linearly polarized light at about 3~W of power.
-
+\subsubsection{Injection setup}\label{subsec:injection_setup}
+Figure \ref{fig:ODT_injection_setup} shows the optical setup scheme used for the injection of the laser light in the HCPCF.
+The scheme is composed of the following elements:
 \begin{figure}[h]
     \centering
     \input{tikz/odt_injection_setup.tex}
@@ -37,8 +99,6 @@ The ODT is realized by employing the laser IPG Photonics YLR-20-1064-LP-SF, whic
     \label{fig:ODT_injection_setup}
 \end{figure}
 
-Figure \ref{fig:ODT_injection_setup} shows the optical setup scheme used for the injection of the laser light in the HCPCF.
-The scheme is composed of the following elements:
 \begin{itemize}
     \item \textbf{Half Wave Plate 1} (HWP1) and \textbf{Optical Isolator}. The optical isolator prevents back reflections from propagating towards the laser cavity. High-power lasers are particularly sensitive to back reflections, which can introduce power instabilities and potentially damage the laser system. Since optical isolators operate correctly only for a specific input polarization, HWP1 is used to optimize the polarization of the incoming beam and maximize the transmission through the isolator.
     
@@ -47,6 +107,7 @@ The scheme is composed of the following elements:
     \item \textbf{HWP3} and \textbf{PBS2}. PBS2 splits the beam into two different branches. The first is employed for the HCPCF injection, while the second will be injected into a PANDA polarization-maintaining fiber, which eventually will provide the second beam entering the chamber from above for the realization of the optical conveyor belt. HWP3 is adjusted to have approximately 50/50 power splitting ratio, although this value can be modified if required in future stages of the experiment.
     
     \item \textbf{Acousto-Optic Modulator} (AOM). The AOM is employed as a fast switch for the ODT beam. The device operates using an acoustic wave at \(110~\mathrm{MHz}\), causing the first diffraction order to be frequency shifted by the same amount. Although this shift is negligible with respect to the trap depth of the ODT, it will become relevant in the future implementation of the optical conveyor belt.
+    {\color{blue} add the DDS piloted by FPG to switch the AOM }
 
     \item \textbf{Beam expander}. A $\sim$3X beam expander is employed to increase the beam diameter and collimate it before the focusing conditions for coupling into the fiber.
     
@@ -110,7 +171,7 @@ A second imaging stage, consisting of lenses L3 and L4, acted as a microscope fo
 \begin{figure}[!h]
     \centering
     \input{tikz/upper_breadboard_optical_setup.tex}
-    \caption{Scheme of the optical setup used to image the fiber inside the vacuum chamber. The optical path between the chamber window and the mirror M1 is vertical, whereas the rest of the setup is arranged horizontally on a breadboard mounted above the chamber. The focal length of lenses L3 and L4 were varied several times during the experiment. Most images where acquired using an $f=100~\mathrm{mm}$ and an $f=500~\mathrm{mm}$ providing an overall magnification of approximately $\times 10$ combined with the first imaging stage.}
+    \caption{Scheme of the optical setup used to image the fiber inside the vacuum chamber. The optical path between the chamber window and the mirror M1 is vertical (characterized by the dashed beam line), whereas the rest of the setup is arranged horizontally on a breadboard mounted above the chamber. The focal length of lenses L3 and L4 were varied several times during the experiment. Most images where acquired using an $f=100~\mathrm{mm}$ and an $f=500~\mathrm{mm}$ providing an overall magnification of approximately $\times 10$ combined with the first imaging stage.}
     \label{fig:upper_breadboard_imaging_setup}
 \end{figure}
 
@@ -225,8 +286,8 @@ The final mode profile in Figure \ref{fig:final_mode} shows a clear asymmetry, i
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{Cap_2_figures/chamber_fiber_final_mode.png}
-    \caption{Final mode profile obtained after the injection optimization (magnification about $\times10$). The mode shape is a bit deformed, meaning that it is a superposition of fundamental $LP$ modes.}
+    \includegraphics[width=0.45\linewidth]{Cap_2_figures/chamber_fiber_final_mode.png}
+    \caption{Final mode profile obtained after the injection optimization (magnification about $\times10$). The mode shape is a bit deformed, meaning that it is a superposition of fundamental $LP$ modes. The image is cropped.}
     \label{fig:final_mode}
 \end{figure}
 
