@@ -68,7 +68,9 @@ In both approaches a preliminary Gaussian fit is performed to find approximately
 
 The waist radius values and the waist positions obtain with the two method are summarized in Tables \ref{tab:waist_radius_results} and \ref{tab:waist_radius_results}. The fit of Equation \eqref{eq:Gaussian_beam_divergence} was performed by imposing the constraint $M^2\ge1$ (minimization algorithm: Trust Region Reflective (TRF)). As final values the average of the results form $D4\sigma$ and Gaussian fit were averaged. As uncertainty the semi-range was used since the linearly propagated errors were small compared to the difference between the two results.
 
-The waist radius as a function of the nominal power is plotted in Figure \ref{fig:laser_characterization_results} top. It is clear 
+The waist radius as a function of the nominal power is plotted in Figure \ref{fig:laser_characterization_results} top. It shows that the beam has a small astigmatism with the $x$ waist being 1-2\% larger that the $y$ waist. Furthermore, the graph shows a marked linear behavior from 7~W to 8~W.
+
+On the other hand, the waist position as a function of the nominal power is plotted in Figure \ref{fig:laser_characterization_results} bottom. These results are not considered very reliable since the constraint $M^2\ge1$ allow the fits to correctly match the far points which depends asymptotically on solely $w_0$ (limit $z\gg1$ in equation \ref{eq:Gaussian_beam_divergence}), but strongly miss the prediction on the point at short distance that give the information on the waist position. Although the general behavior is realistic and the waist moves further as the power increases.
 
 \begin{table}[htpb]
     \centering
@@ -115,7 +117,7 @@ The waist radius as a function of the nominal power is plotted in Figure \ref{fi
     \end{tabular}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[p]
     \centering
     \begin{subfigure}[b]{\linewidth}
         \centering
@@ -132,7 +134,7 @@ The waist radius as a function of the nominal power is plotted in Figure \ref{fi
     \label{fig:laser_characterization_results}
 \end{figure}
 
-
+\newpage
 %* ##########################################################
 \subsection{Optical setup}\label{sec:optical_setup}
 %* ##########################################################
@@ -338,7 +340,7 @@ The final mode profile in Figure \ref{fig:final_mode} shows a clear asymmetry, i
     \label{fig:chamber_fiber_preliminary}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.45\linewidth]{Cap_2_figures/chamber_fiber_final_mode.png}
     \caption{Final mode profile obtained after the injection optimization (magnification about $\times10$). The mode shape is a bit deformed, meaning that it is a superposition of fundamental $LP$ modes. The image is cropped.}
