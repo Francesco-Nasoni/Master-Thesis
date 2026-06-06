@@ -66,15 +66,69 @@ In both approaches a preliminary Gaussian fit is performed to find approximately
 
 \subsubsection{Results}
 
-\begin{figure}
-    \begin{subfigure}[b]{0.49\linewidth}
-        \includegraphics[width=\linewidth]{Cap_2_figures/pdf/summary_waist.pdf}
+The waist radius values and the waist positions obtain with the two method are summarized in Tables \ref{tab:waist_radius_results} and \ref{tab:waist_radius_results}. The fit of Equation \eqref{eq:Gaussian_beam_divergence} was performed by imposing the constraint $M^2\ge1$ (minimization algorithm: Trust Region Reflective (TRF)). As final values the average of the results form $D4\sigma$ and Gaussian fit were averaged. As uncertainty the semi-range was used since the linearly propagated errors were small compared to the difference between the two results.
+
+The waist radius as a function of the nominal power is plotted in Figure \ref{fig:laser_characterization_results} top. It is clear 
+
+\begin{table}[htpb]
+    \centering
+    \caption{Comparison of the beam waist $w_0$ extracted via the $D4\sigma$ method and a Gaussian fit, alongside their averages. Uncertainties for the individual methods correspond to the fit errors, whereas the uncertainty of the average is given by the semi-range.}
+    \label{tab:waist_radius_results}
+    \begin{tabular}{c *{6}{C{1.75cm}}}
+        \toprule
+        \multirow{2}{*}[-0.5ex]{\makecell{Nominal\\Power (W)}}
+        & \multicolumn{6}{c}{{Estimated waist $w_0$ ($\mu$m)}} \\
+        \cmidrule(lr){2-7}
+
+        & $D4\sigma$-$x$ & $D4\sigma$-$y$ & Gaus-$x$ & Gaus-$y$ & Avg-$x$ & Avg-$y$ \\
+        \midrule
+        4 & $481 \pm 5$ & $474 \pm 7$ & $469 \pm 4$ & $460 \pm 7$ & $475 \pm 7$  & $467 \pm 8$  \\
+        7 & $454 \pm 3$ & $452 \pm 4$ & $419 \pm 3$ & $423 \pm 5$ & $430 \pm 20$ & $430 \pm 20$ \\
+        10 & $403 \pm 2$ & $394 \pm 3$ & $370 \pm 2$  & $364 \pm 3$  & $380 \pm 20$ & $380 \pm 20$ \\
+        13 & $351 \pm 2$ & $343 \pm 3$ & $323 \pm 4$  & $321 \pm 4$  & $330 \pm 20$ & $330 \pm 20$ \\
+        16 & $307 \pm 2$ & $298 \pm 4$ & $283 \pm 6$  & $282 \pm 6$  & $290 \pm 20$ & $280 \pm 20$ \\
+        19 & $288 \pm 3$ & $284 \pm 4$ & $266 \pm 7$  & $268 \pm 6$  & $270 \pm 20$ & $270 \pm 20$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[htpb]
+    \centering
+    \caption{Comparison of the beam waist position $z_0$ extracted via the $D4\sigma$ method and a Gaussian fit, alongside their averages. Uncertainties for the individual methods correspond to the fit errors, whereas the uncertainty of the average is given by the semi-range.}
+    \label{tab:waist_position_results}
+    \begin{tabular}{c *{6}{C{1.75cm}}}
+        \toprule
+        \multirow{2}{*}[-0.5ex]{\makecell{Nominal\\Power (W)}}
+        & \multicolumn{6}{c}{{Estimated waist position $z_0$ (mm)}} \\
+        \cmidrule(lr){2-7}
+
+        & $D4\sigma$-$x$ & $D4\sigma$-$y$ & Gaus-$x$ & Gaus-$y$ & Avg-$x$ & Avg-$y$ \\
+        \midrule
+        4 & $-90 \pm 40$ & $-80 \pm 50$ & $-40 \pm 20$ & $-60 \pm 40$ & $-70 \pm 20$ & $-74 \pm 10$ \\
+        7 & $20 \pm 30$  & $-3 \pm 40$  & $-20 \pm 20$ & $-40 \pm 20$ & $3 \pm 20$   & $-20 \pm 20$ \\
+        10 & $90 \pm 20$  & $70 \pm 30$  & $50 \pm 10$  & $40 \pm 10$  & $70 \pm 20$  & $50 \pm 20$  \\
+        13 & $110 \pm 10$ & $90 \pm 20$  & $90 \pm 20$  & $70 \pm 20$  & $100 \pm 10$  & $80 \pm 20$  \\
+        16 & $72 \pm 9$   & $50 \pm 20$  & $100 \pm 20$  & $80 \pm 20$  & $90 \pm 10$  & $70 \pm 20$  \\
+        19 & $70 \pm 10$  & $40 \pm 10$  & $90 \pm 20$  & $70 \pm 20$  & $80 \pm 10$  & $60 \pm 20$  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{\linewidth}
+        \centering
+        \includegraphics[width=0.75\linewidth]{Cap_2_figures/pdf/summary_waist.pdf}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\linewidth}
-        \includegraphics[width=\linewidth]{Cap_2_figures/pdf/summary_waist_position.pdf}
+
+    \vspace{3mm}
+
+    \begin{subfigure}[b]{\linewidth}
+        \centering
+        \includegraphics[width=0.75\linewidth]{Cap_2_figures/pdf/summary_waist_position.pdf}
     \end{subfigure}
-    \caption{}
+    \caption{ Characterization of the 1064~nm dipole trap laser beam parameters as a function of nominal output power. (Top) Transverse beam waist size versus power. (Bottom) Longitudinal shift of the beam waist position. Data points correspond to the mean values extracted from two independent beam profiling methodologies: the $D4\sigma$ method and standard Gaussian fitting. Blue and red markers denote measurements along the orthogonal X and Y transverse axes, respectively. Error bars indicate the semi-range error.}
     \label{fig:laser_characterization_results}
 \end{figure}
 
