@@ -1,0 +1,95 @@
+\section{Experimental Procedures and analysis methodology}
+
+The first step of the experimental sequence is the capture of atoms in the MOT, using the optimal parameters previously determined in  \cite{loparcomasters2024} for this apparatus.
+The MOT is realized with a magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
+
+After the loading phase, the magnetic field is switched off, initiating the optical molasses phase. In the absence of the magnetic field, the atomic temperature decreases, however the confinement force is lost and the atomic cloud begins to expand. At the same time, under the influence of gravity, the cloud starts to fall while experiencing a viscous-like damping force due to its interaction with the laser light.
+The temperature achieved during the molasses phase scales as $I/|\delta|$, $I$ is the laser intensity and $\delta$ is the detuning. However, this relation remains valid as long as $|\delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\delta^2$, and as long as it is not large enough to start to excite $D1$ line transitions with appreciable probability. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
+The molasses is performed with a detuning different from that used for the MOT phse, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 5~$\mu$s after the shim coils are changed to their molasses value. 
+
+%* ##########################################################
+\subsection{Atom Imaging}
+%* ##########################################################
+Two different CMOS cameras were used to image the atoms inside the vacuum chamber:
+\begin{itemize}
+    \item \textbf{Teledyne FLIR BFS-U3-04S2M-CS}, monochromatic camera mounting the Sony IMX287 sensor, with a resolution of $720\times 540$, and a pixel size of $6.9~\mu\mathrm{m}\times6.9~\mu\mathrm{m}$.
+    \item \textbf{Allied Vision Manta G-419}, monochromatic camera mounting the CMOSIS/ams CMV4000 CMOS sensor, with a resolution of $2048 \times 2048$, and a pixel size of $5.5~\mu\mathrm{m}\times5.5~\mu\mathrm{m}$.
+\end{itemize}
+
+The FLIR camera was primarily used during the optimization of the molasses phase, whereas, the Manta camera was employed for measurements of the atom capture efficiency of the ODT. The Manta was preferred with respect to the FLIR because of its higher sensitivity at 780~nm and its higher pixel density, which helped the imaging of the small region where the ODT is present.
+
+Both cameras were equipped with a Thorlabs MVL50M23 adjustable objective lens with a focal length of 50~mm, and a minimum working distance of 200~mm, corresponding to a minimum magnification of $\sim 0.33$. The objective was adjusted to focus on the HCPCF inside the vacuum chamber, ensuring that the atomic cloud, located at a similar distance, was also in focus. Both cameras were externally triggered by signals sent by the FPGA control system.
+
+Since the temperature determination of the atomic cloud requires knowledge of its physical dimensions (see Section \ref{subsec:temp_ext}), the FLIR camera had to be calibrated.
+
+The first calibration method was based on the measure of the diameter in pixel of the fiber inside the vacuum chamber. By turning on the MOT beam, the fiber gets illuminated, and a picture is taken. Using this method the fiber diameter of $\sim 316~\mu\mathrm{m}$ was found to correspond to 8 pixels. This yielded a calibration factor of $39.5~\mu\mathrm{m}/\mathrm{px}$, corresponding to a magnification of approximately 0.17. However, the measurement uncertainty was significant: assuming an uncertainty of one pixel on each edge of the fiber image, the measured diameter becomes $(8\pm2)$~px, resulting in a calibration factor of $(40\pm10)~\mu\mathrm{m}/\mathrm{px}$. Consequently, this method provides only a rough estimate of the imaging magnification.
+
+A second and more accurate calibration method was therefore employed. A mirror was positioned in front of the camera without modifying the objective setting, and a ruler with a visible scale was positioned so that it was in focus. This ensured that the ruler was located at the same distance from the objective as the fiber inside the vacuum chamber. With this method 2~cm corresponded to $(471\pm2)$~px. Since the instrumental uncertainty associated with a single measurement was negligible, the calibration was performed by taking five independent measurement, each time the ruler was moved out of focus and repositioned in focus to have five independent. The resulting five calibration factors were averaged, and the standard deviation of the mean was taken as the uncertainty. This procedure yielded a final calibration factor of $(43.4\pm0.3)~\mu\mathrm{m}/\mathrm{px}$, corresponding to a magnification of 0.16.
+
+%* ##########################################################
+\subsection{Temperature measurements}\label{subsec:temp_ext}
+%* ##########################################################
+Temperature measurements were performed toe optimize the molasses parameters, with the goal o achieving the lowest possible temperature. 
+
+The temperature of the atomic sample was determined by measuring its ballistic expansion during free fall. Assuming a non-interacting gas and considering a single spatial coordinate, if an atom is found at $x_0$ at $t=0$, after a free expansion time $t$ its position is given by
+\begin{equation}
+    x(t)=x_0 + v_x t.
+\end{equation}
+Taking into account the distributions of both positions and velocities, and assuming that these quantities are statistically independent, the variance of their sum is equal to the sum of their variances. Therefore,
+\begin{equation}
+    \label{eq:varince_expantion}
+    \sigma_x^2 (t)= \sigma_{x,0}^2 +\sigma_{v_x}^2t^2,
+\end{equation}
+where $\sigma{x,0}$ is the standard deviation of the position distribution at $t=0$.
+
+According to classical energy equipartition theorem, the temperature associated with a given spatial direction is related to the squared mean velocity along that direction:
+\begin{equation}
+    \frac{1}{2} m \langle v_x^2 \rangle = \frac{1}{2} k_B T_x,
+\end{equation}
+where $m$ is the atomic mass and $k_B$ is the Boltzmann constant.
+
+In the frame of reference of the cloud center of mass, the atomic cloud is globally at rest, thus $\langle v_x \rangle =0$ and $\langle v_x^2 \rangle = \sigma_{v_x}^2$.
+
+Since the velocity follow the Maxwell--Boltzmann distribution, it follows that
+\begin{equation}
+    \langle v_x^2 \rangle = \sigma_{v_x}^2 = \frac{k_B T_x}{m}
+\end{equation}
+Substituting this result into \ref{eq:varince_expantion} one gets:
+\begin{equation}
+    \label{eq:temperature_to_fit}
+    \sigma_x^2 (t)= \sigma_{x,0}^2 + \frac{k_B T_x}{m} t^2.
+\end{equation}
+
+Using the atomic mass of the $^{87}Rb$
+\begin{equation}
+    m = m_A({^{87}R}) = 86.9~\text{u} \approx 1.443 \times 10^{-25}~\text{kg},
+\end{equation}
+and acquiring images at different times of flight (TOF), equation \eqref{eq:temperature_to_fit} can be fitted obtaining $T_x$ as a fitting parameter.
+
+The complete acquisition and analysis procedure is summarized below:
+\begin{enumerate}
+    \item First a MOT is loaded, followed by the molasses phase.
+ 
+    \item After the molasses stage, all cooling beams are switched off, allowing the atomic cloud to expand and fall freely. Using the FLIR camera images are taken at different TOFs, obtaining the intensity distribution $I(TOF)$. For each TOF a corresponding background image $I_\text{bkg}(TOF)$ is also acquired. The background image is taken by waiting a sufficiently long time (1s) ensuring that the cloud has completely disappeared and only the background signal remains.
+    
+    It should be noted that,  due to the time required by the FLIR camera to transfer an image to the computer, it is not possible to take multiple TOF image during the same experimental run, therefore each image requires a new MOT loading and molasses sequence. 
+
+    \item The background is subtracted 
+    \begin{equation}
+        I_\text{clean}(TOF)=I(TOF)-I_\text{bkg}(TOF),
+    \end{equation}
+    and the associated Poisson uncertainty is calculated as     
+    \begin{equation}
+        \sigma_\text{N} = \sqrt{I(TOF)+I_\text{bkg}(TOF)}.
+    \end{equation}
+    
+    \item A two-dimensional Gaussian is fitted to each image (TRF minimization algorithm) to extract the cloud widths $\sigma_x$ and $\sigma_y$ along the two principal axis.
+    
+    \item Equation \eqref{eq:temperature_to_fit} is fitted independently  for both directions, obtaining the temperatures $T_x$ and $T_y$. Then, The final temperature $T$ is calculated as their average.
+    
+\end{enumerate}
+
+%* ##########################################################
+\subsection{ODT loading measurements}
+%* ##########################################################
+
