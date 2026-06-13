@@ -1,11 +1,11 @@
 \section{Experimental Procedures and analysis methodology}
 
-The first step of the experimental sequence is the capture of atoms in the MOT, using the optimal parameters previously determined in  \cite{loparcomasters2024} for this apparatus.
+The first step of the experimental sequence is the capture of atoms in the MOT, using the optimal parameters previously determined in   for this apparatus \cite{loparcomasters2024}.
 The MOT is realized with a magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
 
-After the loading phase, the magnetic field is switched off, initiating the optical molasses phase. In the absence of the magnetic field, the atomic temperature decreases, however the confinement force is lost and the atomic cloud begins to expand. At the same time, under the influence of gravity, the cloud starts to fall while experiencing a viscous-like damping force due to its interaction with the laser light.
-The temperature achieved during the molasses phase scales as $I/|\delta|$, $I$ is the laser intensity and $\delta$ is the detuning. However, this relation remains valid as long as $|\delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\delta^2$, {\color{blue} QUA SISTEMA}. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
-The molasses is performed with a detuning different from that used for the MOT phse, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 5~$\mu$s after the shim coils are changed to their molasses value. 
+After the loading phase, the magnetic field is switched off, initiating the optical molasses phase. In the absence of the magnetic field, the atomic temperature decreases, however the confinement force is lost, and the atomic cloud begins to expand. At the same time, under the influence of gravity, the cloud starts to fall while experiencing a viscous-like damping force due to its interaction with the laser light.
+The temperature achieved during the molasses phase scales as $I/|\delta|$, where $I$ is the laser intensity and $\delta$ is the detuning \cite{Dalibard:89}. However, this relation remains valid as long as $|\delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\delta^2$. Additionally, the detuning must not be so large to induce a significant excitation probability of the neighboring $F=2 \rightarrow F'=2$ transition. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
+The molasses is performed with a detuning different from that used for the MOT phase, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 5~$\mu$s after the shim coils are changed to their molasses value. 
 
 %* ##########################################################
 \subsection{Atom Imaging}
@@ -13,7 +13,7 @@ The molasses is performed with a detuning different from that used for the MOT p
 Two different CMOS cameras were used to image the atoms inside the vacuum chamber:
 \begin{itemize}
     \item \textbf{Teledyne FLIR BFS-U3-04S2M-CS}, monochromatic camera mounting the Sony IMX287 sensor, with a resolution of $720\times 540$, and a pixel size of $6.9~\mu\mathrm{m}\times6.9~\mu\mathrm{m}$.
-    \item \textbf{Allied Vision Manta G-419}, monochromatic camera mounting the CMOSIS/ams CMV4000 CMOS sensor, with a resolution of $2048 \times 2048$, and a pixel size of $5.5~\mu\mathrm{m}\times5.5~\mu\mathrm{m}$.
+    \item \textbf{Allied Vision Manta G-419 NIR}, monochromatic camera mounting the CMOSIS/ams CMV4000 CMOS sensor, with a resolution of $2048 \times 2048$, and a pixel size of $5.5~\mu\mathrm{m}\times5.5~\mu\mathrm{m}$.
 \end{itemize}
 
 The FLIR camera was primarily used during the optimization of the molasses phase, whereas, the Manta camera was employed for measurements of the atom capture efficiency of the ODT. The Manta was preferred with respect to the FLIR because of its higher sensitivity at 780~nm and its higher pixel density, which helped the imaging of the small region where the ODT is present.
@@ -29,7 +29,7 @@ A second and more accurate calibration method was therefore employed. A mirror w
 %* ##########################################################
 \subsection{Temperature measurements}\label{subsec:temp_ext}
 %* ##########################################################
-Temperature measurements were performed toe optimize the molasses parameters, with the goal o achieving the lowest possible temperature. 
+Temperature measurements were performed to optimize the molasses parameters, with the goal of achieving the lowest possible temperature. 
 
 The temperature of the atomic sample was determined by measuring its ballistic expansion during free fall. Assuming a non-interacting gas and considering a single spatial coordinate, if an atom is found at $x_0$ at $t=0$, after a free expansion time $t$ its position is given by
 \begin{equation}
@@ -92,4 +92,52 @@ The complete acquisition and analysis procedure is summarized below:
 %* ##########################################################
 \subsection{ODT loading measurements}
 %* ##########################################################
+In the analysis of the ODT, two main figures of merits are taking into account, namely the loading efficiency $\eta$ and the intensity integral of the ODT peak, that is directly porportional to the number of captured atoms. They are measured by comparing absorption images acquired with the ODT either present or absent during the MOT and molasses stages. Since only a small fraction of the atoms is expected to be captured by the ODT (order of $1/1000$), the analysis relies on differential imaging and careful background normalization to isolate the signal of the trapped atoms from fluctuations in the total atom number. The complete analysis procedure is summarized below.
 
+\begin{enumerate}
+    \item Two identical experimental sequences of MOT and molasses are consecutively performed with the same parameters. In one sequence, the ODT is kept on throughout the entire cycle starting from the MOT loading phase, whereas in the other the ODT remains off. After a TOF of 30~ms, absorption images of the atomic distribution denoted by $I_\text{on}$ and $I_\text{off}$ are taken with the Manta camera.
+    During the TOF the atom not trapped in the ODT expands enhancing the visibility of those confined in the ODT. Each pair f measurements is repeated five times
+    
+    \item  These images are cropped to  a region of interest of $530 \times 380$ pixels centered on the atomic cloud. This removes the region where the HCPCF is visible as well as peripheral areas containing only background signal.
+    
+    \item To improve the signal-to-noise ratio, the images corresponding to each experimental condition are averaged:
+    much as possible.
+    \begin{equation*}
+        \bar{I}\text{on} = \langle I_\text{on} \rangle \qquad \bar{I}\text{off} = \langle I_\text{off} \rangle\,.
+    \end{equation*}
+    This is important because the number of atom loaded into the ODT is expected to be small.
+
+    \item The averaged images are converted into one dimensional density profiles by integrating along the columns. This further increase the signal-to-noise ration.
+    
+    \item The total number of atoms in the molasses exhibits slow fluctuations even when the experimental parameters are unchanged. These variations are attributed to slow drifts in the chamber pressure and to thermal effects in optical components, such as the AOMs. Since the ODT signal is small, due to the correlated nature of the drifts, despite the average of different images the difference would result in a background different from zero that is comparable to the  ODT signal amplitude. 
+    To compensate this effect, a rescaling procedure is applied to the background images. This method computes a scale factor, $k$, which enforces a zero integrated difference outside the ODT region.
+    
+    The procedure is implemented as follows:
+    \begin{enumerate}[label=\roman*.]
+        \item An exclusion region centered on the ODT position, $x_{\text{ODT}} \pm R_{\text{window}}$ is defined. All remaining positions constitute the outside region.
+        
+        \item A linear background $L_i(x)$ is estimated by interpolating the edges of each intensity profile.
+        After subtracting the background, the integrated signal outside the ODT region is computed for both the ODT-on and ODT-off profiles ($A_{\text{on}}^{\text{out}}$ and $A_{\text{off}}^{\text{out}}$) as
+        
+        \begin{equation}
+            A_{i}^{\text{out}} = \int_{\text{outside}} \left( P_{i}(x) - \bar{I}_{i}(x) \right) dx \qquad i \in \{\text{on, off}\}
+        \end{equation}
+        
+        \item The normalization factor is given by the ratio of these integrated areas:
+        \begin{equation}
+            k = \frac{A_{\text{on}}^{\text{out}}}{A_{\text{off}}^{\text{out}}}
+        \end{equation}
+    \end{enumerate}
+
+    \item The final rescaled profile, which isolates the signal of the atoms trapped in the ODT, is obtained as:
+        \begin{equation}
+            \Delta \bar{I}(x) = \bar{I}_{\text{on}}(x) - k \cdot \bar{I}_{\text{off}}(x)
+        \end{equation}
+    
+    \item  Two independent fits consisting of a Gaussian function and a linear background are performed. The first fit is applied to the ODT-off profile $\bar{I}_\text{off}(x)$,while the second is applied to the differential profile $\Delta \bar{I}(x)$.\\
+    The areas $A_\text{off}^\text{Gaus}$ and $A_\text{ODT}^\text{Gaus}$ are calculated from the fit results, and the capture efficiency is calculated as 
+    \begin{equation}
+        \eta = \frac{A_\text{ODT}^\text{Gaus}}{k \times A_\text{off}^\text{Gaus}}
+    \end{equation}
+
+\end{enumerate}
