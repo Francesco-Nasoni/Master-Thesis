@@ -1,8 +1,172 @@
+% !TeX root = ./chapter_1_main.tex
 \section{Optical Fibers}
+A waveguide is a device that uses dielectric media with high refractive index to confine light within a region of space inhibiting its natural spread typical of free space propagation. The wave that propagates inside a waveguide is called guided mode (or guided wave).
+
+Optical fibers are circularly symmetric waveguide, and are by far the most common waveguide in the world. Following chapter III of \citeauthor*{yariv2007photonics} \cite{yariv2007photonics}, this chapter is devoted to understanding the physical principles that allow optical fibers to guide confined light, with particular focus on the shape of their modes of propagation.
 
 %* ##########################################################
 \subsection{Circularly symmetric wave guides}
 %* ##########################################################
+An optical fiber is model as a cylinder called core with refractive index $n_1$ surrounded by a hollow cylinder called cladding of refractive index $n_2$. The refractive index has therefore the step profile
+\begin{equation}
+    n(r)=
+    \begin{cases}
+        n_1, & 0 < r < a \\
+        n_2, & a < r < b,
+    \end{cases}
+\end{equation}
+where $a$ is the radius of the core and $b$ is the outer radius of the cladding. Usually the radius of the cladding is much larger that the radius of the core ($b\gg a$), so that the electric field can be considered zero at $r=b$. For example in fiber that guide a single mode of light with $\lambda=1.5~\mu\mathrm{m}$, the typical core radius is $a=5~\mu\mathrm{m}$ while the cladding external radius is in the order of $b=100~\mu\mathrm{m}$.
+
+\begin{figure}[h]
+    \centering
+    \import{./tikz}{optical_fiber_scheme.tex}
+    \caption{Schematic representation of a step-index optical fiber. (left) and wave vector diagram showing the geometric relationship between the wave number in the core $n_1 k_0$, the longitudinal propagation constant $\beta$, and the transverse wave number $h$ (right).}
+    \label{fig:optical_fiber_scheme}
+\end{figure}
+
+\subsubsection{Cylindrical symmetric wave equation}
+Given the symmetry of the system, it is natural to work with the cylindrical coordinates:
+\begin{equation}
+    \begin{cases}
+        \mathbf{u_r}    = & \hat{\mathbf{x}}\cos\phi  + \hat{\mathbf{y}}\sin\phi  \\
+        \mathbf{u_\phi} = & - \hat{\mathbf{x}}\sin\phi + \hat{\mathbf{y}}\cos\phi \\
+        \mathbf{u_z}    = & \hat{\mathbf{z}},
+    \end{cases}
+\end{equation}
+thus the electric and magnetic fields are expressed in terms of the components $E_r$, $E_\phi$, $E_z$, $H_r$, $H_\phi$ and $H_z$. In cylindrical coordinates the unit vectors $\mathbf{u_r}$ and $\mathbf{u_\phi}$ are not constant vectors ($\partial\mathbf{u_r}/\partial \phi = \mathbf{u_\phi}$ and $\partial \mathbf{u_\phi} /\partial \phi = -\mathbf{u_r}$), this complicates the wave equation for the associated components of the field. Nevertheless, as $\mathbf{u_z}=\mathbf{\hat{z}}$ the equation for the z components remain simple:
+\begin{equation}
+    \label{eq:z_component_wave_equation}
+    (\nabla^2 + k^2)
+    \begin{bmatrix}
+        E_z \\
+        H_z
+    \end{bmatrix}
+    =0,
+\end{equation}
+where $k^2=\omega^2n/c^2$ and $\nabla^2$ is the Laplacian operator in cylindrical coordinates.
+To solve the cylindrical wave equation, the usual approach is to solve for $E_z$ and $H_z$ and then express $E_r$, $E_\phi$, $H_r$ and $H_\phi$ in terms of $E_z$ and $H_r$, this is possible thanks to Maxwell's curl equations in cylindrical coordinates that allows the $r$ and $\phi$ components to be expressed as a function of solely $E_z$ and $H_z$ (Appendix A of \cite{yariv2007photonics}).
+
+Assuming for $E_z$ and $H_z$ a time $t$ dependence of $e^{i(\omega t-\beta z)}$
+\begin{equation}
+    \label{eq:z_field}
+    \begin{bmatrix}
+        \mathbf{E}(\mathbf{r},t) \\
+        \mathbf{H}(\mathbf{r},t)
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \mathbf{E}(r, \phi) \\
+        \mathbf{H}(r, \phi)
+    \end{bmatrix}
+    e^{i(\omega t -\beta z)},
+\end{equation}
+using the cylindrical Laplacian, equation \eqref{eq:z_component_wave_equation}, one gets:
+\begin{equation}
+    \label{eq:z_component_effective_equation}
+    \left(
+    \frac{\partial^2}{\partial r^2} +
+    \frac{1}{r} \frac{\partial^2}{\partial r} +
+    \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2}+
+    (k^2 - \beta^2)
+    \right)
+    \begin{bmatrix}
+        E_z \\
+        H_z
+    \end{bmatrix}
+    =0.
+\end{equation}
+
+Equation \eqref{eq:z_component_effective_equation} is solved by assuming the separation of variable
+\begin{equation}
+    F_z(r, \phi)=R(r)\Phi(\phi),
+\end{equation}
+where $F_z=E_z, H_z$, obtaining
+\begin{equation}
+    \Phi \frac{d^2R}{dr^2} + \frac{1}{r}\Phi\frac{dR}{dr} + \frac{1}{r^2}R\frac{d^2\Phi}{d\phi^2} +(k^2-\beta^2)R(r)\Phi(\phi) =0,
+\end{equation}
+which is a separable differential equation.
+
+The variables are separated by dividing by $R\Phi$, obtaining
+\begin{equation}
+    r^2
+    \left(
+    \frac{1}{R}\frac{d^2R}{dr^2}+
+    \frac{1}{r}\frac{1}{R}\frac{dR}{dr}+
+    (k^2 - \beta^2)
+    \right)
+    =
+    -\frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}.
+\end{equation}
+
+The last equation is in the form $f(f)=g(\phi)$, therefore the equality holds $\forall r, \phi$ if and only if the two sides are equal to same constant value:
+\begin{equation}
+    \begin{cases}
+        r^2
+        \left(
+        \frac{1}{R}\frac{d^2R}{dr^2}+
+        \frac{1}{r}\frac{1}{R}\frac{dR}{dr}+
+        (k^2-\beta^2)
+        \right)
+        = l^2 \\[3mm]
+        -\frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2} = l^2
+    \end{cases}
+\end{equation}
+
+The angular part has a simple exponential solution:
+\begin{equation}
+    \Phi(\phi) = C_1e^{+il\phi} + C_2 e^{-il\phi}
+\end{equation}
+and since $\Phi(\phi)$ must be single valued ($\Phi(0)=\Phi(2n\pi)$) the value of $l$ is constrained to
+\begin{equation}
+    l = 0,1,2,...
+\end{equation}
+
+The solution can be therefore expressed as:
+\begin{equation*}
+    \begin{bmatrix}
+        E_z \\
+        H_z
+    \end{bmatrix}
+    =R(r)e^{\pm il\phi}
+\end{equation*}
+where the differential equation for the radial part is
+\begin{equation}
+    \label{eq:bessel_equation}
+    \frac{\partial^2 R}{\partial r^2} +
+    \frac{1}{r}\frac{\partial R}{\partial r} +
+    \left(k^2-\beta^2-\frac{l^2}{r^2}\right) R =0
+\end{equation}
+which is the Bessel differential equation, whose solution is given by a combination of the Bessel functions.
+
+\subsubsection{The Bessel functions}
+Equation \eqref{eq:bessel_equation} admits different solution depending on the sign of $k^2-\beta^2$:
+\begin{itemize}
+    \item if $k^2 -\beta^2 >0$ the solutions are the Bessel functions of the first and second kind:
+    $$ \psi(r) = C_1 J_l(hr) + C_2 Y_l(hr);$$
+
+    \item if $k^2 -\beta^2 <0$ the solution are the modified Bessel functions of the first and second kind:
+    $$ \psi(r) = C_1 I_l(qr) + C_2 K_l(qr)$$
+    where $h^2 = k^2 -\beta^2$ and $q^2=\beta^2-k^2$.
+\end{itemize}
+
+\begin{figure}[hb]
+    \begin{subfigure}[t]{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Cap_1_figures/Bessel/J_n_Bessel.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\linewidth}
+            \includegraphics[width=\linewidth]{Cap_1_figures/Bessel/Y_n_Bessel.pdf}
+    \end{subfigure}
+    %=========================================
+    \begin{subfigure}[b]{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Cap_1_figures/Bessel/I_n_Modified_Bessel.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \includegraphics[width=\linewidth]{Cap_1_figures/Bessel/K_n_Modified_Bessel.pdf}
+    \end{subfigure}
+    \caption{Behavior of the ordinary and modified Bessel functions for the first four integer orders, $n \in \{0, 1, 2, 3\}$. Top panels: Ordinary Bessel functions of the first kind, $J_n(x)$ (left), and second kind, $Y_n(x)$ (right). Bottom panels: Modified Bessel functions of the first kind, $I_n(x)$ (left), and second kind, $K_n(x)$ (right).}
+\end{figure}
 
 %* ##########################################################
 \subsection{Weak waveguide approximation}

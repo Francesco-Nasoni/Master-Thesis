@@ -27,9 +27,12 @@
 % Physics
 \usepackage{braket}
 
+% For organizing the work in subfiles
+\usepackage{subfiles}
+
 % Bibliography
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
-\addbibresource{bibliography.bib}
+\addbibresource{\subfix{bibliography.bib}}
 
 % Hyperlinks
 \usepackage{xr-hyper}
@@ -47,9 +50,6 @@
 
 % No indentation on new paragraphs
 \setlength{\parindent}{0pt}
-
-% For organizing the work in subfiles
-\usepackage{subfiles}
 
 % For numbering also subsubsections
 \setcounter{secnumdepth}{3}

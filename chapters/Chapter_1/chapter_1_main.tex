@@ -1,4 +1,5 @@
 \documentclass[../../thesis_main.tex]{subfiles}
+\externaldocument{../../thesis_main}
 \graphicspath{{\subfix{../../figures/}}}
 
 \begin{document}
@@ -11,4 +12,5 @@
     \newpage
     \import{./}{cap1_optical_fibers.tex}
 
+    \ifSubfilesClassLoaded{\printbibliography}{}
 \end{document}
