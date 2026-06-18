@@ -337,9 +337,10 @@ On the other hand, the continuity condition of $E_z$ at $r=a$ must hold $\forall
     ha \frac{J_{l+1}(ha)}{J_l(ha)} & = qa \frac{K_{l+1}(qa)}{K_l(qa)}  \label{eq:characteristic_equation_of_LP_modes}   \\[2.5mm]
     ha \frac{J_{l-1}(ha)}{J_l(ha)} & = -qa \frac{K_{l-1}(qa)}{K_l(qa)} \label{eq:characteristic_equation_of_LP_modes_2}
 \end{align}
-which lead to equivalent due to the Bessel function properties \cite{yariv2007photonics}. The same equations result for the continuity of $H_z$
+which are equivalent due to the Bessel function properties \cite{yariv2007photonics}. The same equations result for the continuity of $H_z$
 
 The continuity condition of the x-polarized mode lead the same exact requirements.
+
 
 
 %* ##############################################################
@@ -356,3 +357,60 @@ Their corresponding modes are called Linear Polarized modes, and are labeled as:
 
 Since the condition in \eqref{eq:characteristic_equation_of_LP_modes} holds for both x-polarized and y-polarized waves, $LP_{lm-x}$ and $LP_{lm-y}$ are degenerate having the same propagation constant $\beta_{lm}$. This can be seen as direct consequence of the circular symmetry of the fiber. Furthermore, considering the degeneracy associated with $\pm \phi$, $\beta_{lm}$ and $LP_{lm}$ results to be four-fold degenerate, except for the important case $l=0$ for which the exponential is equal to one independently on the sign of $\phi$, resulting in a two-fold degeneration of $\beta_{lm}$ and $LP_{lm}$.
 
+In order to determine the allowed values of $\beta_{lm}$, the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes}must be solved. Since the transverse wave numbers $h$ and $q$ are interdependent, it is convenient to express the in terms of a dimensionless parameter. For this purpose, normalized frequency, also called fiber $V$ parameter, is introduced and defined as:
+\begin{equation}
+    V=k_0a\sqrt{n_1^2-n_2^2}=\frac{2\pi a}{\lambda}\sqrt{n_1^2-n_2^2}=\sqrt{(ha)^2+(qa)^2}.
+\end{equation}
+The $V$ parameter is a fixed parameter of a fiber that depends on its structural parameters, as shown below it determines the number of guided modes and their confinement factor.
+
+Using the $V$ parameter, the cladding variable $qa$ can be expressed as
+\begin{equation}
+    \label{eq:qa}
+    qa=\sqrt{V^2-(ha)^2},
+\end{equation}
+and by substituting it back in equation \eqref{eq:characteristic_equation_of_LP_modes}, the characteristic equation is reduced to a function of the single variable $ha$, allowing for a graphical or numerical solution. Moreover, equation \eqref{eq:qa} highlights that the left-hand side of \eqref{eq:characteristic_equation_of_LP_modes} exists only for $ha<V$.
+
+Figure \ref{fig:graphyc_solution_characteristic}, shows the graphical resolution for $l=0$ (left) and $l=1$ (right). Considering the case of $l=0$, the left-hand side of equation \eqref{eq:characteristic_equation_of_LP_modes} vanishes at root of $J_1(ha)$, which occurs at $ha=0,\,\, 3.832,\,\, 7.016\,\, ...$ While the nominator vanishes at root of $j_0(ha)$ which occurs at $ha=2.405,\,\, 5.520,\,\, 8.654$ corresponding to asymptotes to $\pm \infty$. Thus, in the range $ha\in[0, 2.405]$ the left-hand side is a positive strictly increasing function going from 0 to $+\infty$. The right-hand side, instead, at $ha=0$ assumes the positive value $VK_1(V)/K_0(V)$ and becomes to decrease as $ha$ increases reaching $0$ for $ha=V$. Therefore, there is always an intersection even for very small values of $V$, meaning that the mode $LP_{01}$ is always guided by an optical fiber regardless of its $V$ parameter.
+
+\begin{figure}[t]
+    \begin{subfigure}[b]{0.498\linewidth}
+        \includegraphics[width=\linewidth]{Cap_1_figures/LP_modes/LP_solution_l0.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.498\linewidth}
+        \includegraphics[width=\linewidth]{Cap_1_figures/LP_modes/LP_solution_l1.pdf}        
+    \end{subfigure}
+    \caption{Graphical solution of}
+    \label{fig:graphyc_solution_characteristic}
+\end{figure}
+
+For $l\ge1$, the value of the right-hand side in the limit $ha \rightarrow V$ can be calculated using \eqref{eq:bessel_asimptotic_x_small}, so that is $2l$. In this situation an intersection with the right-hand side is not guaranteed for every value of $V$. In particular for $V<2.405$ the only possible guided mode is the $LP_{01}$. As $V$ increases beyond $2.405$ also the $LP_{11}$ appears, therefore $V=2.405$ is called the $V$ cutoff value of the $LP_{11}$.
+
+The $V_\text{cutoff}$ of a mode can be determined by considering that the mode became guided when the transverse wave vector $h$ associated to that mode satisfies $ha=V$ or equivalently when $q=0$. Using $q=0$ in equation \eqref{eq:characteristic_equation_of_LP_modes_2}, one gets 
+\begin{equation}
+    V_\text{cutoff} \frac{J_{l-1}(V_\text{cutoff})}{J_l{V_\text{cutoff}}} = 0.
+\end{equation}
+Thus, the cutoff of the modes $LP_{lm}$ are given by:
+\begin{equation}
+    J_{l-1}(V_\text{cutoff}) = 0
+\end{equation}
+so that the first root of $J_{l-1}$ is the cutoff of $LP_{l1}$, the second root is the cutoff of $LP_{l2}$ and so on.
+
+Equation \eqref{eq:characteristic_equation_of_LP_modes_2} is used instead of \eqref{eq:characteristic_equation_of_LP_modes} because in the first the right-hand side goes to $0$ as $ha \rightarrow V$, making the cutoff associated to the roots of Bessel functions of the first kind of order $l-1$.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+$V_{\text{cutoff}}$ & $m = 1$ & $m = 2$ & $m = 3$ & $m = 4$ \\
+\midrule
+$l = 0$ & 0     & 3.832 & 7.016  & 10.173 \\
+$l = 1$ & 2.405 & 5.520 & 8.654  & 11.792 \\
+$l = 2$ & 3.832 & 7.016 & 10.173 & 13.323 \\
+$l = 3$ & 5.136 & 8.417 & 11.620 & 14.796 \\
+$l = 4$ & 6.379 & 9.760 & 13.017 & 16.224 \\
+\bottomrule
+\end{tabular}
+\caption{Cutoff values for different mode numbers.}
+\label{tab:cutoff_values}
+\end{table}
