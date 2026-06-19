@@ -315,12 +315,12 @@ In the cladding $r>a$:
         E_x = 0 \\
         E_y = B K_l(qr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
         E_z = \pm \frac{q}{\beta} \frac{B}{2} [K_{l+1}(qr)e^{\pm i(l+1)\phi} - K_{l-1}(qr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
-    \end{cases}\label{E_cladding}   \\[3mm]
+    \end{cases}\label{eq:E_cladding}   \\[3mm]
     & \begin{cases}
         H_x = -\frac{\beta}{\omega\mu} B K_l(qr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
         H_y = 0 \\
         H_z = -\frac{iq}{\omega\mu} \frac{B}{2} [K_{l+1}(qr)e^{\pm i(l+1)\phi} + K_{l-1}(qr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
-    \end{cases}\label{H_cladding}
+    \end{cases}\label{eq:H_cladding}
 \end{align}
 
 Considering that $E_z/E_y \propto h/\beta$, $H_z/H_x \propto h/\beta$ in the core and $E_z/E_y \propto q/\beta$, $H_z/H_x \propto q/\beta$ in the cladding, since $h,q \ll \beta$, $E_y$ and $H_x$ are the dominant components, and the mode is approximately TEM, consistently with the considerations done above.
@@ -328,6 +328,7 @@ Considering that $E_z/E_y \propto h/\beta$, $H_z/H_x \propto h/\beta$ in the cor
 % \subsubsection{Continuity Conditions}
 Considering that $E_\phi = -E_x\sin(\phi) + E_y\cos(\phi)$, for a y-polarized mode, $E_\phi \propto E_x$ thus the radial continuity condition at $r=a$ reduces to the continuity condition of $E_y$, which leads to
 \begin{equation}
+    \label{eq:B_A_relation}
     B=A\frac{J_l (ha)}{K_l(qa)}
 \end{equation}
 the same reasoning and result holds for $H_\phi$ continuity.
@@ -380,7 +381,7 @@ Figure \ref{fig:graphyc_solution_characteristic}, shows the graphical resolution
     \begin{subfigure}[b]{0.498\linewidth}
         \includegraphics[width=\linewidth]{Cap_1_figures/LP_modes/LP_solution_l1.pdf}        
     \end{subfigure}
-    \caption{Graphical solution of}
+    \caption{Graphical resolution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes} of the $LP$ modes, for $l=0$ (right) and $l=1$ (left). The blue curves represent the left-hand side (LHS) of equation \eqref{eq:characteristic_equation_of_LP_modes} for the given $l$. The red curves represent the right-hand side (LHS) for $V=2,\,\,5,\,\,8$. The gray dashed line represent the limit $q \rightarrow 0$ of the LHS.}
     \label{fig:graphyc_solution_characteristic}
 \end{figure}
 
@@ -400,6 +401,7 @@ Equation \eqref{eq:characteristic_equation_of_LP_modes_2} is used instead of \eq
 
 \begin{table}[htbp]
 \centering
+\caption{Cutoff values of $V$ for different low order $LP$ modes.}
 \begin{tabular}{lcccc}
 \toprule
 $V_{\text{cutoff}}$ & $m = 1$ & $m = 2$ & $m = 3$ & $m = 4$ \\
@@ -411,6 +413,70 @@ $l = 3$ & 5.136 & 8.417 & 11.620 & 14.796 \\
 $l = 4$ & 6.379 & 9.760 & 13.017 & 16.224 \\
 \bottomrule
 \end{tabular}
-\caption{Cutoff values for different mode numbers.}
 \label{tab:cutoff_values}
 \end{table}
+
+\subsubsection{Power Flow of LP modes}
+
+Before proceeding with the power flow calculation of $LP$ modes, a clarification regarding the basis chosen for the spatial representation of the field is necessary. Until now, following the work in \cite{yariv2007photonics}, a basis in which the azimuthal dependence is expressed by the exponential $e^{\pm il\phi}$, for the two degenerate solution $\pm l$ has been used. This representation is convenient for calculation, however, lead to a basis in which the modes have an azimuthal phase dependence, or equivalently modes that carry a defined orbital angular momentum (OAM) $l\hbar$ per photon \cite{Allen:92}.
+In real experimental scenarios usually the fibers are injected with standard Gaussian beam, which inherently lacks macroscopic OAM as lack of azimuthal phase dependence. Therefore, to conserve the net angular momentum at the fiber input, the overlap integral excites the two azimuthal counter-propagating spatial modes $+l$ and $-l$ with strictly identical amplitudes and in phase.
+
+For this reason a basis where the azimuthal dependence is expressed by trigonometric functions $\cos(l\phi)$ and $\sin(l\phi)$ is preferred for the intensity profile representation of $LP$ modes, as it is also the basis commonly used for expressing the $LP$ mode in textbooks and articles, since their introduction in \cite{Gloge:71}. Strictly speaking they are a superposition of zero OAM, for example for cosine:
+\begin{equation}
+    \cos(l\phi)= \frac{e^{il\phi} + e^{-il\phi}}{2}.
+\end{equation}
+So in the following, a trigonometric basis for the azimuthal part is employed.
+
+For the intensity profile, a pure $e^{\pm il\phi}$ mode would yield a ring-shaped profile lacking any azimuthal dependence. The trigonometric basis, instead, explicitly models the interference between modes with opposite OAM, yielding the characteristic intensity pattern of $2l$ lobes routinely observed in the laboratory.
+
+To calculate the power flow of the $LP$ mode, one evaluates the time-averaged Poynting vector along the $z$ direction, which is given by \cite{yariv2007photonics}
+\begin{equation}
+    S_z = \frac{1}{2} \text{\textbf{Re}} [E_xH_y^*-E_yH_x^*].
+\end{equation}.
+
+Using equations \eqref{eq:E_core}, \eqref{eq:H_core}, \eqref{eq:E_cladding} and \eqref{eq:H_cladding}, using $\cos(l\phi)$ as angular momentum term instead of the exponential, the power flow becomes
+\begin{equation}
+    S_z^{(lm)}=
+    \frac{\beta}{2\omega\mu}
+    \begin{cases}
+        |A|^2 J_l^2(hr) \cos^2(l\phi), \quad r<a \\[2.5mm]
+        |B|^2 K_l^2(qr) \cos^2(l\phi), \quad r>a
+    \end{cases}
+\end{equation}
+where the dependence on $m$ is implicitly contained in $h$ and $q$.
+
+The power that flows in the core and in the cladding, are calculated by integrating the Poynting vector:
+\begin{align}
+    P_{\text{core}} &= \int_{0}^{2\pi} \int_{0}^{a} S_z r \, dr \, d\phi \\
+    P_{\text{clad}} &= \int_{0}^{2\pi} \int_{a}^{\infty} S_z r \, dr \, d\phi
+\end{align}
+
+Using the integrals of the Bessel function \cite{yariv2007photonics}, and by substituting $B$ from \eqref{eq:B_A_relation}, the result is:
+\begin{align}
+    P_{\text{core}} &= \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ J_l^2(ha) - J_{l-1}(ha)J_{l+1}(ha) \right] \\
+    P_{\text{clad}} &= \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ -J_l^2(ha) - \left(\frac{h}{q}\right)^2 J_{l-1}(ha)J_{l+1}(ha) \right],
+\end{align}
+and the total power flow is
+\begin{equation}
+    \label{eq:P_total}
+    P_\text{tot} = \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left( 1 + \frac{h^2}{q^2} \right) \left[ -J_{l-1}(ha)J_{l+1}(ha) \right].
+\end{equation}
+Multiplication side bi side equations \eqref{eq:characteristic_equation_of_LP_modes} and \eqref{eq:characteristic_equation_of_LP_modes_2} one gets:
+\begin{equation}
+    (ha)^2\frac{J_{l+1}(ha)J_{l-1}(ha)}{J_l^2(ha)} = - (qa)^2\frac{K_{l+1}(qa)K_{l-1}(qa)}{K_l^2(qa)}
+\end{equation}
+considering that the functions $K_L$ are always positive (see Figure \ref{fig:bessel_functions}), the quantity $J_{l-1}(ha)J_{l+1}(ha)$ is always negative for the allowed values of $ha$, therefore the total power flow \eqref{eq:P_total} is always positive as expected.
+
+The confinement factor is defined as $\Gamma_1=P_\text{core}/P_\text{tot}$
+\begin{equation}
+    \label{eq:confinement_factor}
+    \Gamma_1 = \frac{P_{\text{core}}}{P} = \frac{1}{V^2} \left( (qa)^2 - \frac{(qa)^2 J_l^2(ha)}{J_{l-1}(ha)J_{l+1}(ha)} \right).
+\end{equation}
+The behavior as a function of $V$ is not trivial since also $h$ and $q$ depend on $V$ through the resolution of equation \eqref{eq:characteristic_equation_of_LP_modes}. Generally speaking the confinement factor $\Gamma_1$ increases as $V$ increases.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_1_figures/LP_modes/lp_modes_confinement-v7.pdf}
+    \caption{}
+    \label{fig:LP_mode_confinement}
+\end{figure}
