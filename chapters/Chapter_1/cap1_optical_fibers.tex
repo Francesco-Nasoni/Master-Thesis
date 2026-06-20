@@ -1,13 +1,13 @@
 % !TeX root = ./chapter_1_main.tex
 \section{Optical Fibers}
-A waveguide is a device that uses dielectric media with high refractive index to confine light within a region of space inhibiting its natural spread typical of free space propagation. The wave that propagates inside a waveguide is called guided mode (or guided wave).
+Waveguides are devices that employ dielectric materials with a high refractive index to confine and guide electromagnetic radiation, preventing the diffraction-induced spreading that occurs during free-space propagation. The electromagnetic wave that propagates inside a waveguide is called guided mode.
 
-Optical fibers are circularly symmetric waveguides, and are by far the most common waveguide in the world. Following chapter III of \citeauthor*{yariv2007photonics} \cite{yariv2007photonics}, this section aims to explain the physical principles that allow optical fibers to guide confined light, with particular focus on the shape of their modes of propagation in the weak wave guide approximation: the so called $LP$ modes.
+Optical fibers are cylindrically symmetric waveguides, and represent the most widespread class of optical waveguides. Following chapter III of \citeauthor*{yariv2007photonics} \cite{yariv2007photonics}, this section aims to explain the physical principles underlying light confinement in optical fibers. Particular attention is devoted to the characterization of the guided modes in the weakly guiding approximation, which leads to the so-called linearly polarized ($LP$) modes.
 
 %* ##############################################################
-\subsection{Circularly symmetric wave guides}
+\subsection{Circularly symmetric waveguides}
 %* ##############################################################
-An optical fiber is modeled as a cylinder called core with refractive index $n_1$ surrounded by a hollow cylinder called cladding of refractive index $n_2$. The refractive index has therefore the step profile
+An optical fiber can be modeled as a cylindrical core of refractive index $n_1$ surrounded by a cylindrical cladding of refractive index $n_2$. The refractive index distribution is therefore described by the step-index profile
 \begin{equation}
     n(r)=
     \begin{cases}
@@ -15,7 +15,7 @@ An optical fiber is modeled as a cylinder called core with refractive index $n_1
         n_2, & a < r < b,
     \end{cases}
 \end{equation}
-where $a$ is the radius of the core and $b$ is the outer radius of the cladding. Usually the radius of the cladding is much larger than the radius of the core ($b\gg a$), so that the electric field can be considered zero at $r=b$. For example in a fiber that guides a single mode of light with $\lambda=1.5~\mu\mathrm{m}$, the typical core radius is $a=5~\mu\mathrm{m}$ while the cladding external radius is in the order of $b=100~\mu\mathrm{m}$.
+where $a$ is the radius of the core and $b$ is the outer radius of the cladding. Usually the radius of the cladding is much larger than the radius of the core ($b\gg a$), thus the electromagnetic field can be considered zero at $r=b$. As an example, in a single-mode fiber guiding light with $\lambda=1.5~\mu\mathrm{m}$, the typical core radius is $a=5~\mu\mathrm{m}$ while the cladding external radius is in the order of $b=100~\mu\mathrm{m}$.
 
 \begin{figure}[t]
     \centering
@@ -33,20 +33,7 @@ Owing to the cylindrical symmetry of the system, it is convenient to work with t
         \mathbf{u_z}    = & \hat{\mathbf{z}},
     \end{cases}
 \end{equation}
-thus the electric and magnetic fields are expressed in terms of the components $E_r$, $E_\phi$, $E_z$, $H_r$, $H_\phi$ and $H_z$. In cylindrical coordinates the unit vectors $\mathbf{u_r}$ and $\mathbf{u_\phi}$ are not constant vectors ($\partial\mathbf{u_r}/\partial \phi = \mathbf{u_\phi}$ and $\partial \mathbf{u_\phi} /\partial \phi = -\mathbf{u_r}$). This complicates the wave equation for the associated components of the field. Nevertheless, as $\mathbf{u_z}=\mathbf{\hat{z}}$ the equation for the z components remains simple:
-\begin{equation}
-    \label{eq:z_component_wave_equation}
-    (\nabla_t^2 + k^2)
-    \begin{bmatrix}
-        E_z \\
-        H_z
-    \end{bmatrix}
-    =0,
-\end{equation}
-where $k^2=\omega^2n/c^2$ and $\nabla_t^2$ is the transversal component of the Laplacian operator in cylindrical coordinates.
-To solve the cylindrical wave equation, the standard approach is to solve for $E_z$ and $H_z$ and then express $E_r$, $E_\phi$, $H_r$ and $H_\phi$ in terms of $E_z$ and $H_z$. This is possible thanks to Maxwell's curl equations in cylindrical coordinates that allows the $r$ and $\phi$ components to be expressed as a function of solely $E_z$ and $H_z$ (Appendix A of \cite{yariv2007photonics}).
-
-To proceed with the resolution, the dependence on the coordinate $z$ and time $t$ is assumed to be $e^{i(\omega t-\beta z)}$, namely:
+thus the electric and magnetic fields are expressed in terms of the components $E_r$, $E_\phi$, $E_z$, $H_r$, $H_\phi$ and $H_z$. In cylindrical coordinates the unit vectors $\mathbf{u_r}$ and $\mathbf{u_\phi}$ are not constant vectors ($\partial\mathbf{u_r}/\partial \phi = \mathbf{u_\phi}$ and $\partial \mathbf{u_\phi} /\partial \phi = -\mathbf{u_r}$). This complicates the wave equation for the associated components of the field. Nevertheless, as $\mathbf{u_z}=\mathbf{\hat{z}}$ the equation for the z components remains simple. Assuming the dependence on the coordinate $z$ and time $t$ to be $e^{i(\omega t-\beta z)}$, namely:
 \begin{equation}
     \label{eq:z_field}
     \begin{bmatrix}
@@ -60,14 +47,26 @@ To proceed with the resolution, the dependence on the coordinate $z$ and time $t
     \end{bmatrix}
     e^{i(\omega t -\beta z)},
 \end{equation}
-where $\beta$ is referred to as the propagation constant of the mode.
+where $\beta$ is referred to as the propagation constant of the mode,
+the wave equation for $E_z$ and $H_z$ is
+\begin{equation}
+    \label{eq:z_component_wave_equation}
+    (\nabla^2 + k^2)
+    \begin{bmatrix}
+        E_z \\
+        H_z
+    \end{bmatrix}
+    =0,
+\end{equation}
+where $k^2=\omega^2n^2/c^2$ and $\nabla^2$ is the Laplacian operator in cylindrical coordinates.
+To solve the cylindrical wave equation, the standard approach is to solve equation \eqref{eq:z_component_wave_equation} and then express $E_r$, $E_\phi$, $H_r$ and $H_\phi$ in terms of $E_z$ and $H_z$ through Maxwell's curl equations in cylindrical coordinates (Appendix A of \cite{yariv2007photonics}).
 
-Using \eqref{eq:z_field} and the transverse cylindrical Laplacian in  \eqref{eq:z_component_wave_equation}, one gets:
+Using \eqref{eq:z_field} and explicitly writing the transverse cylindrical Laplacian in  \eqref{eq:z_component_wave_equation}, one gets:
 \begin{equation}
     \label{eq:z_component_effective_equation}
     \left(
     \frac{\partial^2}{\partial r^2} +
-    \frac{1}{r} \frac{\partial^2}{\partial r} +
+    \frac{1}{r} \frac{\partial}{\partial r} +
     \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2}+
     (k^2 - \beta^2)
     \right)
@@ -110,39 +109,39 @@ The last equation is in the form $f(r)=g(\phi)$. Therefore, since the left-hand 
         \right)
         = l^2 \\[3mm]
         -\frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2} = l^2
-    \end{cases}
+    \end{cases}.
 \end{equation}
 
-The angular part has the simple exponential solution:
+The angular part has a simple exponential solution:
 \begin{equation}
-    \Phi(\phi) = C_1e^{+il\phi} + C_2 e^{-il\phi}
+    \Phi(\phi) = C_1e^{+il\phi} + C_2 e^{-il\phi},
 \end{equation}
-where $C_1$ and $C_2$ are constants. $\Phi(\phi)$ must be single valued ($\Phi(\phi)=\Phi(\phi + 2n\pi)$), thus the value of $l$ is constrained to
+where $C_1$ and $C_2$ are constants that are determined by the boundary conditions of the problem. To be physically meaningful, $\Phi(\phi)$ must be single valued ($\Phi(\phi)=\Phi(\phi + 2\pi)$), thus the value of $l$ is constrained to
 \begin{equation}
     l = 0,1,2,...
 \end{equation}
 
-The solution can be therefore expressed as:
+A set of elementary solutions can therefore be expressed in the form
 \begin{equation*}
     \begin{bmatrix}
         E_z \\
         H_z
     \end{bmatrix}
-    =R(r)e^{\pm il\phi}
+    =R(r)e^{\pm il\phi},
 \end{equation*}
-where the differential equation for the radial part is
+where the differential equation that describes the radial part is
 \begin{equation}
     \label{eq:bessel_equation}
-    \frac{\partial^2 R}{\partial r^2} +
-    \frac{1}{r}\frac{\partial R}{\partial r} +
-    \left(k^2-\beta^2-\frac{l^2}{r^2}\right) R =0
+    \frac{d^2 R}{d r^2} +
+    \frac{1}{r}\frac{d R}{d r} +
+    \left(k^2-\beta^2-\frac{l^2}{r^2}\right) R =0,
 \end{equation}
-which is recognized as Bessel's differential equation. Its solutions are a linear combination of Bessel functions of order $l$.
+which is recognized as Bessel's differential equation, and its solutions are a linear combination of Bessel functions of order $l$.
 
 \subsubsection{The Bessel functions}
 The radial equation \eqref{eq:bessel_equation} admits different classes of solutions depending on the sign of the quantity $k^2-\beta^2$:
 \begin{itemize}
-    \item for $k^2 -\beta^2 >0$, the solutions are given by the ordinary the Bessel functions of the first and second kind of order $l$:
+    \item for $k^2 -\beta^2 >0$, the solutions are given by the ordinary Bessel functions of the first and second kind of order $l$:
     \begin{equation}
         \label{eq:bessel_function_conditions}
         R(r) = \bar{C_1} J_l(hr) + \bar{C_2} Y_l(hr);
@@ -154,9 +153,9 @@ The radial equation \eqref{eq:bessel_equation} admits different classes of solut
         R(r) = \bar{C_1} I_l(qr) + \bar{C_2} K_l(qr),
     \end{equation}
 \end{itemize}
-where $h^2 = k^2 -\beta^2$ and $q^2=\beta^2-k^2$, and $\bar{C_1}$ and $\bar{C_2}$ are arbitrary constants determined by the boundary conditions
+where $h^2 = k^2 -\beta^2$ and $q^2=\beta^2-k^2$, and $\bar{C_1}$ and $\bar{C_2}$ are arbitrary constants determined by the boundary conditions.
 
-The behavior of the ordinary and modified Bessel functions is illustrated in Figure \ref{fig:bessel_functions}. To proceed with the physical solution, it is useful to consider their asymptotic forms for both large and small arguments.
+The behavior of the ordinary and modified Bessel functions is illustrated in Figure~\ref{fig:bessel_functions}. To proceed with the physical solution, it is useful to consider their asymptotic forms for both large and small arguments.
 
 For $ x \gg 1, l$, the asymptotic expressions are
 \begin{equation}
@@ -172,7 +171,7 @@ For $ x \gg 1, l$, the asymptotic expressions are
 For $x \ll 1$, the corresponding approximations are
 \begin{equation}
     \begin{aligned}
-        \label{eq:bessel_asimptotic_x_small}
+        \label{eq:bessel_asymptotic_x_small}
         J_l(x) &\rightarrow \frac{1}{l!} \left( \frac{x}{2} \right)^l \\
         Y_0(x) &\rightarrow \frac{2}{\pi} \left( \ln \frac{x}{2} + 0.5772 \ldots \right) \\
         Y_l(x) &\rightarrow -\frac{(l-1)!}{\pi} \left( \frac{2}{x} \right)^l \quad l = 1, 2, 3, \ldots \\
@@ -202,7 +201,7 @@ Another important property is that the derivative of a Bessel function of order 
     \begin{subfigure}[b]{0.49\linewidth}
         \includegraphics[width=\linewidth]{Cap_1_figures/Bessel/K_n_Modified_Bessel.pdf}
     \end{subfigure}
-    \caption{Behavior of the ordinary and modified Bessel functions for the first four integer orders, $n \in \{0, 1, 2, 3\}$. Top panels: Ordinary Bessel functions of the first kind, $J_n(x)$ (left), and second kind, $Y_n(x)$ (right). Bottom panels: Modified Bessel functions of the first kind, $I_n(x)$ (left), and second kind, $K_n(x)$ (right).}
+    \caption{Behavior of ordinary and modified Bessel functions for the first four integer orders, $n \in \{0, 1, 2, 3\}$. Top panels: Ordinary Bessel functions of the first kind, $J_n(x)$ (left), and second kind, $Y_n(x)$ (right). Bottom panels: Modified Bessel functions of the first kind, $I_n(x)$ (left), and second kind, $K_n(x)$ (right).}
     \label{fig:bessel_functions}
 \end{figure}
 
@@ -212,59 +211,58 @@ Another important property is that the derivative of a Bessel function of order 
 \clearpage
 \subsection{The Weakly Guiding Approximation}
 %* ##############################################################
-The solutions of the complete problem of electromagnetic wave in circular guide are very complicated and lead to solutions called hybrid modes indicated by $EH$ and $HE$, that are a combination of modes with electric field transverse to the propagation of the wave ($TE$) and modes with the magnetic field transverse to the propagation direction ($TM$).
+The solution of the complete problem of electromagnetic guided modes in circular waveguides is cumbersome, and it leads to the so-called hybrid modes indicated by $EH$ and $HE$, which are a combination of modes with the electric field transverse to the propagation of the wave ($TE$) and modes with the magnetic field transverse to the propagation direction ($TM$).
 
 However, for a large variety of fibers, the core refractive index is only slightly higher than the refractive index of the cladding:
 \begin{equation}
-    (n_1 - n_2)/n_1 \ll 1,
+    \frac{n_1 - n_2}{n_1} \ll 1,
 \end{equation}
-a condition commonly referred to as weakly guiding approximation. Under this assumption, the exact modes can be accurately approximated by a simpler set of modes, known as linearly polarized ($LP$) modes, first introduced by \citeauthor*{Gloge:71} \cite{Gloge:71}.
+a condition commonly referred to as weakly guiding approximation. Under this assumption, the exact modes can be accurately approximated by a simpler set of modes, known as linearly polarized ($LP$) modes, first introduced in the work of \citeauthor*{Gloge:71} \cite{Gloge:71}.
 
-Using the relation $k^2=(n(r)k_0)^2$ where $k_0=\omega/c$, with $c$ the speed of light, equation \eqref{eq:z_component_effective_equation} can be rewritten as
+Using the relation $k^2=(n(r)\,k_0)^2$ where $k_0=\omega/c$, equation \eqref{eq:z_component_effective_equation} can be rewritten as
 \begin{equation}
-    [\nabla^2_{t}+((n(r) k_0)^2 - \beta^2)]
+    [\nabla^2_{t}+((n(r)\,k_0)^2 - \beta^2)]
     \begin{bmatrix}
         E_z \\
         H_z
     \end{bmatrix}
-    =0
+    =0.
 \end{equation}
 
-Looking for a guided mode in the fiber is equivalent to looking for a solution that has oscillatory behavior in the core while exhibiting evanescent decay in the cladding. From the properties of second-order differential equations, these requirements imply
+Looking for a guided mode in the fiber is equivalent to seeking a solution that exhibits an oscillatory behavior in the core while exhibiting evanescent decay in the cladding. From the properties of second-order differential equations, these requirements imply:
 \begin{equation}
     \label{eq:beta_conditions}
     \begin{aligned}
-        r &> a \quad \text{vanishing} &\implies (n_2 k_0)^2 - \beta^2 < 0 \\
+        r &> a \quad \text{vanishing} &\implies (n_2 k_0)^2 - \beta^2 < 0 ,\\
         r &< a \quad \text{oscillating} &\implies (n_1 k_0)^2 - \beta^2 > 0.
     \end{aligned}
 \end{equation}
-Consequently, the propagation constant of a guided mode must satisfy:
+Consequently, the propagation constant of a guided mode must satisfy
 \begin{equation}
     n_2k_0 < \beta < n_1k_0,
 \end{equation}
-which in weakly waveguide regime becomes:
+which in weakly guiding regime becomes
 \begin{equation}
     \label{eq:beta_weak_waveguide}
     n_2k_0 \simeq \beta \simeq n_1k_0.
 \end{equation}
 
-The transverse wave numbers in the core and in the cladding are defined as
+At this point, it is convenient to introduce the transverse wave numbers in the core ($h$) and in the cladding ($q$):
 \begin{align}
-    h &= \sqrt{n_1^2\,k_0^2 - \beta^2} \\
+    h &= \sqrt{n_1^2\,k_0^2 - \beta^2}, \\
     q &= \sqrt{\beta^2 - n_2^2\,k_0^2}.
 \end{align}
-The parameter $h$ describes the transverse oscillation of the field within the core(see Figure \ref{fig:optical_fiber_scheme}), whereas $q$ characterizes the transversal decay rate of the mode in the cladding.
-
-Equation \eqref{eq:beta_weak_waveguide} implies
+The parameter $h$ describes the transverse oscillation of the field within the core (see Figure~\ref{fig:optical_fiber_scheme}), whereas $q$ characterizes the decay of the mode in the cladding.\\
+Equation \eqref{eq:beta_weak_waveguide} implies that
 \begin{equation}
     \label{eq:relation_hq_beta}
     h,q \ll \beta.
 \end{equation}
 Physically this means that the rays are approximately parallel to the fiber axis. Therefore, the longitudinal components of the electric and magnetic field are far weaker than the transverse ones, and the guided modes are approximately transverse electromagnetic (TEM) \cite{salehteich2019}.
 
-The objective is now to identify a complete set of approximate modal solutions in the weakly guiding limit. The approach is to focus on solutions where either $x$ or $y$ component of the field vanishes, so looking for x-polarized or y-polarized solutions. 
+The objective is now to identify a complete set of approximate modal solutions in the weakly guiding limit. The approach is to focus on solutions where either the $x$ or the $y$ component of the field vanishes, thus looking for x-polarized or y-polarized solutions. 
 The approximation made by \citeauthor*{Gloge:71} \cite{Gloge:71} is based on postulating for the transverse component a simple dependence on a single Bessel function. Matching the requirements \eqref{eq:beta_conditions} with the Bessel equation solution condition \eqref{eq:bessel_function_conditions} and \eqref{eq:modified_bessel_function_conditions}, one deduces that the mode must be described by ordinary Bessel functions inside the core and by modified Bessel functions in the cladding.
-Furthermore, physically acceptable solutions must remain finite at the fiber axis and vanish at large radial distances. By comparison  with the asymptotic behavior in \eqref{eq:bessel_asympototic_x_large} and \eqref{eq:bessel_asimptotic_x_small}, only $J_l$ is admissible in the core region, whereas only $K_l$ satisfies the required decay condition in the cladding.
+Furthermore, physically acceptable solutions must remain finite at the fiber axis and vanish at large radial distances. By comparison with the asymptotic behavior in \eqref{eq:bessel_asympototic_x_large} and \eqref{eq:bessel_asymptotic_x_small}, only $J_l$ is admissible in the core region, whereas only $K_l$ satisfies the required decay condition in the cladding.
 
 For a mode polarized along the (y)-direction, the transverse electric field is therefore postulated as
 \begin{equation}
@@ -278,19 +276,18 @@ For a mode polarized along the (y)-direction, the transverse electric field is t
         \end{cases},
     \end{aligned}
 \end{equation}
-where $A$ and $B$ are constants that are determined from the continuity condition at the core--cladding interface.
+where $A$ and $B$ are constants that are determined from the continuity condition at the core--cladding interface.\\
+It is worth noting that, for each value of $l$, equation \eqref{eq:gloge_y_polarized_field} describes two independent azimuthal solutions associated to $e^{+il\phi}$ and $e^{-il\phi}$. Taking into account the two possible independent linear polarizations, a total of four independent basis functions are associated with each value of $l$.
 
-It is worth noting that, for each value of $l$, equation \eqref{eq:gloge_y_polarized_field} describes two independent azimuthal solutions associated to $e^{+il\phi}$ and $e^{-il\phi}$. Taking into account the two possible independent linear polarizations, a total of four independent basis functions are therefore associated with each value of $l$.
-
-The remaining electromagnetic field components can be obtained from Maxwell's equations. Under the weakly guiding approximation, the magnetic field is given by \cite{yariv2007photonics}
+The remaining electromagnetic field components can be obtained from Maxwell's equations. In particular, the magnetic field is given by \cite{yariv2007photonics}:
 \begin{equation}
     \begin{cases}
         H_x=\frac{-i}{\omega\mu}\frac{\partial}{\partial z}E_y = -\frac{\beta}{\omega\mu}E_y \\
         H_y \simeq 0                                                                         \\
-        H_z = \frac{i}{\omega\mu}\frac{\partial}{\partial x}E_y.
-    \end{cases}
+        H_z = \frac{i}{\omega\mu}\frac{\partial}{\partial x}E_y
+    \end{cases},
 \end{equation}
-Similarly, the longitudinal electric field component can be expressed as
+and similarly, the longitudinal electric field component can be expressed as
 \begin{equation}
     E_z = \frac{i}{\omega\epsilon}\frac{\partial}{\partial y}H_x = \frac{-i\beta}{\omega^2\mu\epsilon}\frac{\partial}{\partial y}E_y.
 \end{equation}
@@ -303,12 +300,12 @@ In the core ($r<a$):
         E_x = 0                                                  \\
         E_y = A J_l(hr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
         E_z = \pm \frac{h}{\beta}\frac{A}{2} [J_{l+1}(hr)e^{\pm i(l+1)\phi} + J_{l-1}(hr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
-    \end{cases}\label{eq:E_core}        \\[3mm]
+    \end{cases},\label{eq:E_core}        \\[3mm]
     & \begin{cases}
         H_x = -\frac{\beta}{\omega\mu} A J_l(hr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
         H_y =0\\
-        H_z = -\frac{ih}{\omega\mu} \frac{A}{2} [J_{l+1}(hr)e^{\pm i(l+1)\phi} - J_{l-1}(hr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)},
-    \end{cases}\label{eq:H_core}
+        H_z = -\frac{ih}{\omega\mu} \frac{A}{2} [J_{l+1}(hr)e^{\pm i(l+1)\phi} - J_{l-1}(hr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
+    \end{cases}.\label{eq:H_core}
 \end{align}
 
 In the cladding ($r>a$):
@@ -316,19 +313,19 @@ In the cladding ($r>a$):
     & \begin{cases}
         E_x = 0 \\
         E_y = B K_l(qr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
-        E_z = \pm \frac{q}{\beta} \frac{B}{2} [K_{l+1}(qr)e^{\pm i(l+1)\phi} - K_{l-1}(qr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
-    \end{cases}\label{eq:E_cladding}   \\[3mm]
+        E_z = \frac{q}{\beta} \frac{B}{2} [K_{l+1}(qr)e^{\pm i(l+1)\phi} - K_{l-1}(qr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
+    \end{cases},\label{eq:E_cladding}   \\[3mm]
     & \begin{cases}
         H_x = -\frac{\beta}{\omega\mu} B K_l(qr) e^{\pm il\phi} e^{i(\omega t - \beta z)} \\
         H_y = 0 \\
         H_z = -\frac{iq}{\omega\mu} \frac{B}{2} [K_{l+1}(qr)e^{\pm i(l+1)\phi} + K_{l-1}(qr)e^{\pm i(l-1)\phi}] e^{i(\omega t - \beta z)}
-    \end{cases}\label{eq:H_cladding}
+    \end{cases}.\label{eq:H_cladding}
 \end{align}
 
-Considering that $E_z/E_y \propto h/\beta$, $H_z/H_x \propto h/\beta$ in the core and $E_z/E_y \propto q/\beta$, $H_z/H_x \propto q/\beta$ in the cladding, since $h,q \ll \beta$, $E_y$ and $H_x$ are the dominant components, and the mode is approximately TEM, consistently with the considerations above.
+Considering that $E_z/E_y \propto h/\beta$, $H_z/H_x \propto h/\beta$ in the core and $E_z/E_y \propto q/\beta$, $H_z/H_x \propto q/\beta$ in the cladding, since $h,q \ll \beta$, $E_y$ and $H_x$ are the dominant components, and the mode is approximately TEM, consistently with the considerations given above.
 
 % \subsubsection{Continuity Conditions}
-Considering that $E_\phi = -E_x\sin(\phi) + E_y\cos(\phi)$, for a y-polarized mode, $E_\phi \propto E_y$ thus the radial continuity condition at $r=a$ reduces to the continuity condition of $E_y$, which leads to
+Considering that $E_\phi = -E_x\sin(\phi) + E_y\cos(\phi)$, for a y-polarized mode $E_\phi \propto E_y$, thus the radial continuity condition at $r=a$ reduces to the continuity condition of $E_y$, which leads to
 \begin{equation}
     \label{eq:B_A_relation}
     B=A\frac{J_l (ha)}{K_l(qa)}.
@@ -337,8 +334,8 @@ An identical condition is obtained from the continuity of $H_\phi$.
 
 On the other hand, the continuity condition of $E_z$ at $r=a$ must hold for every value of the azimuthal coordinate $\phi$. Consequently, the coefficients of $\exp[\phi(l+1)\phi]$ and $\exp[\pm i(l-1)\phi]$ must be matched separately. This leads to
 \begin{align}
-    ha \frac{J_{l+1}(ha)}{J_l(ha)} & = qa \frac{K_{l+1}(qa)}{K_l(qa)}  \label{eq:characteristic_equation_of_LP_modes}   \\[2.5mm]
-    ha \frac{J_{l-1}(ha)}{J_l(ha)} & = -qa \frac{K_{l-1}(qa)}{K_l(qa)} \label{eq:characteristic_equation_of_LP_modes_2}
+    ha \frac{J_{l+1}(ha)}{J_l(ha)} & = qa \frac{K_{l+1}(qa)}{K_l(qa)},  \label{eq:characteristic_equation_of_LP_modes}   \\[2.5mm]
+    ha \frac{J_{l-1}(ha)}{J_l(ha)} & = -qa \frac{K_{l-1}(qa)}{K_l(qa)}, \label{eq:characteristic_equation_of_LP_modes_2}
 \end{align}
 which are equivalent as a consequence of the recurrence relations satisfied by the Bessel functions \cite{yariv2007photonics}. The same characteristic equations are obtained by imposing continuity of $H_z$.
 
@@ -349,7 +346,7 @@ Finally, repeating the same procedure for an x-polarized mode leads to identical
 %* ##############################################################
 \subsection{The LP modes}
 %* ##############################################################
-Equation \eqref{eq:characteristic_equation_of_LP_modes} depends only on $\beta$ through the transverse wave numbers $h$ and $q$. It yields an infinite set of discrete solutions for each value of $l$. Therefore, the propagation constants solutions of the model are labeled as:
+Equation \eqref{eq:characteristic_equation_of_LP_modes} depends only on $\beta$ through the transverse wave numbers $h$ and $q$. It yields an infinite set of discrete solutions for each value of $l$. Therefore, the propagation constants are labeled as:
 \begin{equation}
     \beta_{lm}\quad:\quad l=0,1,2,... \quad m=1,2,3,...
 \end{equation}
@@ -358,8 +355,9 @@ Their corresponding modes are called Linearly Polarized modes, denoted by:
     LP_{lm}\quad:\quad l=0,1,2,... \quad m=1,2,3,...
 \end{equation}
 
-Since the condition in \eqref{eq:characteristic_equation_of_LP_modes} holds for both x-polarized and y-polarized waves, the modes $LP_{lm-x}$ and $LP_{lm-y}$ are degenerate sharing the same propagation constant $\beta_{lm}$. This degeneracy is a direct consequence of the circular symmetry of the fiber. Furthermore, accounting for the degeneracy associated with the azimuthal phase term $e^{\pm il\phi}$, the propagation constant $\beta_{lm}$ and the mode $LP_{lm}$ result to be four-fold degenerate. A notable exception occurs for the fundamental case $l=0$, for which the exponential is equal to unity independently of the sign of $l\phi$, reducing $\beta_{0m}$ and $LP_{0m}$ to a two-fold degeneracy.
+Since the condition in \eqref{eq:characteristic_equation_of_LP_modes} holds for both x-polarized and y-polarized waves, the modes $LP_{lm-x}$ and $LP_{lm-y}$ are degenerate sharing the same propagation constant $\beta_{lm}$. This degeneracy is a direct consequence of the circular symmetry of the fiber. Furthermore, accounting for the degeneracy associated with the azimuthal phase term $e^{\pm il\phi}$, the propagation constant $\beta_{lm}$ and the mode $LP_{lm}$ are four-fold degenerate. A notable exception occurs for the fundamental case $l=0$, for which the exponential is equal to unity independently of the sign of $l\phi$, reducing $\beta_{0m}$ and $LP_{0m}$ to a two-fold degeneracy.
 
+\subsubsection{Characteristic equation of the LP modes}
 In order to determine the allowed values of $\beta_{lm}$, the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes} must be solved. Since the transverse wave numbers $h$ and $q$ are interdependent, it is convenient to express them in terms of a dimensionless parameter. For this purpose, the normalized frequency, also called fiber $V$ parameter, is introduced and defined as:
 \begin{equation}
     V=k_0a\sqrt{n_1^2-n_2^2}=\frac{2\pi a}{\lambda}\sqrt{n_1^2-n_2^2}=\sqrt{(ha)^2+(qa)^2}.
@@ -371,9 +369,9 @@ Using the $V$ parameter, the cladding variable $qa$ can be expressed as:
     \label{eq:qa}
     qa=\sqrt{V^2-(ha)^2},
 \end{equation}
-and by substituting it back in equation \eqref{eq:characteristic_equation_of_LP_modes}, the characteristic equation is reduced to a function of the single variable $ha$, allowing for a graphical or numerical solution. Moreover, equation \eqref{eq:qa} explicitly restricts the domain of the left-hand side of \eqref{eq:characteristic_equation_of_LP_modes} to  $ha < V$.
+and substituting it back in equation \eqref{eq:characteristic_equation_of_LP_modes}, the characteristic equation is reduced to a function of the single variable $ha$, allowing for a graphical or numerical solution. Moreover, equation \eqref{eq:qa} explicitly restricts the domain of the left-hand side of \eqref{eq:characteristic_equation_of_LP_modes} to  $ha < V$.
 
-Figure \ref{fig:graphyc_solution_characteristic} shows the graphical resolution for $l=0$ (left) and $l=1$ (right). For $l=0$, the left-hand side of equation \eqref{eq:characteristic_equation_of_LP_modes} vanishes at the roots of $J_1(ha)$, located at $ha=0,\, 3.832,\, 7.016\, \dots$, whereas the denominator vanishes at the roots of $J_0(ha)$ which occurs at $ha=2.405,\, 5.520,\, 8.654\, \dots$ corresponding to vertical asymptotes. Therefore, in the interval $ha\in[0, 2.405]$ the left-hand side is a strictly increasing positive function going from 0 to $+\infty$. Conversely, the right-hand side, at $ha=0$ assumes the positive value $VK_1(V)/K_0(V)$ and monotonically decreases to $0$ at $ha=V$. Consequently, an intersection point always exists, even for very small values of $V$, implying that the fundamental $LP_{01}$ mode is always guided by an optical fiber regardless of its $V$ parameter.
+Figure~\ref{fig:graphic_solution_characteristic} shows the graphical solution for $l=0$ (left) and $l=1$ (right). For $l=0$, the left-hand side of equation \eqref{eq:characteristic_equation_of_LP_modes} vanishes at the roots of $J_1(ha)$, located at $ha=0,\, 3.832,\, 7.016\, \dots$, whereas the denominator vanishes at the roots of $J_0(ha)$ which occur at $ha=2.405,\, 5.520,\, 8.654\, \dots$ corresponding to vertical asymptotes. Therefore, in the interval $ha\in[0, 2.405]$ the left-hand side is a strictly increasing positive function going from 0 to $+\infty$. Conversely, the right-hand side, at $ha=0$ assumes the positive value $VK_1(V)/K_0(V)$ and monotonically decreases to $0$ at $ha=V$. Consequently, an intersection point always exists, even for very small values of $V$, implying that the fundamental $LP_{01}$ mode is always guided by an optical fiber regardless of its $V$ parameter.
 
 \begin{figure}[t]
     \begin{subfigure}[b]{0.495\linewidth}
@@ -383,28 +381,31 @@ Figure \ref{fig:graphyc_solution_characteristic} shows the graphical resolution 
     \begin{subfigure}[b]{0.495\linewidth}
         \includegraphics[width=\linewidth]{Cap_1_figures/LP_modes/LP_solution_l1.pdf}        
     \end{subfigure}
-    \caption{Graphical resolution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes} of the $LP$ modes, for $l=0$ (left) and $l=1$ (right). The blue curves represent the left-hand side (LHS) of equation \eqref{eq:characteristic_equation_of_LP_modes} for the given $l$. The red curves represent the right-hand side (LHS) for $V=2,\,5,\,8$. The gray dashed line indicates the limit $qa \rightarrow 0$ of the LHS.}
-    \label{fig:graphyc_solution_characteristic}
+    \caption{Graphical solution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes} of the $LP$ modes, for $l=0$ (left) and $l=1$ (right). The blue curves represent the left-hand side (LHS) of equation \eqref{eq:characteristic_equation_of_LP_modes} for the given $l$. The red curves represent the right-hand side (RHS) for $V=2,\,5,\,8$. The gray dashed line indicates the limit $qa \rightarrow 0$ of the LHS.}
+    \label{fig:graphic_solution_characteristic}
 \end{figure}
 
-For $l\ge1$, the right-hand side asymptotically approaches $2l$ as $ha \rightarrow V$, derived via \eqref{eq:bessel_asimptotic_x_small}. Under these conditions, an intersection is no longer guaranteed for every value of $V$. In particular for $V<2.405$ the only possible guided mode is the $LP_{01}$. As $V$ increases beyond $2.405$ also the $LP_{11}$ appears, therefore $V=2.405$ is called the $V$ cutoff value of the $LP_{11}$.
+Using \eqref{eq:bessel_asymptotic_x_small}, one derives that for $l\ge1$, the right-hand side asymptotically approaches $2l$ as $ha \rightarrow V$. Under these conditions, an intersection is no longer guaranteed for every value of $V$. In particular for $V<2.405$ the only possible guided mode is the $LP_{01}$. As $V$ increases beyond $2.405$, also the $LP_{11}$ appears, therefore $V=2.405$ is called the $V$ cutoff value of the mode $LP_{11}$.
 
-The $V_\text{cutoff}$ for a specific mode can be determined by considering that the mode becomes guided when the transverse wave number $h$ associated to that mode satisfies $ha=V$ or equivalently when $q=0$. Imposing $q=0$ in equation \eqref{eq:characteristic_equation_of_LP_modes_2}, one gets 
+The cutoff value $V_{\mathrm{cutoff}}$ for a given mode can be determined by considering the condition at which the field is no longer evanescent in the cladding, corresponding to $q=0$. Since $V=ha$ when $q=0$, the cutoff condition can be obtained by imposing $q=0$ in equation \eqref{eq:characteristic_equation_of_LP_modes_2}, yielding
 \begin{equation}
+    \label{eq:LP_cutoff_1}
     V_\text{cutoff}\, \frac{J_{l-1}(V_\text{cutoff})}{J_l(V_\text{cutoff})} = 0.
 \end{equation}
-Consequently, the cutoff for the $LP_{lm}$ mode is given by:
+For $l \ge 1$, in the limit $V_\text{cutoff}\rightarrow0$ (see \eqref{eq:bessel_asymptotic_x_small}) the left-hand side evaluates to $2l$ therefore for $l \ge 1$ the cutoff is strictly larger than zero. For $l = 0$ using the property $J_{-1}(V) = -J_1(V)$, for $V_\text{cutoff}\rightarrow0$ one gets $0 = 0$, confirming that the mode $LP_{01}$ is guided independently of the value of $V$. \\
+Excluding the special case of the $LP_{01}$, equation \eqref{eq:LP_cutoff_1} leads to 
 \begin{equation}
     J_{l-1}(V_\text{cutoff}) = 0.
 \end{equation}
-Thus, the $m$-th root of $J_{l-1}$ dictates the cutoff for the $LP_{lm}$ mode.  
+Therefore, the cutoff value of the $LP_{lm}$ mode is given by the $m$-th zero of the Bessel function $J_{l-1}$ if $l\neq0$, and by the $(m-1)$-th zero of $J_{l-1}$ if $l=0$, while the $LP_{01}$ mode is always guided. Here, the zero at the origin is not included in the enumeration of the zeros of the Bessel functions. The cutoff values of several low-order $LP$ modes are reported in Table~\ref{tab:cutoff_values}.
 
-Note that equation \eqref{eq:characteristic_equation_of_LP_modes_2} is employed here rather than \eqref{eq:characteristic_equation_of_LP_modes} because its right-hand side conveniently vanished as $ha \rightarrow V$, making the cutoff associated to the roots of ordinary Bessel functions of the first kind of order $l-1$.
+
+It is worth noting that equation \eqref{eq:characteristic_equation_of_LP_modes_2} is employed to obtain the cutoff condition rather than \eqref{eq:characteristic_equation_of_LP_modes} because its right-hand side conveniently vanished as $ha \rightarrow V$, making the cutoff directly associated to the roots of ordinary Bessel functions of the first kind.
 
 \begin{table}[htbp]
 \centering
-\caption{Cutoff values of $V$ low order $LP$ modes.}
-\begin{tabular}{lcccc}
+\caption{Cutoff values of $V$ for low-order $LP$ modes.}
+\begin{tabular}{C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}C{1.5cm}}
 \toprule
 $V_{\text{cutoff}}$ & $m = 1$ & $m = 2$ & $m = 3$ & $m = 4$ \\
 \midrule
@@ -418,45 +419,47 @@ $l = 4$ & 6.379 & 9.760 & 13.017 & 16.224 \\
 \label{tab:cutoff_values}
 \end{table}
 
-\subsubsection{Power Flow of LP modes}
+\subsubsection{Power Flow of the LP modes}
 
-Prior to evaluating the power flow of the  $LP$ modes, a clarification regarding the basis chosen for the spatial representation of the field is necessary. So far, following the formalism in \cite{yariv2007photonics}, a basis in which the azimuthal dependence is expressed by the exponential $e^{\pm il\phi}$, for the two degenerate solution $\pm l$ has been utilized. This representation is convenient for calculation, however, leads to a basis in which the modes have an azimuthal phase dependence, or equivalently modes that carry a defined orbital angular momentum (OAM) $l\hbar$ per photon \cite{Allen:92}.
-In typical experimental condition, however, optical fibers are coupled with standard Gaussian beams, which carry zero macroscopic OAM due to their lack of azimuthal phase gradients. Therefore, to conserve the net angular momentum at the fiber input, the coupling excites the two azimuthal counter-propagating spatial modes $+l$ and $-l$ with identical amplitudes.
-
-Consequently, a basis employing trigonometric functions ($\cos(l\phi)$ and $\sin(l\phi)$) is physically more representative of typical intensity profiles and is widely adopted in the literature \cite{Gloge:71}. These functions represent a linear superposition of counter-propagating azimuthal modes carrying opposite OAM, yielding a net-zero OAM state:
+Prior to evaluating the power flow of the  $LP$ modes, a clarification regarding the basis chosen for the spatial representation of the field is necessary. So far, following the formalism in \cite{yariv2007photonics}, a basis in which the azimuthal dependence is expressed by the exponential $e^{\pm il\phi}$, for the two degenerate solution $\pm l$ has been utilized. This representation is convenient for calculation, however, it leads to a basis in which the modes have an azimuthal phase dependence, or equivalently modes that carry a defined orbital angular momentum (OAM) $l\hbar$ per photon \cite{Allen:92}.
+In typical experimental conditions, however, optical fibers are coupled with standard Gaussian beams, which carry zero macroscopic OAM due to their lack of azimuthal phase gradients. Therefore, to conserve the net angular momentum at the fiber input, the coupling excites the two azimuthal counter-propagating spatial modes $+l$ and $-l$ with identical amplitudes.
+Consequently, a basis employing trigonometric functions ($\cos(l\phi)$ and $\sin(l\phi)$) is physically more representative of typical intensity profiles and is widely adopted in the literature. These functions represent a linear superposition of counter-propagating azimuthal modes carrying opposite OAM, yielding a net-zero OAM state:
 \begin{equation}
     \begin{aligned}
-        \cos(l\phi) &= \frac{e^{il\phi} + e^{-il\phi}}{2} \\
-        \sin{l\phi} &= \frac{e^{il\phi} - e^{-il\phi}}{2i}
+        \cos(l\phi) &= \frac{e^{il\phi} + e^{-il\phi}}{2}, \\
+        \sin(l\phi) &= \frac{e^{il\phi} - e^{-il\phi}}{2i}.
     \end{aligned}
 \end{equation}
 Therefore, the trigonometric basis is adopted for the remainder of this analysis. While a pure $e^{\pm il\phi}$ basis implies a ring-shaped intensity profile devoid of azimuthal modulation, the trigonometric basis captures the interference between opposite OAM states, producing the characteristic $2l$-lobe intensity patterns routinely observed experimentally.
 
 The power flow of the $LP$ modes is evaluated via the longitudinal component of the time-averaged Poynting vector:
 \begin{equation}
-    S_z = \frac{1}{2} \text{\textbf{Re}} [E_xH_y^*-E_yH_x^*].
+    S_z = \frac{1}{2} \operatorname{Re} [E_xH_y^*-E_yH_x^*].
 \end{equation}
 Using the field expressions \eqref{eq:E_core}, \eqref{eq:H_core}, \eqref{eq:E_cladding} and \eqref{eq:H_cladding}, the trigonometric azimuthal basis, the power flux density becomes:
 \begin{equation}
     S_z^{(lm)}=
     \frac{\beta}{2\omega\mu}
     \begin{cases}
-        |A|^2 J_l^2(hr) \cos^2(l\phi), \quad r<a \\[2.5mm]
-        |B|^2 K_l^2(qr) \cos^2(l\phi), \quad r>a
-    \end{cases}
+        |A|^2 J_l^2(hr) \cos^2(l\phi) \quad r<a \\[2.5mm]
+        |B|^2 K_l^2(qr) \cos^2(l\phi) \quad r>a
+    \end{cases},
 \end{equation}
 where the dependence on $m$ is implicitly contained in $h$ and $q$.
-
 The power guided in the core and cladding is obtained by integrating the Poynting vector over the respective cross-sections:
-\begin{align}
-    P_{\text{core}} &= \int_{0}^{2\pi} \int_{0}^{a} S_z r \, dr \, d\phi \\
-    P_{\text{clad}} &= \int_{0}^{2\pi} \int_{a}^{\infty} S_z r \, dr \, d\phi
-\end{align}
-Evaluating these integrals \cite{yariv2007photonics}, and by substituting $B$ from \eqref{eq:B_A_relation}, the result is:
-\begin{align}
-    P_{\text{core}} &= \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ J_l^2(ha) - J_{l-1}(ha)J_{l+1}(ha) \right] \\
-    P_{\text{clad}} &= \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ -J_l^2(ha) - \left(\frac{h}{q}\right)^2 J_{l-1}(ha)J_{l+1}(ha) \right],
-\end{align}
+\begin{equation}
+    P_{\text{core}} = \int_{0}^{2\pi} \int_{0}^{a} S_z r \, dr \, d\phi,
+\end{equation}
+\begin{equation}
+        P_{\text{clad}} = \int_{0}^{2\pi} \int_{a}^{\infty} S_z r \, dr \, d\phi.
+\end{equation}
+Evaluating these integrals \cite{yariv2007photonics}, and substituting $B$ from \eqref{eq:B_A_relation}, the result is:
+\begin{equation}
+    P_{\text{core}} = \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ J_l^2(ha) - J_{l-1}(ha)J_{l+1}(ha) \right],
+\end{equation}
+\begin{equation}
+    P_{\text{clad}} = \frac{\beta}{2\omega\mu}\pi a^2 |A|^2 \left[ -J_l^2(ha) - \left(\frac{h}{q}\right)^2 J_{l-1}(ha)J_{l+1}(ha) \right].
+\end{equation}
 Summing these contributions gives the total power flow:
 \begin{equation}
     \label{eq:P_total}
@@ -466,38 +469,39 @@ By multiplying equations \eqref{eq:characteristic_equation_of_LP_modes} and \eqr
 \begin{equation}
     (ha)^2\frac{J_{l+1}(ha)J_{l-1}(ha)}{J_l^2(ha)} = - (qa)^2\frac{K_{l+1}(qa)K_{l-1}(qa)}{K_l^2(qa)}.
 \end{equation}
-Given that the modified Bessel functions $K_l$ are always positive (see Figure \ref{fig:bessel_functions}), the quantity $J_{l-1}(ha)J_{l+1}(ha)$ is always negative for the allowed values of $ha$, therefore the total power flow \eqref{eq:P_total} is always positive as physically expected.
+Given that the modified Bessel functions $K_l$ are always positive (see Figure~\ref{fig:bessel_functions}), the quantity $J_{l-1}(ha)J_{l+1}(ha)$ is always negative for the allowed values of $ha$, therefore the total power flow \eqref{eq:P_total} is always positive as physically expected.
 
 The core confinement factor is defined as $\Gamma_1=P_\text{core}/P_\text{tot}$
 \begin{equation}
     \label{eq:confinement_factor}
-    \Gamma_1 = \frac{P_{\text{core}}}{P} = \frac{1}{V^2} \left( (qa)^2 - \frac{(qa)^2 J_l^2(ha)}{J_{l-1}(ha)J_{l+1}(ha)} \right).
+    \Gamma_1 = \frac{P_{\text{core}}}{P_\text{tot}} = \frac{1}{V^2} \left( (qa)^2 - \frac{(qa)^2 J_l^2(ha)}{J_{l-1}(ha)J_{l+1}(ha)} \right).
 \end{equation}
 $\Gamma_1$ gives a measure of how much of the mode is travelling in the core rather than in the cladding. This parameter is important for calculating the dispersion and attenuation properties of the fiber, which are critical parameters in the design of fibers for telecommunication systems.
 
-The dependence og $\Gamma_1$ on $V$ is not trivial as both $h$ and $q$ depend on $V$ through the resolution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes}. Generally, the confinement factor $\Gamma_1$ increases monotonically with $V$.
+The dependence of $\Gamma_1$ on $V$ is not trivial as both $h$ and $q$ depend on $V$ through the solution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes}. Generally, the confinement factor $\Gamma_1$ increases monotonically with $V$.
 The confinement factor at cutoff is obtained by taking the limit $q \rightarrow 0$ in \eqref{eq:confinement_factor}, obtaining:
 \begin{equation}
+    \Gamma_1=
     \begin{cases}
-        \Gamma_1 = 0 \quad &\text{for} \quad l=0,1 \\
-        \Gamma_1 = 1 -\frac{1}{l} \quad &\text{for}\quad l>1
+        0 \quad &\text{for} \quad l=0,1 \\
+        1 -\frac{1}{l} \quad &\text{for}\quad l>1
     \end{cases}.
 \end{equation}
-For example the mode $LP_{21}$ at cutoff has a confinement efficiency of 0.5. Figure \ref{fig:LP_mode_confinement} illustrates the behavior of the confinement factor as a function of the $V$ parameter for some low-order $LP$ modes.
+For example the mode $LP_{21}$ at cutoff has a confinement efficiency of 0.5. Figure~\ref{fig:LP_mode_confinement} illustrates the behavior of the confinement factor as a function of the $V$ parameter for some low-order $LP$ modes.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.7\linewidth]{Cap_1_figures/LP_modes/lp_modes_confinement-v7.pdf}
-    \caption{Confinement factor $\Gamma_1$ of $LP$ modes as a function of the fiber $V$ parameter. Note that for the modes with $l>1$ ($LP_{21}$, $LP_{31}$) the confinement at cutoff is $>0$.}
+    \caption{Confinement factor $\Gamma_1$ of $LP$ modes as a function of the fiber $V$ parameter. Note that for the modes with $l>1$ ($LP_{21}$, $LP_{31}$) the confinement at cutoff is different from $0$.}
     \label{fig:LP_mode_confinement}
 \end{figure}
 \vspace{3mm}
 
-Finally, the calculated intensity profiles for selected $LP$ modes are mapped in Figure \ref{fig:LP_modes_intensity_profiles}. The figure highlight how the azimuthal index $l$ governs the number of diametric nodal lines crossing the beam axis, whereas the radial index $m$ dictates the number of concentric local intensity maxima along the radial coordinate.
+Finally, the calculated intensity profiles for selected $LP$ modes are mapped in Figure~\ref{fig:LP_modes_intensity_profiles}. The figure highlights how the azimuthal index $l$ governs the number of diametric nodal lines crossing the beam axis, whereas the radial index $m$ dictates the number of concentric local intensity maxima along the radial coordinate.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.95\linewidth]{Cap_1_figures/LP_modes/LP_mode_intensity_thesis.pdf}
-    \caption{Intensity profiles of the $LP$ modes with $l=0,\,1,\,2$ and $m=1,\,2,\,3$. Each mode $LP_{lm}$ is calculated with $V^{(lm)}=V^{(lm)}_{cutoff}+2$. The $x,y$ coordinates are expressed in units of fiber core radius.}
+    \caption{Intensity profiles of the $LP$ modes with $l=0,\,1,\,2$ and $m=1,\,2,\,3$. Each mode $LP_{lm}$ is calculated with $V^{(lm)}=V^{(lm)}_\text{cutoff}+2$. The $x,y$ coordinates are expressed in units of fiber core radius.}
     \label{fig:LP_modes_intensity_profiles}
 \end{figure}
