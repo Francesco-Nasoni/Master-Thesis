@@ -1,20 +1,53 @@
 % !TeX root = chapter_3_main.tex
 \section{ODT loading optimization}
-The optimal parameters obtained for the molasses were used for the optimization of the ODT loading. This optimization was mainly focussed on the compensation magnetic field. The idea is to load the MOT and before switching off the magnetic field, exploit the compensation magnetic field to shift the MOT position. Indeed, the MOT is formed where the magnetic field is approximately zero, this by adjusting the compensation coil currents, it is possible to shift the zero and move the MOT. This makes the MOT loose atom since it is moved away from the optimal position of the intersection of the beams, but there is a trade-off with the better intersection with the ODT beam, that increase the number of captured atoms. As long as this shift is small the molasses optimal parameters found in the previous sections of this chapter should nullify the residual magnetic field well, and they do not need a second revision.
+The optimal parameters obtained for the molasses were used for the optimization of the ODT loading. This optimization was mainly focussed on the compensation magnetic field. The idea is to load the MOT and, before switching off the magnetic field, exploit the compensation magnetic field to shift the MOT position. The MOT is formed where the magnetic field is approximately zero, thus by adjusting the compensation coil currents, it is possible to shift the zero and move the MOT. This makes the MOT loose atom since it is moved away from the optimal position of the intersection of the beams, but there is a trade-off with the better intersection with the ODT beam, that increase the number of captured atoms. As long as this shift is small the molasses optimal parameters found in the previous sections of this chapter should nullify the residual magnetic field well, and they do not need a second revision.
 
 In particular the compensation coil currents are adjusted to the loading values after load with 200~ms ramp in 20 steps. The time and the ramp are needed to make the translation smooth, in order to minimize the loosing of atom in the process.
+
+As for the molasses, also for the ODT loading preliminary values obtained prior to realignment and molasses optimization were available:
+\begin{equation}
+    \begin{aligned}
+        I_{\mathrm{x}} &= -200~\mathrm{mA} \\
+        I_{\mathrm{y}} &= -350~\mathrm{mA} \\
+        I_{\mathrm{z}} &= 50~\mathrm{mA}.
+    \end{aligned}
+    \label{eq:shim_shifted_MOT_preliminary}
+\end{equation}
 
 %*###############################################################
 \subsection{Shifted MOT}
 %*###############################################################
 
 \subsubsection{Preliminary measurements}
-The first measurements were taken using the FLIR camera and by employing the optimal parameters from the molasses temperature optimization.
+The first measurements were taken using the FLIR camera and by employing the optimal parameters from the molasses temperature optimization, and the preliminary values for the shim for the ODT loading.
 
-Unfortunately using the analysis described in Section \ref{subsec:odt_loading_analysis_method}, both in the two-dimensional and flattened one-dimensional images there was any ODT signal visible.
+Using an analysis procedure similar to that described in Section \ref{subsec:odt_loading_analysis_method}, without the rescaling of the background, the data where analyzed to characterize the ODT capturing.
+The resulting intensity difference images are shown in Figure~\ref{fig:first_test_fail_2D} (2D image) and in Figure~\ref{fig:first_test_fail_1D} (1D flattened image).
+Upon inspection of the 2D image in figure no brighter area that would represent the atom captured by the ODT is recognizable. By inspecting the 1D image, instead, seem that some pixel ($\sim 4$ pixel) about the fiber position present a higher intensity. Other measurements revealed a similar behavior, confirming that the brightness of these pixels is given by the trapped atom in the ODT. Hover, the noise has a high level and the signal is not recognizable in every image. The flatten image are precisely meat to increase the signal-to-noise ratio thus having still a bad signal-to-noise ratio is not good.
+Furthermore, the presence of the residual pedestrian that is much higher with respect to the ODT signal is a clue that there are some oscillation noise in the system that are not averaged by the acquisition of five images.
+The larger concern was though the small ODT signal, which even if the system is supposed to be far from the optimal compensation current was expected to be higher. Another problematic arises, which is the narrowness of the area characterized by the ODT signal. Indeed, if the ODT signal occupies just few pixel the analysis is of particular difficulty because no Gaussian fit are possible, and also calculating the area as the sum of the pixel value carries a lot of uncertainty due to the poor resolution.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_2D.pdf}
+    \caption{}
+    \label{fig:first_test_fail_2D}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_1D.pdf}
+    \caption{}
+    \label{fig:first_test_fail_1D}
+\end{figure}
+
 This was caused by two factors, the difference of the image with the ODT on and off have a residual background large compared with the expected signal of the ODT, therefore the signal is submerged in the noise, second the ODT beam radius is small compared with the cloud radius, therefore the ODT should be visible just in on few number of pixel.
 
 
+Since at the time the preliminary analysis was performed far better results were obtained, the parameter of the molasses were systematic changed to verify which caused the problematic. This study brought to the fact that the problematic was caused by the AOM ramp, during the molasses phase. In particular 
+
 \subsubsection{Results}
 
+
+%* Sta qua anche se secondo me ha ridotta utilità
 \subsection{\color{blue}Compressed MOT}

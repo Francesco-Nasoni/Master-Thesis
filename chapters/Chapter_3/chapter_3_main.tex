@@ -4,6 +4,8 @@
 
 \begin{document}
 
+    \ifSubfilesClassLoaded{\tableofcontents}{}
+
     \setcounter{chapter}{2}
     \chapter{Result And Discussion}
     Following the experimental and analysis procedures explained in Chapter \ref{cap2}, the ODT capture efficiency was characterized and optimized. This chapter presents the corresponding experimental results.
@@ -14,7 +16,7 @@
 
     \import{./}{cap3_MOL_TEMP.tex}
     \clearpage
-    \import{./}{cap3_ODT_LOAD.tex}
+    %\import{./}{cap3_ODT_LOAD.tex}
 
     \ifSubfilesClassLoaded{\printbibliography}{}
 \end{document}
