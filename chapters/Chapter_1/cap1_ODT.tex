@@ -1,3 +1,4 @@
+% !TeX root = ./chapter_1_main.tex
 \section{Optical Dipole Trap}
 Optical traps are experimental tools that allow the confinement of atom or ions within a localized region of space, under the condition that these particles have a kinetic energy lower than the trap potential depth (typically below $1$mK). For the work presented in this thesis, among all possible trapping techniques, the focus will be strictly placed on Optical Dipole Traps (ODTs) for neutral atoms.
 
@@ -91,7 +92,7 @@ Substituting $\alpha$ form \eqref{eq:polarizability} in \eqref{eq:dipole_potenti
     \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\omega}{\omega_0} \right)^3 \left( \frac{\Gamma}{\omega_0 - \omega} + \frac{\Gamma}{\omega_0 + \omega} \right)^2 I(\mathbf{r}).
 \end{equation}
 
-These equations show two resonance frequency for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, for the far-red regime it holds that $\Gamma\ll|\Delta|$. For instance, the $D_2$ line in Rb atoms has a transition frequency of $\sim3.8$~THz thus a trap typically works at few Thz of detuning, while $\Gamma\sim 36$~MHz. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to 
+These equations show two resonance frequency for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, for the far-red regime it holds that $\Gamma\ll|\Delta|$. For instance, the $D_2$ line in Rb atoms has a transition frequency of $\sim385$~THz thus a trap typically works at few THz of detuning, while $\Gamma/(2\pi)\sim 6$~MHz. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to 
 
 \begin{equation}
     \label{eq:dipole_potential}
@@ -113,7 +114,7 @@ Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the f
 Moving from the two-level atom to a real atom, the electronic transitions become more complex, and the calculation of the dipole potential must take into consideration all the possible allowed transitions. This lead to a dipole potential that depends on the particular electronic substate.
 
 \subsubsection{Ground-state light shifts}
-Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the interaction Hamiltonian $\mathcal{H}_I=-\hat{\mathbf{d}}\cdot\mathbf{E}$, the perturbative correction on the $i$-th energy level is
+Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the electric dipole interaction Hamiltonian $\mathcal{H}_I=-\hat{\mathbf{d}}\cdot\mathbf{E}$, the perturbative correction on the $i$-th energy level is
 \begin{equation}
     \label{eq:energy_perturbative_correction}
     \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
@@ -160,7 +161,7 @@ and according to the interpretation given from the two-level atoms, the dipole p
 Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transition, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
 
 \subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
-Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the VIS-IR range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
+Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the visible and infrared (VIS-IR) range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
 
 When considering the fine structure arising from the spin-orbit interaction, the electronic ground state of alkali atoms is $^2S_{1/2}$. From this state, the electric dipole selection rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow for two primary transitions, known as $D-$lines:
 \begin{itemize}
@@ -208,7 +209,7 @@ Given these shallow confining potentials, even minor heating rates can largely l
 
 \subsubsection{Heating source}
 When atoms interact with laser light, fluctuations in the spontaneous emission and absorption always causes heating (this is also the phenomenon that puts a lower limit to cooling mechanism \cite{CohenLesHouches}\cite{metcalf1999}).
-For the optical dipole trap the atoms absorbs photons and re-emits them in random directions (isotropic radiation), statistical oscillations in both these processes cause heating. The absorption of photons from the dipole light is associated with a recoil energy $E_\text{rec}=k_BT_\text{rec}/2$ per scattering event and happens only in the direction of the laser beam, hence it is anisotropic. On the other hand, the re-emition scattering events are also associated with a recoil energy $E_\text{rec}$, however the emission directions are random, thus the effect is spread over all the three spatial direction. Thus, for a single cycle the atom receives $E_\text{rec}$ from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $2E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$.\\
+For the optical dipole trap the atoms absorbs photons and re-emits them in random directions (isotropic radiation), statistical oscillations in both these processes cause heating. The absorption of photons from the dipole light is associated with a recoil energy $E_\text{rec}=k_BT_\text{rec}/2$ per scattering event and happens only in the direction of the laser beam, hence it is anisotropic. On the other hand, the re-emission scattering events are also associated with a recoil energy $E_\text{rec}$, however the emission directions are random, thus the effect is spread over all the three spatial direction. Thus, for a single cycle the atom receives $E_\text{rec}$ from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $2E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$.\\
 It leads to the total heating power
 \begin{equation}
     \label{eq:heating_power}
@@ -224,7 +225,7 @@ Assuming that the trapped atoms are at thermal equilibrium, the mean energy can 
     \label{eq:equipartition_th}
     \bar{E}= 3 k_B T.
 \end{equation}
-Using equation \eqref{eq:heating_power} in equation \eqref{eq:equipartition_th}, one can obtain an equation that describes the temperature change with time:
+Using \eqref{eq:heating_power} in \eqref{eq:equipartition_th}, one can obtain an equation that describes the temperature change with time:
 \begin{equation}
     \label{eq:temperature_changing_rate}
     \dot{T} = \frac{1}{3} T_\text{rec} \bar{\Gamma}_\text{sc}.
@@ -232,9 +233,16 @@ Using equation \eqref{eq:heating_power} in equation \eqref{eq:equipartition_th},
 
 Expressing the dipole potential as
 \begin{equation}
+    \label{eq:mean_scattering_rate_td}
     \bar{U}_\text{dip} = U_0 + \bar{E}_\text{pot} = U_0 + \frac{3}{2}k_B T,
 \end{equation}
-where $U_0$ is the potential energy minimum, then the scattering rate $\bar{\Gamma}_\text{sc}$ can be expressed by Substituting $U_\text{dip}$ from \eqref{eq:dipole_scattering}, obtaining
+where $U_0$ is the potential energy minimum.
+
+Using equation \eqref{eq:dipole_scattering}, $\bar{U}_\text{dip}$ can be expressed as:
+\begin{equation}
+    \bar{U}_\text{dip} = \frac{\hbar \Delta \Gamma_\text{sc}}{\Gamma}.
+\end{equation}
+Substituting this into Equation \eqref{eq:mean_scattering_rate_td} yields the mean scattering rate:
 \begin{equation}
     \label{eq:scattering_rate_Tequilibrium}
     \bar{\Gamma}_\text{sc} = \frac{\Gamma}{\hbar\Delta} (U_0 + \frac{3}{2}k_B T).

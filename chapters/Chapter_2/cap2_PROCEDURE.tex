@@ -1,11 +1,12 @@
+% !TeX root = ./chapter_2_main.tex
 \section{Experimental Procedures and analysis methodology}
 
 The first step of the experimental sequence is the capture of atoms in the MOT, using the optimal parameters previously determined in   for this apparatus \cite{loparcomasters2024}.
-The MOT is realized with a magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
+The MOT is realized with an axial magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
 
 After the loading phase, the magnetic field is switched off, initiating the optical molasses phase. In the absence of the magnetic field, the atomic temperature decreases, however the confinement force is lost, and the atomic cloud begins to expand. At the same time, under the influence of gravity, the cloud starts to fall while experiencing a viscous-like damping force due to its interaction with the laser light.
 The temperature achieved during the molasses phase scales as $I/|\delta|$, where $I$ is the laser intensity and $\delta$ is the detuning \cite{Dalibard:89}. However, this relation remains valid as long as $|\delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\delta^2$. Additionally, the detuning must not be so large to induce a significant excitation probability of the neighboring $F=2 \rightarrow F'=2$ transition. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
-The molasses is performed with a detuning different from that used for the MOT phase, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 5~$\mu$s after the shim coils are changed to their molasses value. 
+The molasses is performed with a detuning different from that used for the MOT phase, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 50~$\mu$s after the shim coils are changed to their molasses value. 
 
 %* ##########################################################
 \subsection{Atom Imaging}
@@ -24,7 +25,7 @@ Since the temperature determination of the atomic cloud requires knowledge of it
 
 The first calibration method was based on the measure of the diameter in pixel of the fiber inside the vacuum chamber. By turning on the MOT beam, the fiber gets illuminated, and a picture is taken. Using this method the fiber diameter of $\sim 316~\mu\mathrm{m}$ was found to correspond to 8 pixels. This yielded a calibration factor of $39.5~\mu\mathrm{m}/\mathrm{px}$, corresponding to a magnification of approximately 0.17. However, the measurement uncertainty was significant: assuming an uncertainty of one pixel on each edge of the fiber image, the measured diameter becomes $(8\pm2)$~px, resulting in a calibration factor of $(40\pm10)~\mu\mathrm{m}/\mathrm{px}$. Consequently, this method provides only a rough estimate of the imaging magnification.
 
-A second and more accurate calibration method was therefore employed. A mirror was positioned in front of the camera without modifying the objective setting, and a ruler with a visible scale was positioned so that it was in focus. This ensured that the ruler was located at the same distance from the objective as the fiber inside the vacuum chamber. With this method 2~cm corresponded to $(471\pm2)$~px. Since the instrumental uncertainty associated with a single measurement was negligible, the calibration was performed by taking five independent measurement, each time the ruler was moved out of focus and repositioned in focus to have five independent. The resulting five calibration factors were averaged, and the standard deviation of the mean was taken as the uncertainty. This procedure yielded a final calibration factor of $(43.4\pm0.3)~\mu\mathrm{m}/\mathrm{px}$, corresponding to a magnification of 0.16.
+A second and more accurate calibration method was therefore employed. A mirror was positioned in front of the camera without modifying the objective setting, and a ruler with a visible scale was positioned so that it was in focus. This ensured that the ruler was located at the same distance from the objective as the fiber inside the vacuum chamber. With this method 2~cm corresponded to $(471\pm2)$~px. Since the instrumental uncertainty associated with a single measurement was negligible, the calibration was performed by taking five independent measurement, with the ruler repositioned at focus each time. This procedure yielded a final calibration factor of $(43.4\pm0.3)~\mu\mathrm{m}/\mathrm{px}$, corresponding to a magnification of 0.16.
 
 %* ##########################################################
 \subsection{Temperature measurements}\label{subsec:temp_ext}
@@ -40,7 +41,7 @@ Taking into account the distributions of both positions and velocities, and assu
     \label{eq:varince_expantion}
     \sigma_x^2 (t)= \sigma_{x,0}^2 +\sigma_{v_x}^2t^2,
 \end{equation}
-where $\sigma{x,0}$ is the standard deviation of the position distribution at $t=0$.
+where $\sigma_{x,0}$ is the standard deviation of the position distribution at $t=0$.
 
 According to classical energy equipartition theorem, the temperature associated with a given spatial direction is related to the squared mean velocity along that direction:
 \begin{equation}
@@ -48,11 +49,9 @@ According to classical energy equipartition theorem, the temperature associated 
 \end{equation}
 where $m$ is the atomic mass and $k_B$ is the Boltzmann constant.
 
-In the frame of reference of the cloud center of mass, the atomic cloud is globally at rest, thus $\langle v_x \rangle =0$ and $\langle v_x^2 \rangle = \sigma_{v_x}^2$.
-
-Since the velocity follow the Maxwell--Boltzmann distribution, it follows that
+In the frame of reference of the cloud center of mass, the atomic cloud is globally at rest, thus $\langle v_x \rangle =0$ and 
 \begin{equation}
-    \langle v_x^2 \rangle = \sigma_{v_x}^2 = \frac{k_B T_x}{m}
+    \langle v_x^2 \rangle = \sigma_{v_x}^2 = \frac{k_B T_x}{m}.
 \end{equation}
 Substituting this result into \ref{eq:varince_expantion} one gets:
 \begin{equation}
@@ -85,23 +84,22 @@ The complete acquisition and analysis procedure is summarized below:
     
     \item A two-dimensional Gaussian is fitted to each image (TRF minimization algorithm) to extract the cloud widths $\sigma_x$ and $\sigma_y$ along the two principal axis.
     
-    \item Equation \eqref{eq:temperature_to_fit} is fitted independently  for both directions, obtaining the temperatures $T_x$ and $T_y$. Then, The final temperature $T$ is calculated as their average.
+    \item Equation \eqref{eq:temperature_to_fit} is fitted independently  for both directions, obtaining the temperatures $T_x$ and $T_y$. Then, the final temperature $T$ is calculated as their average.
     
 \end{enumerate}
 
 %* ##########################################################
 \subsection{ODT loading measurements}\label{subsec:odt_loading_analysis_method}
 %* ##########################################################
-In the analysis of the ODT, two main figures of merits are taking into account, namely the loading efficiency $\eta$ and the intensity integral of the ODT peak, that is directly porportional to the number of captured atoms. They are measured by comparing absorption images acquired with the ODT either present or absent during the MOT and molasses stages. Since only a small fraction of the atoms is expected to be captured by the ODT (order of $1/1000$), the analysis relies on differential imaging and careful background normalization to isolate the signal of the trapped atoms from fluctuations in the total atom number. The complete analysis procedure is summarized below.
+In the analysis of the ODT, two main figures of merits are taking into account, namely the loading efficiency $\eta$ and the intensity integral of the ODT peak, that is directly proportional to the number of captured atoms. They are measured by comparing fluorescence images acquired with the ODT either present or absent during the MOT and molasses stages. Since only a small fraction (order of $1/1000$) of the atoms is expected to be captured by the ODT, the analysis relies on differential imaging and careful background normalization to isolate the signal of the trapped atoms from fluctuations in the total atom number. The complete analysis procedure is summarized below.
 
 \begin{enumerate}
-    \item Two identical experimental sequences of MOT and molasses are consecutively performed with the same parameters. In one sequence, the ODT is kept on throughout the entire cycle starting from the MOT loading phase, whereas in the other the ODT remains off. After a TOF of 30~ms, absorption images of the atomic distribution denoted by $I_\text{on}$ and $I_\text{off}$ are taken with the Manta camera.
-    During the TOF the atom not trapped in the ODT expands enhancing the visibility of those confined in the ODT. Each pair f measurements is repeated five times
+    \item Two identical experimental sequences of MOT and molasses are consecutively performed with the same parameters. In one sequence, the ODT is kept on throughout the entire cycle starting from the MOT loading phase, whereas in the other the ODT remains off. After a TOF of 30~ms, fluorescence images of the atomic distribution denoted by $I_\text{on}$ and $I_\text{off}$ are taken with the Manta camera.
+    During the TOF the atom not trapped in the ODT expands enhancing the visibility of those confined in the ODT. Each pair of measurements is repeated five times
     
     \item  These images are cropped to  a region of interest of $530 \times 380$ pixels centered on the atomic cloud. This removes the region where the HCPCF is visible as well as peripheral areas containing only background signal.
     
     \item To improve the signal-to-noise ratio, the images corresponding to each experimental condition are averaged:
-    much as possible.
     \begin{equation*}
         \bar{I}\text{on} = \langle I_\text{on} \rangle \qquad \bar{I}\text{off} = \langle I_\text{off} \rangle\,.
     \end{equation*}

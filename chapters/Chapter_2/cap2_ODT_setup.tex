@@ -1,3 +1,5 @@
+% !TeX root = ./chapter_2_main.tex
+
 % Input of tikz opticla elements
 \input{tikz/tikz_optical_elements.tex}
 
@@ -75,76 +77,82 @@ For both analysis methods, a preliminary Gaussian fit was first performed to fin
 
 \subsubsection{Results}\label{subsec:laser_char_results}
 
-The beam waist radii and waist positions obtained with the two analysis methods are summarized in Tables \ref{tab:waist_radius_results} and \ref{tab:waist_position_results}. The fit of Equation \eqref{eq:Gaussian_beam_divergence} was performed using the Trust Region Reflective (TRF) algorithm while imposing the constraint $M^2\ge1$. The final reported values were obtained by averaging the results of the Gaussian fit and $D4\sigma$ methods. Since the uncertainties returned by the fits were significantly smaller than the discrepancy between the two methods, the uncertainty associated with the averaged value was conservatively estimated as half of the range between the two measurements (the semi-range).
+The beam waist radii and waist positions obtained with the two analysis methods are summarized in Tables \ref{tab:waist_radius_results} and \ref{tab:waist_position_results}. The fit of Equation \eqref{eq:Gaussian_beam_divergence} was performed using the Trust Region Reflective (TRF) algorithm while imposing the constraint $M^2\ge1$. The final reported values were obtained by averaging the results of the Gaussian fit and $D4\sigma$ methods.
+% Since the uncertainties returned by the fits were significantly smaller than the discrepancy between the two methods, the uncertainty associated with the averaged value was conservatively estimated as half of the range between the two measurements (the semi-range).
 
 The waist radius as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} top. The results reveal a small but systematic astigmatism, with the waist measured along the $x$ direction consistently exceeding that along the $y$ direction by approximately 1--2\%. Furthermore, the graph shows that the waist radius decreases approximately linearly from 7~W to 19~W, indicating a significant power dependence of the laser mode size.
 
-The waist longitudinal position as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} bottom. These values should be interpreted with caution. Imposing $M^2\ge1$ allow the fits to correctly match the far points which depends asymptotically on solely $w_0$ (limit $z\gg1$ in equation \ref{eq:Gaussian_beam_divergence}), but strongly miss the prediction on the point at short distance that give the information on the waist position. Although the extracted values carry significant systematic uncertainty, the observed trend appears physically plausible, with the beam waist shifting downstream as the nominal laser power increases.
+The waist longitudinal position as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} bottom. These values should be interpreted with caution. Imposing $M^2\ge1$ allow the fits to better match the middle and far points which depends asymptotically on solely $w_0$ (limit $z\gg1$ in equation \ref{eq:Gaussian_beam_divergence}), but strongly miss the prediction on the point at short distance that give the information on the waist position (see Figure \ref{fig:fit_divergence_10W}). Although the extracted values carry significant systematic uncertainty, the observed trend appears physically plausible, with the beam waist shifting downstream as the nominal laser power increases.
 
-\begin{table}[htpb]
+\begin{table}[!ht]
     \centering
-    \caption{Comparison of the beam waist $w_0$ obtained via the $D4\sigma$ method and the Gaussian fit method. The final values correspond to the average of the two independent estimates. Uncertainties for the individual methods correspond to the fit errors, whereas the uncertainty of the average is given by the semi-range.}
+    \caption{Comparison of the beam waist $w_0$ obtained via the $D4\sigma$ method and the Gaussian fit method. The final values correspond to the average of the two estimates.}
     \label{tab:waist_radius_results}
     \begin{tabular}{c *{6}{C{1.75cm}}}
         \toprule
         \multirow{2}{*}[-0.5ex]{\makecell{Nominal\\Power (W)}}
         & \multicolumn{6}{c}{{Estimated waist $w_0$ ($\mu$m)}} \\
         \cmidrule(lr){2-7}
-
         & $D4\sigma$-$x$ & $D4\sigma$-$y$ & Gaus-$x$ & Gaus-$y$ & Avg-$x$ & Avg-$y$ \\
         \midrule
-        4 & $481 \pm 5$ & $474 \pm 7$ & $469 \pm 4$ & $460 \pm 7$ & $475 \pm 7$  & $467 \pm 8$  \\
-        7 & $454 \pm 3$ & $452 \pm 4$ & $419 \pm 3$ & $423 \pm 5$ & $433 \pm 20$ & $430 \pm 20$ \\
-        10 & $403 \pm 2$ & $394 \pm 3$ & $370 \pm 2$  & $364 \pm 3$  & $384 \pm 20$ & $375 \pm 20$ \\
-        13 & $351 \pm 2$ & $343 \pm 3$ & $323 \pm 4$  & $321 \pm 4$  & $334 \pm 20$ & $327 \pm 20$ \\
-        16 & $307 \pm 2$ & $298 \pm 4$ & $283 \pm 6$  & $282 \pm 6$  & $291 \pm 20$ & $284 \pm 20$ \\
-        19 & $288 \pm 3$ & $284 \pm 4$ & $266 \pm 7$  & $268 \pm 6$  & $272 \pm 20$ & $269 \pm 20$ \\
+        4  & $481 \pm 5$ & $474 \pm 7$ & $469 \pm 4$ & $460 \pm 7$ & $475 \pm 3$ & $467 \pm 5$ \\
+        7  & $454 \pm 3$ & $452 \pm 4$ & $419 \pm 3$ & $423 \pm 5$ & $436 \pm 2$ & $438 \pm 3$ \\
+        10 & $403 \pm 2$ & $394 \pm 3$ & $370 \pm 2$ & $364 \pm 3$ & $386 \pm 1$ & $379 \pm 2$ \\
+        13 & $351 \pm 2$ & $343 \pm 3$ & $323 \pm 4$ & $321 \pm 4$ & $337 \pm 2$ & $332 \pm 2$ \\
+        16 & $307 \pm 2$ & $298 \pm 4$ & $283 \pm 6$ & $282 \pm 6$ & $295 \pm 3$ & $290 \pm 4$ \\
+        19 & $288 \pm 3$ & $284 \pm 4$ & $266 \pm 7$ & $268 \pm 6$ & $277 \pm 4$ & $276 \pm 4$ \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-
-\begin{table}[htpb]
+\begin{table}[!ht]
     \centering
-    \caption{Comparison of the beam waist position $z_0$ extracted via the $D4\sigma$ method and the Gaussian fit method. The final values correspond to the average of the two independent estimates. Uncertainties for the individual methods correspond to the fit errors, whereas the uncertainty of the average is given by the semi-range.}
+    \caption{Comparison of the beam waist position $z_0$ extracted via the $D4\sigma$ method and the Gaussian fit method. The final values correspond to the average of the two estimates.}
     \label{tab:waist_position_results}
     \begin{tabular}{c *{6}{C{1.75cm}}}
         \toprule
         \multirow{2}{*}[-0.5ex]{\makecell{Nominal\\Power (W)}}
         & \multicolumn{6}{c}{{Estimated waist position $z_0$ (mm)}} \\
         \cmidrule(lr){2-7}
-
         & $D4\sigma$-$x$ & $D4\sigma$-$y$ & Gaus-$x$ & Gaus-$y$ & Avg-$x$ & Avg-$y$ \\
         \midrule
-        4 & $-90 \pm 40$ & $-80 \pm 50$ & $-40 \pm 20$ & $-60 \pm 40$ & $-70 \pm 20$ & $-70 \pm 10$ \\
-        7 & $20 \pm 30$  & $-3 \pm 40$  & $-20 \pm 20$ & $-40 \pm 20$ & $3 \pm 20$   & $-20 \pm 20$ \\
-        10 & $90 \pm 20$  & $70 \pm 30$  & $50 \pm 10$  & $40 \pm 10$  & $70 \pm 20$  & $50 \pm 20$  \\
-        13 & $110 \pm 10$ & $90 \pm 20$  & $90 \pm 20$  & $70 \pm 20$  & $100 \pm 10$  & $80 \pm 20$  \\
-        16 & $72 \pm 9$   & $50 \pm 20$  & $100 \pm 20$  & $80 \pm 20$  & $90 \pm 10$  & $70 \pm 20$  \\
-        19 & $70 \pm 10$  & $40 \pm 10$  & $90 \pm 20$  & $70 \pm 20$  & $80 \pm 10$  & $60 \pm 20$  \\
+        4  & $-90 \pm 40$ & $-80 \pm 50$ & $-40 \pm 20$ & $-60 \pm 40$ & $-60 \pm 20$ & $-70 \pm 30$ \\
+        7  & $20 \pm 30$  & $-3 \pm 40$  & $-20 \pm 20$ & $-40 \pm 20$ & $0 \pm 20$   & $-20 \pm 20$ \\
+        10 & $90 \pm 20$  & $70 \pm 30$  & $50 \pm 10$  & $40 \pm 10$  & $70 \pm 10$  & $60 \pm 20$ \\
+        13 & $110 \pm 10$ & $90 \pm 20$  & $90 \pm 20$  & $70 \pm 20$  & $100 \pm 10$ & $80 \pm 10$ \\
+        16 & $72 \pm 9$   & $50 \pm 20$  & $100 \pm 20$ & $80 \pm 20$  & $90 \pm 10$  & $60 \pm 10$ \\
+        19 & $70 \pm 10$  & $40 \pm 10$  & $90 \pm 20$  & $70 \pm 20$  & $80 \pm 10$  & $60 \pm 10$ \\
         \bottomrule
     \end{tabular}
 \end{table}
+
 
 \begin{figure}[p]
     \centering
     \begin{subfigure}[b]{\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{Cap_2_figures/pdf/summary_waist.pdf}
+        \includegraphics[width=0.8\linewidth]{Cap_2_figures/pdf/summary_waist.pdf}
     \end{subfigure}
 
     \vspace{3mm}
 
     \begin{subfigure}[b]{\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{Cap_2_figures/pdf/summary_waist_position.pdf}
+        \includegraphics[width=0.8\linewidth]{Cap_2_figures/pdf/summary_waist_position.pdf}
     \end{subfigure}
-    \caption{ Characterization of the 1064~nm laser beam parameters as a function of nominal output power. (Top) Transverse beam waist size versus power. (Bottom) Longitudinal position of the waist. The reported values correspond to the average of the results obtained using the $D4\sigma$ and Gaussian-fit methods. Blue and red markers denote measurements along the orthogonal $x$ and $y$ transverse axes, respectively. Error bars indicate the semi-range error of the two analysis techniques.}
+    \caption{ Characterization of the 1064~nm laser beam parameters as a function of nominal output power. (Top) Transverse beam waist size versus power. (Bottom) Longitudinal position of the waist. The reported values correspond to the average of the results obtained using the $D4\sigma$ and Gaussian-fit methods. Blue and red markers denote measurements along the orthogonal $x$ and $y$ transverse axes, respectively.}
     \label{fig:laser_characterization_results}
 \end{figure}
 
-\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Cap_2_figures/pdf/fit_divergence_10W.pdf}
+    \caption{Gaussian beam divergence profile measured at a nominal laser power of 10~W. The beam radius $w(z)$ is shown as a function of the longitudinal position $z$ along the $x$ (red) and $y$ (blue) axes. Solid lines denote Gaussian propagation fits performed under the constraint $M^2 \geq 1$. The systematic discrepancy observed at short propagation distances ($z < 100 mm$) results from the imposed $M^2$ constraint, which prioritizes agreement with the intermediate- and far-field data at the expense of the near-field region. Consequently, the accuracy of the fitted beam waist position $z_0$ is reduced.}
+    \label{fig:fit_divergence_10W}
+\end{figure}
+
 %* ##########################################################
+\clearpage
 \subsection{Optical setup}\label{sec:optical_setup}
 %* ##########################################################
 In this experiment the ODT light is guided through a HCPCF, which introduces a critical complication in the injection procedure. Indeed, in contrast with standard telecom fibers, HCPCFs are multi-mode fibers. As a consequence, even small deviations of the injected beam from the ideal injection angle excites higher order modes in addition to the fundamental one. This results in distorted output beam profiles, which are not well suited for the realization of an optical conveyor belt based on the superposition of the beam guided by the HCPCF and a beam guided through a conventional telecom fiber supporting only the fundamental $LP_{01}$ mode.
@@ -169,13 +177,13 @@ The scheme is composed of the following elements:
     
     \item \textbf{HWP2} and \textbf{Polarization Beam Splitter 1} (PBS1). These components are used to regulate the optical power delivered to the subsequent stages of the setup. The unwanted fraction of the beam is directed onto a beam dump. This configuration is particularly useful during alignment procedures, where the optical power is reduced to a few milliwatts for safety reasons.
     
-    \item \textbf{HWP3} and \textbf{PBS2}. PBS2 splits the beam into two different branches. The first is employed for the HCPCF injection, while the second will be injected into a PANDA polarization-maintaining fiber, which eventually will provide the second beam entering the chamber from above for the realization of the optical conveyor belt. HWP3 is adjusted to have approximately 50/50 power splitting ratio, although this value can be modified if required in future stages of the experiment.
+    \item \textbf{HWP3} and \textbf{PBS2}. PBS2 splits the beam into two different branches. The first is employed for the HCPCF injection, while the second will be injected into a PANDA polarization-maintaining fiber, which eventually will provide the second beam for the realization of the optical conveyor belt. HWP3 is adjusted to have approximately 50/50 power splitting ratio, although this value can be modified if required.
     
-    \item \textbf{Acousto-Optic Modulator} (AOM). The AOM is employed as a fast switch for the ODT beam. The device operates using an acoustic wave at \(110~\mathrm{MHz}\), generated by a Direct Digital Synthesizer (DDS), causing the first diffraction order to be frequency shifted by the same amount. Although this shift is negligible with respect to the trap depth of the ODT, it will become relevant in the future implementation of the optical conveyor belt.
+    \item \textbf{Acousto-Optic Modulator} (AOM). The AOM is employed as a fast switch for the ODT beam. The device operates using an acoustic wave at \(110~\mathrm{MHz}\), generated by a Direct Digital Synthesizer (DDS), causing the first diffraction order to be frequency shifted by the same amount. Although this shift is negligible with respect to the trap depth of the ODT, it is essential for the realization of the optical conveyor belt.
 
     \item \textbf{Beam expander}. A $\sim$3X beam expander is employed to increase the beam diameter and collimate it before the focusing conditions for coupling into the fiber.
     
-    \item \textbf{Mirror 1} (M1) and \textbf{Dichroic Mirror}. Both mirrors are mounted on tilt stages and their angular adjustment is used for optimizing the fiber injection alignment. The dichroic mirror also combines the 1064~nm ODT beam with a 780~nm beam that will be used in the future for the characterization of the atoms trapped inside the HCPCF core.
+    \item \textbf{Mirror 1} (M1) and \textbf{Dichroic Mirror}. Both mirrors are mounted on tilt stages and their angular adjustment is used for optimizing the fiber injection alignment. The dichroic mirror also combines the 1064~nm ODT beam with a 780~nm beam that will be used for the characterization of the atoms trapped inside the HCPCF core.
     
     \item \textbf{Focusing Lens} (f50). A lens with focal length $f=50~\mathrm{mm}$ focuses the beam into the HCPCF. It is mounted on a horizontal translation stage, providing an additional degree of freedom for optimizing the injection alignment.
     
@@ -185,7 +193,7 @@ The scheme is composed of the following elements:
 Using the beam waist measurements in Section \ref{subsec:laser_char_results}, a nominal laser power of 10~W was selected as the optimal operating point. Since the fitted waist positions were found to be affected by large systematic issues, the beam waist was assumed to be located at the output face of PBS2. The radius at the entrance of the beam expander can be estimated using \eqref{eq:Gaussian_beam_divergence}, and the measured distance of approximately $175~\mathrm{mm}$ between PBS2 and the beam expander (see figure \ref{fig:photo_injection_setup_topdown}).
 Assuming an ideal beam $M^2=1$, using the $x$ waist value for 10~W of $w_0=384~\mu\mathrm{m}$, the beam radius at the entrance of the beam expander is estimated to be $w(\text{beam expander entrance}) \simeq 414~\mu\mathrm{m}$.\\
 The beam expander provides a magnification factor of three, yielding $w(\text{beam expander exit}) \simeq 1240~\mu\mathrm{m}$.
-At this stage the corresponding Rayleigh range, calculated using \ref{eq:Rayleigh_range} is $z_R\simeq4.5~\mathrm{m}$. Since the remaining propagation distance before the injection optics is negligible compared to the Rayleigh range, the beam considered approximately collimated. Under this assumption, the beam waist after the  injection lens can be estimated using \cite{salehteich2019}:
+At this stage the corresponding Rayleigh range, calculated using \ref{eq:Rayleigh_range} is $z_R\simeq4.5~\mathrm{m}$. Since the remaining propagation distance before the injection optics is negligible compared to the Rayleigh range, the beam is considered approximately collimated. Under this assumption, the beam waist after the  injection lens can be estimated using \cite{salehteich2019}:
 \begin{equation}
     w_\text{out} = \frac{\lambda f}{\pi w_\text{in}},
 \end{equation}
@@ -230,12 +238,12 @@ The light emerging from the fiber was collected by an optical microscope objecti
 
 The alignment procedure was carried out by optimizing the transmitted near-field profile in order to obtain a mode as close as possible to a single-lobed structure, results and further details are found in Section \ref{sec:injection_alignment_nf_imaging}.
 
-Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of the complete experimental apparatus, including both the injection setup and the horizontal microscope system, and figure~\ref{fig:photo_microscope_detail_topdown} shows a detailed view of the horizontal microscope.
+Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of the complete experimental apparatus, including both the injection setup and the horizontal microscope system, and Figure~\ref{fig:photo_microscope_detail_topdown} shows a detailed view of the horizontal microscope.
 
 \begin{figure}[!h]
     \centering
     \includegraphics[angle=90, width=0.7\linewidth]{Cap_2_figures/setup_topdown.png}
-    \caption{Top-down photograph of the complete experimental apparatus. The horizontal microscope, shielded by the black paper tube, is visible at the top of the image. The optical injection setup is located in the center, while the RF amplifier driving the AOM is placed at the bottom. For reference, the distance between the screw holes on the breadboard is 2.5~cm.}
+    \caption{Top-down photograph of the complete experimental apparatus. The horizontal microscope, shielded by the black paper tube, is visible at the top of the image. The optical injection setup is located in the center, while the RF amplifier driving the AOM is placed at the bottom. For reference, the distance between the screw holes on the breadboard is 25~mm.}
     \label{fig:photo_injection_setup_topdown}
 \end{figure}
 \begin{figure}[!h]
