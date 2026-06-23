@@ -1,6 +1,8 @@
 % !TeX root = chapter_3_main.tex
 \section{ODT loading optimization}
-The optimal parameters obtained for the molasses were used for the optimization of the ODT loading. This optimization was mainly focussed on the compensation magnetic field. The idea is to load the MOT and, before switching off the magnetic field, exploit the compensation magnetic field to shift the MOT position. The MOT is formed where the magnetic field is approximately zero, thus by adjusting the compensation coil currents, it is possible to shift the zero and move the MOT. This makes the MOT loose atom since it is moved away from the optimal position of the intersection of the beams, but there is a trade-off with the better intersection with the ODT beam, that increase the number of captured atoms. As long as this shift is small the molasses optimal parameters found in the previous sections of this chapter should nullify the residual magnetic field well, and they do not need a second revision.
+The optimal parameters obtained for the molasses were used for the optimization of the ODT loading. This optimization was mainly focussed on the compensation magnetic field. The idea is to load the MOT and, before switching to the molasses phase, exploit the compensation magnetic field to shift the MOT position.
+
+The MOT is formed where the magnetic field is approximately zero, thus by adjusting the compensation coil currents, it is possible to shift the zero and move the MOT. This makes the MOT loose atom since it is moved away from the optimal position of the intersection of the beams, but there is a trade-off with the better intersection with the ODT beam, that might increase the number of captured atoms. As long as this shift is small the molasses optimal parameters found in the previous sections of this chapter should nullify the residual magnetic field well, and they do not need a second revision.
 
 In particular the compensation coil currents are adjusted to the loading values after load with 200~ms ramp in 20 steps. The time and the ramp are needed to make the translation smooth, in order to minimize the loosing of atom in the process.
 
@@ -20,33 +22,114 @@ As for the molasses, also for the ODT loading preliminary values obtained prior 
 
 \subsubsection{Preliminary measurements}
 The first measurements were taken using the FLIR camera and by employing the optimal parameters from the molasses temperature optimization, and the preliminary values for the shim for the ODT loading.
-
-Using an analysis procedure similar to that described in Section \ref{subsec:odt_loading_analysis_method}, without the rescaling of the background, the data where analyzed to characterize the ODT capturing.
-The resulting intensity difference images are shown in Figure~\ref{fig:first_test_fail_2D} (2D image) and in Figure~\ref{fig:first_test_fail_1D} (1D flattened image).
-Upon inspection of the 2D image in figure no brighter area that would represent the atom captured by the ODT is recognizable. By inspecting the 1D image, instead, seem that some pixel ($\sim 4$ pixel) about the fiber position present a higher intensity. Other measurements revealed a similar behavior, confirming that the brightness of these pixels is given by the trapped atom in the ODT. Hover, the noise has a high level and the signal is not recognizable in every image. The flatten image are precisely meat to increase the signal-to-noise ratio thus having still a bad signal-to-noise ratio is not good.
-Furthermore, the presence of the residual pedestrian that is much higher with respect to the ODT signal is a clue that there are some oscillation noise in the system that are not averaged by the acquisition of five images.
-The larger concern was though the small ODT signal, which even if the system is supposed to be far from the optimal compensation current was expected to be higher. Another problematic arises, which is the narrowness of the area characterized by the ODT signal. Indeed, if the ODT signal occupies just few pixel the analysis is of particular difficulty because no Gaussian fit are possible, and also calculating the area as the sum of the pixel value carries a lot of uncertainty due to the poor resolution.
-
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_2D.pdf}
-    \caption{}
+    \includegraphics[width=0.65\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_2D.pdf}
+    \vspace{-3mm}
+    \caption{Intensity difference 2D image, obtained with the FLIR camera and 20~ms of AOM amplitude ramp duration during the molasses phase. The intensity distribution dos not show any brighter area that can be attributed to the presence of the ODT.}
     \label{fig:first_test_fail_2D}
-\end{figure}
+    \vspace{5mm}
 
-\begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_1D.pdf}
-    \caption{}
+    \includegraphics[width=0.75\linewidth]{Cap_3_figures/ODT_loading/preliminary/fail_1D.pdf}
+    \vspace{-3mm}
+    \caption{Intensity difference 1D flattened image, obtained with the FLIR camera and 20~ms of AOM amplitude ramp during the molasses phase. The red vertical line gives an approximate position of the fiber center. Some higher intensity pixels are recognizable in correspondence of the ODT position, but clearly the averaging and difference are not affective in removing the background.}
     \label{fig:first_test_fail_1D}
 \end{figure}
+Using an analysis procedure similar to that described in Section~\ref{subsec:odt_loading_analysis_method}, without the rescaling of the background, the data where analyzed to characterize the ODT capturing.
+The resulting intensity difference images are shown in Figure~\ref{fig:first_test_fail_2D} (2D image) and in Figure~\ref{fig:first_test_fail_1D} (1D flattened image).
+Upon inspection of the 2D image, no brighter area that would represent the atom captured by the ODT is recognizable. By inspecting the 1D image, instead, seem that some pixel ($\sim 4$ pixel) about the fiber position present a higher intensity. Other measurements revealed a similar behavior, confirming that the brightness of these pixels is given by the trapped atom in the ODT.
+However, given the small amplitude of the signal, in many images, it was not distinguishable from the noise level. The flatten image are precisely meat to increase the signal-to-noise ratio thus having still a bad signal-to-noise ratio is not good.
+Furthermore, the presence of the residual pedestrian that is much higher with respect to the ODT signal is a clue that there are some oscillation noise in the system that are not averaged by the acquisition of five images, either because has a large standard deviation or a correlated behavior form one experiment to another.
+The larger concern was though the small ODT signal, which even if the system is supposed to be far from the optimal compensation current was expected to be higher. Another problematic arises, which is the narrowness of the area characterized by the ODT signal. Indeed, if the ODT signal occupies just few pixels the analysis is of particular difficulty because no Gaussian fit are possible, and also calculating the area as the sum of the pixel value carries a lot of uncertainty due to the poor resolution.
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Cap_3_figures/ODT_loading/preliminary/good_2D.pdf}
+    \vspace{-3mm}
+    \caption{Intensity difference 2D image, obtained with the FLIR camera and 5~ms of AOM amplitude ramp duration during the molasses phase. A brighter area is clearly visible in correspondence of the ODT.}
+    \label{fig:test_good_2D}
+    \vspace{5mm}
 
-This was caused by two factors, the difference of the image with the ODT on and off have a residual background large compared with the expected signal of the ODT, therefore the signal is submerged in the noise, second the ODT beam radius is small compared with the cloud radius, therefore the ODT should be visible just in on few number of pixel.
+    \centering
+    \includegraphics[width=0.75\linewidth]{Cap_3_figures/ODT_loading/preliminary/good_1D.pdf}
+    \vspace{-3mm}
+    \caption{Intensity difference 1D flattened image, obtained with the FLIR camera and 5~ms of AOM amplitude ramp during the molasses phase. The red vertical line gives an approximate position of the fiber center. With 5~ms ramp the averaging and the subtraction becomes more effective in separate the ODT signal from the background. The problem of the small number of pixel that correspond to the ODT signal is still present.}
+    \label{fig:test_good_1D}
+\end{figure}
+This was caused by two factors, the difference of the image with the ODT on and images with ODT off have a residual background large compared with the expected signal of the ODT, therefore the signal is submerged in the noise, second the ODT beam radius is small compared with the cloud radius, therefore the ODT should be visible just in on few number of pixel.
 
 
-Since at the time the preliminary analysis was performed far better results were obtained, the parameter of the molasses were systematic changed to verify which caused the problematic. This study brought to the fact that the problematic was caused by the AOM ramp, during the molasses phase. In particular 
+Since the preliminary analysis gave far better results, the parameter of the molasses were systematic changed to verify which caused the problematic. This study brought to the fact that the problematic was caused by the AOM ramp, during the molasses phase. In particular the main problem was caused by the ramp duration: switching from a 20~ms to a 5~ms ramp changed. Furthermore, to reduce as much as possible the fluctuation caused by the AOM switch, also the target amplitude was switched to 480~a.u., which represent the maximum amplitude but for the same reason the point width minimum derivative, thus the point in which the oscillation of the amplitude cause the lower oscillation on the actual power of the beam, stabilizing the system.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Cap_3_figures/ODT_loading/preliminary/manta_1D.pdf}
+    \caption{Intensity difference 1D flattened image, obtained with the Manta camera and 5~ms of AOM amplitude ramp during the molasses phase. The combination of the lower pixel size of the Manta and the nearer position at which it was mounted increased the dimension in pixels of the ODT signal.}
+    \label{fig:manta_test_1D}
+\end{figure}
+
+The results obtained with this configuration are shown in Figures~\ref{fig:test_good_2D} (2D difference) and \ref{fig:test_good_1D} (1D difference). In the 2D plot a clear brighter strip is recognizable representing the atom captured in the ODT. By comparison of the 1D graphs in the Figures~\ref{fig:first_test_fail_1D} and  \ref{fig:test_good_1D}, it is evident how the pedestrian in the case of 5~ms ramp is smaller, having a maximum and an area of approximately half the case with 20~ms ramp. This is sufficient to make the ODT signal clearly emerge from the residual pedestrian and from the noise.
+
+
+A problematic is still present which is the fact that with the magnification of the FLIR. For this reason, for the subsequent measurements the Manta camera, that has smaller pixels, was employed, by also mounting it as near as to exploit the minimum working distance of the MVL50M23 objective. By comparing the size of the fiber measured with the Manta and the FLIR, it is deduced that the apparent size of the object in pixels increases by a factor of $\sim 2.25$. This scaling factor arises from the combined contribution of the higher optical magnification and the smaller pixel size of the second imaging system.
+
 
 \subsubsection{Results}
+The systematic optimization of the compensation coil currents were performed by following the full analysis procedure described in Section~\ref{subsec:odt_loading_analysis_method}, using the Manta camera. The optimization was done sequentially in the order $x \rightarrow z \rightarrow y$, the non-optimized currents were kept at the preliminary values in \eqref{eq:shim_shifted_MOT_preliminary}.
+
+The capture efficiencies for the current scans are summarized in Figure~\ref{fig:shim_capture_efficiencies} (a), (b) and (c), respectively for the x-, y- and z-coils. Figure~\ref{fig:shim_odt_area} (a), (b) and (c) shows the value calculated for the ODT signal area. This quantity is proportional to the number of captured atom, and represent the true figure of interest. Though, by inspection, it is clear that the behavior of the ODT capture efficiency and the ODT area are perfectly matched
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_capture_efficiency.pdf}
+        \caption{}
+        \label{fig:shimX_capture_only}
+    \end{subfigure}
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_capture_efficiency.pdf}
+        \caption{}
+        \label{fig:shimY_capture_only}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ/shimZ_capture_efficiency.pdf}
+        \caption{}
+        \label{fig:shimZ_capture_only}
+    \end{subfigure}
+    \caption{Optimization results for the compensation coil currents: capture efficiency for (a) x, (b) y, and (c) z. The optimization was performed in the order $x \rightarrow z \rightarrow y$.}
+    \label{fig:shim_capture_efficiencies}
+\end{figure}
+
+
+
+%! Grafico ODT area, sono identici all'effciency, quindi penso farò una appendice
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_signal_g_area.pdf}
+        \caption{}
+        \label{fig:shimX_area}
+    \end{subfigure}
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_signal_g_area.pdf}
+        \caption{}
+        \label{fig:shimY_area}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ/shimZ_signal_g_area.pdf}
+        \caption{}
+        \label{fig:shimZ_area}
+    \end{subfigure}
+    \caption{ODT area optimization for the compensation coil currents: ODT area for (a) x, (b) y, and (c) z. The optimization was performed in the order x--z--y.}
+    \label{fig:shim_odt_area}
+\end{figure}
 
 
 %* Sta qua anche se secondo me ha ridotta utilità
