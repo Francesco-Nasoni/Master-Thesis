@@ -1,13 +1,13 @@
 % !TeX root = chapter_3_main.tex
 \section{Molasses temperature optimization}\label{sec:molasses_temperature_optimization}
 
-Before performing any optimization, the six beams in the vacuum chamber were realigned in order to minimize their overlap mismatch at the MOT position. This procedure was necessary since thermal drifts can induce misalignment in the optical components.
+Before performing any optimization, the six cooling beams were realigned to minimize their overlap mismatch at the MOT position. This procedure is crucial since thermal drifts can induce misalignments in the optical components over time.
 
-Preliminary values for the compensation coil currents have also been obtained prior the realignment using the Release-and -Recapture (R\&R) technique:
+Preliminary values for the compensation coil currents were obtained prior to the realignment using the Release-and-Recapture (R\&R) technique:
 \begin{equation}
     \begin{aligned}
-        I_{\mathrm{x}} &= 80~\mathrm{mA} \\
-        I_{\mathrm{y}} &= -200~\mathrm{mA} \\
+        I_{\mathrm{x}} &= 80~\mathrm{mA}, \\
+        I_{\mathrm{y}} &= -200~\mathrm{mA}, \\
         I_{\mathrm{z}} &= -400~\mathrm{mA}.
     \end{aligned}
     \label{eq:shim_preliminary_values}
@@ -22,7 +22,7 @@ These values were used as the starting point for the subsequent optimization pro
 The first optimization step consisted of measuring the molasses temperature for different values of the cooling laser detuning. The detuning was varied from $-24.4$~MHz (4.0~$\Gamma/2\pi$) to $-184$~MHz (30.4~$\Gamma/2\pi$), with a step of $-11.4$~MHz.
 
 
-The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_temperature} as a function of the detuning expressed in units of $\Gamma/2\pi$. At small detunings, the data follow the expected $1/|\delta|$ dependence typical of the Sisyphus cooling. As the detuning increases two phenomena become relevant: excessive decrease of the optical cycle rate $\Gamma_p \propto 1/\delta^2$ and the approach of the transition $F=2 \rightarrow F'=2$ which is found $267$~MHz below the cooler target transition $F=2 \rightarrow F'=3$ {\color{blue}(see Figure ref??)}. These effects cause the temperature curve to flatten in the region $|\delta|\approx15-20$ and eventually start to increase again for larger detunings.
+The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_temperature} as a function of the detuning expressed in units of $\Gamma/2\pi$. At small detunings, the data follow the expected $1/|\delta|$ dependence typical of the Sisyphus cooling. As the detuning increases two phenomena become relevant: a significant drop in the optical scattering rate $\Gamma_p \propto 1/\delta^2$ and the approach of the transition $F=2 \rightarrow F'=2$ located $267$~MHz below the cooling transition $F=2 \rightarrow F'=3$ {\color{blue}(see Figure ref??)}. These effects cause the temperature curve to flatten in the region $|\delta|\approx15-20$ and eventually to rise again for larger detunings.
 
 \begin{figure}[t]
     \centering
@@ -31,7 +31,7 @@ The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_
     \label{fig:detuning_molasses_temperature}
 \end{figure}
 
-The lowest average temperature was obtained for  a detuning of $|\delta|=17.2$ corresponding to $|\delta|=104.2$~MHz. Figure \ref{fig:11MHz_temp_fit} shows the fit of equation \eqref{eq:varince_expantion} for the optimal temperature configuration. The resulting temperature along the Cartesian axis are $T_x=(14.1\pm0.5)~\mu\mathrm{K}$ and $T_y=(13.5\pm0.7)~\mu\mathrm{K}$. Their weighted average yields the final temperature $T=(13.9\pm0.4)~\mu\mathrm{K}$.
+The lowest average temperature was obtained for a detuning of $|\delta|=17.2$ corresponding to $|\delta|=104.2$~MHz. Figure \ref{fig:11MHz_temp_fit} shows the fit of equation \eqref{eq:varince_expantion} for this optimal configuration. The resulting temperature along the Cartesian axis are $T_x=(14.1\pm0.5)~\mu\mathrm{K}$ and $T_y=(13.5\pm0.7)~\mu\mathrm{K}$. Their weighted average yields a final temperature of $T=(13.9\pm0.4)~\mu\mathrm{K}$.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Cap_3_figures/MOL_temperature/temperature_fit_10.8MHz.pdf}
