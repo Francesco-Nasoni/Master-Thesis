@@ -75,62 +75,98 @@ A problematic is still present which is the fact that with the magnification of 
 
 
 \subsubsection{Results}
-The systematic optimization of the compensation coil currents were performed by following the full analysis procedure described in Section~\ref{subsec:odt_loading_analysis_method}, using the Manta camera. The optimization was done sequentially in the order $x \rightarrow z \rightarrow y$, the non-optimized currents were kept at the preliminary values in \eqref{eq:shim_shifted_MOT_preliminary}.
+The systematic optimization of the compensation coil currents was carried out following the complete analysis procedure detailed in Section \ref{subsec:odt_loading_analysis_method}, utilizing the Manta camera. The procedure was performed sequentially along the spatial axes in the order $x \rightarrow z \rightarrow y$. During each scan, the currents of the remaining non-optimized coils were maintained at the preliminary values established in Equation \eqref{eq:shim_shifted_MOT_preliminary}.
 
-The capture efficiencies for the current scans are summarized in Figure~\ref{fig:shim_capture_efficiencies} (a), (b) and (c), respectively for the x-, y- and z-coils. Figure~\ref{fig:shim_odt_area} (a), (b) and (c) shows the value calculated for the ODT signal area. This quantity is proportional to the number of captured atom, and represent the true figure of interest. Though, by inspection, it is clear that the behavior of the ODT capture efficiency and the ODT area are perfectly matched
-\begin{figure}
+The capture efficiencies extracted from these scans are summarized in Figure~\ref{fig:shim_capture_efficiencies} for the $x$-, $y$-, and $z$-coils. Similarly, Figure~\ref{fig:shim_odt_area} displays the evaluated ODT signal area for each scan. This area is directly proportional to the total number of captured atoms, making it the physical quantity of fundamental interest. However, since the camera was not calibrated for absolute atom number measurements, this quantity can only be expressed in arbitrary units. Nonetheless, these values remain perfectly comparable provided the camera gain is kept constant. As evident from the plots, the behavior of the capture efficiency mirrors the trend of the ODT area.
+
+This initial optimization yielded the following optimal currents:
+\begin{equation}
+    \begin{aligned}
+        I_{\mathrm{x}} &= -220~\mathrm{mA}, \\
+        I_{\mathrm{y}} &= -290~\mathrm{mA}, \\
+        I_{\mathrm{z}} &= -90~\mathrm{mA}.
+    \end{aligned}
+\end{equation}
+
+\begin{figure}[p]
     \centering
     \begin{subfigure}{0.49\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_capture_efficiency.pdf}
-        \caption{}
-        \label{fig:shimX_capture_only}
-    \end{subfigure}
-    \begin{subfigure}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_capture_efficiency.pdf}
-        \caption{}
-        \label{fig:shimY_capture_only}
-    \end{subfigure}
-
-    \begin{subfigure}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ/shimZ_capture_efficiency.pdf}
-        \caption{}
-        \label{fig:shimZ_capture_only}
-    \end{subfigure}
-    \caption{Optimization results for the compensation coil currents: capture efficiency for (a) x, (b) y, and (c) z. The optimization was performed in the order $x \rightarrow z \rightarrow y$.}
-    \label{fig:shim_capture_efficiencies}
-\end{figure}
-
-
-
-%! Grafico ODT area, sono identici all'effciency, quindi penso farò una appendice
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_signal_g_area.pdf}
-        \caption{}
-        \label{fig:shimX_area}
-    \end{subfigure}
-    \begin{subfigure}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_signal_g_area.pdf}
-        \caption{}
-        \label{fig:shimY_area}
-    \end{subfigure}
-
-    \begin{subfigure}{0.49\linewidth}
-        \centering
+        % ODT area (x,y,z) stacked
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_signal_g_area.pdf}\\[2mm]
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_signal_g_area.pdf}\\[2mm]
         \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ/shimZ_signal_g_area.pdf}
-        \caption{}
-        \label{fig:shimZ_area}
+        \caption{ODT area for $x$-, $y$-, and $z$-axis scans.}
+        \label{fig:shim_odt_area}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        % Capture efficiency (x,y,z) stacked
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimX/shimX_capture_efficiency.pdf}\\[2mm]
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimY/shimY_capture_efficiency.pdf}\\[2mm]
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ/shimZ_capture_efficiency.pdf}
+        \caption{Capture efficiency for $x$-, $y$-, and $z$-axis scans.}
+        \label{fig:shim_capture_efficiencies}
     \end{subfigure}
-    \caption{ODT area optimization for the compensation coil currents: ODT area for (a) x, (b) y, and (c) z. The optimization was performed in the order x--z--y.}
-    \label{fig:shim_odt_area}
+    \caption{ODT area (left) and capture efficiency (right) for the compensation coil current scans along $x$-, $y$-, and $z$-axes (performed in the order $x \rightarrow z \rightarrow y$). The qualitative agreement between the two observables is clearly visible for all the investigated axes.}
+    \label{fig:shim_area_efficiency_combined}
 \end{figure}
 
+To confirm the optimization achieved in the initial measurements, a second run was performed, yielding unconventional results regarding the $z$-axis compensation coil (Figure \ref{fig:shimZ-2_results}).
+As clearly shown in Figure \ref{fig:shimZ-2_signal}, the signal does not follow an expected parabolic or bell-shaped profile with a clear maximum. Instead, the ODT area and the capture efficiency exhibit an oscillatory behavior. Starting from a current of $-1000~\text{mA}$, the signal increases to a first local maximum at $-800~\text{mA}$, drops until $\sim -700~\text{mA}$, and then rises again to reach subsequent local maxima at $\sim -600~\text{mA}$ and $\sim -400~\text{mA}$. 
+
+\begin{figure}[!t]
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ-2/shimZ_signal_g_area.pdf}
+        \caption{}
+        \label{fig:shimZ-2_signal}
+    \end{subfigure}
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ-2/shimZ_bkg_g_area.pdf}
+        \caption{}
+        \label{fig:shimZ-2_bkg}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ-2/shimZ_capture_efficiency.pdf}
+        \caption{}
+        \label{fig:shimZ-2_efficiency}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cap_3_figures/ODT_loading/final_results/ShimZ-2/Cx_vs_ShimZ.pdf}
+        \caption{}
+        \label{fig:shimZ-2_Cx}
+    \end{subfigure}
+    \caption{Optimization results for the second set of measurements of the $z$-compensation coil current: (a) ODT signal area, (b) background area, (c) capture efficiency, (d) atomic cloud center position projected on the camera's $x$-axis.}
+    \label{fig:shimZ-2_results}
+\end{figure}
+
+A similar periodic trend is observed in the MOT background area (Figure \ref{fig:shimZ-2_bkg}), which displays peaks at $\sim -800~\text{mA}$, $\sim -600~\text{mA}$, and $\sim -400~\text{mA}$, matching the ODT area oscillation with good precision. While a proportional increase in the captured ODT fraction is naturally expected when the initial MOT atom number is higher, the oscillatory nature of this trend is peculiar. Tracking the $x$-centroid of the atomic cloud on the camera's image plane (Figure \ref{fig:shimZ-2_Cx}) reveals an analogous spatial oscillation, a phenomenon not observed during the scans of the other two compensation axes.
+The likely physical explanation for this behavior lies in an imperfect spatial overlap of the cooling beams. 
+As the $z$-axis compensation field is scanned, the position of the magnetic zero shifts along the laboratory $z$-axis as expected. However, a non-ideal beam intersection generates multiple localized regions (hotspots) of varying optical intensity. Since the MOT equilibrium position is determined by the balance between the Zeeman-induced magnetic force and the local radiation pressure, the atomic cloud is selectively pushed toward these intensity maxima. This results in a combined motion on the laboratory $z$--$x$ plane, which projects as a spatial oscillation onto the 2D camera sensor.
+Furthermore, when the atoms traverse these optimal optical hotspots, the cooling process becomes locally more efficient. This leads to lower temperatures and significantly reduced atom losses, which translates to a higher overall atom number in the MOT (accounting for the peaks in the background signal) and, consequently, an enhanced capture efficiency into the dipole trap.
+
+Finally, the optimal configuration maximizing the ODT loading was found to be:
+\begin{equation}
+    \begin{aligned}
+        I_{\mathrm{x}} &= -220~\mathrm{mA}, \\
+        I_{\mathrm{y}} &= -280~\mathrm{mA}, \\
+        I_{\mathrm{z}} &= -600~\mathrm{mA}.
+    \end{aligned}
+\end{equation}
+This configuration yielded the largest ODT trap area, representing the maximum number of captured atoms, and is associated with a capture efficiency of $(0.160\pm0.005)\%$. The corresponding 2D difference image is shown in Figure~\ref{fig:best_2D_diff}.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/final_results/best_2d_diff.pdf}
+    \caption{Intensity difference 2D image obtained with the optimal currents: $I_{\mathrm{x}} = -220~\mathrm{mA}$, $I_{\mathrm{y}} = -280~\mathrm{mA}$, and $I_{\mathrm{z}} = -600~\mathrm{mA}$, corresponding to a capture efficiency of $\sim 0.16\%$.}
+    \label{fig:best_2D_diff}
+\end{figure}
 
 %* Sta qua anche se secondo me ha ridotta utilità
-\subsection{\color{blue}Compressed MOT}
+% \subsection{\color{blue}Compressed MOT}
