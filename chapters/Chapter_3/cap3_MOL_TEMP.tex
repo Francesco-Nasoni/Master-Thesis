@@ -64,7 +64,7 @@ It is worth noting that during the ODT loading characterization, this optimizati
 The final stage of the molasses optimization procedure consisted of adjusting the compensation magnetic field. The compensation coil currents are set to the molasses values 5~ms after the MOT magnetic field had been switched off.
 % This 5~ms delay is introduced to ensure that the MOT magnetic field power supply had fully discharged, and the quadrupole field had sufficiently decayed.
 
-The optimization was performed sequentially. First, the $z$-axis current was optimized while keeping the $x$- and $y$-axes currents fixed to their preliminary values \eqref{eq:shim_preliminary_values}. Then the $x$-axis current was optimized using the newly found optimal $z$-value. Finally, the $y$-axis current was optimized using the optimal currents for both the $z$- and $x$-axes. The results are shown in Figures \ref{fig:shimz_opt}, \ref{fig:shimx_opt} and \ref{fig:shimy_opt} for the $z$-, $x$-, and $y$-axis coils respectively.
+The optimization was performed sequentially. First, the $z$-axis current was optimized while keeping the $x$- and $y$-axes currents fixed to their preliminary values \eqref{eq:shim_preliminary_values}. Then the $x$-axis current was optimized using the newly found optimal $z$-value. Finally, the $y$-axis current was optimized using the optimal currents for both the $z$- and $x$-axes. Quadratic fits were applied to the experimental data to extract the optimal current values and their corresponding minimum temperatures. The results are shown in Figures \ref{fig:shimz_opt}, \ref{fig:shimx_opt} and \ref{fig:shimy_opt} for the $z$-, $x$-, and $y$-axis coils respectively.
 
 The resulting optimized currents, used in the subsequent ODT loading stage, are:
 \begin{equation}
@@ -75,24 +75,24 @@ The resulting optimized currents, used in the subsequent ODT loading stage, are:
     \end{aligned}
     \label{eq:mol_shim_optimal_values}
 \end{equation}
-The $z$-axis compensation coil current deviated the most from its preliminary value, while the $x$-axis current underwent a smaller but still appreciable correction. In contrast, the $y$-axis coil current remained close to its initial value.
+These parameters yielded a minimized molasses temperature of $T=(9.6\pm0.1)~\mu\mathrm{K}$. The $z$-axis compensation coil current deviated the most from its preliminary value, while the $x$-axis current underwent a smaller but still appreciable correction. In contrast, the $y$-axis coil current remained close to its initial value.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimz_z_fit.pdf}
+    \includegraphics[width=0.73\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimz_z_fit.pdf}
     \caption{Optical molasses temperature versus Shim-Z current. The parabolic fit yields a minimum temperature $T=(11.46\pm0.03)~\mu\mathrm{K}$ at a current $I_\text{z}=(-223.2\pm0.7)~\text{mA}$.}
     \label{fig:shimz_opt}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimx_opt2_fit.pdf}
+    \includegraphics[width=0.73\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimx_opt2_fit.pdf}
     \caption{Optical molasses temperature versus Shim-X current. The parabolic fit yields a minimum temperature $T=(9.2\pm0.1)~\mu\mathrm{K}$ at a current $I_\text{x}=(-17\pm2)~\text{mA}$.}
     \label{fig:shimx_opt}
 \end{figure}
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimy_opt2_fit.pdf}
+    \includegraphics[width=0.73\linewidth]{Cap_3_figures/MOL_temperature/temperature_vs_shimy_opt2_fit.pdf}
     \caption{Optical molasses temperature versus Shim-Y current. The parabolic fit yields a minimum temperature of $T=(9.6\pm0.1)~\mu\mathrm{K}$ at a current $I_\text{y}=(-184\pm3)~\text{mA}$.}
     \label{fig:shimy_opt}
 \end{figure}

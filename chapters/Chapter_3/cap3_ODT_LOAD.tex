@@ -17,10 +17,9 @@ Similarly to the molasses phase, preliminary current values for the ODT loading,
 \end{equation}
 
 %*###############################################################
-\subsection{Shifted MOT}
+\subsection{Imaging system optimization}
 %*###############################################################
 
-\subsubsection{Preliminary measurements}
 Initial measurements were performed using the FLIR camera, employing the optimal parameters derived from the molasses temperature optimization and the preliminary compensation coil currents for the ODT loading.
 \begin{figure}[!h]
     \centering
@@ -71,7 +70,11 @@ The results obtained with this optimized configuration are shown in Figures~\ref
 
 Despite the improved SNR, a critical issue remained: the insufficient spatial resolution provided by the FLIR camera setup. To overcome this limitation, subsequent measurements were performed using the Manta camera, which features a smaller pixel pitch. Additionally, the Manta camera was mounted closer to the experimental chamber to exploit the minimum working distance of the MVL50M23 objective, maximizing the optical magnification. Comparing the apparent fiber width measured by both cameras, it was deduced that the object size in pixels increased by a factor of $\sim 2.25$ with the Manta setup. This scaling factor arises from the combined contribution of the higher optical magnification and the smaller pixel size, finally yielding a sufficiently resolved ODT signal for robust analysis, as shown in Figure~\ref{fig:manta_test_1D}.
 
-\subsubsection{Results}
+
+%*###############################################################
+\subsection{Capture efficiency optimization}
+%*###############################################################
+
 The systematic optimization of the compensation coil currents was carried out following the complete analysis procedure detailed in Section \ref{subsec:odt_loading_analysis_method}, utilizing the Manta camera. The procedure was performed sequentially along the spatial axes in the order $x \rightarrow z \rightarrow y$. During each scan, the currents of the remaining non-optimized coils were maintained at the preliminary values established in Equation \eqref{eq:shim_shifted_MOT_preliminary}.
 
 The capture efficiencies extracted from these scans are summarized in Figure~\ref{fig:shim_capture_efficiencies} for the $x$-, $y$-, and $z$-coils. Similarly, Figure~\ref{fig:shim_odt_area} displays the evaluated ODT signal area for each scan. This area is directly proportional to the total number of captured atoms, making it the physical quantity of fundamental interest. However, since the camera was not calibrated for absolute atom number measurements, this quantity can only be expressed in arbitrary units. Nonetheless, these values remain perfectly comparable provided the camera gain is kept constant. As evident from the plots, the behavior of the capture efficiency mirrors the trend of the ODT area.
