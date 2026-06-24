@@ -1,3 +1,4 @@
+% !TeX root = ./chapter_2_main.tex
 \section{Magneto-optical trap}\label{sec:cap_2_MOT}
 
 % Here I'll do a brief description of what is a MOT, since was not mentioned untill now. Then I give the general description of the experiment (highlighting the fact that the apparatus is fully fiber-coupled a part for the master laser light, and MOT beams of course).
@@ -5,10 +6,49 @@
 %* ##########################################################
 \subsection{The Vacuum Chamber}
 %* ##########################################################
-% Here I'll describe the physical realization of the chamber, the need of a UHV, the need of the Compensation Coil ecc.
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        % 1. Insert the main image
+        \node[anchor=south west, inner sep=0pt] (image) at (0,0) {\includegraphics[width=0.5\linewidth]{Cap_2_figures/exp_general/chamber.png}};
+
+        % 2. Create a scope for the custom axes, positioned at the bottom right of the image node
+        % Adjust the xshift and yshift values to fine-tune the placement
+        \begin{scope}[shift={(image.south east)}, xshift=2.5cm, yshift=2cm]
+
+            % Define the length of the axes
+            \def\axisLength{1.2}
+
+            % Y-axis (Top / Bottom) -> Top is +Y, Bottom is -Y
+            \draw[line width=1pt, dashed, gray] (0,0) -- (0,-\axisLength);
+            \draw[-{Stealth[length=3mm, width=2.5mm]}, line width=1.5pt] (0,0) -- (0,\axisLength) node[above, font=\large] {$y$};
+
+            % X-axis (W / E) -> W (Left) is +X, E (Right) is -X
+            \draw[line width=1pt, dashed, gray] (0,0) -- (\axisLength,0);
+            \draw[-{Stealth[length=3mm, width=2.5mm]}, line width=1.5pt] (0,0) -- (-\axisLength,0) node[left, font=\large] {$x$};
+
+            % Z-axis (N / S) -> N (Up-Left) is +Z, S (Down-Right) is -Z
+            % Using 135 degrees to match the diagonal perspective
+            \draw[line width=1pt, dashed, gray] (0,0) -- (-45:\axisLength);
+            \draw[-{Stealth[length=3mm, width=2.5mm]}, line width=1.5pt] (0,0) -- (135:\axisLength) node[above left, font=\large] {$z$};
+
+        \end{scope}
+    \end{tikzpicture}
+    \caption{The vacuum chamber setup with all its components: the vacuum chamber is painted purple, the MOT optical system in red, the MOT coils in orange, the ionic pump in black, the Rb source on the left side in dark orange, and the HCPCF port in green, located underneath the camera. Credits \cite{marchesini2025PHD, mmarqe2024mot}.}
+    \label{fig:vacuum_chamber}
+\end{figure}
+
 
 %* ##########################################################
 \subsection{The laser system}
 %* ##########################################################
+
+\begin{figure}
+    \centering
+    \input{tikz/laser_structures.tex}
+    \caption{Level scheme of the $^{85}$Rb and $^{87}$Rb D$_2$ line. Reference transitions are indicated for the master laser (orange), cooler laser (red), and repumper laser (blue).}
+    \label{fig:laser_configuration}
+\end{figure}
+
 \subsubsection{Master laser}
 \subsubsection{Cooler and repumper lasers}

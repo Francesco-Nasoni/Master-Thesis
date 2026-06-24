@@ -1,4 +1,4 @@
- \begin{tikzpicture}[x=0.85cm, y=0.85cm, >=Stealth, every node/.style={font=\normalsize}]
+ \begin{tikzpicture}[x=0.85cm, y=0.85cm, >=Stealth, every node/.style={font=\normalsize}, scale=0.8]
         
         % --- Styles Definition ---
         \tikzstyle{level}=[very thick, draw=black]
@@ -32,13 +32,13 @@
         \def\xFine{0}
         \def\wFine{2}
 
-        \def\xEighFive{4.8}
+        \def\xEighFive{5.8}
         \def\wEighFive{2.2}
 
         \def\xCross{\xEighFive}
         \def\wCross{2.2}
 
-        \def\xEighSeven{10}
+        \def\xEighSeven{12}
         \def\wEighSeven{2.2}
 
         % ==========================================
@@ -68,13 +68,13 @@
 
         % Master laser transition
         \draw[transarrow, orange!90!black] (\xEighFive + \wEighFive/2, \yEighFiveGThree) -- (\xEighFive + \wEighFive/2, \yCrossThree);
-        \node[rotate=90, orange!90!black, xshift = -52 pt] at (\xEighFive + \wEighFive/2 + 0.4, 10.0) {\textbf{Master}};
+        \node[rotate=90, orange!90!black, xshift = -52 pt] at (\xEighFive + \wEighFive/2 + 0.4, 10.3) {\textbf{Master}};
 
         % Saturation spectroscopy crossovers
         \draw[crosslevel] (\xCross, \yCrossOne) -- ++(\wCross, 0);
         \draw[crosslevel] (\xCross, \yCrossTwo) -- ++(\wCross, 0);
         \draw[crosslevel] (\xCross, \yCrossThree) -- ++(\wCross, 0);
-        \node[rotate=90, green!60!black] at (\xCross + \wCross + 0.4, 12.0) {\textbf{Crossovers}};
+        \node[rotate=90, green!60!black] at (\xCross + \wCross + 0.4, 11.8) {\textbf{Crossovers}};
 
         % ==========================================
         % 3. 87Rb Hyperfine Structure (Right Column)
@@ -93,11 +93,11 @@
 
         % Cooler laser transition
         \draw[transarrow, red!85!black] (\xEighSeven + 0.7, \yEighSevenGTwo) -- (\xEighSeven + 0.7, \yEighSevenEThree);
-        \node[rotate=90, red!85!black] at (\xEighSeven + 1.1, 13.5) {\textbf{Cooler}};
+        \node[rotate=90, red!85!black] at (\xEighSeven + 1.1, 14) {\textbf{Cooler}};
 
         % Repumper laser transition
         \draw[transarrow, blue!85!black] (\xEighSeven + 1.6, \yEighSevenGOne) -- (\xEighSeven + 1.6, \yEighSevenETwo);
-        \node[rotate=90, blue!85!black] at (\xEighSeven + 2.0, 6.0) {\textbf{Repumper}};
+        \node[rotate=90, blue!85!black] at (\xEighSeven + 2.1, 4.5) {\textbf{Repumper}};
 
         % Ground state splitting
         \draw[splitarrow] (\xEighSeven, \yEighSevenGOne) -- (\xEighSeven, \yEighSevenGTwo);
