@@ -1,10 +1,10 @@
 % !TeX root = ./chapter_2_main.tex
-\section{Magneto-optical trap}\label{sec:cap_2_MOT}
+\section{The Experimental Apparatus}\label{sec:cap_2_MOT}
+% Also "The Magneto-Optical Trap" is a good title
 
-% Here I'll do a brief description of what is a MOT, since was not mentioned untill now. Then I give the general description of the experiment (highlighting the fact that the apparatus is fully fiber-coupled a part for the master laser light, and MOT beams of course).
-
+The Magneto-Optical trap (MOT)
 %* ##########################################################
-\subsection{The Vacuum Chamber}
+\subsection{Setup Description}
 %* ##########################################################
 \begin{figure}[htbp]
     \centering
@@ -34,21 +34,62 @@
 
         \end{scope}
     \end{tikzpicture}
-    \caption{The vacuum chamber setup with all its components: the vacuum chamber is painted purple, the MOT optical system in red, the MOT coils in orange, the ionic pump in black, the Rb source on the left side in dark orange, and the HCPCF port in green, located underneath the camera. Credits \cite{marchesini2025PHD, mmarqe2024mot}.}
+    \caption{CAD rendering of the vacuum chamber and surrounding experimental setup. The color coding highlights the main vacuum chamber (purple), MOT optics (red), MOT coils (orange), ion pump (black), rubidium source (dark orange, left), and the HCPCF port (green) located below the imaging camera. The compensation coils are not drawn. Credits \cite{marchesini2025PHD, mmarqe2024mot}.}
     \label{fig:vacuum_chamber}
 \end{figure}
 
+The core component of the experimental apparatus is the vacuum chamber under Ultra-High Vacuum (UHV) condition, inside which the atoms are trapped and cooled. The chamber is secured by a clamping structure to an optical table. A CAD rendering of the structure is displayed in Figure~\ref{fig:vacuum_chamber} together with the surrounding experimental elements. 
+
+The UHV is achieved through the employment of an internal pump (SAES
+Getter NEXTorr® Z200), composed of an active ion-pump and a passive non-evaporable getter (NEG). The internal pump is activated once the system reached $\sim 10^{-7}~\text{mbar}$, through the use of an external dual diaphragm-turbo pump (Pfeiffer Vacuum HiCube 80 Eco DN63). With the internal pump the system reaches $\sim 10^{-10}~\text{mbar}$, as read from the ion-pump monitor.
+
+The chamber is equipped with eight windows. Two windows (mounted on CF100 flanges, radius $\sim 100~\text{mm}$) in the $z$ direction and the two couple of windows (mounted on CF40 flanges, radius $\sim 40~\text{mm}$) at $45^\circ$ with respect to the optical table surface are coated with 780~nm anti-reflective coating, as those windows are used to make the six MOT beams to pass through. The remaining two windows (mounted on CF40 flanges), one mounted on the top side of the chamber ($y$ side), the other on the $x$ side connected through a 4-way cross connector, are equipped with regular glass. The top window is needed for the injection of the second beam of the dipole trap, whereas the $x$ side window was meant for taking measurements in the chamber through a camera. The positioning of this window has the problematic to be placed on the opposite side of the chamber of the ionic-pump, thus the images taken from such viewpoint suffer from reflection from the pump facet, which introduce an annoying signal in the images. For this reason in this thesis work the cameras to image the system were mounted on supports to view the inside from the two large windows on the $z$ direction so that when a photo is taken, on the opposite side there is a highly non-reflective window.
+
+The rubidium vapor inside the chamber is provided by a $1~\mathrm{g}$ sample of pure $^{87}Rb$ connected through a valve on one of the four flanges of the 4-way cross connector cited above, while the fourth flange is connected to the external vacuum pump. The rubidium sample is heated by heating band powered by a variac. It is worth noting that when the rubidium valve is opened the pressure increase from $\sim10^{-10}~\text{mbar}$ to $\sim10^{-8}~\text{mbar}$.
+
+The MOT, as the name suggest, to work needs also a magnetic field gradient, whose presence induces a spatial dependent Zeeman splitting that affects the radiation pressure so that it pushes the atoms in a minimum of the magnetic field. The MOT magnetic field is provided by two circular coils of 110~mm diameter mounted on the $+z$ and $-z$ side of the chamber. The coils are configured in anti-Helmholtz so that they create a quadrupole magnetic field. The quadrupole field has a zero at half distance between the coils, namely at the center of the chamber, and presents a constant gradient in proximity of the zero. Its axial gradient is measured to be  1.33~$\text{G}\cdot\text{cm}^{-1}/\text{A}$. Due to Maxwell's divergence rule $\mathbf{\nabla}\cdot\mathbf{B}=0$ the radial magnetic field gradient must be half its axial gradient with opposite sign, this give the MOT cloud an ellipsoidal shape.
+
+Furthermore, the experimental apparatus is provided by three pairs of compensation coils, also called \textit{shim coils}. They are square shaped coils with internal side of $\sim 650~\text{mm}$, and are arranged in a cubic configuration, with a pair oriented along the three $x$, $y$, and $z$ axis. The current is set in Helmholtz configuration so that they can create a uniform magnetic field in the center of the chamber in any possible orientation. The compensation coils are needed to compensate any external magnetic field, mainly the Earth's magnetic one, however, in this thesis work were also employed to shift the MOT position to increase its spatial overlap with the ODT beam.
+
+On the bottom of the vacuum chamber (negative $y$ side) a CF40 blind flange with a $1/8"$ Swagelok feed-through is mounted inside which a Teflon ferrule with a $0.5~\text{mm}$ diameter hole is mounted. The HCPCF is inserted inside the ferule and tightened to guarantee proper sealing. Inside the chamber the fiber is held by a specifically designed support to maintain in on a straight line, and the tip is placed at approximately $10~\text{mm}$ form the chamber center.
+
+Finally, the setup has three $100~\text{mm}$ collimators that provide the cooling and repumping light beam inside the chamber, called also in this work \textit{MOT beams}. The beams pass through the windows and gets retroreflected by mirrors. In front of each mirror a $\lambda/4$ wave plate is placed so that the beams pass through it before and after reflection, in this way the two counter propagating bemas of a branch have opposite circular $\sigma^{+}$ and $\sigma^{-}$ polarization, needed for the realization of the MOT, and the instauration of the polarization gradient that is at the base of sub-Doppler cooling. With this configuration the retroreflected beam have an intensity $\sim 88\%$ of the incoming one, although not perfectly balanced, the forces applied on the atomic cloud from opposite directions are similar enough to grant adequate trapping \cite{marchesini2025PHD}.
+
+%! 2. Aggiungere correnti e campi alle bobine <->
+%! 2. Devo citare che l'intero sistema è fiber-coupled 
 
 %* ##########################################################
-\subsection{The laser system}
+\subsection{Laser System and Frequency Stabilization}
 %* ##########################################################
+The cooling system operates on the $D_2$ line transition $5^{2}S_{1/2} \rightarrow 5^{2}P_{3/2}$ of the $^{87}$Rb, which occurs at a wavelength of approximately $780~\text{nm}$. For explaining the working mechanism of the system, it is necessary to consider the hyperfine structure characterized by its total angular momentum quantum number $F=I+J$. The hyperfine structure with the employed laser coupled transitions is shown in Figure~\ref{fig:laser_configuration} for both $^{85}$Rb and $^{87}$Rb. 
+\begin{figure}[t]
+    \centering
+    \input{tikz/laser_structures.tex}
+    \caption{Level scheme of the $^{85}$Rb and $^{87}$Rb D$_2$ line. Reference transitions are indicated for the master laser (orange), cooler laser (red), and repumper laser (blue). For the $^{85}$Rb also the crossover transition frequency of the saturation spectoroscopy are drawn. Detailed data available in \cite{steck-rb85, steck-rb87}.}
+    \label{fig:laser_configuration}
+\end{figure}
+The cooling transition is chosen to be the $F=2 \rightarrow F'=3$. When the MOT beams are off, the $^{87}$Rb atoms in the vapor are distributed in the $F=1$ and $F=2$ hyperfine levels of the $5^{2}S_{1/2}$ ground state in a ration $3/5$. When the MOT beams are turned on the cooling laser frequency start to pump atoms to $F'=3$.  According to the selection rule $\Delta F = 0,\pm 1$, the only available decay is $F'=3 \rightarrow F=2$. Since in an absorption--emission cycle the atom starts and end in $F=3$, such cycle is called \textit{closed cycle}. Although, starting from $F=2$, there is also a small probability that the atom undergoes the off-resonance transition $F=2 \rightarrow F'=2$. From $F'=2$ the atom can decay with equal probability to $F=2$ or $F=1$, the latter is a dark state that does not cooling laser. Therefore, an atom in $F=1$ cannot be cooled or trapped anymore. To address this leakage, the repumping laser is introduced to excite the transition $F=1 \rightarrow F'=2$, allowing the atoms to eventually decay back to $F=2$. The use of the repumper also makes the $3/5$ of atoms that are initially found in $F=1$ available for the cooling and trapping.
+
+In other to work properly the cooling and repumping laser frequencies must be precisely locked at their target. The locking mechanism is briefly discussed in the following sections.
+
+\subsubsection{Master laser}
+The cooling laser and the repumping laser are locked to their target frequency by taking as a reference a third one called \textit{master laser}. The master laser needs itself to be locked to a precise frequency, this is achieved through the \textit{saturation spectroscopy} \cite{steck_quantum_optics}. The saturation spectroscopy is a Doppler-based technique that allows to resolve frequency much smaller than the Doppler with of a gas at a given temperature. For practical reason the master frequency is preferred to lie halfway between the cooling and repumping frequencies. For this reason the locking is performed to target the $(F=3 \rightarrow F'=3) \times (F=3 \rightarrow F'=4)$ crossover transition of the $^{85}$Rb isotope (see Figure~\ref{fig:laser_configuration}). The locking scheme is shown in Figure~\ref{fig:master_locking_setup}. The light source is a 780~nm Distributed Feedback (DFB) laser diode current-driven and temperature-stabilized using external electronics. The light gets split by a $5:95$ beam splitter into two branches. The 5\% branch takes the name of \textit{probe beam}. The 95\% branch passes again through a $10:90$ beam splitter: sending the 90\% to the cooler and repumper locking setup, and the 10\% is used for the saturation spectroscopy and takes the name of \textit{pump beam}.
+
+Then the pump beam passes through a Polarization Beam splitter (PBS) so that it is 100\% reflected and passes through a cell of $^{85}$Rb vapor. On the other branch the probe beam passes through an Acousto-Optic Modulator (AOM), piloted by an amplified RF signal generated by a Direct Digital Synthesizer (DDS), controlled by the experiment electronics. Only the $1^{\text{st}}$ order is kept, wile the $0^{\text{th}}$ order gets dumped by an iris. The AOM is the core component of this looking setup as its frequency modulation capability is used to scan the frequencies in search of the target crossover peak, as well as used to correct the frequency of the laser representing the actual locking mechanism.
+After the AOM the probe passes through a Half Wave Plate (HWP) that rotates the polarization, so that it is completely transmitter when encounter the PBS before-mentioned. The probe beam enters the rubidium cell from the opposite side with respect to the pump beam. As the prob beam exit cell it encounters the PBS that let 100\% of the light being transmitted end reach a photodiode. The photodiode provides a slow output port connected to an oscilloscope to monitor the locking behavior, and a fast output port connected to the electronics works as an error signal. The electronics then uses a PID control algorithm to pilot the DDS to use the AOM as a frequency corrector.
 
 \begin{figure}
     \centering
-    \input{tikz/laser_structures.tex}
-    \caption{Level scheme of the $^{85}$Rb and $^{87}$Rb D$_2$ line. Reference transitions are indicated for the master laser (orange), cooler laser (red), and repumper laser (blue).}
-    \label{fig:laser_configuration}
+    \includegraphics[width=0.55\linewidth]{Cap_2_figures/exp_general/master_locking_setup.png}
+    \caption{Master laser locking setup scheme}
+    \label{fig:master_locking_setup}
 \end{figure}
 
-\subsubsection{Master laser}
 \subsubsection{Cooler and repumper lasers}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Cap_2_figures/exp_general/cooler_repumper_locking_setup.png}
+    \caption{Cooling laser and repumping laser locking setup scheme.}
+    \label{fig:cooler_repumper_locking_setup}
+\end{figure}
