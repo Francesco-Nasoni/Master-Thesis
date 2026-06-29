@@ -33,6 +33,9 @@
 % Bibliography
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{\subfix{bibliography.bib}}
+\DefineBibliographyStrings{english}{%
+  andothers = {\mkbibemph{et~al.\adddot}},
+}
 
 % Hyperlinks
 \usepackage{xr-hyper}

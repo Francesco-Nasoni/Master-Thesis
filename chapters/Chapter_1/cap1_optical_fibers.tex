@@ -1,5 +1,5 @@
 % !TeX root = ./chapter_1_main.tex
-\section{Optical Fibers}
+\section{Optical Fibers}\label{sec:Optical_fibers}
 Waveguides are devices that employ dielectric materials with a high refractive index to confine and guide electromagnetic radiation, preventing the diffraction-induced spreading that occurs during free-space propagation. The electromagnetic wave that propagates inside a waveguide is called guided mode.
 
 Optical fibers are cylindrically symmetric waveguides, and represent the most widespread class of optical waveguides. Following chapter III of \citeauthor*{yariv2007photonics} \cite{yariv2007photonics}, this section aims to explain the physical principles underlying light confinement in optical fibers. Particular attention is devoted to the characterization of the guided modes in the weakly guiding approximation, which leads to the so-called linearly polarized ($LP$) modes.
@@ -239,6 +239,7 @@ Looking for a guided mode in the fiber is equivalent to seeking a solution that 
 \end{equation}
 Consequently, the propagation constant of a guided mode must satisfy
 \begin{equation}
+    \label{eq:n_relation_traditional_fibers}
     n_2k_0 < \beta < n_1k_0,
 \end{equation}
 which in weakly guiding regime becomes
@@ -505,3 +506,4 @@ Finally, the calculated intensity profiles for selected $LP$ modes are mapped in
     \caption{Intensity profiles of the $LP$ modes with $l=0,\,1,\,2$ and $m=1,\,2,\,3$. Each mode $LP_{lm}$ is calculated with $V^{(lm)}=V^{(lm)}_\text{cutoff}+2$. The $x,y$ coordinates are expressed in units of fiber core radius.}
     \label{fig:LP_modes_intensity_profiles}
 \end{figure}
+

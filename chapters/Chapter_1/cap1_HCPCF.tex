@@ -1,0 +1,36 @@
+% !TeX root = ./chapter_1_main.tex
+\section{Hollow-Core Photonic Crystal Fibers}
+
+The previous section focussed only on the light propagation in conventional step index fibers. However, technological development in the sector of optical fibers, have led to new typologies of low loss optical waveguides, that are very promising for telecommunication and fundamental research. Those are the so-called Photonic Crystal Fiber (PCF) first introduced by \citeauthor{Knight:96} \cite{Knight:96}. In particular for the purpose of this work, the interest fall on the subclass of Hollow-Core Photonic Crystal Fiber (HCPCF) that were introduced  few years later in 1999 by \citeauthor{Cregan:99} \cite{Cregan:99}.
+In conventional fibers the light is confined in a solid core surrounded by a bulk cladding and requires $n_\text{core}>n_\text{clad}$. By contrast in HCPCF the core is physically hollow filled of air and is surrounded by a periodical microstructured cladding, thereby $n_\text{core}<n_\text{clad}$.
+
+This section proposes a review of the principles that governs the HCPCF, based on the work of \citeauthor{Debord-Vincetti:19} \cite{Debord-Vincetti:19}.
+%! Qua ci va qualche immagine <==
+
+\subsection{Introduction to HCPCF Guiding Principles}
+Conventional fibers guiding mechanism can be explained employing the principle of total internal reflection (TIR), that strictly requires the condition $n_\text{core}>n_\text{clad}$. Such condition is expressed in the wave optic treatment by Equation \eqref{eq:n_relation_traditional_fibers} as a requirement for a mode to be guided (oscillatory in the core and evanescent in the cladding). As mention beforehand, in a HCPCF $n_\text{core}<n_\text{clad}$, therefore the guiding mechanism must have a different physical nature.
+
+The theoretical method used to explain the physics of these fibers is borrowed from the condensed matter physics. In this approach the periodic dielectric microstructures of the cladding (referred to as \textit{photonic crystals}) is treated in analogy to the periodic potential in a crystal and the core as a defect in this periodic potential. The problem of guided light is solved by casting the electromagnetic wave equation as an eigenvalue problem in the frequency-wavevector space, in analogy to the solution in the $k$-space for electronic states of a crystal.
+
+Consequently, concepts and notations typical of quantum mechanic and condensed matter physics arises from the solutions, such as Bloch states and density of states and band gaps.
+
+The crucial physical quantity for the understanding the guiding mechanisms is the modal spectrum in the cladding and in the core, represent by the Density Of Photonic States (DOPS) in the frequency-wavevector space $(\omega, \beta)$. Here, $\beta$ is the propagation constant of the mode, namely the $z$ component of the wave vector $\mathbf{k}$ of the mode, as in Section \ref{sec:Optical_fibers}. Equivalently, and usual in literature, the DOPS is expressed in terms of the effective index $n_\text{eff} = \beta / k$.
+
+Similar to what happens for electrons in solid band structure, the DOPS $(\omega, n_\text{eff})$ indicates region where there are photonic states available corresponding to effective indices for which the light can propagate, and void region where there are any state available where light cannot propagate. These regions are called Photonic Band Gaps (PBGs).
+
+From this prospective two different guiding mechanisms arises:
+The first is choosing a core index and a geometry so that at least a part of its supported mode $(\omega, n_\text{eff})$ lie in the cladding PBG. In this way the core modes cannot leak out because there are no available modes in the cladding to excite at that specific effective index. The second relies on cladding modes and core modes that can coexist at the same $n_\text{eff}$ but have a small spatial overlap so that the core mode cannot leak in the cladding because its coupling with the cladding mode is suppressed by the small spatial overlap.
+
+This divides the HCPCFs into two different classes: Photic Band Gap (PBG) fibers and Inhibited Coupling (IC) fibers.
+
+\subsection{PBG and IC Guiding Mechanisms Comparison}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\linewidth]{Cap_1_figures/HCPCF/HCPCF_comparison_2.png}
+    \caption{Modal content representation of optical guiding fibers: (a) Total internal reflection (TIR); (b) Photonic Ban Gap (PBG); and (c) Inhibited Coupling (IC). Each graph represents the photonic bands of the cladding mode as a function of the effective index $n_\mathrm{eff}$, with continuum or gaps region, highlighting where the core guidance happens. For both TIR and PBG fibers, the guided core modes appear in correspondence of gaps, whereas for IC fibers no gaps are presents thus the guidance correspond to a continuum of cladding modes. Credits \cite{Debord-Vincetti:19}.}
+    \label{fig:guiding_mechanism_comparison}
+\end{figure}
+
+
+\subsection{HCPCF core guided modes}
