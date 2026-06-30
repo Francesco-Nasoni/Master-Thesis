@@ -5,7 +5,13 @@ The previous section focussed only on the light propagation in conventional step
 In conventional fibers the light is confined in a solid core surrounded by a bulk cladding and requires $n_\text{core}>n_\text{clad}$. By contrast in HCPCF the core is physically hollow filled of air and is surrounded by a periodical microstructured cladding, thereby $n_\text{core}<n_\text{clad}$.
 
 This section proposes a review of the principles that governs the HCPCF, based on the work of \citeauthor{Debord-Vincetti:19} \cite{Debord-Vincetti:19}.
-%! Qua ci va qualche immagine <==
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.7\linewidth]{Cap_1_figures/HCPCF/overview_HCPCF.jpg}
+    \caption{ Scanning Electron Microscope images of some hollow core fibers: (a) photonic band gap fiber; (b-h) Inhibited Coupling fibers. Credits \cite{Poletti:14}.}
+    \label{fig:HCPCF_cladding_geometries}
+\end{figure}
 
 \subsection{Introduction to HCPCF Guiding Principles}
 Conventional fibers guiding mechanism can be explained employing the principle of total internal reflection (TIR), that strictly requires the condition $n_\text{core}>n_\text{clad}$. Such condition is expressed in the wave optic treatment by Equation \eqref{eq:n_relation_traditional_fibers} as a requirement for a mode to be guided (oscillatory in the core and evanescent in the cladding). As mention beforehand, in a HCPCF $n_\text{core}<n_\text{clad}$, therefore the guiding mechanism must have a different physical nature.
@@ -27,10 +33,42 @@ This divides the HCPCFs into two different classes: Photic Band Gap (PBG) fibers
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.95\linewidth]{Cap_1_figures/HCPCF/HCPCF_comparison_2.png}
-    \caption{Modal content representation of optical guiding fibers: (a) Total internal reflection (TIR); (b) Photonic Ban Gap (PBG); and (c) Inhibited Coupling (IC). Each graph represents the photonic bands of the cladding mode as a function of the effective index $n_\mathrm{eff}$, with continuum or gaps region, highlighting where the core guidance happens. For both TIR and PBG fibers, the guided core modes appear in correspondence of gaps, whereas for IC fibers no gaps are presents thus the guidance correspond to a continuum of cladding modes. Credits \cite{Debord-Vincetti:19}.}
+    \includegraphics[width=\linewidth]{Cap_1_figures/HCPCF/HCPCF_comparison_2.png}
+    \caption{Modal content representation of optical guiding fibers: (a) Total internal reflection (TIR); (b) Photonic Ban Gap (PBG); and (c) Inhibited Coupling (IC). The vertial axis represent the effective index $n_\text{eff}$, with the indices involved represented as horizontal dashed lines. Each graph represents the photonic bands of the cladding mode as a function of $n_\mathrm{eff}$, with continuum (orange-filled rectangles) or gaps region (withe-filled rectangles), highlighting where the core guidance happens. For both TIR and PBG fibers, the guided core modes appear in correspondence of gaps, whereas for IC fibers no gaps are presents thus the guidance correspond to the continuum of cladding modes. Credits \cite{Debord-Vincetti:19}.}
     \label{fig:guiding_mechanism_comparison}
 \end{figure}
 
+Figure~\ref{fig:guiding_mechanism_comparison} summarized the cladding and core modal content for the three different considered fiber types: TIR, PBG and IC. First for TIR fibers the cladding is made of a uniform material with the refractive index of the glass $n_\text{g}$, therefore it can guide modes for $n_\text{eff}<n_\text{g}$, represented in Figure~\ref{fig:guiding_mechanism_comparison}a as a continuum of cladding modes. Above the continuum no mode exists in the cladding (represented as the gap in Figure~\ref{fig:guiding_mechanism_comparison}a). Since the cladding is made of a uniform material with the refractive index of doped glass $n_\text{dg}>n_\text{g}$, modes in the core exists for $n_\text{eff}<n_\text{g}$, therefore, the guidance happens for $n_\text{g} < n_\text{eff} < n_\text{dg}$. According to this point of view TIR fibers are just a form of PBG fibers, achieved with a core defect that has a uniform refractive index higher than that of the cladding. 
+
+Moving to a microstructured cladding, the requirement of a higher index refractive index in the core is lifted. In this way the cladding photonic band structure acquires a more complex pattern made of an alternance of continuum regions and gap regions (Figure\ref{fig:guiding_mechanism_comparison}b). By a correct engineering of the microstructures, the gap can range the region $n_\text{eff}<n_\text{air}$, allowing optical guidance in the air filled core.
+
+Finally, IC fibers show a completely different guiding mechanism since they are the sole fiber type to not require a cladding PBG in correspondence of the core guiding region (Figure~\ref{fig:guiding_mechanism_comparison}c). In these fibers the cladding continuum and the core continuum of modes can coexist without leaking of the core modes to the cladding. The guiding mechanism is explained through the concept brought form quantum mechanic of Bound States in the Continuum \cite{vonNeumann1929, BIC-HCPCF}.
+According to this model, the coupling between the field of the core mode, $\ket{\phi_{core}}$, and the cladding mode, $\ket{\phi_{clad}}$, is strongly reduced. Mathematically, this translates to the condition $\braket{\phi_{clad} | \Delta n | \phi_{core}} \longrightarrow 0$, with $\Delta n$ being a transverse index profile function \cite{Debord-Vincetti:19}. This decoupling can be achieved by either having little spatial intersection between the fields of the $\ket{\phi_{clad}}$ and $\ket{\phi_{core}}$ photonic states, or by having a strong mismatch in their respective transverse spatial phases. This also explain why IC-HCPCF are those that achieve the lowest loss among the fibers. Notably in this way the IC fibers do not have any cutoff frequency therefore their nature is intrinsically multimodal.
 
 \subsection{HCPCF core guided modes}
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \node[anchor=south west, inner sep=0] (trap_image_left) at (0,0) {%
+                \adjincludegraphics[trim= 2bp 2bp {0.45\width} 2bp, clip, width=0.65\linewidth]{Cap_1_figures/HCPCF/HCPCF_core_modes.pdf}
+        };
+    \fill[white] (trap_image_left.north west) rectangle ++(2cm, -2cm);
+
+    \node[anchor=west, inner sep=0, xshift=0.05\linewidth] (trap_image_right) at (trap_image_left.east) {%
+                \includegraphics[width=0.25\linewidth]{Cap_1_figures/HCPCF/S2_Modes_HCPCF_V.jpg}
+        };
+
+    \end{tikzpicture}
+    \caption{$LP$-like modes in HCPCFs. Left: effective refractive index spectrum and intensity profiles of the calculated LP modes for the core of a Kagome fiber. Credits \cite{Debord-Vincetti:19}. Right: modal profiles experimentally measured via the $S^2$ technique on a 7-cell (K7) Kagome fiber, with the corresponding MPI. The image reports the fundamental mode (FM); two different orientation of $LP_{11}$-like modes (A, B); two different orientation of $LP_{12}$-like modes (C,D); an $LP_{02}$-like mode (E); and an $LP_{31}$-like mode (F). Credits \cite{Bradley:16}.}
+    \label{fig:core_modes_kagome_HCPCF}
+\end{figure}
+
+Despite the large physical difference in the guiding mechanisms of PBG and IC with respect to the TIR, the core guided modes do not largely deviates form the modes in conventional step-index optical fibers \cite{Debord-Vincetti:19}. More precisely the propagation constants and the mode shapes do not differ much from the results obtained by \citeauthor{marcatili:1964} \cite{marcatili:1964} for electromagnetic modes in hollow dielectric capillary, which, in turn, do not deviate in the qualitative shape from the mode in step-index optical fibers complete solutions of $TE$, $TM$, $EH$ and $HE$ modes.
+
+For example \cite{digonnet:2005} show how the $LP_{l,m}$ mode are still a good approximation for the core mode of PBG fibers and $LP$ mode based approximation can be used to yield estimates of the number of modes, their cutoffs and effective index. Although for more accurate prediction and a correct description the complete solution should be used \cite{Aghaie:2009}.
+
+Figure~\ref{fig:core_modes_kagome_HCPCF} left shows the calculated $LP$-like modes for a kagome IC-HCPCF from \cite{Debord-Vincetti:19}.
+
+The modal composition of a fiber can be characterized experimentally using the Spatially and Spectrally resolved imaging ($S^2$) technique, which was first introduced by \citeauthor{Nicholson_S2:08} \cite{Nicholson_S2:08}. This technique relies on the acquisition and analysis of the optical interference spectrum generated by the superposition of multiple guided modes. By applying a Fourier transform to the measured spectrum, the differential group delays between the propagating modes can be extracted, enabling the simultaneous characterization of both their spatial profiles and their spectral properties. Figure~\ref{fig:core_modes_kagome_HCPCF} right show the experimentally measured mode profiles for a 7-cell (K7) kagome IC-HCPCF, obtained used the $S^2$ technique by \citeauthor{Bradley:16} \cite{Bradley:16}. The measured mode profiles clearly similar to those of the $LP$ modes of the conventional step-index fibers, and to the calculated ones.
+
+Figure~\ref{fig:core_modes_kagome_HCPCF} right also reports underneath each mode profile the value of the multipath interference (MPI) defined as the ratio expressed in decibel between the power guided by the fundamental mode ($P_\text{FM}$) and the power guided by the considered high order mode ($P_\text{HOM}$): $\text{MPI}=10\log(P_\text{FM}/P_\text{HOM})$. It is worth noting that the guided light is mainly in the fundamental core mode as the lowest MPI being represented by the $LP_{11}$-like that by combining the two corresponding mode is $\sim13$dB corresponding to approximately a factor 20 power transmitted by the mode. According to \cite{Debord-Vincetti:19} the IC-HCPCF can be effectively used as single-mode fiber if engineered to have high loos for high order mode while maintain low loss for the fundamental one.
