@@ -11,7 +11,7 @@
 %* #########################################################
 %* ### Citation Page
 % Front matter (use roman number for page)
-\frontmatter 
+
 % \thispagestyle{empty}
 %     \vspace*{6cm}
 %     \begin{flushright}
@@ -23,19 +23,21 @@
 %         \vspace{\baselineskip}
 %         \textit{Karen, Johto Elite Four}
 %     \end{flushright}
-    
-    \newpage
-    \thispagestyle{empty}
 
-	\tableofcontents
-    \newpage
-    \thispagestyle{empty}
+%* #########################################################
+%* ### Abstract
+\subfile{chapters/Intro_Conc_Abs/abstract.tex}
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
 
-    \listoffigures
-    \newpage
-    \thispagestyle{empty}
+%* #########################################################
+%* ### Frontmatter
+\frontmatter 
+\tableofcontents
+\listoffigures
 
-% Main content (Use Arabic number for pages)
+
 \mainmatter
 \onehalfspacing
 %* #########################################################
