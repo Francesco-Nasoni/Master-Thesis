@@ -1,0 +1,152 @@
+% !TeX root = ./chapter_2_main.tex
+\subsection{ODT loading efficiency calculation}
+To have a theoretically calculated reference of the capture efficiency of the ODT, a small model has been developed in two regimes: shallow trap, in which the trap depth is assumed much smaller than the thermal energy, and the non-shallow trap in which the trap depth is assumed comparable to the thermal energy.
+
+\subsubsection{Model description}
+The ODT beam is modelled as a Gaussian beam propagating along the $z$-axis, its local intensity distribution as a function of the beam total power $P$ is given by:
+\begin{equation}
+    \label{eq:gaus_intensity_power}
+    I(x,y,z) = \frac{2P}{\pi w(z)^2} \exp\left[ -2\frac{x^2+y^2}{w(z)^2} \right],
+\end{equation}
+where the beam radius $w(z)$ evolves along the propagation axis according to:
+\begin{equation}
+    w(z) = w_0 \sqrt{1 + \left(\frac{z}{z_R}\right)^2}.
+\end{equation}
+
+Using \eqref{eq:gaus_intensity_power} in \eqref{eq:dipole_potential_alpha}, the ODT potential energy can be expressed as
+\begin{equation}
+    U_\text{dip}(\mathbf{r}) = \alpha \frac{2P}{\pi w(z)^2} \exp\left[ -2\frac{x^2+y^2}{w(z)^2} \right],
+\end{equation}
+where $\alpha$ represents the real part of the polarizability expressed in units of $1/(2\epsilon_0c)$:
+\begin{equation}
+    \alpha = -\frac{1}{2\epsilon_0c}\text{Re}[\alpha'],
+\end{equation}
+with $\alpha'$ being the polarizability defined as in Section \ref{sec:ODT_theory}.
+
+The maximum trap depth $U_0$ is located at the beam waist $w_0$ position, which is assumed to be located at the fiber tip ($z=0$), and it is given by:
+\begin{equation}
+    U_0 =\alpha I_{\text{max}}\,,
+\end{equation}
+where $I_{\text{max}} = 2P/(\pi w_0^2)$ is the maximum intensity.
+
+Following the molasses cooling stage, the atomic cloud is assumed in thermodynamic equilibrium, therefore, the phase space distribution is described by the spatial profile ($n_\text{MOL}(\mathbf{r})$) of the atomic cloud coupled with the Maxwell-Boltzmann velocity distribution:
+\begin{equation}
+    f(\mathbf{r}, \mathbf{v}) = n_{\text{MOL}}(\mathbf{r}) \left( \frac{M}{2\pi k_B T} \right)^{3/2} \exp\left[ -\frac{M v^2}{2k_B T} \right],
+\end{equation}
+where $M$ is the mass of a $^{87}$Rb atom, $T$ is the sample temperature, and the total atom number
+is normalized via 
+\begin{equation}
+    N_{\text{MOL}} = \int d^3r d^3v f(\mathbf{r}, \mathbf{v}).
+\end{equation}
+
+An atom positioned at the spatial coordinate $\mathbf{r}$ is successfully trapped by the ODT if its transverse kinetic energy (in the $x$-$y$ plane) is lower than the local depth of the trap:
+\begin{equation}
+    v_x^2 + v_y^2 < \frac{2|U_{\text{dip}}(\mathbf{r})|}{M}.
+\end{equation}
+For the $v_z$ velocity component, it is assumed that all the atoms having $v_z < 0$ are captured, eventually reaching the fiber tip.
+
+Therefore, the total number of captured atoms $N_{\text{ODT}}$ is evaluated by integrating over the phase-space volume of trapping success:
+\begin{equation}
+    N_{\text{ODT}} = \int d^3r \, n_{\text{MOL}}(\mathbf{r}) \times \frac{1}{2} \iint_{v_x^2+v_y^2 < \frac{2|U_{\text{dip}}|}{M}} dv_x dv_y \, \left( \frac{M}{2\pi k_B T} \right) \exp\left[ -\frac{M(v_x^2 + v_y^2)}{2k_B T} \right],
+\end{equation}
+where the factor $1/2$ is introduced by the trapping criterion on the longitudinal component $v_z$ of the velocity.
+
+Passing to polar coordinates in the transverse velocity plane $v_r^2 = v_x^2 + v_y^2$, $dv_x dv_y = \pi d(v_r^2)$ and defining the dimensionless variable $x = (M v_r^2)/(2k_B T)$, the velocity integral evaluates directly:
+\begin{equation}
+    \frac{1}{2} \int_{0}^{\frac{|U_{\text{dip}}(\mathbf{r})|}{k_B T}} dx \, e^{-x} = \frac{1}{2} \left( 1 - \exp\left[ -\frac{|U_{\text{dip}}(\mathbf{r})|}{k_B T} \right] \right).
+\end{equation}
+
+Consequently, the general expression for the ODT capture efficiency can be expressed as:
+\begin{equation}
+    \frac{N_{\text{ODT}}}{N_{\text{MOL}}} = \frac{1}{2 N_{\text{MOL}}} \int d^3r \, n_{\text{MOL}}(\mathbf{r}) \left( 1 - \exp\left[ -\frac{|U_{\text{dip}}(\mathbf{r})|}{k_B T} \right] \right).
+\label{eq:general_formuala_capture}
+\end{equation}
+
+\subsubsection{Shallow trap approximation}
+In the limit where the thermal energy of the atomic cloud is significantly greater than the local optical potential in the overlapping region ($|U_{\text{dip}}(\mathbf{r})| \ll k_B T$), the exponential term can be linearized to first order:
+\begin{equation}
+    1 - \exp\left( - \frac{|U_\text{dip}(\mathbf{r})|}{k_B T} \right) \simeq \frac{|U_\text{dip}(\mathbf{r})|}{k_B T} ,
+\end{equation}
+
+Equation \eqref{eq:general_formuala_capture} simplifies to:
+\begin{equation}
+    \label{eq:first_shallow}
+    N_{\text{ODT}} \simeq \int d^3r \, n_{\text{MOL}}(\mathbf{r}) \frac{|U_{\text{dip}}(\mathbf{r})|}{2k_B T} = \frac{U_0}{2k_B T} \int d^3r \, n_{\text{MOL}}(\mathbf{r}) \frac{w_0^2}{w(z)^2} \exp\left[ -2\frac{x^2+y^2}{w(z)^2} \right].
+\end{equation}
+Since the transverse waist of the dipole beam ($w(z) \lesssim 100~\mu\text{m}$) is significantly smaller than the transverse radii of the atomic cloud ($R_x, R_y \sim 1\,\text{mm}$), the atomic density can be considered constant over the beam profile, and the integration along $z$ can be decoupled from the $x$ and $y$ integration, obtaining:
+\begin{equation}
+    \iint dx dy \, \exp\left[ -2\frac{x^2+y^2}{w(z)^2} \right] = \frac{\pi w(z)^2}{2}.
+\end{equation}
+Substituting this result in equation~\eqref{eq:first_shallow}, the terms $w(z)^2$ cancel out, eliminating the explicit dependence on the beam divergence:
+\begin{equation}
+    N_{\text{ODT}} \simeq \frac{U_0}{2k_B T} \frac{\pi w_0^2}{2} \int dz \, n_{\text{MOL}}(0,0,z).
+\end{equation}
+Adopting a uniform-density ellipsoid model to represent the cloud, characterized by radii $R_x, R_y, R_z$ and a constant core density
+\begin{equation}
+    n_{\text{MOL}} = \frac{3N_{\text{MOL}}}{4\pi R_x R_y R_z},
+\end{equation}
+integration along the longitudinal axis over the ellipsoid boundaries ($\pm R_z$) yields the ODT capture efficiency:
+\begin{equation}
+    \frac{N_{\text{ODT}}}{N_{\text{MOL}}} \simeq \frac{3}{8} \frac{U_0}{k_B T} \frac{w_0^2}{R_x R_y}.
+\label{eq:shallow_efficiency}
+\end{equation}
+In this regime, the loading efficiency is independent of the absolute distance between the cloud center and the fiber tip ($d$), and independent of the minimum waist $w_0$, since the product $U_0 w_0^2 = 2\alpha P / \pi$ depends solely on the total laser power. The primary experimental figure of merit to optimize is therefore the ratio $N_{\text{MOL}}/(T \cdot R_x R_y)$.
+
+\subsubsection{Non-shallow trap}
+When the local trap depth becomes comparable to or greater than the kinetic energy of the atoms, the linear truncation introduces an overestimation. In this case the full Taylor series is needed:
+\begin{equation}
+    1 - \exp\left[ -\frac{|U_{\text{dip}}(\mathbf{r})|}{k_B T} \right] = \sum_{q=1}^{\infty} \frac{(-1)^{q+1}}{q!} \left[ \frac{U_0}{k_B T} \frac{w_0^2}{w(z)^2} \exp\left( -2\frac{x^2+y^2}{w(z)^2} \right) \right]^q.
+\end{equation}
+Under the same assumption of a highly localized beam relative to the cloud size ($w(z)/\sqrt{q} \ll R_x, R_y$), spatial integration over the transverse plane for the $q$-th order term yields:
+\begin{equation}
+    \iint dx dy \, \exp\left[ -2q\frac{x^2+y^2}{w(z)^2} \right] = \frac{\pi w(z)^2}{2q}.
+\end{equation}
+Inserting this back into the volume integral yields the following series representation:
+\begin{equation}
+    \label{eq:not_shallow_NODT}
+    N_{\text{ODT}} = \frac{1}{2} \sum_{q=1}^{\infty} \frac{(-1)^{q+1}\pi}{2q(q!)} \left( \frac{U_0}{k_B T} \right)^q w_0^2 \int dz \, n_{\text{MOL}}(0,0,z) \left( \frac{w_0^2}{w(z)^2} \right)^{q-1}.
+\end{equation}
+Using $w(z)^2/w_0^2 = 1 + z^2/z_R^2$, assuming constant density, and assuming the center of the atomic cloud is positioned at an axial displacement $z=d$ from the fiber tip, the longitudinal integral becomes:
+\begin{equation}
+    \frac{3N_\text{MOL}}{4\pi R_xR_yR_z}\int_{d-R_z}^{d+R_z} dz \left( 1 + \frac{z^2}{z_R^2} \right)^{1-q}.
+\end{equation}
+Under the physical condition where the longitudinal radius of the cloud is significantly narrower than the Rayleigh range ($R_z \ll z_R$), the integrand remains approximately constant across the integration volume and can be evaluated at the cloud center $z=d$. This approximation leads to the result
+\begin{equation}
+    \label{eq:not_shallow_longitudinal_integral}
+    \frac{3N_\text{MOL}}{4\pi R_xR_yR_z}\int_{d-R_z}^{d+R_z} dz \left( 1 + \frac{z^2}{z_R^2} \right)^{1-q} =  \frac{3N_{\text{MOL}}}{2\pi R_x R_y} (1 + d^2/z_R^2)^{1-q}.
+\end{equation}
+
+Using \eqref{eq:not_shallow_longitudinal_integral} in \eqref{eq:not_shallow_NODT}, by defining the dimensionless parameter $\xi$, which evaluates the ratio of the trap depth at the cloud center to the thermal energy:
+\begin{equation}
+    \xi = \frac{U_0}{k_B T \left( 1 + \frac{d^2}{z_R^2} \right)},
+\end{equation}
+the total captured atom fraction becomes:
+\begin{equation}
+    \frac{N_{\text{ODT}}}{N_{\text{MOL}}} = \frac{3}{8} \frac{w_0^2}{R_x R_y} \left( 1 + \frac{d^2}{z_R^2} \right) \left[ -\sum_{q=1}^{\infty} \frac{(-\xi)^q}{q \cdot q!} \right].
+\end{equation}
+The infinite series inside the brackets evaluates to (see Power Series section in \cite{nist_dlmf})
+\begin{equation}
+    -\sum_{q=1}^{\infty} \frac{(-\xi)^q}{q \cdot q!} = \gamma_E + \log(\xi) + \Gamma(0, \xi),
+\end{equation}
+where $\gamma_E$ is the Euler–Mascheroni constant.
+The final analytical solution for the non-shallow ODT capture efficiency is 
+\begin{equation}
+    \frac{N_{\text{ODT}}}{N_{\text{MOL}}} = \frac{3}{8} \frac{w_0^2}{R_x R_y} \left( 1 + \frac{d^2}{z_R^2} \right) \Big[ \gamma_E + \log(\xi) + \Gamma(0, \xi) \Big].
+\label{eq:full_not_shallow}
+\end{equation}
+
+The shallow trap result \eqref{eq:shallow_efficiency} is recovered by the substitution:
+\begin{equation}
+    \gamma_E + \log(\xi) + \Gamma(0, \xi) \rightarrow \xi,
+\end{equation}
+corresponding also to the limit $\xi \rightarrow 0$.
+The comparison between the models is shown in Figure~\ref{fig:capture_model_comparison}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Cap_2_figures/odt_capture_comparison.pdf}
+    \caption{Comparison between the relative ODT capture efficiency calculated using the shallow $y=\xi$ (red line) and non-shallow $y = \gamma_E + \log(\xi) + \Gamma(0, \xi)$ (blue line) models.}
+    \label{fig:capture_model_comparison}
+\end{figure}
+
+% For the experimental conditions encountered in this work $\xi \sim 0.5$, equation \eqref{eq:full_not_shallow} prevents systematic overestimation of the loading efficiency.
