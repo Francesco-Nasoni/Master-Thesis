@@ -12,7 +12,8 @@ An optical fiber can be modeled as a cylindrical core of refractive index $n_1$ 
     n(r)=
     \begin{cases}
         n_1, & 0 < r < a \\
-        n_2, & a < r < b,
+        n_2, & a < r < b \\
+        1,   & r > b,
     \end{cases}
 \end{equation}
 where $a$ is the radius of the core and $b$ is the outer radius of the cladding. Usually the radius of the cladding is much larger than the radius of the core ($b\gg a$), thus the electromagnetic field can be considered zero at $r=b$. As an example, in a single-mode fiber guiding light with $\lambda=1.5~\mu\mathrm{m}$, the typical core radius is $a=5~\mu\mathrm{m}$ while the cladding external radius is in the order of $b=100~\mu\mathrm{m}$.
@@ -161,25 +162,26 @@ For $ x \gg 1, l$, the asymptotic expressions are
 \begin{equation}
     \begin{aligned}
         \label{eq:bessel_asympototic_x_large}
-        J_l(x) & \to \left(\frac{2}{\pi x}\right)^{1/2} \cos\left(x - \frac{l\pi}{2} - \frac{\pi}{4}\right) \\
-        Y_l(x) & \to \left(\frac{2}{\pi x}\right)^{1/2} \sin\left(x - \frac{l\pi}{2} - \frac{\pi}{4}\right) \\
-        I_l(x) & \to \left(\frac{1}{2\pi x}\right)^{1/2} e^x                                                \\
-        K_l(x) & \to \left(\frac{\pi}{2x}\right)^{1/2} e^{-x}
+        J_l(x) & \to \left(\frac{2}{\pi x}\right)^{1/2} \cos\left(x - \frac{l\pi}{2} - \frac{\pi}{4}\right), \\[1mm]
+        Y_l(x) & \to \left(\frac{2}{\pi x}\right)^{1/2} \sin\left(x - \frac{l\pi}{2} - \frac{\pi}{4}\right), \\[1mm]
+        I_l(x) & \to \left(\frac{1}{2\pi x}\right)^{1/2} e^x,                                                \\[1mm]
+        K_l(x) & \to \left(\frac{\pi}{2x}\right)^{1/2} e^{-x}.
     \end{aligned}
 \end{equation}
 
-For $x \ll 1$, the corresponding approximations are
+For $x \ll 1$, the corresponding asymptotic expressions are
 \begin{equation}
     \begin{aligned}
         \label{eq:bessel_asymptotic_x_small}
-        J_l(x) &\rightarrow \frac{1}{l!} \left( \frac{x}{2} \right)^l \\
-        Y_0(x) &\rightarrow \frac{2}{\pi} \left( \ln \frac{x}{2} + 0.5772 \ldots \right) \\
-        Y_l(x) &\rightarrow -\frac{(l-1)!}{\pi} \left( \frac{2}{x} \right)^l \quad l = 1, 2, 3, \ldots \\
-        I_l(x) &\rightarrow \frac{1}{l!} \left( \frac{x}{2} \right)^l \\
-        K_0(x) &\rightarrow -\left( \ln \frac{x}{2} + 0.5772 \ldots \right) \\
-        K_l(x) &\rightarrow \frac{(l-1)!}{2} \left( \frac{2}{x} \right)^l
+        J_l(x) &\rightarrow \frac{1}{l!} \left( \frac{x}{2} \right)^l, \\[1mm]
+        Y_0(x) &\rightarrow \frac{2}{\pi} \left( \ln \frac{x}{2} + \gamma_E \right), \\[1mm]
+        Y_l(x) &\rightarrow -\frac{(l-1)!}{\pi} \left( \frac{2}{x} \right)^l \quad l = 1, 2, 3, \ldots ,\\[1mm]
+        I_l(x) &\rightarrow \frac{1}{l!} \left( \frac{x}{2} \right)^l ,\\[1mm]
+        K_0(x) &\rightarrow -\left( \ln \frac{x}{2} + \gamma_E \right) ,\\[1mm]
+        K_l(x) &\rightarrow \frac{(l-1)!}{2} \left( \frac{2}{x} \right)^l \quad l = 1, 2, 3, \ldots ,
     \end{aligned}
 \end{equation}
+where $\gamma_E$ is the Euler–Mascheroni constant.
 
 These asymptotic behaviors play a crucial role in the construction of guided-mode solutions. In particular, the functions $Y_l(x)$ and $K_l(x)$ diverge as $x\rightarrow 0$, whereas $K_l(x)$ decays exponentially for large arguments. Consequently, only specific combinations of Bessel functions satisfy the physical requirements for confined modes.
 
@@ -447,7 +449,9 @@ Using the field expressions \eqref{eq:E_core}, \eqref{eq:H_core}, \eqref{eq:E_cl
     \end{cases},
 \end{equation}
 where the dependence on $m$ is implicitly contained in $h$ and $q$.
-The power guided in the core and cladding is obtained by integrating the Poynting vector over the respective cross-sections:
+The power guided in the core and cladding is obtained by integrating the Poynting vector over the respective cross-sections (using infinite cladding approximation):
+\vspace{-5mm}
+
 \begin{equation}
     P_{\text{core}} = \int_{0}^{2\pi} \int_{0}^{a} S_z r \, dr \, d\phi,
 \end{equation}
@@ -478,7 +482,6 @@ The core confinement factor is defined as $\Gamma_1=P_\text{core}/P_\text{tot}$
     \Gamma_1 = \frac{P_{\text{core}}}{P_\text{tot}} = \frac{1}{V^2} \left( (qa)^2 - \frac{(qa)^2 J_l^2(ha)}{J_{l-1}(ha)J_{l+1}(ha)} \right).
 \end{equation}
 $\Gamma_1$ gives a measure of how much of the mode is travelling in the core rather than in the cladding. This parameter is important for calculating the dispersion and attenuation properties of the fiber, which are critical parameters in the design of fibers for telecommunication systems.
-
 The dependence of $\Gamma_1$ on $V$ is not trivial as both $h$ and $q$ depend on $V$ through the solution of the characteristic equation \eqref{eq:characteristic_equation_of_LP_modes}. Generally, the confinement factor $\Gamma_1$ increases monotonically with $V$.
 The confinement factor at cutoff is obtained by taking the limit $q \rightarrow 0$ in \eqref{eq:confinement_factor}, obtaining:
 \begin{equation}

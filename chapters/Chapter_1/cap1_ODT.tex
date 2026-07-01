@@ -7,7 +7,7 @@ Optical dipole traps rely on the electric dipole interaction of the atoms with f
 %* ##########################################################
 \subsection{Oscillator model}
 %* ##########################################################
-The optical dipole force arises from the interaction of the induced atomic momentum with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
+The optical dipole force arises from the interaction of the induced electric dipole moment with the intensity gradient of the light field. It is a conservative force, thus in the following its potential energy will be derived modelling the atom as an oscillator subjected to a classical oscillating electric field.
 
 \subsubsection{Interaction between induced dipole moment and driving field}
 
@@ -84,7 +84,7 @@ where $\hat{d}$ is the dipole moment operator.\\
 Nevertheless, optical dipole traps work in far-detuned low saturation regime. Consequently, the transitions to the excited state are strongly suppressed, and the atom can be considered as occupying the ground state only. In this limit, the atomic equation of motion reduces to a classical damped harmonic oscillator model described by equation \ref{eq:Lorentz_polarizability} (for a rigorous derivation see Chapter V of \citeauthor*{steck_quantum_optics} \cite{steck_quantum_optics}). Therefore, the classical polarizability given by equation \ref{eq:polarizability} represent a well suited approximation for ODTs.
 
 \subsubsection{Dipole potential and scattering rate}
-Substituting $\alpha$ form \eqref{eq:polarizability} in \eqref{eq:dipole_potential_alpha} and \eqref{eq:scattering_rate_alpah} one gets the expressions of the dipole potential and the scattering rate of a dipole trap as explicit function of $\omega$, $\omega_0$ and $\Gamma$:
+Substituting $\alpha$ from \eqref{eq:polarizability} in \eqref{eq:dipole_potential_alpha} and \eqref{eq:scattering_rate_alpah} one gets the expressions of the dipole potential and the scattering rate of a dipole trap as explicit functions of $\omega$, $\omega_0$ and $\Gamma$:
 \begin{equation}
     U_{\text{dip}}(\mathbf{r}) = -\frac{3 \pi c^2}{2 \omega_0^3} \left( \frac{\Gamma}{\omega_0 - \omega} + \frac{\Gamma}{\omega_0 + \omega} \right) I(\mathbf{r}),
 \end{equation}
@@ -92,7 +92,8 @@ Substituting $\alpha$ form \eqref{eq:polarizability} in \eqref{eq:dipole_potenti
     \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\omega}{\omega_0} \right)^3 \left( \frac{\Gamma}{\omega_0 - \omega} + \frac{\Gamma}{\omega_0 + \omega} \right)^2 I(\mathbf{r}).
 \end{equation}
 
-These equations show two resonance frequency for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, for the far-red regime it holds that $\Gamma\ll|\Delta|$. For instance, the $D_2$ line in Rb atoms has a transition frequency of $\sim385$~THz thus a trap typically works at few THz of detuning, while $\Gamma/(2\pi)\sim 6$~MHz. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to 
+% These equations show two resonance frequencies for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, for the far-red regime it holds that $\Gamma\ll|\Delta|$. For instance, the $D_2$ line in Rb atoms has a transition frequency of $\sim385$~THz thus a trap typically works at few THz of detuning, while $\Gamma/(2\pi)\sim 6$~MHz. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to
+These equations show two resonance frequencies for $\omega=\pm\omega_0$. Introducing the detuning $\Delta = \omega-\omega_0$, in typical experimental conditions, it holds that $|\Delta|\ll\omega_0$. This allows the introduction of the well-known rotating-wave approximation, according to which the anti-resonant term can be neglected, further simplifying the equations to 
 
 \begin{equation}
     \label{eq:dipole_potential}
@@ -103,7 +104,7 @@ These equations show two resonance frequency for $\omega=\pm\omega_0$. Introduci
     \Gamma_{\text{sc}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \hbar \omega_0^3} \left( \frac{\Gamma}{\Delta} \right)^2 I(\mathbf{r}) = \frac{\Gamma}{\hbar\Delta}U_\text{dip}
 \end{equation}
 
-Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the fundamental equations governing the behavior of optical dipole traps and yield important physical considerations for their implementation. The sign of $U_\text{dip}$ is determined by the sign of the detuning $\Delta$. For red detuning ($\Delta<0$) the potential is negative, confining atoms at intensity maxima, whereas for blue detuning ($\Delta>0$), the potential is positive pushing atoms to intensity minima. Because the potential depth scales as $I/\delta$ while the scattering rate scales as $I/\Delta^2$, optical traps are typically realized with high intensity field and large detunings, in this way, the trap depth is maximized while maintaining a low scattering rate.
+Equations \eqref{eq:dipole_potential} and \eqref{eq:dipole_scattering} are the fundamental equations governing the behavior of optical dipole traps and yield important physical considerations for their implementation. The sign of $U_\text{dip}$ is determined by the sign of the detuning $\Delta$. For red detuning ($\Delta<0$) the potential is negative, confining atoms at intensity maxima, whereas for blue detuning ($\Delta>0$), the potential is positive pushing atoms to intensity minima. Because the potential depth scales as $I/\Delta$ while the scattering rate scales as $I/\Delta^2$, optical traps are typically realized with high intensity field and large detunings, in this way, the trap depth is maximized while maintaining a low scattering rate.
 
 
 
@@ -120,7 +121,7 @@ Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effe
     \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
 \end{equation}
 
-The calculation can be developed by employing the dressed atom approach, in which the quantum states describe the combined atom-field system. Defining the unperturbed atomic ground state energy as zero, in this framework an unperturbed dressed state has an energy $\varepsilon_i=n\hbar\omega$ that depends solely on the number of photons $n$ in the field. The absorption of a photon transitions the system to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + \hbar(n-1)\hbar\omega$, where $\hbar\omega_{j}$ represent the bare atomic transition energy. In such a way, the denominator of equation \eqref{eq:energy_perturbative_correction} reduces to
+The calculation can be developed by employing the dressed atom approach, in which the quantum states describe the combined atom-field system. Defining the unperturbed atomic ground state energy as zero, in this framework an unperturbed dressed state has an energy $\varepsilon_i=n\hbar\omega$ that depends solely on the number of photons $n$ in the field. The absorption of a photon transitions the system to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + (n-1)\hbar\omega$, where $\hbar\omega_{j}$ represent the bare atomic transition energy. In such a way, the denominator of equation \eqref{eq:energy_perturbative_correction} reduces to
 \begin{equation}
     \label{eq:perturbative_expantion_denominator}
     \varepsilon_i - \varepsilon_j = -\hbar\omega_j + \hbar\omega = -\hbar\Delta_{ij}, 
@@ -134,7 +135,15 @@ Considering a two-level atom first, \eqref{eq:energy_perturbative_correction} ha
 \end{equation}
 for the ground and excited state (upper and lower sign,
 respectively).
-Equation \eqref{eq:light_shift_2lv_atoms} shows that the energy shift of the ground state (the solution with the sign $+$) exactly correspond to the dipole potential \eqref{eq:dipole_potential}. This allows the reinterpretation of the semiclassical result obtain for the external degrees of freedom (position and momentum) in terms of the dynamic of the internal degrees of freedom. In presence of the laser field, the energy levels are shifted by a quantity proportional to the field intensity with a sign that depends on the sign of the detuning. If a low saturation regime is assumed ($I/\Delta\ll1$), all the atom can be considered in the ground state, and the light-shifted ground state became the effective potential that govern the motion of the atoms which drives them toward region of minima of $\Delta E$ (Figure \ref{img:light_shift}). 
+Equation \eqref{eq:light_shift_2lv_atoms} shows that the energy shift of the ground state (the solution with the sign $+$) exactly correspond to the dipole potential \eqref{eq:dipole_potential}. This allows the reinterpretation of the semiclassical result obtain for the external degrees of freedom (position and momentum) in terms of the dynamic of the internal degrees of freedom. In presence of the laser field, the energy levels are shifted by a quantity proportional to the field intensity with a sign that depends on the sign of the detuning. Assuming a low saturation regime, corresponding to $s\ll1$, where the saturation parameter $s$ is given by
+\begin{equation}
+    s = \frac{\Omega^2/2}{\Delta^2 +(\Gamma^2/4)},
+\end{equation}
+and $\Omega$ is the Rabi frequency, defined as
+\begin{equation}
+    \Omega = \frac{|\mathcal{E}_0|}{\hbar}\braket{e |\,\hat{d}\,| g},
+\end{equation}
+the atomic population can be considered almost entirely confined to the ground state. Consequently, the light-shifted ground state becomes the effective potential that governs the motion of the atoms, driving them toward regions of minima of $\Delta E$ (Figure \ref{img:light_shift}). 
 
 \begin{figure}
     \centering
@@ -143,11 +152,11 @@ Equation \eqref{eq:light_shift_2lv_atoms} shows that the energy shift of the gro
     \label{img:light_shift}
 \end{figure}
 
-For a multi-level atom equation \eqref{eq:energy_perturbative_correction} contains many terms similar to equation \eqref{eq:light_shift_2lv_atoms}, accounting for all the allowed transitions from any ground state sublevel $\ket{g_i}$ to any excited state $\ket{e_j}$. However, each of these terms depends on the dipole matrix element $d_{ij}=\braket{g_i|\hat{d}|e_j}$. Such quantity can be expressed as
+For a multi-level atom Equation~\eqref{eq:energy_perturbative_correction} contains many terms similar to equation \eqref{eq:light_shift_2lv_atoms}, accounting for all the allowed transitions from any ground state sublevel $\ket{g_i}$ to any excited state $\ket{e_j}$. Each of these terms depends on the dipole matrix element $d_{ij}=\braket{g_i|\,\hat{d}\,|e_j}$. Applying the Wigner–Eckart theorem \cite{sakurai2017modern}, this matrix element can be factored as:
 \begin{equation}
     d_{ij}=c_{ij}||d||
 \end{equation}
-where $||d||$ is the reduced matrix element given by \eqref{eq:quantum_gamma} and $c_{ij}$ are real transition coefficients that take into account the coupling strength of the two involved states $\ket{g_i}$ and $\ket{e_j}$, and depends on their angular momentum value \cite{grimm}\cite{metcalf1999}.
+where $||d||$ is the reduced matrix element given by \eqref{eq:quantum_gamma} and $c_{ij}$ are real Clebsch-Gordan coefficients describing the selection rules and coupling strengths of the transitions. They depend on the light polarization and the angular momentum quantum numbers of the involved hyperfine states.
 
 Therefore, the  energy shift \eqref{eq:energy_perturbative_correction} for the ground state $\ket{g_i}$ is
 \begin{equation}
@@ -158,10 +167,10 @@ and according to the interpretation given from the two-level atoms, the dipole p
 \begin{equation}
     U_\text{dip} = \Delta E_i.
 \end{equation}
-Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transition, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
+Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transitions, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
 
 \subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
-Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the visible and infrared (VIS-IR) range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structure are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
+Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the visible and infrared (VIS-IR) range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structures are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
 
 When considering the fine structure arising from the spin-orbit interaction, the electronic ground state of alkali atoms is $^2S_{1/2}$. From this state, the electric dipole selection rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow for two primary transitions, known as $D-$lines:
 \begin{itemize}
@@ -184,7 +193,7 @@ Assuming that all optical detunings stay large compared with the excited-state h
 where the two term in the parentheses represent respectively the contribution of the $D_2$ and $D_1$ line. Here, $g_F$ is the Landé factor, $\mathcal{P}$ characterizes the laser polarization ($\mathcal{P}=0,\pm1$ for linear polarization and circular $\sigma^\pm$ respectively), and $\Delta_{2,F}$ and $\Delta_{1,F}$ denote the detunings of the laser field relative to the transitions from the $^2S_{1/2}, F$ ground state to the center of respectively the $^2P_{3/2}$ and $^2P_{1/2}$ hyperfine excited state.
 
 \vspace{0.5\baselineskip}
-If the detunings are large with respect to the fine-structure splitting ($|\Delta_{1,F}|, |\Delta_{2_F}| \gg \Delta'_{FS}$), introducing the detuning $\Delta$ with respect to the center of the $D-$line doublet, expanding equation \eqref{eq:alkali_dipole_potential_general_case} at first order of the small parameter $\Delta'_{FS}/\Delta$, one gets \cite{grimm}:
+If the detunings are large with respect to the fine-structure splitting ($|\Delta_{1,F}|, |\Delta_{2_F}| \gg \Delta'_{FS}$), introducing the detuning $\Delta$ with respect to the center of the $D-$line doublet, expanding equation \eqref{eq:alkali_dipole_potential_general_case} at first order in the small parameter $\Delta'_{FS}/\Delta$, one gets \cite{grimm}:
 \begin{equation}
     \label{eq:alkali_dipole_potential_large_detuning}
     U_{\text{dip}}(\mathbf{r}) = \frac{3 \pi c^2}{2 \omega_0^3} \frac{\Gamma}{\Delta} \left( 1 + \frac{1}{3} \mathcal{P} g_F m_F \frac{\Delta'_{\text{FS}}}{\Delta} \right) I(\mathbf{r}).
@@ -200,7 +209,7 @@ In a more general case, when the fine structure is resolved, but the hyperfine s
 
 
 %* ##########################################################
-\subsection{Heating mechanism}
+\subsection{Heating mechanisms}
 %* ##########################################################
 
 Typical trap depths for optical dipole traps are usually below 1 mK. Therefore, capturing a substantial number of atoms requires a preliminary cooling stage. For instance, the experiment discussed in this thesis employs a magneto-optical trap (MOT) followed by an optical molasses phase.
@@ -208,9 +217,11 @@ Typical trap depths for optical dipole traps are usually below 1 mK. Therefore, 
 Given these shallow confining potentials, even minor heating rates can largely limit the trap lifetime. It is therefore important to outline the mechanisms responsible for the parasitic heating induced by the trapping light.
 
 \subsubsection{Heating source}
-When atoms interact with laser light, fluctuations in the spontaneous emission and absorption always causes heating (this is also the phenomenon that puts a lower limit to cooling mechanism \cite{CohenLesHouches}\cite{metcalf1999}).
-For the optical dipole trap the atoms absorbs photons and re-emits them in random directions (isotropic radiation), statistical oscillations in both these processes cause heating. The absorption of photons from the dipole light is associated with a recoil energy $E_\text{rec}=k_BT_\text{rec}/2$ per scattering event and happens only in the direction of the laser beam, hence it is anisotropic. On the other hand, the re-emission scattering events are also associated with a recoil energy $E_\text{rec}$, however the emission directions are random, thus the effect is spread over all the three spatial direction. Thus, for a single cycle the atom receives $E_\text{rec}$ from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $2E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$.\\
-It leads to the total heating power
+In general, when atoms interact with light and absorb photos, when the subsequent spontaneous emission event occur, the randomness of the emitted photons' direction causes a diffusion in the phase space that corresponds to a heating processes. This discrete momentum transfer is the fundamental phenomenon that establishes lower limits for laser cooling mechanisms \cite{CohenLesHouches, metcalf1999}.
+
+At large detuning the scattering process follows a Poisson statistic. In this regime, the absorption of a photon from the dipole beam introduces a heating energy equivalent to the recoil energy $E_\text{rec} = k_B T_\text{rec}/2$ per scattering event, where $T_\text{rec}$ is the recoil temperature. Since the absorptions occur strictly along the propagation axis the momentum diffusion occurs only along this axis, making the associated heating effect anisotropic. On the other hand, the subsequent spontaneous emission also increase the thermal energy by one recoil energy $E_\text{rec}$ per event, however the emission directions are random, thus the effect is spread over all the three spatial direction.
+
+Therefore, in a single scattering cycle, the atom gains $E_\text{rec}$ of thermal energy from the absorption and then $E_\text{rec}$ from the spontaneous emission, for a total of $2E_\text{rec}$, in a time $\bar{\Gamma}_\text{sc}^{-1}$. It leads to the total heating power
 \begin{equation}
     \label{eq:heating_power}
     P_{\text{heat}} = 2 E_{\text{rec}} \bar{\Gamma}_{\text{sc}} = k_B T_{\text{rec}} \bar{\Gamma}_{\text{sc}},
@@ -218,6 +229,8 @@ It leads to the total heating power
 the heating depends on the mean scattering rate $\bar{\Gamma}_\text{sc}$ and on the recoil $E_\text{rec}$ which depends on the laser frequency.
 
 Other fundamental source of heating, such as the redistribution of photons between different travelling wave, should be quenched by the far-detuned working frequency \cite{grimm}.
+
+In addition to the fundamental heating mechanism, it must be mentioned also the presence of technical heating caused by fluctuations in the laser power and in its pointing direction. In particular power fluctuations at twice the characteristic trap frequencies are relevant, as they can parametrically drive the oscillatory atomic motion \cite{Savard:97}.
 
 \subsubsection{Heating rate}
 Assuming that the trapped atoms are at thermal equilibrium, the mean energy can be expressed through the energy equipartition theorem. Assuming the trap as a three-dimensional harmonic potential well, there is a contribution of three quadratic degrees of freedom from the kinetic energy, and other three from the harmonic potential. According to the energy partition theorem, the mean energy is
