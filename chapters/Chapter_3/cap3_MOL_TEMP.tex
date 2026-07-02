@@ -53,7 +53,9 @@ As observed in Figure \ref{fig:10.8MHz_temp_fit}, the data points at long TOF di
 \clearpage
 \subsection{AOM amplitude optimization}
 %*###############################################################
-As a second optimization step, the influence of the cooling beam power was investigated by varying the AOM drive amplitude and the duration of its transition ramp, which is applied at the beginning of the molasses phase. The AOM amplitude, expressed in arbitrary units (a.u.), controls the RF amplitude driving the AOM. Three values were tested: 385, 475 and 550~a.u., corresponding respectively to approximately 0.7, 0.85 and 1.0 times the AOM amplitude during the MOT phase. Additionally, ramp durations of 5~ms and 20~ms were tested for the transition from the MOT value to the molasses value. These measurements were repeated for different values of the cooling detuning.
+As a second optimization step, the influence of the cooling beam power was investigated by varying the AOM drive amplitude and the duration of its transition ramp, which is applied at the beginning of the molasses phase. The AOM amplitude, expressed in arbitrary units (a.u.), controls the RF amplitude driving the AOM. Three values were tested: 385, 475 and 550~a.u., equivalent to 12.7~mW, 14.1~mW, 13.4~mW measured after the collimator of the MOT $z$-beam. The MOT is realized with 55a.u.
+
+Additionally, ramp durations of 5~ms and 20~ms were tested for the transition from the MOT value to the molasses value. These measurements were repeated for different values of the cooling detuning.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\linewidth]{Cap_3_figures/MOL_temperature/aom_amplitude_comparison.pdf}
@@ -95,6 +97,8 @@ The corresponding generated magnetic field can be calculated using the calibrati
 \end{equation}
 
 These parameters yielded a minimized molasses temperature of $T=(9.6\pm0.1)~\mu\mathrm{K}$. The $z$-axis compensation coil current deviated the most from its preliminary value, while the $x$-axis current underwent a smaller but still appreciable correction. In contrast, the $y$-axis coil current remained close to its initial value.
+
+It should be noted that the operating current was set to $I_z= -230$~mA, rather than the true optimum of $-223.2$~mA identified in Figure~\ref{fig:shimz_opt}. Given the proximity of both values to the vertex of the optimization parabola, this discrepancy introduces no significant systematic error into the measurements.
 
 \begin{figure}[!h]
     \centering

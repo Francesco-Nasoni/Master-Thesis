@@ -2,19 +2,21 @@
 \section{ODT loading optimization}
 The optimal parameters obtained for the molasses were used for the optimization of the ODT loading. This procedure primarily focused on tuning the compensation magnetic field. The underlying concept is to first load the MOT and then, prior to the molasses phase, exploit the compensation coils to spatially shift the MOT position.
 
-Because the MOT forms at the zero of the magnetic quadrupole field, adjusting the compensation coil currents effectively translates the field zero, displacing the trapped atomic cloud. Moving the MOT away from the optimal intersection volume of the beams inevitably causes some atom loss and a temperature increase. However, this is a necessary trade-off to achieve a better spatial overlap with the ODT beam, which ultimately maximizes the number of atoms transferred into the dipole trap. As long as this spatial shift is small, the optimal molasses parameters derived in the previous sections remain effective at nullifying the residual magnetic field, requiring no further adjustments
+Because the MOT forms at the zero of the magnetic quadrupole field, adjusting the compensation coil currents effectively translates the field zero, displacing the trapped atomic cloud. Moving the MOT away from the optimal intersection volume of the beams inevitably causes some atom loss and a temperature increase. However, this is a necessary trade-off to achieve a better spatial overlap with the ODT beam, which ultimately maximizes the number of atoms transferred into the dipole trap. As long as this spatial shift is small, the optimal molasses parameters derived in the previous sections remain effective at nullifying the residual magnetic field, requiring no further adjustments.
 
 Specifically, after the initial MOT loading phase, the compensation coil currents are ramped to their ODT loading values over a duration of 200~ms, discretized in 20 steps. This smooth translation is crucial to minimize atom loss and heating during the transport process.
 
 Similarly to the molasses phase, preliminary current values for the ODT loading, obtained prior to the optical realignment and the molasses optimization, were available as a starting point:
 \begin{equation}
     \begin{cases}
-        I_{\mathrm{x}} &= -200~\mathrm{mA} \\
-        I_{\mathrm{y}} &= -350~\mathrm{mA} \\
-        I_{\mathrm{z}} &= 50~\mathrm{mA}.
+        I_{x} &= -200~\mathrm{mA} \\
+        I_{y} &= -350~\mathrm{mA} \\
+        I_{z} &= 50~\mathrm{mA}.
     \end{cases}
     \label{eq:shim_shifted_MOT_preliminary}
 \end{equation}
+
+During the measurements, the ODT laser power prior to injection was measured to be 1.4~W. The transmission efficiency, measured at low injected power just before lens L3 (see the schematic in Figure \ref{fig:upper_breadboard_imaging_setup}), was approximately 42\%, corresponding to an optical power of about 0.59~W. Because several optical components precede L3, the actual power at the fiber facet is likely higher. To account for this uncertainty, a conservative relative error of 10\% was assigned, yielding an estimated power at the fiber facet of $P = 0.59 \pm 0.06~\text{W}$.
 
 %*###############################################################
 \subsection{Imaging system optimization}
@@ -57,7 +59,7 @@ Beyond the noise, the magnitude of the ODT signal itself was a primary concern. 
 \end{figure}
 In summary, the diagnostic capabilities were limited by two main factors: first, the residual background in the subtracted images overwhelmed the weak ODT signal; second, the small waist of the ODT beam resulted in an inadequate number of illuminated pixels for robust analysis.
 
-To address the poor SNR, the molasses parameters were systematically investigated. It was found that the noise was strongly dependent on the AOM amplitude ramp during the molasses phase. In particular, reducing the ramp duration from 20~ms to 5~ms significantly improved the background subtraction and increased the SNR. Furthermore, to minimize intensity fluctuations induced by the AOM driver, the target amplitude was set to 480~a.u. This value corresponds to the saturation regime of the AOM diffraction efficiency, which acts as a working point with a minimum derivative ($dP/dV \approx 0$). Operating in this saturation region intrinsically suppresses amplitude noise, thereby stabilizing the actual optical power delivered during the molasses phase.
+To address the poor SNR, the molasses parameters were systematically investigated. It was found that the noise was strongly dependent on the AOM amplitude ramp during the molasses phase. In particular, reducing the ramp duration from 20~ms to 5~ms significantly improved the background subtraction and increased the SNR. Furthermore, to minimize intensity fluctuations induced by the AOM driver, the target amplitude was set to 480~a.u. (14.1~mW measured on the $z$-beam). This value corresponds to the saturation regime of the AOM diffraction efficiency, which acts as a working point with a minimum derivative of the power over the amplitude of the RF driving signal ($dP/dA \approx 0$). Operating in this saturation region intrinsically suppresses amplitude noise, thereby stabilizing the actual optical power delivered during the molasses phase.
 
 \begin{figure}[!t]
     \centering
@@ -153,12 +155,19 @@ The physical origin of this oscillatory behavior remains unclear. This trend mig
 % As the $z$-axis compensation field is scanned, the position of the magnetic zero shifts along the laboratory $z$-axis as expected. However, a non-ideal beam intersection generates a complex 3D optical intensity landscape with local gradients. Since the MOT equilibrium position is determined by the local balance of the radiation pressures, the atomic cloud dynamically adapts its position to the local intensity imbalances. Instead of a linear translation along $z$, the cloud is pushed along a trajectory that locally nullifies the net optical force, resulting in a combined motion in the laboratory $z$--$x$ plane that projects as a spatial oscillation onto the 2D camera sensor.
 % Furthermore, as the MOT position change in this complex optical landscape, it encounters regions of varying laser intensity. As a consequence, both the cooling efficiency and the trap depth fluctuate accordingly. Consequently, the atom loss and the final MOT temperature vary depending on the exact spatial position of the cloud. This spatial dependence explains the observed fluctuations in the background are, and directly impacts the subsequent capture efficiency into the ODT.
 
-Finally, the optimal compensation currents and corresponding generated magnetic field component were found to be:
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/final_results/best_2d_diff.pdf}
+    \caption{Intensity difference 2D image obtained with the optimal currents: $I_{\mathrm{x}} = -220~\mathrm{mA}$, $I_{\mathrm{y}} = -280~\mathrm{mA}$, and $I_{\mathrm{z}} = -600~\mathrm{mA}$, corresponding to a capture efficiency of $\sim 0.16\%$.}
+    \label{fig:best_2D_diff}
+\end{figure}
+
+Finally, the optimal compensation currents and corresponding generated magnetic field component were determined to be:
 \begin{equation}
     \begin{cases}
-        I_{\mathrm{x}} &= -220~\mathrm{mA}, \\
-        I_{\mathrm{y}} &= -290~\mathrm{mA}, \\
-        I_{\mathrm{z}} &= -600~\mathrm{mA}.
+        I_{x} &= -220~\mathrm{mA}, \\
+        I_{y} &= -290~\mathrm{mA}, \\
+        I_{z} &= -600~\mathrm{mA}.
     \end{cases}
     \qquad \qquad
         \begin{cases}
@@ -167,21 +176,23 @@ Finally, the optimal compensation currents and corresponding generated magnetic 
         B_{z} &= -900~\mathrm{mG}.
     \end{cases}
 \end{equation}
-The corresponding MOT position translation can be calculated as $t_\alpha=B_\alpha/B'$ for $\alpha=x,y$, and $t_z=-B_z/2B'$, where $2B'=9.32~\text{G/cm}$ is the axial gradient of the MOT quadrupole field. The calculation yields:
+The corresponding MOT position translation is calculated as $t_\alpha=B_\alpha/B'$ for $\alpha=x,y$, and $t_z=-B_z/2B'$, where $2B'=9.32~\text{G/cm}$ is the axial gradient of the MOT quadrupole field. The calculation yields:
 \begin{equation}
     \begin{cases}
         t_{x} &= - 661~\mu\mathrm{m}, \\
         t_{y} &= -809~\mu\mathrm{m}, \\
-        t_{z} &= -966~\mu\mathrm{m}.
+        t_{z} &= 966~\mu\mathrm{m}.
     \end{cases}
 \end{equation}
 
-This configuration yielded the largest ODT trap area, representing the maximum number of captured atoms, and is associated with a capture efficiency of $(0.160\pm0.005)\%$. The corresponding 2D difference image is shown in Figure~\ref{fig:best_2D_diff}.
+This configuration maximized the ODT trap area, corresponding to the highest number of captured atoms, and resulted in a capture efficiency of $\eta=(0.160\pm0.005)\%$. The associated 2D difference image is shown in Figure~\ref{fig:best_2D_diff}.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Cap_3_figures/ODT_loading/final_results/best_2d_diff.pdf}
-    \caption{Intensity difference 2D image obtained with the optimal currents: $I_{\mathrm{x}} = -220~\mathrm{mA}$, $I_{\mathrm{y}} = -280~\mathrm{mA}$, and $I_{\mathrm{z}} = -600~\mathrm{mA}$, corresponding to a capture efficiency of $\sim 0.16\%$.}
-    \label{fig:best_2D_diff}
-\end{figure}
+This result must be compared to the theoretical expectations derived from the shallow and non-shallow trap models introduced in Section~\ref{sec:odt_efficiency_models}. Evaluating these models with the data obtained at the best configuration of the molasses: $w_0=19.0~\mu\text{m}$, $P=(0.59\pm0.06)~\text{W}$, $R_xR_y\approx(1.043\pm0.004)~\text{mm}^2$, $T=(9.60 \pm 0.10)~\mu\text{K}$ yields:
+\begin{itemize}
+    \item Shallow trap model: $\eta = (0.45 \pm 0.05)\%$;
+    \item Non-shallow trap model: $\eta = (0.41 \pm 0.04)\%$.
+\end{itemize}
+Given $\xi=0.39\pm0.04$, the predictions of the two models are in close agreement as expected from Figure~\ref{fig:capture_model_comparison}.
 
+The experimental efficiency is of the same order of magnitude as the theoretical calculation, confirming that the experimental apparatus operates correctly and that the chosen parameters are near optimal. However, the theoretical efficiency remains $\sim2.5$ times larger than the measured one. This discrepancy may arise from model limitations. For instance, the model assumes a Gaussian ODT beam, which is an excellent approximation for the fundamental $LP_{01}$ mode, however, the beam transmitted by the fiber also contains higher-order modes, as detailed in Section \ref{chamber_fiber_alignement}.
+Nevertheless, before attributing the deviation entirely to theoretical limitations, potential procedural artifacts must be investigated. In particular, in the current procedure, the imaging procedure at the end of the TOF requires 600~$\mu\text{s}$ of time with the ODT switched off. This dead time could lead to atom loss, resulting in an artificially reduced measured trapping efficiency.
