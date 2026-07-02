@@ -17,7 +17,7 @@ During the implementation of the system, dedicated diagnostic tools were also de
 
 %! Dati usati presi il 16-09-2025, presi dal drive
 
-The ODT is realized by using an IPG Photonics YLR-20-1064-LP-SF laser, a linearly polarized Ytterbium fiber laser that emits 1064~nm light, at a maximum nominal power of 20~W. For this laser model, the beam shape change significantly upon changes of the nominal power set. Therefore, the mode profile has been characterized as a function of the power set in order to allow a correct realization of the HCPCF injection setup. This calibration also provides a useful reference for future optimization of the HCPCF injection.
+The ODT is realized by using an IPG Photonics YLR-20-1064-LP-SF laser, a linearly polarized Ytterbium fiber laser that emits 1064~nm light, at a maximum nominal power of 20~W. For this laser model, the beam shape changes significantly upon changes of the nominal power set. Therefore, the mode profile has been characterized as a function of the power set in order to allow a correct realization of the HCPCF injection setup. This calibration also provides a useful reference for future optimization of the HCPCF injection.
 
 \subsubsection{Methodology}
 To characterize the beam properties, its spatial profile is modeled as a Gaussian beam. Therefore, the beam intensity distribution can be described by \cite{salehteich2019}:
@@ -82,7 +82,7 @@ The beam waist radii and waist positions obtained with the two analysis methods 
 
 The waist radius as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} top. Except for 4~W and 7~W, the results reveal a small astigmatism, with the waist measured along the $x$ direction exceeding that along the $y$ direction by approximately 1--2\%. Furthermore, the graph shows that the waist radius decreases approximately linearly from 7~W to 19~W, indicating a significant power dependence of the laser mode size.
 
-The waist longitudinal position as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} bottom. These values should be interpreted with caution. Imposing $M^2\ge1$ allow the fits to better match the middle and far points which depends asymptotically on solely $w_0$ (limit $z\gg1$ in equation \ref{eq:Gaussian_beam_divergence}), but strongly miss the prediction on the point at short distance that give the information on the waist position (see Figure \ref{fig:fit_divergence_10W}). Although the extracted values carry significant systematic uncertainty, the observed trend appears physically plausible, with the beam waist shifting downstream as the nominal laser power increases from 4~W to 13~W.
+The waist longitudinal position as a function of the nominal laser power is plotted in Figure \ref{fig:laser_characterization_results} bottom. These values should be interpreted with caution. Imposing $M^2\ge1$ allows the fits to better match the middle and far points which depends asymptotically on solely $w_0$ (limit $z\gg z_R$ in equation \ref{eq:Gaussian_beam_divergence}), but strongly miss the prediction on the point at short distance that give the information on the waist position (see Figure \ref{fig:fit_divergence_10W}). Although the extracted values carry significant systematic uncertainty, the observed trend appears physically plausible, with the beam waist shifting downstream as the nominal laser power increases from 4~W to 13~W.
 
 \begin{table}[!ht]
     \centering
@@ -157,7 +157,7 @@ The waist longitudinal position as a function of the nominal laser power is plot
 %* ##########################################################
 In this experiment the ODT light is guided through a HCPCF, which introduces a critical complication in the injection procedure. Indeed, in contrast with standard telecom fibers, HCPCFs are multi-mode fibers. As a consequence, even small deviations of the injected beam from the ideal injection angle excites higher order modes in addition to the fundamental one. This results in distorted output beam profiles, which are not well suited for the realization of an optical conveyor belt based on the superposition of the beam guided by the HCPCF and a beam guided through a conventional telecom fiber supporting only the fundamental $LP_{01}$ mode.
 
-For this reason, particular cure was devoted to the alignment procedure. A significant improvement in the quality of the transmitted mode was achieved by optimizing the injection while inspecting the near-field of the transmitted beam, rather than simply maximizing the transmission efficiency. The following sections describe the injection setup and the horizontal microscope built for the near-field inspection.
+For this reason, particular care was devoted to the alignment procedure. A significant improvement in the quality of the transmitted mode was achieved by optimizing the injection while inspecting the near-field of the transmitted beam, rather than simply maximizing the transmission efficiency. The following sections describe the injection setup and the horizontal microscope built for the near-field inspection.
 
 \subsubsection{Injection setup}\label{subsec:injection_setup}
 Figure \ref{fig:ODT_injection_setup} shows the optical setup scheme used for the injection of the laser light in the HCPCF.
@@ -166,7 +166,7 @@ The scheme is composed of the following elements:
     \centering
     \input{tikz/odt_injection_setup.tex}
     \caption{Scheme of the optical setup for 1064~nm ODT beam  injection into the HCPCF.
-    The Acousto-Optic Modulator (AOM) operates at 110~MHz, and the subsequent setup utilizes the fist diffraction order. The zero-th order is blocked by a beam dump (not drawn). 
+    The Acousto-Optic Modulator (AOM) operates at 110~MHz, and the subsequent setup utilizes the first diffraction order. The zero-th order is blocked by a beam dump (not drawn). 
     The 780~nm light setup is not drawn, its presence will be important in the future stages of the experiment for the characterization of the atoms inside the HCPCF core.
     Fiber 2 injection setup is not drawn as well.}
     \label{fig:ODT_injection_setup}
@@ -181,18 +181,18 @@ The scheme is composed of the following elements:
     
     \item \textbf{Acousto-Optic Modulator} (AOM). The AOM is employed as a fast switch for the ODT beam. The device operates using an acoustic wave at \(110~\mathrm{MHz}\), generated by a Direct Digital Synthesizer (DDS), causing the first diffraction order to be frequency shifted by the same amount. Although this shift is negligible with respect to the trap depth of the ODT, it is essential for the realization of the optical conveyor belt.
 
-    \item \textbf{Beam expander}. A $\sim$3X beam expander is employed to increase the beam diameter and collimate it before the focusing conditions for coupling into the fiber.
+    \item \textbf{Beam expander}. A $\sim$3X beam expander is employed to increase the beam diameter and collimate it.
     
     \item \textbf{Mirror 1} (M1) and \textbf{Dichroic Mirror}. Both mirrors are mounted on tilt stages and their angular adjustment is used for optimizing the fiber injection alignment. The dichroic mirror also combines the 1064~nm ODT beam with a 780~nm beam that will be used for the characterization of the atoms trapped inside the HCPCF core.
     
-    \item \textbf{Focusing Lens} (f50). A lens with focal length $f=50~\mathrm{mm}$ focuses the beam into the HCPCF. It is mounted on a horizontal translation stage, providing an additional degree of freedom for optimizing the injection alignment.
+    \item \textbf{Focusing Lens} (f50). A lens with focal length $f=50~\mathrm{mm}$ focuses the beam into the HCPCF. It is mounted on a horizontal micrometric translation stage, providing an additional degree of freedom for optimizing the injection alignment.
     
     \item \textbf{Fiber 1} (HCPCF). The HCPCF is mounted on an $x$-$y$ translation stage and terminated with an FC/APC connector. The translation stage allows transverse displacement of the fiber, providing additional alignment degrees of freedom during the injection procedure, although these degrees of freedom were found to have limited impact on the final optimization.
 \end{itemize}
 
-Using the beam waist measurements in Section \ref{subsec:laser_char_results}, a nominal laser power of 10~W was selected as the optimal operating point. Since the fitted waist positions were found to be affected by large systematic issues, the beam waist was assumed to be located at the output face of PBS2. The radius at the entrance of the beam expander can be estimated using \eqref{eq:Gaussian_beam_divergence}, and the measured distance of approximately $175~\mathrm{mm}$ between PBS2 and the beam expander (see figure \ref{fig:photo_injection_setup_topdown}).
+Using the beam waist measurements in Section \ref{subsec:laser_char_results}, a nominal laser power of 10~W was selected as the optimal operating point. Since the fitted waist positions were found to be affected by large systematic uncertainty, the beam waist was assumed to be located at the output face of PBS2. The radius at the entrance of the beam expander can be estimated using \eqref{eq:Gaussian_beam_divergence}, and the measured distance of approximately $175~\mathrm{mm}$ between PBS2 and the beam expander (see figure \ref{fig:photo_injection_setup_topdown}).
 Assuming an ideal beam $M^2=1$, using the $x$ waist value for 10~W of $w_0=384~\mu\mathrm{m}$, the beam radius at the entrance of the beam expander is estimated to be $w(\text{beam expander entrance}) \simeq 414~\mu\mathrm{m}$.\\
-The beam expander provides a magnification factor of three, yielding $w(\text{beam expander exit}) \simeq 1240~\mu\mathrm{m}$.
+The beam expander provides a magnification factor of three, yielding $w(\text{expander exit}) \simeq 1240~\mu\mathrm{m}$.
 At this stage the corresponding Rayleigh range, calculated using \ref{eq:Rayleigh_range} is $z_R\simeq4.5~\mathrm{m}$. Since the remaining propagation distance before the injection optics is negligible compared to the Rayleigh range, the beam is considered approximately collimated. Under this assumption, the beam waist after the  injection lens can be estimated using \cite{salehteich2019}:
 \begin{equation}
     \label{eq:gaussian_waist_lens}
@@ -218,9 +218,9 @@ sufficiently close to the target waist.
 
 \subsubsection{Horizontal microscope}
 
-Initially, the injection into the HCPCF installed inside the vacuum chamber was attempted by using a Complementary Metal-Oxide-Semiconductor (CMOS) camera to monitor the beam profile. However, despite the effort, strongly deformed mode profiles were obtained.
+Initially, the injection into the HCPCF installed inside the vacuum chamber was attempted by using a CMOS camera to monitor the beam profile. However, despite the effort, strongly deformed mode profiles were obtained.
 
-In order to better investigate the injection procedure and simplify the alignment process, a separate test HCPCF was employed outside the vacuum chamber. The test fiber consisted of an approximately 50~cm HCPCF segment with the same FC/APC connector as the fiber in the chamber. The test fiber allowed an easy measurement of the efficiency on the exit facet of the beam without any window in the path, and being outside the vacuum chamber allow for easier mode imaging. Moreover, since the two fibers shared the same connector, the optimal alignment conditions identified with the test fiber were expected to provide a good starting point for the alignment of the HCPCF installed inside the chamber. Nevertheless, even with the test fiber, optimization based solely on transmission efficiency and far-field inspection still resulted in poor beam quality.
+In order to better investigate the injection procedure and simplify the alignment process, a separate test HCPCF was employed outside the vacuum chamber. The test fiber consisted of an approximately 50~cm HCPCF segment with the same FC/APC connector as the fiber in the chamber. The test fiber allowed an easy measurement of the efficiency on the exit facet of the beam without any window in the path, and being outside the vacuum chamber allowed for easier mode imaging. Moreover, since the two fibers shared the same connector, the optimal alignment conditions identified with the test fiber were expected to provide a good starting point for the alignment of the HCPCF installed inside the chamber. Nevertheless, even with the test fiber, optimization based solely on transmission efficiency and far-field inspection still resulted in poor beam quality.
 
 The fiber manufacturer suggested that the optimal injection condition  should be determined by inspecting the shape of the near-field of the transmitted mode. For this purpose, a horizontal microscope system was developed to inspect the HCPCF facet and to investigate the near-field profile of the transmitted mode. The optical scheme of the microscope is shown in Figure \ref{fig:horizontal_microscope}.
 
@@ -233,7 +233,7 @@ The fiber manufacturer suggested that the optimal injection condition  should be
 
 The fiber was positioned inside a $90^\circ$ V-groove of depth $350~\mu\mathrm{m}$. The fiber was fixed inside the groove by means of a thin foam layer attached to a tiltable mount using adhesive tape. The coating was removed from the fiber end, leaving approximately 15~mm of suspended fiber in order to allow lateral illumination of the facet.
 
-The HCPCF facet was illuminated by a red LED (wavelength $\lambda = 635$ nm) focused by an $f = 50~\mathrm{mm}$ lens onto the final suspended portion of the fiber. Part of the red light propagated through the silica structure forming the kagome lattice, making them visible on the microscope camera. The observation of the kagome structure was used to optimize the microscope focus and to inspect the integrity and cleanliness of the fiber facet.
+The HCPCF facet was illuminated by a red LED (wavelength $\lambda = 635$ nm) focused by an $f = 50~\mathrm{mm}$ lens onto the final suspended portion of the fiber. Part of the red light propagated through the silica structure forming the kagome lattice, making it visible on the microscope camera. The observation of the kagome structure was used to optimize the microscope focus and to inspect the integrity and cleanliness of the fiber facet.
 
 The light emerging from the fiber was collected by an optical microscope objective lens (Olympus PLN10X objective, nominal focal length $f = 18~\mathrm{mm}$, working distance $d = 10.6~\mathrm{mm}$) and subsequently re-imaged onto a CMOS camera by means of an $f = 500~\mathrm{mm}$ lens. The expected magnification is $M=f_\text{tube}/f_\text{lens}\approx27.8$. The objective is mounted on a horizontal translation stage used for the focussing. The camera was connected to a computer for real-time imaging of the transmitted near-field mode. In addition, a powermeter could be inserted between the fiber output and the objective lens in order to evaluate the coupling efficiency by comparing the transmitted power with the optical power measured before the injection stage. Finally, a black paper tube was placed between the imaging $f = 500~\mathrm{mm}$ lens and the camera to reduce background light from the LED illumination and from ambient room light. 
 
@@ -258,7 +258,7 @@ Figure~\ref{fig:photo_injection_setup_topdown} shows the top-down photographs of
 \label{sec:chamber_fiber_imaging_setup}
 After the optimization and the validation of the injection alignment procedure using the test fiber, the same approach was applied to the fiber inside the vacuum chamber.
 
-To investigate the near-field profile, a dedicated optical imaging setup was build on a breadboard positioned above the vacuum chamber (Figure~\ref{fig:upper_breadboard_imaging_setup}).
+To investigate the near-field profile, a dedicated optical imaging setup was built on a breadboard positioned above the vacuum chamber (Figure~\ref{fig:upper_breadboard_imaging_setup}).
 Since the optical fiber is located inside the chamber, a first stage microscope was designed to create a virtual image of the fiber facet outside the chamber.
 For this purpose a f150 lens ($f=150~\mathrm{mm}$) was placed approximately 150~mm above the fiber facet, directly above the chamber window, such that the light emerging from the fiber is collimated. The collimated beam propagate through an opening and is redirected horizontally by a mirror (M1) tilted at $45^\circ$. A second lens f300 ($f=300~\mathrm{mm}$) refocuses the beam, forming an inverted image of the fiber facet with a magnification of $\times2$.
 
@@ -291,7 +291,7 @@ Applying this protocol, the test fiber injection was optimized  employing the in
 
 \subsubsection{Test fiber}
 The test fiber was cleaved prior to inspection.
-Since the horizontal microscope has a sufficient resolution to resolve the kagome structure of the fiber, it was exploited for the focusing procedure. By monitoring the camera imaging in real-time, the kagome structure was focussed using the translation stage of the microscope objective. The objective refractive index can be considered roughly constant across the visible spectrum and into the near-infrared (NIR). This guarantees that when the structure (illuminated by red light) is in focus, the guided mode (1064~nm NIR light) is also in focus. Figure \ref{fig:kagome_images} shows an image of solely the kagome structure alongside an image of the kagome structure together with some guided light. The image show that the kagome structure is intact confirming that the cleaving was correctly performed. Furthermore, the mode is clearly guided by the core and exhibits a single lobe, however, the shape is not symmetric with respect to the fiber axis, indicating the excitation of higher order $LP_{11}$ mode alongside the fundamental $LP_{01}$. 
+Since the horizontal microscope has a sufficient resolution to resolve the kagome structure of the fiber, it was exploited for the focusing procedure. By monitoring the camera imaging in real-time, the kagome structure was focussed using the translation stage of the microscope objective. The objective refractive index can be considered roughly constant across the visible spectrum and into the near-infrared (NIR). This guarantees that when the structure (illuminated by red light) is in focus, the guided mode (1064~nm NIR light) is also in focus. Figure \ref{fig:kagome_images} shows an image of solely the kagome structure alongside an image of the kagome structure together with some guided light. The image shows that the kagome structure is intact confirming that the cleaving was correctly performed. Furthermore, the mode is clearly guided by the core and exhibits a single lobe, however, the shape is not symmetric with respect to the fiber axis, indicating the excitation of higher order $LP_{11}$ mode alongside the fundamental $LP_{01}$. 
 
 \begin{figure}[h]
     \centering
@@ -308,7 +308,7 @@ Since the horizontal microscope has a sufficient resolution to resolve the kagom
     \label{fig:kagome_images}
 \end{figure}
 
-The mode seen in Figure \ref{fig:kagome_images} right was associated with a transmission efficiency of $63\%$. By optimizing the alignment using the horizontal microscope the mode shape was optimized, and an efficiency of $80\%$ has been achieved. For this optimization two screw of the mirror mounts were adjusted at the same time as a continuous walk-off, therefore performing an optimization remaining as long as possible in a good injection condition. The resulting mode is shown in Figure \ref{fig:80_eff_kagome_2} left. Figure \ref{fig:80_eff_kagome_2} right displays another mode obtained with nearly $80\%$ of injection efficiency, where the surrounding kagome structure remains visible.
+The mode seen in Figure \ref{fig:kagome_images} right was associated with a transmission efficiency of $63\%$. By optimizing the alignment using the horizontal microscope the mode shape was optimized, and an efficiency of $80\%$ has been achieved. For this optimization two screws of the mirror mounts were adjusted at the same time as a continuous beam walking, therefore performing an optimization remaining as long as possible in a good injection condition. The resulting mode is shown in Figure \ref{fig:80_eff_kagome_2} left. Figure \ref{fig:80_eff_kagome_2} right displays another mode obtained with nearly $80\%$ of injection efficiency, where the surrounding kagome structure remains visible.
 
 \begin{figure}[h]
     \centering
@@ -324,7 +324,7 @@ The mode seen in Figure \ref{fig:kagome_images} right was associated with a tran
 \end{figure}
 
 A final optimization was performed without the ocular lens by translating the objective slightly past the working distance and placing the camera approximately 2~m away. With this configuration, the magnification achieved is about $\times 70$ (more than doubling the magnification of the horizontal microscope).
-At this distance, the light scattered from the kagome structure becomes very faint, complicating the focusing procedure as its signal approaches the noise level. However, employing the FLIR camera, which has a lower read noise and a high sensitivity, the kagome lattice remained resolvable, as shown in Figure \ref{fig:kagome_hexagon_flir}.
+At this distance, the light scattered from the kagome structure becomes very faint, complicating the focusing procedure as its signal approaches the noise level. However, employing the FLIR camera, which has a lower read noise and a higher sensitivity, the kagome lattice remained resolvable, as shown in Figure \ref{fig:kagome_hexagon_flir}.
 This figure shows clearly that the near-field mode assumes a hexagonal shape, perfectly fitting the core: as expected the field inherit the symmetry of the medium in which it is confined.
 
 The advantage of this extended projection distance is the significant expansion of the mode, the pixel grid interference patterns disturb the shape far less, allowing finer spatial details to be resolved, further improving the alignment procedure.
@@ -353,7 +353,7 @@ Finally, a sweep of laser nominal power was conducted, which changes also the be
     \label{fig:mode_wo_microscope}
 \end{figure}
 
-{\color{blue} \footnotesize Qua manca qualcosa sulle due fotcamere, e anche un riferimento alla HCPCF (aggiungerò una sezione)}
+% {\color{blue} \footnotesize Qua manca qualcosa sulle due fotcamere, e anche un riferimento alla HCPCF (aggiungerò una sezione)}
 
 \subsubsection{Chamber fiber}\label{chamber_fiber_alignement}
 After validating the effectiveness of the alignment procedure using the test fiber, the same method was applied to the fiber installed inside the vacuum chamber.
@@ -362,7 +362,7 @@ One possible limitation might be the presence of a translucent plastic casing su
 
 Furthermore, the need to create a virtual image outside the chamber required the use of multiple lenses (see Section \ref{sec:chamber_fiber_imaging_setup}). While this approach enabled imaging of the fiber facet, it also introduced non-negligible chromatic aberrations. Figures \ref{fig:chamber_fiber_preliminary} left and \ref{fig:chamber_fiber_preliminary} right show respectively a preliminary image of the focused fiber and the same configuration with light guided through the fiber. In the latter case, the optical mode is in focus while the fiber facet appears out of focus.
 
-The mode obtained after the injection alignment procedure is shown in Figure \ref{fig:final_mode}, which exhibited $\sim50\%$ of transmission efficiency. It should be noted that this efficiency values was measured after the light propagated through a chamber window, two lenses and two mirrors, all of which introduce transmission and reflection losses. Moreover, the fiber installed in the chamber is longer than the test fiber. Although propagation losses associated with the additional length are should be negligible, the increased length requires several bends in the fiber routing, which are known to induce leakage losses in optical fibers.
+The mode obtained after the injection alignment procedure is shown in Figure \ref{fig:final_mode}, which exhibited $\sim50\%$ of transmission efficiency. It should be noted that this efficiency values was measured after the light propagated through a chamber window, two lenses and two mirrors, all of which introduce transmission and reflection losses. Moreover, the fiber installed in the chamber is longer than the test fiber. Although propagation losses associated with the additional length should be negligible, the increased length requires several bends in the fiber routing, which are known to induce leakage losses in optical fibers.
 
 The best mode obtained after the optimization procedure is displayed in Figure \ref{fig:final_mode}. It shows a clear asymmetry, indicating the presence of a superposition of various $LP$ modes. Although, it should also be considered that, in order to enter the vacuum chamber, the fiber must be tightened in a ferrule by a swage-lock fitting. This mechanical stress can deform the fiber microstructure, altering its guiding properties and degrading the mode shape quality.
 

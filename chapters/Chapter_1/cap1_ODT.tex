@@ -42,7 +42,7 @@ It follows that the dipole force is a conservative force proportional to the ele
 \end{equation}
 The dipole oscillation absorbs a power
 \begin{equation}
-    P_\text{abs} = \langle\mathbf{\dot{p}E}\rangle = 2\omega \text{Im}[\alpha \mathcal{E}^2] = \frac{\omega}{2\epsilon_0 c}\text{Im}[\alpha] I,
+    P_\text{abs} = \langle\mathbf{\dot{p}E}\rangle = 2\omega \text{Im}[\alpha \mathcal{E}^2] = \frac{\omega}{\epsilon_0 c}\text{Im}[\alpha] I,
 \end{equation}
 which is proportional to the out-of-phase component of the oscillating dipole. The absorbed power can be seen as series of absorption and spontaneous emission of photons with energy $\hbar\omega$. Therefore, the total scattering rate is given by
 \begin{equation}
@@ -118,7 +118,7 @@ Moving from the two-level atom to a real atom, the electronic transitions become
 Labelling as $\varepsilon_i$ the energy levels of the multi-level atom, the effect of the laser light on the levels can be described by means of the non-degenerate time-independent second order perturbation theory. Considering the electric dipole interaction Hamiltonian $\mathcal{H}_I=-\hat{\mathbf{d}}\cdot\mathbf{E}$, the perturbative correction on the $i$-th energy level is
 \begin{equation}
     \label{eq:energy_perturbative_correction}
-    \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|}{\varepsilon_i - \varepsilon_j}.
+    \Delta E_i = \sum_{j \neq i} \frac{|\langle j | \mathcal{H}_I | i\rangle|^2}{\varepsilon_i - \varepsilon_j}.
 \end{equation}
 
 The calculation can be developed by employing the dressed atom approach, in which the quantum states describe the combined atom-field system. Defining the unperturbed atomic ground state energy as zero, in this framework an unperturbed dressed state has an energy $\varepsilon_i=n\hbar\omega$ that depends solely on the number of photons $n$ in the field. The absorption of a photon transitions the system to another dressed state characterized by the energy $\varepsilon_j=\hbar\omega_{j} + (n-1)\hbar\omega$, where $\hbar\omega_{j}$ represent the bare atomic transition energy. In such a way, the denominator of equation \eqref{eq:energy_perturbative_correction} reduces to
@@ -170,7 +170,7 @@ and according to the interpretation given from the two-level atoms, the dipole p
 Thus, the dipole potential in a multi-level atom arises from the contribution of all the allowed transitions, each weighted by the ratio between its line strengths $c_{ij}^2$ and its detuning $\Delta_{ij}$.
 
 \subsubsection{Fine and Hyperfine structures contribution for Alkali atoms}
-Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the visible and infrared (VIS-IR) range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structures are particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
+Many laser cooling experiments utilize alkali metal atoms. This preference arises because their principal transition frequencies fall within the visible and infrared (VIS-IR) range making them easily accessible with standard laser technologies. Moreover, their relatively simple atomic structures is particularly convenient, allowing easy identification of closed transitions necessary for continuous cooling cycles, while minimizing the number of repumper lasers needed to address the population leaking to dark states.
 
 When considering the fine structure arising from the spin-orbit interaction, the electronic ground state of alkali atoms is $^2S_{1/2}$. From this state, the electric dipole selection rules ($\Delta L = \pm 1$, $\Delta S = 0$) allow for two primary transitions, known as $D-$lines:
 \begin{itemize}
@@ -217,7 +217,7 @@ Typical trap depths for optical dipole traps are usually below 1 mK. Therefore, 
 Given these shallow confining potentials, even minor heating rates can largely limit the trap lifetime. It is therefore important to outline the mechanisms responsible for the parasitic heating induced by the trapping light.
 
 \subsubsection{Heating source}
-In general, when atoms interact with light and absorb photos, when the subsequent spontaneous emission event occur, the randomness of the emitted photons' direction causes a diffusion in the phase space that corresponds to a heating processes. This discrete momentum transfer is the fundamental phenomenon that establishes lower limits for laser cooling mechanisms \cite{CohenLesHouches, metcalf1999}.
+In general, when atoms interact with light and absorb photons, when the subsequent spontaneous emission event occur, the randomness of the emitted photons' direction causes a diffusion in the phase space that corresponds to a heating processes. This discrete momentum transfer is the fundamental phenomenon that establishes lower limits for laser cooling mechanisms \cite{CohenLesHouches, metcalf1999}.
 
 At large detuning the scattering process follows a Poisson statistic. In this regime, the absorption of a photon from the dipole beam introduces a heating energy equivalent to the recoil energy $E_\text{rec} = k_B T_\text{rec}/2$ per scattering event, where $T_\text{rec}$ is the recoil temperature. Since the absorptions occur strictly along the propagation axis the momentum diffusion occurs only along this axis, making the associated heating effect anisotropic. On the other hand, the subsequent spontaneous emission also increase the thermal energy by one recoil energy $E_\text{rec}$ per event, however the emission directions are random, thus the effect is spread over all the three spatial direction.
 

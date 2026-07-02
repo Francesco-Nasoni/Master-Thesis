@@ -3,7 +3,8 @@
 
 Before performing any optimization, the six cooling beams were realigned to minimize their overlap mismatch at the MOT position. This procedure is crucial since thermal drifts can induce misalignments in the optical components over time.
 
-Preliminary values for the compensation coil currents were obtained prior to the realignment using the Release-and-Recapture (R\&R) technique:
+Preliminary values for the compensation coil currents were obtained prior to the realignment:
+% using the Release-and-Recapture (R\&R) technique:
 \begin{equation}
     \begin{cases}
         I_{\mathrm{x}} &= 80~\mathrm{mA}, \\
@@ -22,12 +23,12 @@ These values were used as the starting point for the subsequent optimization pro
 The first optimization step consisted of measuring the molasses temperature for different values of the cooling laser detuning. The detuning was varied from $-24.4$~MHz (4.0~$\Gamma/2\pi$) to $-184$~MHz (30.4~$\Gamma/2\pi$), with a step size of $-11.4$~MHz.
 
 
-The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_temperature} as a function of the detuning expressed in units of $\Gamma/2\pi$. At small detunings, the data follow the expected $1/|\delta|$ dependence typical of the Sisyphus cooling. As the detuning increases, two phenomena become relevant: a significant drop in the optical scattering rate $\Gamma_p \propto 1/\delta^2$ and the approach of the transition $F=2 \rightarrow F'=2$ located $267$~MHz below the cooling transition $F=2 \rightarrow F'=3$ (see Figure \ref{fig:laser_configuration}). These effects cause the temperature curve to flatten in the region $|\delta|\approx15-20$ and eventually to rise again for larger detunings.
+The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_temperature} as a function of the detuning expressed in units of $\Gamma/2\pi$. At small detunings, the data follow the expected $1/|\delta|$ dependence typical of the sub-Doppler cooling. As the detuning increases, two phenomena become relevant: a significant drop in the optical scattering rate $\Gamma_p \propto 1/\delta^2$ and the approach of the transition $F=2 \rightarrow F'=2$ located $267$~MHz below the cooling transition $F=2 \rightarrow F'=3$ (see Figure \ref{fig:laser_configuration}). These effects cause the temperature curve to flatten in the region $|\delta|\approx15-20$ and eventually to rise again for larger detunings.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.9\linewidth]{Cap_3_figures/MOL_temperature/detuning_opt.pdf}
-    \caption{Optical molasses temperature as a function of laser detuning. The horizontal axis represents the absolute value of the applied red detuning $|\delta|$, normalized to the natural linewidth $\Gamma/2\pi$. The data exhibits optimal sub-Doppler cooling in the region $|\delta|\approx 15-20$, reaching a minimum temperature of $13.9 \pm 0.4~\mu\mathrm{K}$. For detunings up to $|\delta|\approx 15$, the temperature follows the $1/|\delta|$ dependence expected for an ideal Sisyphus cooling. At larger detunings, the curve flattens and eventually begins to rise.} 
+    \caption{Optical molasses temperature as a function of laser detuning. The horizontal axis represents the absolute value of the applied red detuning $|\delta|$, normalized to the natural linewidth $\Gamma/2\pi$. The data exhibit optimal sub-Doppler cooling in the region $|\delta|\approx 15-20$, reaching a minimum temperature of $13.9 \pm 0.4~\mu\mathrm{K}$. For detunings up to $|\delta|\approx 15$, the temperature follows the $1/|\delta|$ dependence expected for an ideal Sisyphus cooling. At larger detunings, the curve flattens and eventually begins to rise.} 
     \label{fig:detuning_molasses_temperature}
 \end{figure}
 
@@ -53,7 +54,7 @@ As observed in Figure \ref{fig:10.8MHz_temp_fit}, the data points at long TOF di
 \clearpage
 \subsection{AOM amplitude optimization}
 %*###############################################################
-As a second optimization step, the influence of the cooling beam power was investigated by varying the AOM drive amplitude and the duration of its transition ramp, which is applied at the beginning of the molasses phase. The AOM amplitude, expressed in arbitrary units (a.u.), controls the RF amplitude driving the AOM. Three values were tested: 385, 475 and 550~a.u., equivalent to 12.7~mW, 14.1~mW, 13.4~mW measured after the collimator of the MOT $z$-beam. The MOT is realized with 55a.u.
+As a second optimization step, the influence of the cooling beam power was investigated by varying the AOM drive amplitude and the duration of its transition ramp, which is applied at the beginning of the molasses phase. The AOM amplitude, expressed in arbitrary units (a.u.), controls the RF amplitude driving the AOM. Three values were tested: 385, 475 and 550~a.u., equivalent to 5.8~mW, 6.6~mW, 6.3~mW of cooling laser power measured after the collimator of the MOT $z$-beam. The MOT is realized at 550~a.u.
 
 Additionally, ramp durations of 5~ms and 20~ms were tested for the transition from the MOT value to the molasses value. These measurements were repeated for different values of the cooling detuning.
 \begin{figure}[t]
@@ -62,7 +63,8 @@ Additionally, ramp durations of 5~ms and 20~ms were tested for the transition fr
     \caption{Optical molasses temperature versus cooling detuning for different AOM amplitude and ramp durations. No clear optimal AOM amplitude is observed as the variations remain within the uncertainty. Temperatures corresponding to a ramp duration of 20~ms (dashed lines) are systematically lower than those obtained with a 5~ms ramp (solid lines).}
     \label{fig:aom_amp_and_ramp_MOL_opt}
 \end{figure}
-The optimization results are shown in Figure \ref{fig:aom_amp_and_ramp_MOL_opt}. Although small variations in the expected values of the temperature can be observed for different values of the AOM amplitude, these differences fall within the experimental error bars. Therefore, no statistically significant dependence of the molasses temperature on the AOM amplitude was found, and no clear optimum could be identified within the tested range. Lower amplitudes were not investigated to avoid operating the AOM too far from its optimal efficiency regime.
+The optimization results are shown in Figure \ref{fig:aom_amp_and_ramp_MOL_opt}. Although small variations in the expected values of the temperature can be observed for different values of the AOM amplitude, these differences fall within the experimental error bars. Therefore, no statistically significant dependence of the molasses temperature on the AOM amplitude was found, and no clear optimum could be identified within the tested range.
+% Lower amplitudes were not investigated to avoid operating the AOM too far from its optimal efficiency regime.
 
 Conversely, as shown in Figure \ref{fig:aom_amp_and_ramp_MOL_opt}, the temperatures obtained with a 20~ms ramp are systematically lower than those obtained with a 5~ms ramp, yielding an average temperature reduction of approximately $0.5~\mu\mathrm{K}$. This improvement was relatively small, and was considered sufficient for the scope of the experiment. Since further optimization on the order of a few tenths of a microkelvin was not required, no other ramp times were tested. Consequently, a ramp duration of 20~ms was selected for the subsequent measurements.
 

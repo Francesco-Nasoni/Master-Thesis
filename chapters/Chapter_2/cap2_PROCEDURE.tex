@@ -2,11 +2,11 @@
 \section{Experimental Procedures and analysis methodology}
 
 The first step of the experimental sequence is the capture of atoms in the MOT, using the optimal parameters previously determined in   for this apparatus \cite{loparcomasters2024}.
-The MOT is realized with an axial magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
+The MOT is realized with an axial magnetic field gradient of $B'= 9.32$~G/cm (corresponding to a current of 8~A), a cooler laser detuning of $\Delta=-13$~MHz, and all compensation coil currents set to 0~mA. The MOT is loaded for a total duration of 5~s.
 
 After the loading phase, the magnetic field is switched off, initiating the optical molasses phase. In the absence of the magnetic field, the atomic temperature decreases, however the confinement force is lost, and the atomic cloud begins to expand. At the same time, under the influence of gravity, the cloud starts to fall while experiencing a viscous-like damping force due to its interaction with the laser light.
-The temperature achieved during the molasses phase scales as $I/|\delta|$, where $I$ is the laser intensity and $\delta$ is the detuning \cite{Dalibard:89}. However, this relation remains valid as long as $|\delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\delta^2$. Additionally, the detuning must not be so large to induce a significant excitation probability of the neighboring $F=2 \rightarrow F'=2$ transition. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
-The molasses is performed with a detuning different from that used for the MOT phase, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp stars 50~$\mu$s after the shim coils are changed to their molasses value. 
+The temperature achieved during the molasses phase scales as $I/|\Delta|$, where $I$ is the laser intensity and $\Delta$ is the detuning \cite{Dalibard:89}. However, this relation remains valid as long as $|\Delta|$ is sufficiently small to not reduce significantly the optical cycle rate $\Gamma_\text{p}\propto1/\Delta^2$. Additionally, the detuning must not be so large to induce a significant excitation probability of the neighboring $F=2 \rightarrow F'=2$ transition. Furthermore, optimal molasses performance is obtained when the magnetic field is effectively zero. For this reason 5~ms after the MOT magnetic field is switched off, the shim coil currents are adjusted to compensate for the Earth's magnetic field and any residual magnetic fields present in the experimental environment.
+The molasses is performed with a detuning different from that used for the MOT phase, it is changed with a ramp of 20 steps with a total duration of 5~ms. The ramp starts 50~$\mu$s after the shim coils are changed to their molasses value. 
 
 %* ##########################################################
 \subsection{Atom Imaging}
@@ -69,9 +69,9 @@ The complete acquisition and analysis procedure is summarized below:
 \begin{enumerate}
     \item First a MOT is loaded, followed by the molasses phase. For the molasses different parameters and durations were tested in order to find the best configuration that minimized the temperature (see Section \ref{sec:molasses_temperature_optimization})
  
-    \item After the molasses stage, all cooling beams are switched off, allowing the atomic cloud to expand and fall freely. Using the FLIR camera images are taken at different TOFs, obtaining the intensity distribution $I(TOF)$. For each TOF a corresponding background image $I_\text{bkg}(TOF)$ is also acquired. The background image is taken by waiting a sufficiently long time (1s) ensuring that the cloud has completely disappeared and only the background signal remains.
+    \item After the molasses stage, all cooling beams are switched off, allowing the atomic cloud to expand and fall freely. Using the FLIR camera images are taken at different TOFs, obtaining the intensity distribution $I(TOF)$. For each TOF a corresponding background image $I_\text{bkg}(TOF)$ is also acquired. The background image is taken by waiting a sufficiently long time (1~s) ensuring that the cloud has completely disappeared and only the background signal remains.
     
-    It should be noted that,  due to the time required by the FLIR camera to transfer an image to the computer, it is not possible to take multiple TOF image during the same experimental run, therefore each image requires a new MOT loading and molasses sequence. 
+    It should be noted that the measurements are destructive since the flash heats the sample. Therefore, it is not possible to take multiple TOF images during the same experimental run, therefore each image requires a new MOT loading and molasses sequence. 
 
     \item The background is subtracted 
     \begin{equation}
@@ -105,7 +105,7 @@ In the analysis of the ODT, two main figures of merits are taking into account, 
     \end{equation*}
     This is important because the number of atom loaded into the ODT is expected to be small.
 
-    \item The averaged images are converted into one dimensional density profiles by integrating along the columns. This further increase the signal-to-noise ration.
+    \item The averaged images are converted into one dimensional density profiles by integrating along the columns. This further increases the signal-to-noise ratio.
     
     \item The total number of atoms in the molasses exhibits slow fluctuations even when the experimental parameters are unchanged. These variations are attributed to slow drifts in the chamber pressure and to thermal effects in optical components, such as the AOMs. Since the ODT signal is small, due to the correlated nature of the drifts, despite the average of different images the difference would result in a background different from zero that is comparable to the  ODT signal amplitude. 
     To compensate this effect, a rescaling procedure is applied to the background images. This method computes a scale factor, $k$, which enforces a zero integrated difference outside the ODT region.
