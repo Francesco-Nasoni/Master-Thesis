@@ -5,11 +5,11 @@ Before performing any optimization, the six cooling beams were realigned to mini
 
 Preliminary values for the compensation coil currents were obtained prior to the realignment using the Release-and-Recapture (R\&R) technique:
 \begin{equation}
-    \begin{aligned}
+    \begin{cases}
         I_{\mathrm{x}} &= 80~\mathrm{mA}, \\
         I_{\mathrm{y}} &= -200~\mathrm{mA}, \\
         I_{\mathrm{z}} &= -400~\mathrm{mA}.
-    \end{aligned}
+    \end{cases}
     \label{eq:shim_preliminary_values}
 \end{equation}
 These values were used as the starting point for the subsequent optimization procedure.
@@ -31,17 +31,26 @@ The resulting average temperature is shown in Figure \ref{fig:detuning_molasses_
     \label{fig:detuning_molasses_temperature}
 \end{figure}
 
-The lowest average temperature was obtained for a normalized detuning of $|\delta|=17.2$ corresponding to an absolute detuning of $|\delta|=104.2$~MHz. Figure \ref{fig:11MHz_temp_fit} shows the fit of equation \eqref{eq:varince_expantion} for this optimal configuration. The resulting temperatures along the Cartesian axes are $T_x=(14.1\pm0.5)~\mu\mathrm{K}$ and $T_y=(13.5\pm0.7)~\mu\mathrm{K}$. Their weighted average yields a final temperature of $T=(13.9\pm0.4)~\mu\mathrm{K}$.
+The lowest average temperature was obtained for a normalized detuning of $|\delta|=17.2$ corresponding to an absolute detuning of $|\delta|=104.2$~MHz. Figure~\ref{fig:tof_grid} displays the images obtained at various TOF of the falling atomic cloud for this optimal configuration, while Figure~\ref{fig:10.8MHz_temp_fit} shows the corresponding fit of equation \eqref{eq:varince_expantion}. The resulting temperatures along the Cartesian axes are $T_x=(14.1\pm0.5)~\mu\mathrm{K}$ and $T_y=(13.5\pm0.7)~\mu\mathrm{K}$. Their weighted average yields a final temperature of $T=(13.9\pm0.4)~\mu\mathrm{K}$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{Cap_3_figures/MOL_temperature/tof_grid_10.8MHz.pdf}
+    \caption{Fluorescence images of the atomic cloud acquired during Time-of-Flight expansion for times ranging from 3.0~ms to 27.0~ms for $|\delta|=17.2~\Gamma/2\pi$. The blue markers indicate the center of the cloud obtained through the Gaussian fit.}
+    \label{fig:tof_grid}
+\end{figure}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Cap_3_figures/MOL_temperature/temperature_fit_10.8MHz.pdf}
     \caption{Optical molasses temperature fit for $|\delta|=17.2~\Gamma/2\pi$ with residuals. The large residuals of the last three data points from the linear fit are attributed to the cloud expansion, which makes its radial size non-negligible compared to the probe beam profile.}
-    \label{fig:11MHz_temp_fit}
+    \label{fig:10.8MHz_temp_fit}
 \end{figure}
 
-As observed in Figure \ref{fig:11MHz_temp_fit}, the data points at long TOF diverge appreciably from the linear trend, consistently falling below the expected values. This behavior is systematically observed across all measurements. The hypothesis is that at sufficiently long TOF the cloud radius becomes non-negligible compared to the probe beam radius, violating the assumption of uniform illumination. Consequently, the outer region of the cloud interacts with a lower intensity field, causing the Gaussian fit to systematically underestimate the true variance. Fortunately, this effect is expected to become less prominent as the temperature is lowered.
+As observed in Figure \ref{fig:10.8MHz_temp_fit}, the data points at long TOF diverge appreciably from the linear trend, consistently falling below the expected values. This behavior is systematically observed across all measurements. The hypothesis is that at sufficiently long TOF the cloud radius becomes non-negligible compared to the probe beam radius, violating the assumption of uniform illumination. Consequently, the outer region of the cloud interacts with a lower intensity field, causing the Gaussian fit to systematically underestimate the true variance. Fortunately, this effect is expected to become less prominent as the temperature is lowered.
 
 %*###############################################################
+\clearpage
 \subsection{AOM amplitude optimization}
 %*###############################################################
 As a second optimization step, the influence of the cooling beam power was investigated by varying the AOM drive amplitude and the duration of its transition ramp, which is applied at the beginning of the molasses phase. The AOM amplitude, expressed in arbitrary units (a.u.), controls the RF amplitude driving the AOM. Three values were tested: 385, 475 and 550~a.u., corresponding respectively to approximately 0.7, 0.85 and 1.0 times the AOM amplitude during the MOT phase. Additionally, ramp durations of 5~ms and 20~ms were tested for the transition from the MOT value to the molasses value. These measurements were repeated for different values of the cooling detuning.
@@ -68,13 +77,23 @@ The optimization was performed sequentially. First, the $z$-axis current was opt
 
 The resulting optimized currents, used in the subsequent ODT loading stage, are:
 \begin{equation}
-    \begin{aligned}
-        I_{\mathrm{x}} &= -15~\mathrm{mA}, \\
-        I_{\mathrm{y}} &= -185~\mathrm{mA}, \\
-        I_{\mathrm{z}} &= -230~\mathrm{mA}.
-    \end{aligned}
+    \begin{cases}
+        I_{x} &= -15~\mathrm{mA}, \\
+        I_{y} &= -185~\mathrm{mA}, \\
+        I_{z} &= -230~\mathrm{mA}.
+    \end{cases}
     \label{eq:mol_shim_optimal_values}
 \end{equation}
+
+The corresponding generated magnetic field can be calculated using the calibration \eqref{eq:shim_field_calibration}:
+\begin{equation}
+        \begin{cases}
+        B_{x} &= -21~\mathrm{mG}, \\
+        B_{y} &= -241~\mathrm{mG}, \\
+        B_{z} &= -345~\mathrm{mG}.
+    \end{cases}
+\end{equation}
+
 These parameters yielded a minimized molasses temperature of $T=(9.6\pm0.1)~\mu\mathrm{K}$. The $z$-axis compensation coil current deviated the most from its preliminary value, while the $x$-axis current underwent a smaller but still appreciable correction. In contrast, the $y$-axis coil current remained close to its initial value.
 
 \begin{figure}[!h]
