@@ -101,7 +101,7 @@ In the analysis of the ODT, two main figures of merits are taking into account, 
     
     \item To improve the signal-to-noise ratio, the images corresponding to each experimental condition are averaged:
     \begin{equation*}
-        \bar{I}\text{on} = \langle I_\text{on} \rangle \qquad \bar{I}\text{off} = \langle I_\text{off} \rangle\,.
+        \bar{I}_\text{on} = \langle I_\text{on} \rangle \qquad \bar{I}_\text{off} = \langle I_\text{off} \rangle\,.
     \end{equation*}
     This is important because the number of atom loaded into the ODT is expected to be small.
 
@@ -118,7 +118,7 @@ In the analysis of the ODT, two main figures of merits are taking into account, 
         After subtracting the background, the integrated signal outside the ODT region is computed for both the ODT-on and ODT-off profiles ($A_{\text{on}}^{\text{out}}$ and $A_{\text{off}}^{\text{out}}$) as
         
         \begin{equation}
-            A_{i}^{\text{out}} = \int_{\text{outside}} \left( P_{i}(x) - \bar{I}_{i}(x) \right) dx \qquad i \in \{\text{on, off}\}
+            A_{i}^{\text{out}} = \int_{\text{outside}} \left( \bar{I}_{i}(x) - L_{i}(x) \right) dx \qquad i \in \{\text{on, off}\}
         \end{equation}
         
         \item The normalization factor is given by the ratio of these integrated areas:
@@ -132,7 +132,7 @@ In the analysis of the ODT, two main figures of merits are taking into account, 
             \Delta \bar{I}(x) = \bar{I}_{\text{on}}(x) - k \cdot \bar{I}_{\text{off}}(x)
         \end{equation}
     
-    \item  Two independent fits consisting of a Gaussian function and a linear background are performed. The first fit is applied to the ODT-off profile $\bar{I}_\text{off}(x)$,while the second is applied to the differential profile $\Delta \bar{I}(x)$.\\
+    \item  Two independent fits consisting of a Gaussian function and a linear background are performed. The first fit is applied to the ODT-off profile $\bar{I}_\text{off}(x)$, while the second is applied to the differential profile $\Delta \bar{I}(x)$.\\
     The areas $A_\text{off}^\text{Gaus}$ and $A_\text{ODT}^\text{Gaus}$ are calculated from the fit results, and the capture efficiency is calculated as 
     \begin{equation}
         \eta = \frac{A_\text{ODT}^\text{Gaus}}{k \times A_\text{off}^\text{Gaus}}
